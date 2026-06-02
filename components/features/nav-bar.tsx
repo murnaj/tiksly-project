@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Store, User } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = () => {
@@ -56,7 +57,7 @@ const NavBar = () => {
                   isDropdownOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-2 invisible"
                 )}
               >
-                <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-8 grid grid-cols-[1fr_1fr_1.2fr] gap-8 border border-gray-100 cursor-default">
+                <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-8 grid grid-cols-[1fr_1fr] gap-8 border border-gray-100 cursor-default">
                   
                   {/* Column 1 */}
                   <div className="flex flex-col gap-8">
@@ -97,7 +98,7 @@ const NavBar = () => {
                   </div>
 
                   {/* Column 3 */}
-                  <div className="flex flex-col h-full">
+                  {/* <div className="flex flex-col h-full">
                     <h3 className="text-gray-400 text-sm font-medium mb-4 flex items-center gap-1 hover:text-gray-600 cursor-pointer w-max transition-colors">
                       Learn more <span className="text-lg leading-none mb-1">↗</span>
                     </h3>
@@ -107,7 +108,7 @@ const NavBar = () => {
                         <p className="text-gray-700 text-sm mb-1 font-medium">Now Live:</p>
                         <h4 className="text-black text-3xl font-bold tracking-tight mb-6">CreativeOps</h4>
                         
-                        {/* Text Instead of Image (As Requested) */}
+                        
                         <div className="flex flex-col gap-3">
                           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-sm transform group-hover:-translate-y-1 transition-transform duration-300">
                             <p className="text-sm font-bold text-gray-800">Brief</p>
@@ -126,7 +127,7 @@ const NavBar = () => {
                         </div>
                       </div>
                     </Link>
-                  </div>
+                  </div> */}
 
                 </div>
               </div>
@@ -134,12 +135,53 @@ const NavBar = () => {
 
             <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Creators</Link>
             <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Success stories</Link>
+            <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Contact</Link>
           </div>
 
           {/* Right side buttons */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Login</Link>
-            <Link href="#" className="px-6 py-3 bg-black text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">Sign up for free</Link>
+            {/* <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Login</Link> */}
+            <div 
+              className="relative group h-full"
+              onMouseEnter={() => setIsContactDropdownOpen(true)}
+              onMouseLeave={() => setIsContactDropdownOpen(false)}
+            >
+              <button className="px-6 py-3 bg-black text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+                Contact
+              </button>
+
+              {/* Mega Menu Dropdown */}
+              <div 
+                className={cn(
+                  "absolute right-0 top-full pt-4 w-72 transition-all duration-300 origin-top-right",
+                  isContactDropdownOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-2 invisible"
+                )}
+              >
+                <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-6 border border-gray-100 flex flex-col gap-6 cursor-default">
+                  {/* Option 1: I'm a brand */}
+                  <Link href="#" className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black group-hover/item:bg-blue-50 group-hover/item:text-blue-600 transition-colors shrink-0">
+                      <Store className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="font-semibold text-black text-[15px]">I&apos;m a brand</span>
+                      <span className="text-gray-500 text-[13px]">Connect with creators</span>
+                    </div>
+                  </Link>
+
+                  {/* Option 2: I'm a creator */}
+                  <Link href="#" className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black group-hover/item:bg-blue-50 group-hover/item:text-blue-600 transition-colors shrink-0">
+                      <User className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="font-semibold text-black text-[15px]">I&apos;m a creator</span>
+                      <span className="text-gray-500 text-[13px]">Monetize your content</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Toggle */}
@@ -208,19 +250,19 @@ const NavBar = () => {
 
             {/* Mobile Action Buttons */}
             <div className="flex flex-col gap-4 mt-10">
-              <Link 
+              {/* <Link 
                 href="#" 
                 onClick={() => setIsOpen(false)}
                 className="w-full py-4 text-center text-lg font-medium text-black border border-gray-200 rounded-full hover:bg-gray-50 transition-colors"
               >
                 Login
-              </Link>
+              </Link> */}
               <Link 
                 href="#" 
                 onClick={() => setIsOpen(false)}
                 className="w-full py-4 text-center text-lg font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
               >
-                Sign up for free
+                Get started
               </Link>
             </div>
           </div>
