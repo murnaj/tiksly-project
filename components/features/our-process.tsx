@@ -113,7 +113,7 @@ export default function OurProcess() {
 
                         {/* Right Side: Mockup Image Frame */}
                         <div className="w-full flex justify-center">
-                          <div className="w-full max-w-[480px] 2xl:max-w-[560px] bg-white rounded-2xl shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] border border-black/5 overflow-hidden transition-all duration-300 hover:scale-[1.02]">
+                          <div className="w-full max-w-[480px] 2xl:max-w-[560px] bg-white rounded-2xl  border border-black/5 overflow-hidden transition-all duration-300 hover:scale-[1.02]">
                             <Image
                               src={tab.image}
                               alt={tab.title}
