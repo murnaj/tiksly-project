@@ -198,7 +198,7 @@ export default function HeroSection() {
           <motion.h1
             ref={h1Ref}
             variants={item}
-            className="relative md:text-[52px] text-[36px] font-semibold tracking-tight text-black leading-[1.12] mb-7 max-w-4xl mx-auto"
+            className="relative md:text-[48px] xl:text-[52px] text-[30px] font-semibold tracking-tight text-black leading-[1.12] mb-7 max-w-4xl mx-auto"
           >
             Turn{" "}
             <span ref={creatorRef}>creator</span>{" "}
@@ -213,7 +213,7 @@ export default function HeroSection() {
             {/* Floating tiksly badge — animates between words automatically */}
             <span
               ref={badgeScope}
-              className="absolute inline-flex items-center bg-[#BCF96A] text-black rounded-full px-5 py-[0.2em] font-extrabold pointer-events-none will-change-transform whitespace-nowrap"
+              className="text-[25px] md:text-[35px] absolute inline-flex items-center bg-[#BCF96A] text-black rounded-full px-3 py-[0.1em] font-extrabold pointer-events-none will-change-transform whitespace-nowrap"
               style={{ opacity: 0, top: 0, left: 0 }}
             >
               tiksly
@@ -223,7 +223,7 @@ export default function HeroSection() {
           {/* Description */}
           <motion.p
             variants={item}
-            className="text-gray-500 text-[16px] md:text-[18px] leading-relaxed mb-10 max-w-[660px] mx-auto"
+            className="text-gray-500 text-[14px] md:text-[18px] leading-relaxed mb-10 max-w-[660px] mx-auto"
           >
             Tiksly is a unified, data-fed system for producing, testing, and <br className="hidden md:inline" />
             scaling creator ads that drive revenue, from creative <br className="hidden md:inline" />

@@ -99,7 +99,7 @@ export default function FooterSection() {
   return (
     <footer className="bg-white border-t border-gray-100 w-full">
       {/* Main grid */}
-      <div className="container mx-auto px-2 lg:px-4 py-16">
+      <div className="container mx-auto px-3 lg:px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-10 md:gap-12">
           
           {/* Logo & Address */}
@@ -176,7 +176,7 @@ export default function FooterSection() {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-black text-gray-400 w-full">
+      <div className="bg-black text-gray-400 px-3 lg:px-4  w-full">
         <div className="container mx-auto px-2 lg:px-4 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             

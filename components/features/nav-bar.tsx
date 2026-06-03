@@ -28,20 +28,23 @@ const NavBar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolling ? "py-3 px-3  " : " px-2 py-5"
+        scrolling ? "py-3 px-3  " : " px-2 py-5",
       )}
     >
-      <nav className="container mx-auto px-2 lg:px-4 bg-[#F9F9F9]/90 rounded-[2rem] py-2" >
+      <nav className="container mx-auto px-2 lg:px-4 bg-[#F9F9F9]/90 rounded-[2rem] py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-3xl font-extrabold tracking-tighter text-black z-50">
+          <Link
+            href="/"
+            className="text-3xl font-extrabold tracking-tighter text-black z-50"
+          >
             tiksly
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
             {/* Dropdown Trigger */}
-            <div 
+            <div
               className="relative group h-full"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
@@ -51,28 +54,41 @@ const NavBar = () => {
               </button>
 
               {/* Mega Menu Dropdown */}
-              <div 
+              <div
                 className={cn(
                   "absolute top-full left-1/2 translate-x-[-40%] pt-6 w-200 transition-all duration-300 origin-top",
-                  isDropdownOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-2 invisible"
+                  isDropdownOpen
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 translate-y-2 invisible",
                 )}
               >
                 <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-8 grid grid-cols-[1fr_1fr] gap-8 border border-gray-100 cursor-default">
-                  
                   {/* Column 1 */}
                   <div className="flex flex-col gap-8">
                     <div>
-                      <h3 className="text-gray-400 text-sm font-medium mb-4">By feature</h3>
-                      
+                      <h3 className="text-gray-400 text-sm font-medium mb-4">
+                        By feature
+                      </h3>
+
                       <div className="flex flex-col gap-6">
                         <Link href="#" className="group">
-                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">Partnerships hub</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Access thousands of vetted creators to form partnerships that last.</p>
+                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">
+                            Partnerships hub
+                          </h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            Access thousands of vetted creators to form
+                            partnerships that last.
+                          </p>
                         </Link>
 
                         <Link href="#" className="group">
-                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">CreativeOps</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">The first anti-guesswork system for creator marketing.</p>
+                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">
+                            CreativeOps
+                          </h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            The first anti-guesswork system for creator
+                            marketing.
+                          </p>
                         </Link>
                       </div>
                     </div>
@@ -81,17 +97,27 @@ const NavBar = () => {
                   {/* Column 2 */}
                   <div className="flex flex-col gap-8">
                     <div>
-                      <h3 className="text-gray-400 text-sm font-medium mb-4">By business</h3>
-                      
+                      <h3 className="text-gray-400 text-sm font-medium mb-4">
+                        By business
+                      </h3>
+
                       <div className="flex flex-col gap-6">
                         <Link href="#" className="group">
-                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">For Brands</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Physical and digital products.</p>
+                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">
+                            For Brands
+                          </h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            Physical and digital products.
+                          </p>
                         </Link>
 
                         <Link href="#" className="group">
-                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">For Agencies</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Performance marketing teams.</p>
+                          <h4 className="text-black font-semibold mb-1 group-hover:text-blue-600 transition-colors">
+                            For Agencies
+                          </h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            Performance marketing teams.
+                          </p>
                         </Link>
                       </div>
                     </div>
@@ -128,20 +154,34 @@ const NavBar = () => {
                       </div>
                     </Link>
                   </div> */}
-
                 </div>
               </div>
             </div>
 
-            <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Creators</Link>
-            <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Success stories</Link>
-            <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Contact</Link>
+            <Link
+              href="#"
+              className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black"
+            >
+              Creators
+            </Link>
+            <Link
+              href="#"
+              className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black"
+            >
+              Success stories
+            </Link>
+            <Link
+              href="#"
+              className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Right side buttons */}
           <div className="hidden lg:flex items-center gap-6">
             {/* <Link href="#" className="text-[15px] font-medium hover:text-gray-600 transition-colors text-black">Login</Link> */}
-            <div 
+            <div
               className="relative group h-full"
               onMouseEnter={() => setIsContactDropdownOpen(true)}
               onMouseLeave={() => setIsContactDropdownOpen(false)}
@@ -151,32 +191,48 @@ const NavBar = () => {
               </button>
 
               {/* Mega Menu Dropdown */}
-              <div 
+              <div
                 className={cn(
                   "absolute right-0 top-full pt-4 w-72 transition-all duration-300 origin-top-right",
-                  isContactDropdownOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-2 invisible"
+                  isContactDropdownOpen
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 translate-y-2 invisible",
                 )}
               >
                 <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-6 border border-gray-100 flex flex-col gap-6 cursor-default">
                   {/* Option 1: I'm a brand */}
-                  <Link href="#" className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors">
+                  <Link
+                    href="#"
+                    className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black group-hover/item:bg-blue-50 group-hover/item:text-blue-600 transition-colors shrink-0">
                       <Store className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col text-left">
-                      <span className="font-semibold text-black text-[15px]">I&apos;m a brand</span>
-                      <span className="text-gray-500 text-[13px]">Connect with creators</span>
+                      <span className="font-semibold text-black text-[15px]">
+                        I&apos;m a brand
+                      </span>
+                      <span className="text-gray-500 text-[13px]">
+                        Connect with creators
+                      </span>
                     </div>
                   </Link>
 
                   {/* Option 2: I'm a creator */}
-                  <Link href="#" className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors">
+                  <Link
+                    href="#"
+                    className="flex gap-4 group/item hover:bg-gray-50 p-2 -m-2 rounded-2xl transition-colors"
+                  >
                     <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black group-hover/item:bg-blue-50 group-hover/item:text-blue-600 transition-colors shrink-0">
                       <User className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col text-left">
-                      <span className="font-semibold text-black text-[15px]">I&apos;m a creator</span>
-                      <span className="text-gray-500 text-[13px]">Monetize your content</span>
+                      <span className="font-semibold text-black text-[15px]">
+                        I&apos;m a creator
+                      </span>
+                      <span className="text-gray-500 text-[13px]">
+                        Monetize your content
+                      </span>
                     </div>
                   </Link>
                 </div>
@@ -185,8 +241,8 @@ const NavBar = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button 
-            className="lg:hidden text-black z-50 p-2" 
+          <button
+            className="lg:hidden text-black z-50 p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -195,55 +251,97 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div 
+        <div
           className={cn(
             "fixed inset-0 bg-white z-40 transition-all duration-300 ease-in-out lg:hidden pt-24 overflow-y-auto",
-            isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"
+            isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full",
           )}
         >
           <div className="flex flex-col px-6 pb-12">
             {/* Mobile Navigation Links */}
             <div className="flex flex-col gap-2">
-              
               {/* Dropdown Accordion for Mobile */}
               <div className="border-b border-gray-100">
-                <button 
+                <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="flex items-center justify-between w-full py-4 text-xl font-medium text-black"
                 >
                   Platform
-                  <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", isDropdownOpen && "rotate-180")} />
+                  <ChevronDown
+                    className={cn(
+                      "w-5 h-5 transition-transform duration-300",
+                      isDropdownOpen && "rotate-180",
+                    )}
+                  />
                 </button>
-                
-                <div 
+
+                <div
                   className={cn(
                     "grid transition-all duration-300 ease-in-out",
-                    isDropdownOpen ? "grid-rows-[1fr] opacity-100 pb-4" : "grid-rows-[0fr] opacity-0"
+                    isDropdownOpen
+                      ? "grid-rows-[1fr] opacity-100 pb-4"
+                      : "grid-rows-[0fr] opacity-0",
                   )}
                 >
                   <div className="overflow-hidden flex flex-col gap-6 pl-4">
                     <div>
-                      <h3 className="text-gray-400 text-sm font-medium mb-3 mt-2">By feature</h3>
+                      <h3 className="text-gray-400 text-sm font-medium mb-3 mt-2">
+                        By feature
+                      </h3>
                       <div className="flex flex-col gap-4">
-                        <Link href="#" className="text-black font-medium" onClick={() => setIsOpen(false)}>Partnerships hub</Link>
-                        <Link href="#" className="text-black font-medium" onClick={() => setIsOpen(false)}>CreativeOps</Link>
+                        <Link
+                          href="#"
+                          className="text-black font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          Partnerships hub
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-black font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          CreativeOps
+                        </Link>
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-gray-400 text-sm font-medium mb-3">By business</h3>
+                      <h3 className="text-gray-400 text-sm font-medium mb-3">
+                        By business
+                      </h3>
                       <div className="flex flex-col gap-4">
-                        <Link href="#" className="text-black font-medium" onClick={() => setIsOpen(false)}>For Brands</Link>
-                        <Link href="#" className="text-black font-medium" onClick={() => setIsOpen(false)}>For Agencies</Link>
+                        <Link
+                          href="#"
+                          className="text-black font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          For Brands
+                        </Link>
+                        <Link
+                          href="#"
+                          className="text-black font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          For Agencies
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <Link href="#" onClick={() => setIsOpen(false)} className="block py-4 text-xl font-medium text-black border-b border-gray-100">
+              <Link
+                href="#"
+                onClick={() => setIsOpen(false)}
+                className="block py-4 text-xl font-medium text-black border-b border-gray-100"
+              >
                 Creators
               </Link>
-              <Link href="#" onClick={() => setIsOpen(false)} className="block py-4 text-xl font-medium text-black border-b border-gray-100">
+              <Link
+                href="#"
+                onClick={() => setIsOpen(false)}
+                className="block py-4 text-xl font-medium text-black border-b border-gray-100"
+              >
                 Success stories
               </Link>
             </div>
@@ -257,12 +355,12 @@ const NavBar = () => {
               >
                 Login
               </Link> */}
-              <Link 
-                href="#" 
+              <Link
+                href="#"
                 onClick={() => setIsOpen(false)}
                 className="w-full py-4 text-center text-lg font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
               >
-                Get started
+                Contact
               </Link>
             </div>
           </div>
