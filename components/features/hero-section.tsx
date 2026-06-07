@@ -198,7 +198,7 @@ export default function HeroSection() {
           <motion.h1
             ref={h1Ref}
             variants={item}
-            className="relative md:text-[48px] xl:text-[52px] text-[30px] font-semibold tracking-tight text-black leading-[1.12] mb-7 max-w-4xl mx-auto"
+            className="relative md:text-[48px] xl:text-[52px] text-[30px] font-normal tracking-tighter text-black leading-[1.12] mb-7 max-w-4xl mx-auto"
           >
             Turn{" "}
             <span ref={creatorRef}>creator</span>{" "}

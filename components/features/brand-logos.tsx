@@ -100,7 +100,7 @@ export default function BrandLogos() {
             {logos.map((logo, idx) => (
               <motion.div
                 key={`${logo.name}-loop1-${idx}`}
-                className="relative flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 pointer-events-auto"
+                className="relative flex items-center justify-center shrink-0 pointer-events-auto"
                 animate={{
                   y: logo.yRange,
                 }}
@@ -139,7 +139,7 @@ export default function BrandLogos() {
             {logos.map((logo, idx) => (
               <motion.div
                 key={`${logo.name}-loop2-${idx}`}
-                className="relative flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 pointer-events-auto"
+                className="relative flex items-center justify-center shrink-0 pointer-events-auto"
                 animate={{
                   y: logo.yRange,
                 }}
