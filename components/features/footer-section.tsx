@@ -97,7 +97,7 @@ const socialLinks: { label: string; href: string; icon: React.ReactNode }[] = [
 
 export default function FooterSection() {
   return (
-    <footer className="bg-white border-t border-gray-100 w-full">
+    <footer className="bg-white  border-t border-gray-100 w-full">
       {/* Main grid */}
       <div className="container mx-auto px-3 lg:px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-10 md:gap-12">

@@ -51,13 +51,17 @@ components/
     nav-bar.tsx
     hero-section.tsx
     brand-logos.tsx
+    reviews.tsx
     platform-features.tsx
     our-process.tsx
+    case-studies.tsx
+    faq-carousel.tsx
     footer-section.tsx
   ui/                  ← Atomic primitives (shadcn-generated)
     button.tsx
     card.tsx
     tabs.tsx
+    carousel.tsx
 
 lib/
   utils.ts             ← cn() helper (clsx + tailwind-merge)
@@ -281,8 +285,11 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 ├── <main>
 │   ├── <HeroSection />     ← full-viewport hero, animated headline + badge
 │   ├── <BrandLogos />      ← infinite marquee of 7 brand logos
+│   ├── <Reviews />         ← premium interactive UGC video reviews carousel
 │   ├── <PlatformFeatures />← 3 stylized feature boxes (Partnerships Hub, CreativeOps, Campaign ROI)
-│   └── <OurProcess />      ← 4-tab platform showcase with mockup images
+│   ├── <OurProcess />      ← 4-tab platform showcase with mockup images
+│   ├── <CaseStudies />     ← responsive black case-study cards carousel (1 mobile, 2 tablet, 3 desktop)
+│   └── <FaqCarousel />     ← resources/FAQ cards carousel with navigation arrows (1 mobile, 2 tablet, 3 desktop)
 └── <FooterSection />       ← 5-col grid footer + black bottom bar
 ```
 
@@ -315,3 +322,16 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 - Created shadcn Card primitive at `components/ui/card.tsx`.
 - Created PlatformFeatures section at `components/features/platform-features.tsx` containing three stylized boxes (Partnerships Hub, CreativeOps, Campaign ROI) using shadcn Card and Button components.
 - Integrated the PlatformFeatures component into the Home Page (page.tsx) between BrandLogos and OurProcess.
+
+### 2026-06-08 — Built Case Studies Carousel Component
+- Built the new Case Studies carousel section at [case-studies.tsx](file:///g:/next-js/tiksly-project/components/features/case-studies.tsx).
+- Configured a responsive, autoplaying layout via the Shadcn Carousel (Embla API) without navigation arrows.
+- Designed custom interaction-aware autoplay logic (pauses on pointer down, resumes on pointer up) with a 4-second loop cycle.
+- Integrated the Case Studies component into [page.tsx](file:///g:/next-js/tiksly-project/app/(home)/page.tsx) between OurProcess and BookCall.
+
+### 2026-06-08 — Built FAQ/Learn Carousel Component
+- Built the new resources/FAQ carousel section at [faq-carousel.tsx](file:///g:/next-js/tiksly-project/components/features/faq-carousel.tsx).
+- Configured a responsive layout showing white cards with deep blue left borders, category icons, dates, and authors.
+- Configured left/right circular arrow navigation overlay buttons (`CarouselPrevious` and `CarouselNext`).
+- Set up loop autoplay scrolling every 4 seconds, with custom pointer drag-pause handlers on Embla events.
+- Integrated the component into [page.tsx](file:///g:/next-js/tiksly-project/app/(home)/page.tsx) between CaseStudies and BookCall.

@@ -6,6 +6,8 @@ import OurProcess from "@/components/features/our-process";
 import FooterSection from "@/components/features/footer-section";
 import Reviews from "@/components/features/reviews";
 import BookCall from "@/components/features/book-call";
+import CaseStudies from "@/components/features/case-studies";
+import FaqCarousel from "@/components/features/faq-carousel";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
         <Reviews />
         <PlatformFeatures />
         <OurProcess />
+        <CaseStudies />
+        <FaqCarousel />
         <BookCall />
       </main>
       <FooterSection />

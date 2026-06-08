@@ -52,7 +52,7 @@ export default function OurProcess() {
   const [activeTab, setActiveTab] = useState("pay");
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 border-b border-gray-50">
+    <section className="w-full bg-white pt-14 md:pt-20 ">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Shadcn Tabs Root */}
         <Tabs
@@ -63,12 +63,12 @@ export default function OurProcess() {
         >
           {/* Tab Selector Bar */}
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-black text-white rounded-md py-5 flex gap-0 md:gap-1 w-fit h-auto border-none">
+            <TabsList className="bg-black text-white rounded-full py-5 flex gap-0 md:gap-1 w-fit h-auto border-none">
               {processTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="px-6 py-4 rounded-md text-[12px] md:text-[18px] font-semibold capitalize transition-all duration-300 text-gray-400 hover:text-white data-[state=active]:bg-white! data-[state=active]:text-black! data-[state=active]:border-black! data-[state=active]:shadow-sm cursor-pointer"
+                  className="px-6 py-4 rounded-full text-[12px] md:text-[18px] font-semibold capitalize transition-all duration-300 text-gray-400 hover:text-white data-[state=active]:bg-white! data-[state=active]:text-black! data-[state=active]:border-black! data-[state=active]:shadow-sm cursor-pointer"
                 >
                   {tab.label}
                 </TabsTrigger>

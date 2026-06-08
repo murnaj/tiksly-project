@@ -685,10 +685,10 @@ const Reviews = () => {
   }));
 
   return (
-    <section className="bg-[#E6F1FF] py-16 md:py-24 overflow-hidden w-full relative">
+    <section className="bg-[#E6F1FF] pt-14 md:pt-20 overflow-hidden w-full relative">
       {/* Category Tabs Container */}
       <div className="container mx-auto px-4 mb-12 md:mb-16">
-        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3.5 md:gap-x-16 md:gap-y-4">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-2">
           {CATEGORIES.map((cat) => {
             const Icon = cat.icon;
             const isActive = cat.name === activeCategory;
@@ -715,7 +715,7 @@ const Reviews = () => {
       <div className="relative w-full max-w-[1450px] mx-auto flex items-center justify-center px-4 md:px-12 select-none overflow-visible">
         
         {/* Swiper Slider with activeCategory key to force rebuild on category switch */}
-        <div className="w-full overflow-visible py-4">
+        <div className="w-full overflow-visible">
           <Swiper
             key={activeCategory}
             modules={[Autoplay]}

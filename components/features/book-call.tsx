@@ -37,7 +37,7 @@ export default function BookCall() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-24 overflow-hidden">
+    <section className="bg-white py-14 md:py-20 overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Scroll-triggered Animated Card container with user bg color #D5FF40 */}
         <motion.div
@@ -46,7 +46,7 @@ export default function BookCall() {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-8 md:p-12 lg:p-16 relative overflow-visible shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)]">
+          <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-8 md:p-12 lg:p-16 relative overflow-visible ">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Avatar & Overlays */}
