@@ -153,7 +153,7 @@ export default function BookCall() {
                   <button 
                     className={cn(
                       "px-7 py-3.5 bg-[#212120] text-white rounded-full text-[15px] font-semibold",
-                      "hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+                      "hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95  cursor-pointer"
                     )}
                   >
                     Book a call

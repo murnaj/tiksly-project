@@ -62,11 +62,11 @@ const REVIEWS_DATA: Record<string, Review[]> = {
       image: "/process/videoframe_1.png",
       caption: "I always had pain in my feet ⚡",
       reviewer: {
-        name: "Marcus",
+        name: "Josh",
         rating: 4.8,
         countryName: "United States",
         countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_6.png",
+        avatar: "/josh.webp",
       },
     },
     {
@@ -79,7 +79,7 @@ const REVIEWS_DATA: Record<string, Review[]> = {
         rating: 4.7,
         countryName: "United Kingdom",
         countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_9629.png",
+        avatar: "/Chelsea.webp",
       },
     },
     {
@@ -88,11 +88,11 @@ const REVIEWS_DATA: Record<string, Review[]> = {
       image: "/process/videoframe_3.png",
       caption: "KNEE MASSAGER.",
       reviewer: {
-        name: "Taylor",
+        name: "Brie",
         rating: 4.9,
         countryName: "United States",
         countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_554.png",
+        avatar: "/Brie_Tennessee.webp",
       },
     },
     {
@@ -101,11 +101,11 @@ const REVIEWS_DATA: Record<string, Review[]> = {
       image: "/process/videoframe_4.png",
       caption: "unlike chocolate it's not gonna melt 😉",
       reviewer: {
-        name: "Sarah",
+        name: "Jonah",
         rating: 4.8,
         countryName: "Canada",
         countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_2364.png",
+        avatar: "/Jonah_Nebraska.webp",
       },
     },
     {
@@ -114,11 +114,11 @@ const REVIEWS_DATA: Record<string, Review[]> = {
       image: "/process/videoframe_5.png",
       caption: "go grab yours now before they're gone",
       reviewer: {
-        name: "Jordan",
+        name: "Alexis",
         rating: 4.9,
         countryName: "Australia",
         countryFlag: "🇦🇺",
-        avatar: "/process/videoframe_3419.png",
+        avatar: "/Alexis_California.webp",
       },
     },
   ],
@@ -685,7 +685,7 @@ const Reviews = () => {
   }));
 
   return (
-    <section className="bg-[#E6F1FF] pt-14 md:pt-20 overflow-hidden w-full relative">
+    <section className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative">
       {/* Category Tabs Container */}
       <div className="container mx-auto px-4 mb-12 md:mb-16">
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-2">

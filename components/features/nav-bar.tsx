@@ -31,7 +31,14 @@ const NavBar = () => {
         scrolling ? "py-2 px-3" : " px-2 py-5",
       )}
     >
-      <nav className="container mx-auto px-2 lg:px-4 bg-[#F9F9F9]/90 rounded-[2rem] py-2">
+      <nav
+        className={cn(
+          "container mx-auto px-2 lg:px-4 rounded-[2rem] py-2 transition-all duration-300",
+          scrolling
+            ? "bg-[#F7F7F7]/80 backdrop-blur-sm outline-1 outline-white"
+            : "bg-[#F9F9F9]/90",
+        )}
+      >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -154,7 +161,7 @@ const NavBar = () => {
               onMouseEnter={() => setIsContactDropdownOpen(true)}
               onMouseLeave={() => setIsContactDropdownOpen(false)}
             >
-              <button className="px-6 py-3 bg-black text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+              <button className="px-6 py-3 bg-black cursor-pointer text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
                 Contact
               </button>
 

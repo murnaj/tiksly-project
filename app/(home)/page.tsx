@@ -1,6 +1,7 @@
 import NavBar from "@/components/features/nav-bar";
 import HeroSection from "@/components/features/hero-section";
 import BrandLogos from "@/components/features/brand-logos";
+import CreatorRegions from "@/components/features/creator-regions";
 import PlatformFeatures from "@/components/features/platform-features";
 import OurProcess from "@/components/features/our-process";
 import FooterSection from "@/components/features/footer-section";
@@ -16,10 +17,11 @@ export default function Home() {
       <main>
         <HeroSection />
         <BrandLogos />
-        <Reviews />
+        <CreatorRegions />
         <PlatformFeatures />
         <OurProcess />
         <CaseStudies />
+        <Reviews />
         <FaqCarousel />
         <BookCall />
       </main>
