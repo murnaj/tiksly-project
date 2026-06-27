@@ -9,6 +9,7 @@ import Reviews from "@/components/features/reviews";
 import BookCall from "@/components/features/book-call";
 import CaseStudies from "@/components/features/case-studies";
 import FaqCarousel from "@/components/features/faq-carousel";
+import Testimonials from "@/components/features/testimonials";
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
         <HeroSection />
         <BrandLogos />
         <CreatorRegions />
+        <Reviews />
         <PlatformFeatures />
         <OurProcess />
         <CaseStudies />
-        <Reviews />
+        <Testimonials />
         <FaqCarousel />
         <BookCall />
       </main>

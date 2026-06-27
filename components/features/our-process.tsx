@@ -59,11 +59,11 @@ export default function OurProcess() {
           defaultValue="pay"
           value={activeTab}
           onValueChange={setActiveTab}
-          className="w-full"
+          className="w-full gap-0"
         >
           {/* Tab Selector Bar */}
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-black text-white rounded-full py-5 flex gap-0 md:gap-1 w-fit h-auto border-none">
+            <TabsList className="bg-black text-white rounded-full py-5 flex gap-0 md:gap-3 w-fit h-auto border-none">
               {processTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
@@ -93,19 +93,19 @@ export default function OurProcess() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="bg-[#D9D0C1] rounded-[2rem] p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
+                        className="bg-[#D9D0C1] rounded-[2rem] p-4 md:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
                       >
                         {/* Left Side: Content */}
                         <div className="flex flex-col items-center lg:items-start text-left">
-                          <h2 className="text-3xl md:text-4xl lg:text-[46px] 2xl:text-[52px] font-black uppercase tracking-tighter text-black leading-none mb-5">
+                          <h2 className="text-2xl md:text-3xl lg:text-[40px] 2xl:text-[48px] font-black uppercase tracking-tighter text-black leading-none mb-5">
                             {tab.title}
                           </h2>
-                          <p className="text-black/75 text-[15px] md:text-[16px] 2xl:text-[18px] leading-relaxed max-w-md 2xl:max-w-xl mb-8">
+                          <p className="text-black/75 text-[14px] md:text-[15px] 2xl:text-[17px] leading-relaxed max-w-md 2xl:max-w-xl mb-8">
                             {tab.description}
                           </p>
                           <a
                             href={tab.ctaLink}
-                            className="px-6 py-3 bg-black text-white rounded-full text-[15px] font-semibold hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"
+                            className="px-6 py-3 bg-black text-white rounded-full text-[13px] font-semibold hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"
                           >
                             {tab.ctaText}
                           </a>

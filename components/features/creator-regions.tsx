@@ -102,65 +102,90 @@ const regions = [
   { name: "Australia", icon: AustraliaFlag },
 ];
 
+// Duplicate items to ensure smooth seamless infinite scrolling loop
+const marqueeItems = [...regions, ...regions, ...regions, ...regions];
+
 export default function CreatorRegions() {
-  // Entrance Animation Stagger Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: EASE },
-    },
-  };
-
   return (
     <section className="bg-white py-10 w-full overflow-hidden border-b border-gray-50/50">
-      <div className="container mx-auto px-3 lg:px-4">
-        {/* Title */}
-        <div className="text-center mb-6">
-          <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
-            Meet our creators from:
-          </span>
-        </div>
-
-        {/* Regions Pills */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-wrap justify-center items-center gap-3 md:gap-4"
-        >
-          {regions.map((region) => {
-            const Icon = region.icon;
-            return (
-              <motion.div
-                key={region.name}
-                variants={itemVariants}
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] cursor-pointer transition-all duration-300 select-none"
-              >
-                <Icon />
-                <span className="text-[14px] md:text-[15px] font-semibold text-black tracking-tight leading-none">
-                  {region.name}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+      {/* Title */}
+      <div className="container mx-auto mb-6 text-center">
+        <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
+          Meet our creators from:
+        </span>
       </div>
+
+      {/* Infinite Marquee Container */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: EASE }}
+        className="relative w-full overflow-hidden py-2"
+      >
+        {/* Gradient Mask Overlays (Left/Right) for premium fade effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        {/* Marquee Row */}
+        <div className="flex flex-nowrap w-max">
+          {/* First loop of regions */}
+          <motion.div
+            className="flex items-center gap-3 md:gap-4 flex-nowrap shrink-0 pr-3 md:pr-4"
+            animate={{ x: [0, "-100%"] }}
+            transition={{
+              ease: "linear",
+              duration: 25,
+              repeat: Infinity,
+            }}
+          >
+            {marqueeItems.map((region, idx) => {
+              const Icon = region.icon;
+              return (
+                <motion.div
+                  key={`${region.name}-loop1-${idx}`}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] cursor-pointer transition-all duration-300 select-none"
+                >
+                  <Icon />
+                  <span className="text-[14px] md:text-[15px] font-semibold text-black tracking-tight leading-none">
+                    {region.name}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Second loop of regions (identical duplicate for seamless scrolling) */}
+          <motion.div
+            className="flex items-center gap-3 md:gap-4 flex-nowrap shrink-0 pr-3 md:pr-4"
+            animate={{ x: [0, "-100%"] }}
+            transition={{
+              ease: "linear",
+              duration: 25,
+              repeat: Infinity,
+            }}
+          >
+            {marqueeItems.map((region, idx) => {
+              const Icon = region.icon;
+              return (
+                <motion.div
+                  key={`${region.name}-loop2-${idx}`}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] cursor-pointer transition-all duration-300 select-none"
+                >
+                  <Icon />
+                  <span className="text-[14px] md:text-[15px] font-semibold text-black tracking-tight leading-none">
+                    {region.name}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 }

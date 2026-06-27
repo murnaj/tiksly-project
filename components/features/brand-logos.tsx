@@ -73,7 +73,7 @@ export default function BrandLogos() {
   return (
     <section className="w-full bg-white pb-4 border-b border-gray-50 overflow-hidden">
       {/* Subtitle */}
-      <div className="container mx-auto px-3 lg:px-4 mb-10">
+      <div className="container mx-auto  mb-10">
         <p className="text-center text-gray-500 text-sm font-medium tracking-wide">
           Trusted by 22,000+ brands worldwide
         </p>

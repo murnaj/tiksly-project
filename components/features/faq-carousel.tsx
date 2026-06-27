@@ -1,160 +1,76 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React from "react";
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import { Card } from "@/components/ui/card";
-import { BookOpen, Globe, Cpu, Search, Calendar } from "lucide-react";
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
-// Design ease curve consistent with other project features
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
-};
-
-// FAQ/Learn mockup data from screenshot designs
-const LEARN_DATA = [
+const FAQ_DATA = [
   {
-    id: "learn-1",
-    category: "Agency Advice",
-    icon: "BookOpen",
-    title: "How To Outsource SEO: The Whitelabel Guide For Agencies",
-    description:
-      "Here's how the most successful marketing agencies are outsourcing SEO for their clients. These are the steps you need to take!",
-    date: "Apr 17, 2026",
-    author: "Joe Davies",
-    avatar: "/tom-avatar.png",
+    id: "faq-1",
+    question: "1. What exactly does your TikTok Shop Agency do for my business?",
+    answer: "We handle everything required to launch, scale, and manage your TikTok Shop. This includes creator outreach and product seeding, producing high-converting UGC video ads, managing your shop operations, optimizing affiliate plans, and running targeted TikTok Shop Ads to drive consistent sales.",
   },
   {
-    id: "learn-2",
-    category: "Digital PR",
-    icon: "Globe",
-    title: "Case Study: fatjoe x Wolf River Electric PR Campaign",
-    description:
-      "Pull back the curtain on the digital PR campaign process that secured incredible results for Wolf River Electric. An 85% increase in organic traffic is just the start...",
-    date: "Jun 20, 2025",
-    author: "Daniel Trick",
-    avatar: "/tom-avatar.png",
+    id: "faq-2",
+    question: "2. How much does your TikTok Shop Agency cost?",
+    answer: "Our pricing is structured based on the size of your catalog and the scale of distribution required. We offer transparent monthly retainer plans alongside performance incentives, ensuring our goals are fully aligned with your revenue growth. Get in touch for a custom quote.",
   },
   {
-    id: "learn-3",
-    category: "AI",
-    icon: "Cpu",
-    title: "AI SEO: How To Rank In AI Overviews Responses And Appear In AI",
-    description:
-      'AI SEO: the secret to appearing in AI responses and ranking in AI overviews. Is it "Generative Engine Optimization"... Or just SEO?',
-    date: "Apr 10, 2026",
-    author: "Daniel Trick",
-    avatar: "/tom-avatar.png",
+    id: "faq-3",
+    question: "3. How fast will I see results from your TikTok Shop Agency?",
+    answer: "Most brands see their first set of creator videos and initial sales within the first 14 to 21 days of launching. As the TikTok algorithm begins to optimize and our creator seeding program scales, compound growth typically accelerates around month 2 and 3.",
   },
   {
-    id: "learn-4",
-    category: "Agency Advice",
-    icon: "BookOpen",
-    title: "40+ Ways To Get SEO Leads & Win Clients",
-    description:
-      "Looking for new SEO clients & leads? Well here are 40+ ways to source SEO leads, win tons of new clients, and be an awesome SEO Agency.",
-    date: "Nov 28, 2025",
-    author: "Joe Davies",
-    avatar: "/tom-avatar.png",
+    id: "faq-4",
+    question: "4. Why does your TikTok Shop Agency only take 12 clients?",
+    answer: "We limit our client roster to exactly 12 brands at any given time to maintain the highest quality of service. This allows our dedicated team of video editors, creator outreach specialists, and media buyers to act as a true extension of your in-house team.",
   },
   {
-    id: "learn-5",
-    category: "AI",
-    icon: "Cpu",
-    title:
-      "How To Appear In AI Using Community and Brand Mentions (Case Study)",
-    description:
-      "Brand Mentions and Community Mentions are vital for AI SEO, but how do they actually work to influence AI? We break it down with real examples.",
-    date: "Sep 12, 2025",
-    author: "Daniel Trick",
-    avatar: "/tom-avatar.png",
+    id: "faq-5",
+    question: "5. What businesses work best with your TikTok Shop Agency?",
+    answer: "We drive the best results for DTC brands in Beauty & Cosmetics, Apparel & Fashion, Health & Wellness, Home & Kitchen, and consumer gadgets. Having an active inventory, an appealing product offering, and margins that support affiliate commissions are key indicators of success.",
   },
   {
-    id: "learn-6",
-    category: "SEO",
-    icon: "Search",
-    title: "Is SEO Worth It In 2026? These Stats Prove It Is!",
-    description:
-      "Showing SEO is worth it doesn't have to be difficult. We include stats and an infographic to prove SEO is worth it for businesses in 2026.",
-    date: "Feb 24, 2026",
-    author: "Daniel Trick",
-    avatar: "/tom-avatar.png",
+    id: "faq-6",
+    question: "6. Does your TikTok Shop Agency guarantee results?",
+    answer: "While we cannot guarantee exact sales figures due to variables in market demand and stock availability, we guarantee the delivery of high-quality assets, active creator partnerships, and optimized ad accounts. Our performance-based structures show our commitment to your ROI.",
   },
 ];
 
-// Map string icon names to Lucide icons
-const getIcon = (iconName: string) => {
-  switch (iconName) {
-    case "BookOpen":
-      return BookOpen;
-    case "Globe":
-      return Globe;
-    case "Cpu":
-      return Cpu;
-    case "Search":
-      return Search;
-    default:
-      return BookOpen;
-  }
-};
-
 export default function FaqCarousel() {
-  const [api, setApi] = useState<CarouselApi>();
+  // Entrance Animation Stagger Variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: EASE,
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-  // Custom interaction-aware autoplay logic (4-second interval)
-  useEffect(() => {
-    if (!api) return;
-
-    let intervalId: NodeJS.Timeout;
-
-    const startAutoplay = () => {
-      intervalId = setInterval(() => {
-        api.scrollNext();
-      }, 4000);
-    };
-
-    const stopAutoplay = () => {
-      clearInterval(intervalId);
-    };
-
-    startAutoplay();
-
-    api.on("pointerDown", stopAutoplay);
-    api.on("pointerUp", startAutoplay);
-
-    return () => {
-      stopAutoplay();
-      api.off("pointerDown", stopAutoplay);
-      api.off("pointerUp", startAutoplay);
-    };
-  }, [api]);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: EASE },
+    },
+  };
 
   return (
-    <section className="w-full  pt-14 md:pt-16 lg:pt-20 overflow-hidden">
+    <section className="w-full bg-white pt-16 md:pt-24 overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Section Header */}
         <motion.div
@@ -162,100 +78,52 @@ export default function FaqCarousel() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-left max-w-3xl mb-14 px-2"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-tight leading-[1.15] text-slate-900 mb-4"
+            className="text-2xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.1] text-black mb-5"
           >
-            Here to learn about SEO & marketing?
+            Questions About Our TikTok Shop Agency?
+            <br />
+            Here Are Straight Answers.
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-slate-500 text-[15px] md:text-[16px] font-medium leading-relaxed max-w-2xl"
+            className="text-gray-500 text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed max-w-sm md:max-w-lg lg:max-w-2xl mx-auto"
           >
-            We&apos;ll teach you about SEO & marketing with our video and blog
-            training guides
+            We know picking the right TikTok Shop Agency is important. Here are the questions we hear most from businesses like yours – and our honest answers.
           </motion.p>
         </motion.div>
 
-        {/* Carousel Viewport Wrapper */}
-        <div className="relative w-full select-none px-4 md:px-0">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              loop: true,
-              align: "start",
-            }}
-            className="w-full overflow-hidden"
-          >
-            <CarouselContent className="-ml-4 md:-ml-6">
-              {LEARN_DATA.map((item) => {
-                const IconComponent = getIcon(item.icon);
-                return (
-                  <CarouselItem
-                    key={item.id}
-                    className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3 flex"
-                  >
-                    <Card className="bg-white border border-gray-100 rounded-2xl border-l-4 border-l-[#BCF96A] flex flex-col justify-between w-full h-full  transition-all duration-300  p-6 md:p-8">
-                      {/* Top Content */}
-                      <div>
-                        {/* Category Row */}
-                        <div className="flex items-center gap-2 text-[#BCF96A] font-semibold text-[13px] md:text-sm tracking-wide">
-                          <IconComponent className="w-4 h-4 shrink-0" />
-                          <span>{item.category}</span>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-slate-900 text-[17px] md:text-lg lg:text-[19px] font-bold leading-snug tracking-tight mt-4 line-clamp-2 min-h-[52px]">
-                          {item.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-slate-500 text-[13px] md:text-[14px] leading-relaxed mt-4 font-normal line-clamp-3 min-h-[60px]">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      {/* Divider */}
-                      <div className="w-full border-t border-gray-100 my-6" />
-
-                      {/* Footer Details */}
-                      <div className="flex items-center justify-between">
-                        {/* Date */}
-                        <div className="flex items-center gap-2 text-slate-400">
-                          <Calendar className="w-4 h-4 shrink-0 stroke-[2.2]" />
-                          <span className="text-[12px] font-semibold tracking-tight">
-                            {item.date}
-                          </span>
-                        </div>
-
-                        {/* Author */}
-                        <div className="flex items-center gap-2">
-                          <div className="relative w-6 h-6 rounded-full overflow-hidden shrink-0 bg-slate-100">
-                            <Image
-                              src={item.avatar}
-                              alt={item.author}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                          <span className="text-[12px] font-semibold text-slate-700 tracking-tight">
-                            {item.author}
-                          </span>
-                        </div>
-                      </div>
-                    </Card>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-
-            {/* Navigation Arrows positioned on desktop/tablet edges */}
-            {/* <CarouselPrevious className="absolute left-2 md:-left-4 lg:-left-1 top-1/2 -translate-y-1/2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 shadow-md size-10 flex items-center justify-center rounded-full z-10 cursor-pointer disabled:opacity-50 transition-all hover:scale-105 active:scale-95" />
-            <CarouselNext className="absolute right-2 md:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 shadow-md size-10 flex items-center justify-center rounded-full z-10 cursor-pointer disabled:opacity-50 transition-all hover:scale-105 active:scale-95" /> */}
-          </Carousel>
-        </div>
+        {/* Accordion Layout */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-4xl mx-auto px-2 md:px-0"
+        >
+          <motion.div variants={itemVariants}>
+            <Accordion type="single" collapsible className="w-full">
+              {FAQ_DATA.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="bg-[#F9F9F9]/80 border border-gray-100/50 rounded-[1.5rem] mb-4 overflow-hidden border-b-0"
+                >
+                  <AccordionTrigger className="*:data-[slot=accordion-trigger-icon]:hidden px-6 py-5 text-[15px] md:text-[16px] lg:text-[17px] font-bold text-black hover:no-underline flex items-center justify-between group outline-none cursor-pointer">
+                    <span className="tracking-tight text-left leading-snug">{item.question}</span>
+                    <Plus className="w-5 h-5 shrink-0 text-black/60 transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-45 group-aria-expanded/accordion-trigger:text-black ml-4" />
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5 pt-0 text-[14px] md:text-[15px] text-gray-500 font-medium leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -51,3 +51,37 @@ This document serves as the persistent memory, architectural blueprint, and cont
    - Distinct rounded borders (`rounded-[2rem]`, `rounded-3xl`) are used frequently across cards, dropdowns, and navbar containers.
 3. **Animations**: Standard ease curves (`[0.22, 1, 0.36, 1]`) and staggered entrance timings are used to animate headers and structural elements seamlessly.
 4. **Color Theme**: Uses default light-background style (`bg-white` and `bg-[#F9F9F9]`), with contrasting `black` text and accents in custom bright colors (`#BCF96A` lime green, `#0081FB` blue).
+
+---
+
+## 🔍 Codebase Analysis & Blueprinting (Phase 1)
+
+### 1. Routing Layouts & Component Boundaries
+* **App Router Structure**:
+  - Root Layout: [layout.tsx](file:///g:/next-js/tiksly-project/app/layout.tsx) initializes Google Fonts (`Geist`, `Geist_Mono`, `Inter`) and provides the HTML/body wrapper.
+  - Route Groups: The main entry point resides in the `(home)` route group: [page.tsx](file:///g:/next-js/tiksly-project/app/(home)/page.tsx). This group bypasses folder-name routing and maps directly to the root (`/`).
+* **Component Demarcation**:
+  - The page behaves as a single-page landing layout.
+  - All landing sections are modularized in `components/features/` and imported into [page.tsx](file:///g:/next-js/tiksly-project/app/(home)/page.tsx).
+  - Common primitives are located in `components/ui/`.
+
+### 2. Data Fetching & Utility Functions
+* **Local State / Custom Logic**:
+  - **Dynamic Class Merger**: [utils.ts](file:///g:/next-js/tiksly-project/lib/utils.ts) provides the `cn` class merger helper utilizing `clsx` and `tailwind-merge`.
+  - **NavBar State**: Sticky header styling toggled by scrolling state; mobile dropdown lists.
+  - **Reviews Carousel**: Infinite loop buffer logic via array triplication. Categories dynamically rebuild the Swiper layout.
+* **API / Fetch Boundaries**:
+  - Currently, all sections utilize static datasets defined locally within components (e.g., brand list, reviews array, process steps, creator regions).
+
+### 3. Design System Hierarchy
+* **Tailwind v4 integration**: Built using `@tailwindcss/postcss` with CSS variables.
+* **Component Styling Constants**:
+  - Spacing/Layout wrappers: `container mx-auto px-2 lg:px-4` or similar padding bounds.
+  - Geometry: Heavy use of large, smooth corner radii (`rounded-[2rem]`, `rounded-[2.5rem]`, `rounded-full`).
+  - Font weights/scaling: Clean sans-serif typography using `Inter` with heavy tracking adjustments (`tracking-tighter`, `tracking-tight`).
+
+### 🛡️ Strict Control Protocol & Approved Workflows
+* **Command Block**: Zero background shell/git command execution. All commands must be requested and approved.
+* **Blueprint Approval**: No modifications to codebase files (`app/`, `components/`, etc.) without a pre-approved conceptual plan.
+* **Status**: **Phase 1 Complete. Creator Regions marquee, Testimonials, FAQ Accordion, and Reviews UI updates with continuous scrolling implemented.**
+

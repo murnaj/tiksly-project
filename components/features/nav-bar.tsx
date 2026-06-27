@@ -33,7 +33,7 @@ const NavBar = () => {
     >
       <nav
         className={cn(
-          "container mx-auto px-2 lg:px-4 rounded-[2rem] py-2 transition-all duration-300",
+          "container mx-auto px-3 lg:px-4  rounded-[2rem] py-2 transition-all duration-300",
           scrolling
             ? "bg-[#F7F7F7]/80 backdrop-blur-sm outline-1 outline-white"
             : "bg-[#F9F9F9]/90",

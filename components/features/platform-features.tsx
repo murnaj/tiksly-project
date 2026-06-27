@@ -78,7 +78,7 @@ const cardData = [
 export default function PlatformFeatures() {
   return (
     <section className="w-full bg-white pt-16 lg:pt-20  overflow-hidden">
-      <div className="container mx-auto px-2 lg:px-4">
+      <div className="container mx-auto px-3 lg:px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
@@ -107,7 +107,7 @@ export default function PlatformFeatures() {
             return (
               <motion.div key={card.id} variants={itemVariants} className="flex h-full">
                 <Card
-                  className={`relative flex flex-col justify-between w-full p-8 md:p-10 rounded-[2rem] border transition-all duration-300  ${
+                  className={`relative flex flex-col justify-between w-full p-4 md:p-6 rounded-[2rem] border transition-all duration-300  ${
                     isLime
                       ? "bg-[#BCF96A] border-none text-black"
                       : isDark

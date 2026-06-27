@@ -185,8 +185,8 @@ export default function CaseStudies() {
                     <div className="w-full border-t border-neutral-800/80" />
 
                     {/* Text Details Area */}
-                    <div className="flex flex-col flex-1 p-6 md:p-8 justify-between bg-[#0D0D0D]">
-                      <div className="flex flex-col mb-8">
+                    <div className="flex flex-col flex-1 p-6 md:p-4 justify-between bg-[#0D0D0D]">
+                      <div className="flex flex-col mb-4">
                         {/* Tag */}
                         <span className="text-[12px] md:text-[13px] font-bold text-gray-500 uppercase tracking-wider">
                           {study.tag}
@@ -198,7 +198,7 @@ export default function CaseStudies() {
                         </h3>
 
                         {/* Quote Description */}
-                        <p className="text-gray-400 text-[13px] md:text-sm leading-relaxed mt-4 font-medium italic line-clamp-3 min-h-[60px]">
+                        <p className="text-gray-400 text-[13px] md:text-sm leading-relaxed mt-2 font-medium italic line-clamp-3 min-h-[60px]">
                           {study.description}
                         </p>
                       </div>
