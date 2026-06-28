@@ -170,7 +170,7 @@ export default function CaseStudies() {
                 >
                   <Card className="bg-[#0D0D0D]  rounded-[2rem] overflow-hidden flex flex-col justify-between w-full h-full  transition-all duration-300 hover:scale-[1.01]">
                     {/* Visual Mockup Area */}
-                    <div className="relative aspect-square w-full overflow-hidden bg-[#0D0D0D] select-none rounded-t-[2rem]">
+                    <div className="relative aspect-10/9 w-full overflow-hidden bg-[#0D0D0D] select-none rounded-t-[2rem]">
                       <Image
                         src={study.image}
                         alt={study.title}

@@ -172,7 +172,7 @@ export default function Testimonials() {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-xl mx-auto"
+            className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-sm md:max-w-xl mx-auto"
           >
             Read feedback from Agencies, In-House Marketing Teams & Individuals just like you!
           </motion.p>
@@ -184,7 +184,7 @@ export default function Testimonials() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-2 lg:gap-8 items-center justify-center mb-16 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-2 lg:gap-8 items-center justify-center mb-16 max-w-5xl mx-auto"
         >
           {/* Left Metric: 95% Rating */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left px-2">
@@ -213,11 +213,11 @@ export default function Testimonials() {
           </motion.div>
 
           {/* Right Metric: 4.8/5 breakdown progress bars */}
-          <motion.div variants={itemVariants} className="flex items-center gap-6 justify-center md:justify-start px-2">
+          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-6 justify-center md:justify-start px-2">
             <span className="text-[45px] md:text-[50px] lg:text-[58px] font-semibold text-black leading-none tracking-tighter">
               4.8/5
             </span>
-            <div className="flex flex-col gap-1.5 w-full max-w-[170px]">
+            <div className="hidden sm:flex flex-col gap-1.5 w-full max-w-[170px]">
               {[
                 { stars: "5 Stars", pct: 90 },
                 { stars: "4 Stars", pct: 8 },

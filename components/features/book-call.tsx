@@ -46,7 +46,7 @@ export default function BookCall() {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-8 md:p-12 lg:p-16 relative overflow-visible ">
+          <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible ">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Avatar & Overlays */}

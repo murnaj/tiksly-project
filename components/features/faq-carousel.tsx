@@ -85,8 +85,6 @@ export default function FaqCarousel() {
             className="text-2xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.1] text-black mb-5"
           >
             Questions About Our TikTok Shop Agency?
-            <br />
-            Here Are Straight Answers.
           </motion.h2>
           <motion.p
             variants={itemVariants}

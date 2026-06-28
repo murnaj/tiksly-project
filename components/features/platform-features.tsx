@@ -107,7 +107,7 @@ export default function PlatformFeatures() {
             return (
               <motion.div key={card.id} variants={itemVariants} className="flex h-full">
                 <Card
-                  className={`relative flex flex-col justify-between w-full p-4 md:p-6 rounded-[2rem] border transition-all duration-300  ${
+                  className={`relative flex flex-col justify-between w-full px-4 py-6 md:px-6 md:py-6 rounded-[2rem] border transition-all duration-300  ${
                     isLime
                       ? "bg-[#BCF96A] border-none text-black"
                       : isDark
