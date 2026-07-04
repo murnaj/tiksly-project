@@ -50,7 +50,7 @@ export default function BookCall() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Avatar & Overlays */}
-              <div className="relative flex items-center justify-center w-full max-w-[480px] mx-auto">
+              <div className="relative flex items-center justify-center w-full max-w-120 mx-auto">
                 
                 {/* Avatar Box Background */}
                 <motion.div 

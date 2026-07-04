@@ -191,7 +191,7 @@ export default function Testimonials() {
             <span className="text-[50px] md:text-[56px] lg:text-[64px] font-semibold text-black leading-none tracking-tighter">
               95%
             </span>
-            <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-[245px] font-medium">
+            <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-61.25 font-medium">
               of customers that buy from this merchant give them a 4 or 5-star rating
             </p>
           </motion.div>
@@ -217,7 +217,7 @@ export default function Testimonials() {
             <span className="text-[45px] md:text-[50px] lg:text-[58px] font-semibold text-black leading-none tracking-tighter">
               4.8/5
             </span>
-            <div className="hidden sm:flex flex-col gap-1.5 w-full max-w-[170px]">
+            <div className="hidden sm:flex flex-col gap-1.5 w-full max-w-42.5">
               {[
                 { stars: "5 Stars", pct: 90 },
                 { stars: "4 Stars", pct: 8 },
@@ -240,7 +240,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 items-stretch max-w-5xl mx-auto">
           {/* Static Card */}
           <div className="flex">
-            <Card className="border border-gray-100 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center  w-full min-h-[220px] select-none">
+            <Card className="border border-gray-100 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center  w-full min-h-55 select-none">
               <span className="text-[20px] font-bold text-[#0D0D0D] mb-1.5">Excellent</span>
               <div className="flex gap-0.5 mb-2 text-[#FFA500]">
                 {[...Array(5)].map((_, i) => (
