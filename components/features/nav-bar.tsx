@@ -135,7 +135,7 @@ const NavBar = () => {
               </div>
 
               <Link
-                href="#"
+                href="/about-us"
                 className="text-[15px] font-medium px-2 py-1  hover:bg-[#ECECEC] rounded-full  transition-colors text-black"
               >
                 About Us

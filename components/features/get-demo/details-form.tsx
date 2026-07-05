@@ -14,7 +14,9 @@ const detailsSchema = z.object({
     .trim()
     .min(1, "Email is required")
     .email("Enter a valid email address"),
-  url: z.union([z.literal(""), z.string().trim().url("Enter a valid URL")]).optional(),
+  url: z
+    .union([z.literal(""), z.string().trim().url("Enter a valid URL")])
+    .optional(),
   source: z.string().trim().min(1, "Tell us how you heard about us"),
 });
 
@@ -97,7 +99,9 @@ export function DetailsForm({
           {...register("source")}
         />
         {errors.source && (
-          <p className="text-[13px] text-destructive">{errors.source.message}</p>
+          <p className="text-[13px] text-destructive">
+            {errors.source.message}
+          </p>
         )}
       </div>
 
