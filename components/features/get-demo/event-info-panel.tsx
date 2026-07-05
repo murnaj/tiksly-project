@@ -27,7 +27,7 @@ export function EventInfoPanel({
         </span>
       </div>
 
-      <div className="flex flex-col gap-4 border-t border-gray-100 pt-6">
+      <div className="flex flex-col gap-4 border-t border-gray-300 pt-6">
         <h1 className="text-lg leading-snug font-semibold text-black lg:text-2xl">
           30 Minute Demo Call with the Tiksly Team
         </h1>

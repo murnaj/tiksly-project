@@ -53,7 +53,7 @@ export function ScheduleStep({
       <div
         className={cn(
           "grid gap-6",
-          selectedDate && "md:grid-cols-[minmax(0,1fr)_190px]",
+          selectedDate && "md:grid-cols-[minmax(0,1fr)_140px] xl:grid-cols-[minmax(0,1fr)_220px]",
         )}
       >
         <div className="min-w-0">
@@ -73,16 +73,18 @@ export function ScheduleStep({
             classNames={{
               root: "w-full",
               month: "w-full",
-              month_caption: "flex h-9 w-full items-center pr-16 text-[15px] font-semibold text-black",
+              month_caption: "flex h-9 w-full items-center pr-1 text-[15px] font-semibold text-black",
               nav: "absolute right-0 top-0 flex items-center gap-1",
               button_previous: "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
               button_next: "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
+              weekdays: cn("flex w-full", selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7"),
               weekday: "flex-1 text-[14px] h-[32px] w-[32px] font-medium text-gray-400 select-none",
-              week: cn("mt-2 flex w-full", selectedDate ? "gap-5" : "gap-7.5"),
+              week: cn("mt-2 flex w-full", selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7"),
+              day: "flex-1",
             }}
           />
 
-          <div className="mt-6 flex items-start gap-2.5 border-t border-gray-100 pt-6">
+          <div className="mt-6 flex items-start gap-2.5 border-t border-gray-300 pt-6">
             <Globe className="mt-2 size-4 shrink-0 text-gray-500" />
             <div className="min-w-0 flex-1">
               <p className="mb-1.5 text-xs font-medium text-gray-500">
@@ -96,7 +98,7 @@ export function ScheduleStep({
         <Collapsible open={Boolean(selectedDate)} className="min-w-0">
           <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
             {selectedDate && (
-              <div className="min-w-0 md:border-l md:border-gray-100 md:pl-4">
+              <div className="min-w-0 md:border-l md:border-gray-300 md:pl-4">
                 <p className="mb-3 text-sm font-semibold text-black">
                   {format(selectedDate, "EEEE, MMMM d")}
                 </p>
@@ -107,7 +109,7 @@ export function ScheduleStep({
                       key={slot}
                       className={cn(
                         "grid gap-2",
-                        selectedTime === slot ? "grid-cols-[1fr_auto]" : "grid-cols-1",
+                        selectedTime === slot ? "grid-cols-1 xl:grid-cols-[1fr_auto]" : "grid-cols-1",
                       )}
                     >
                       <Button
@@ -116,7 +118,7 @@ export function ScheduleStep({
                         className={cn(
                           "h-11 min-w-0 justify-center truncate rounded-xl border text-[14px] font-medium transition-colors",
                           selectedTime === slot
-                            ? "border-transparent bg-black text-white hover:bg-gray-800"
+                            ? "border-transparent bg-[#666666] text-white hover:bg-[#666666]"
                             : "border-gray-200 bg-transparent text-black hover:bg-gray-50",
                         )}
                       >

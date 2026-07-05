@@ -43,14 +43,14 @@ export default function GetDemoFlow() {
       <div className="container mx-auto px-3 lg:px-4">
         <Card
           className={cn(
-            "mx-auto overflow-hidden bg-[#FAFAFA] rounded-[2rem] border-gray-100 p-0 transition-[max-width] duration-500 ease-out md:rounded-2xl",
+            "mx-auto overflow-hidden bg-[#FAFAFA] rounded-[2rem] border-gray-300 p-0 transition-[max-width] duration-500 ease-out md:rounded-2xl",
             step === "schedule" && selectedDate ? "max-w-5xl" : "max-w-3xl",
           )}
         >
           <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr]">
             <EventInfoPanel showBack={canGoBack} onBack={handleBack} />
 
-            <div className="relative min-h-105 border-t border-gray-100 md:border-t-0 md:border-l">
+            <div className="relative min-h-105 border-t border-gray-300 md:border-t-0 md:border-l">
               <AnimatePresence mode="wait">
                 {step === "schedule" && (
                   <motion.div

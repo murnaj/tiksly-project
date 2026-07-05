@@ -309,18 +309,18 @@ const NavBar = () => {
             </div>
 
             <Link
-              href="#"
+              href="/about-us"
               onClick={() => setIsOpen(false)}
               className="block py-4 text-xl font-medium text-black border-b border-gray-100"
             >
-              Creators
+             About Us
             </Link>
             <Link
               href="#"
               onClick={() => setIsOpen(false)}
               className="block py-4 text-xl font-medium text-black border-b border-gray-100"
             >
-              Success stories
+              Case Studies
             </Link>
           </div>
 
