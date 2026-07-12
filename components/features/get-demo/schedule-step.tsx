@@ -105,18 +105,12 @@ export function ScheduleStep({
 
                 <div className="flex flex-col gap-2">
                   {slots.map((slot) => (
-                    <div
-                      key={slot}
-                      className={cn(
-                        "grid gap-2",
-                        selectedTime === slot ? "grid-cols-1 xl:grid-cols-[1fr_auto]" : "grid-cols-1",
-                      )}
-                    >
+                    <div key={slot} className="grid grid-cols-1 gap-2">
                       <Button
                         type="button"
                         onClick={() => onSelectTime(slot)}
                         className={cn(
-                          "h-11 min-w-0 justify-center truncate rounded-xl border text-[14px] font-medium transition-colors",
+                          "h-11 w-full min-w-0 justify-center truncate rounded-xl border text-[14px] font-medium transition-colors",
                           selectedTime === slot
                             ? "border-transparent bg-[#666666] text-white hover:bg-[#666666]"
                             : "border-gray-200 bg-transparent text-black hover:bg-gray-50",
@@ -128,7 +122,7 @@ export function ScheduleStep({
                         <Button
                           type="button"
                           onClick={onConfirm}
-                          className="h-11 shrink-0 rounded-xl bg-black px-4 text-[13px] font-semibold text-white hover:bg-gray-800"
+                          className="h-11 w-full min-w-0 justify-center rounded-xl bg-black text-[14px] font-medium text-white hover:bg-gray-800"
                         >
                           Confirm
                         </Button>

@@ -94,7 +94,7 @@ export function TimezoneSelect({
 
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="h-9 w-full rounded-lg text-[13px]">
+      <SelectTrigger className="h-11 w-full min-w-0 rounded-lg text-[13px]">
         <SelectValue placeholder="Select time zone" />
       </SelectTrigger>
       <SelectContent className="max-h-72">

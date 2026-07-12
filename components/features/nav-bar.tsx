@@ -141,7 +141,7 @@ const NavBar = () => {
                 About Us
               </Link>
               <Link
-                href="#"
+                href="/case-studies"
                 className="text-[15px] font-medium px-2 py-1  hover:bg-[#ECECEC] rounded-full transition-colors text-black"
               >
                 Case Study
@@ -316,7 +316,7 @@ const NavBar = () => {
              About Us
             </Link>
             <Link
-              href="#"
+              href="/case-studies"
               onClick={() => setIsOpen(false)}
               className="block py-4 text-xl font-medium text-black border-b border-gray-100"
             >
@@ -336,7 +336,7 @@ const NavBar = () => {
             <Link
               href="#"
               onClick={() => setIsOpen(false)}
-              className="w-full py-4 text-center text-lg font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
+              className="w-full py-4 text-center text-lg font-medium text-white bg-black rounded-full hover:bg-black transition-colors"
             >
               Contact
             </Link>

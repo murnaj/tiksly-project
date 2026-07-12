@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -38,6 +39,7 @@ const itemVariants = {
 const CASE_STUDIES_DATA = [
   {
     id: "cs-1",
+    slug: "fatjoe-got-us-to-page-1",
     image: "/case-study/3.webp",
     tag: "Blogger Outreach",
     title: "fatjoe Got Us To Page 1",
@@ -47,6 +49,7 @@ const CASE_STUDIES_DATA = [
   },
   {
     id: "cs-2",
+    slug: "quality-links-and-easy-to-use",
     image: "/case-study/2.webp",
     tag: "Blogger Outreach",
     title: "Quality Links And Easy To Use",
@@ -56,6 +59,7 @@ const CASE_STUDIES_DATA = [
   },
   {
     id: "cs-3",
+    slug: "revenue-quintupled",
     image: "/case-study/1.webp",
     tag: "Blogger Outreach and Niche Edits",
     title: "Revenue Quintupled",
@@ -65,6 +69,7 @@ const CASE_STUDIES_DATA = [
   },
   {
     id: "cs-4",
+    slug: "lead-generation-doubled-in-3-months",
     image: "/case-study/4.webp",
     tag: "Blogger Outreach",
     title: "Lead Generation More Than Doubled In 3 Months",
@@ -74,6 +79,7 @@ const CASE_STUDIES_DATA = [
   },
   {
     id: "cs-5",
+    slug: "zero-to-12-leads-per-month",
     image: "/case-study/5.webp",
     tag: "Blogger Outreach and Niche Edits",
     title: "0 Leads To 12 Leads Per Month",
@@ -83,6 +89,7 @@ const CASE_STUDIES_DATA = [
   },
   {
     id: "cs-6",
+    slug: "zero-to-50-visits-per-day",
     image: "/case-study/6.webp",
     tag: "Blogger Outreach and Niche Edits",
     title: "0 To 50 Visits Per Day",
@@ -205,9 +212,12 @@ export default function CaseStudies() {
 
                       {/* Action Button */}
                       <div>
-                        <button className="w-full sm:w-auto px-6 py-2.5 bg-transparent border border-white/20 text-white rounded-full text-[14px] font-semibold hover:bg-white hover:text-black transition-all duration-200 cursor-pointer active:scale-95 shadow-sm">
+                        <Link
+                          href={`/case-studies/${study.slug}`}
+                          className="inline-block w-full sm:w-auto text-center px-6 py-2.5 bg-transparent border border-white/20 text-white rounded-full text-[14px] font-semibold hover:bg-white hover:text-black transition-all duration-200 active:scale-95 shadow-sm"
+                        >
                           {study.buttonText}
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </Card>

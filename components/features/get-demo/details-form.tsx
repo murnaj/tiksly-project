@@ -45,14 +45,15 @@ export function DetailsForm({
       <h2 className="text-lg font-semibold text-black">Enter Details</h2>
 
       <div className="flex flex-col gap-1.5">
-        <Label htmlFor="name">
-          Name <span className="text-gray-400">*</span>
+        <Label htmlFor="name" className="gap-0.5">
+          Name <span className="text-red-400">*</span>
         </Label>
         <Input
           id="name"
           placeholder="Jane Doe"
           aria-invalid={!!errors.name}
           {...register("name")}
+          className="h-11"
         />
         {errors.name && (
           <p className="text-[13px] text-destructive">{errors.name.message}</p>
@@ -60,8 +61,8 @@ export function DetailsForm({
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <Label htmlFor="email">
-          Email <span className="text-gray-400">*</span>
+        <Label htmlFor="email" className="gap-0.5">
+          Email <span className="text-red-400">*</span>
         </Label>
         <Input
           id="email"
@@ -69,6 +70,7 @@ export function DetailsForm({
           placeholder="jane@company.com"
           aria-invalid={!!errors.email}
           {...register("email")}
+          className="h-11"
         />
         {errors.email && (
           <p className="text-[13px] text-destructive">{errors.email.message}</p>
@@ -76,12 +78,13 @@ export function DetailsForm({
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <Label htmlFor="url">URL</Label>
+        <Label htmlFor="url" className="gap-0.5">URL</Label>
         <Input
           id="url"
           placeholder="https://yourcompany.com"
           aria-invalid={!!errors.url}
           {...register("url")}
+          className="h-11"
         />
         {errors.url && (
           <p className="text-[13px] text-destructive">{errors.url.message}</p>
@@ -89,14 +92,15 @@ export function DetailsForm({
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <Label htmlFor="source">
-          How did you hear about us? <span className="text-gray-400">*</span>
+        <Label htmlFor="source" className="gap-0.5">
+          How did you hear about us? <span className="text-red-400">*</span>
         </Label>
         <Input
           id="source"
           placeholder="Twitter, a friend, Google..."
           aria-invalid={!!errors.source}
           {...register("source")}
+          className="h-11"
         />
         {errors.source && (
           <p className="text-[13px] text-destructive">
@@ -108,7 +112,7 @@ export function DetailsForm({
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 h-11 w-full rounded-full bg-black text-[15px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:bg-gray-800 active:scale-95 disabled:opacity-60"
+        className="mt-2 h-11 w-full rounded-xl bg-black text-[15px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:bg-gray-800 active:scale-95 disabled:opacity-60"
       >
         {isSubmitting ? "Booking..." : "Join Demo"}
       </Button>

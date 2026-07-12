@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -12,6 +12,7 @@ export default function BookCall() {
   // Initialize to June 23, 2026 as shown in the mockup
   // const [date, setDate] = useState<Date | undefined>(new Date(2026, 5, 23));
 
+  // const router = useRouter();
   // Framer Motion Animation Variants
   const containerVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -48,15 +49,10 @@ export default function BookCall() {
         >
           <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible ">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              
               {/* Left Column: Avatar & Overlays */}
               <div className="relative flex items-center justify-center w-full max-w-120 mx-auto">
-                
                 {/* Avatar Box Background */}
-                <motion.div 
-                  variants={itemVariants}
-                  className="w-full z-10"
-                >
+                <motion.div variants={itemVariants} className="w-full z-10">
                   {/* Tom Avatar Image */}
                   <Image
                     src="/demo.webp"
@@ -131,36 +127,34 @@ export default function BookCall() {
                     }}
                   />
                 </motion.div> */}
-
               </div>
 
               {/* Right Column: Copy & Actions */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="flex flex-col gap-6 text-left max-w-xl lg:max-w-none"
               >
                 <h2 className="text-[28px] md:text-[42px] xl:text-[48px] font-semibold text-[#212120] leading-[1.12] tracking-tight">
                   Want to see Tiksly in action? Get a quick demo.
                 </h2>
-                
+
                 <p className="text-[14px] md:text-[16px] text-[#212120]/80 font-medium leading-relaxed">
-                  Hey, I&apos;m Tom! If you&apos;re curious about Tiksly, let&apos;s hop on a brief demo call. I&apos;ll show
-                  you how to turn any product link into instant video briefs and find creators for your
-                  category. Just pick a time that works for you and let&apos;s get started.
+                  Hey, I&apos;m Tom! If you&apos;re curious about Tiksly,
+                  let&apos;s hop on a brief demo call. I&apos;ll show you how to
+                  turn any product link into instant video briefs and find
+                  creators for your category. Just pick a time that works for
+                  you and let&apos;s get started.
                 </p>
 
                 <div className="pt-2">
-                  <button 
-                    className={cn(
-                      "px-7 py-3.5 bg-[#212120] text-white rounded-full text-[15px] font-semibold",
-                      "hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95  cursor-pointer"
-                    )}
+                  <Link
+                    href="/get-demo"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95"
                   >
-                    Book a call
-                  </button>
+                    Book a demo
+                  </Link>
                 </div>
               </motion.div>
-
             </div>
           </Card>
         </motion.div>

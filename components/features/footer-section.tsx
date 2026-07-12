@@ -75,12 +75,12 @@ const resourceLinks = [
 
 const earnMoneyLinks = [
   { label: "Become a creator", href: "#" },
-  { label: "Book a demo", href: "#" },
+  { label: "Book a demo", href: "/get-demo" },
 ];
 
 const companyLinks = [
-  { label: "About us", href: "#" },
-  { label: "Careers", href: "#" },
+  { label: "About us", href: "/about-us" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact us", href: "#" },
   { label: "hello@tiksly.app", href: "mailto:hello@tiksly.app" },
 ];

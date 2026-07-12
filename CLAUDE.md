@@ -21,6 +21,10 @@
 | Utility | clsx + tailwind-merge (`cn`) | latest |
 | Animation CSS | tw-animate-css | ^1.4.0 |
 | Scroll | react-scroll | ^1.9.3 (installed, not yet used) |
+| Carousel | embla-carousel-react | ^8.6.0 |
+| Slider (Reviews) | swiper | ^12.2.0 |
+| Forms | react-hook-form + @hookform/resolvers + zod | ^7.80.0 / ^5.4.0 / ^4.4.3 |
+| Date handling | date-fns + react-day-picker | ^4.4.0 / ^10.0.1 |
 
 ---
 
@@ -43,6 +47,8 @@ bun run lint     # eslint
 app/
   (home)/
     page.tsx           ← Home page (route group, URL: /)
+    about-us/page.tsx  ← About Us page (URL: /about-us)
+    get-demo/page.tsx  ← Get a Demo booking flow (URL: /get-demo)
   layout.tsx           ← Root layout — Geist + Inter fonts on <html>
   globals.css          ← Tailwind v4 + tw-animate-css + shadcn CSS vars
 
@@ -51,17 +57,26 @@ components/
     nav-bar.tsx
     hero-section.tsx
     brand-logos.tsx
+    creator-regions.tsx
     reviews.tsx
     platform-features.tsx
     our-process.tsx
     case-studies.tsx
+    testimonials.tsx
     faq-carousel.tsx
+    book-call.tsx
     footer-section.tsx
+    about-us/           ← Sections composed by app/(home)/about-us/page.tsx
+      overview.tsx, our-history.tsx, our-beliefs.tsx, our-agency.tsx,
+      our-team.tsx, our-partners.tsx, join-community.tsx
+    get-demo/            ← Multi-step booking flow composed by app/(home)/get-demo/page.tsx
+      get-demo-flow.tsx  ← step state machine (schedule → details → confirmed)
+      event-info-panel.tsx, schedule-step.tsx, timezone-select.tsx,
+      details-form.tsx, confirmed-panel.tsx
   ui/                  ← Atomic primitives (shadcn-generated)
-    button.tsx
-    card.tsx
-    tabs.tsx
-    carousel.tsx
+    button.tsx, card.tsx, tabs.tsx, carousel.tsx, calendar.tsx,
+    accordion.tsx, collapsible.tsx, dropdown-menu.tsx, input.tsx,
+    label.tsx, select.tsx
 
 lib/
   utils.ts             ← cn() helper (clsx + tailwind-merge)
@@ -103,16 +118,24 @@ public/
 ### Page Composition
 ```tsx
 // app/(home)/page.tsx — current state
-<div className="min-h-screen font-sans bg-white">
+<div className="min-h-screen bg-white">
   <NavBar />
   <main>
     <HeroSection />
     <BrandLogos />
+    <CreatorRegions />
+    <Reviews />
+    <PlatformFeatures />
     <OurProcess />
+    <CaseStudies />
+    <Testimonials />
+    <FaqCarousel />
+    <BookCall />
   </main>
   <FooterSection />
 </div>
 ```
+Every route (`/`, `/about-us`, `/get-demo`) follows the same shell: `<NavBar />` + `<main>` + `<FooterSection />`, with route-specific sections composed inside `<main>`.
 
 ---
 
@@ -268,6 +291,29 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 - `asChild` prop via `Slot.Root` from `radix-ui`
 - **Not used** for hero/nav CTAs — those use inline Tailwind classes directly
 
+### `CreatorRegions` (`components/features/creator-regions.tsx`)
+- `"use client"` — Framer Motion, inline flag SVGs (US, and others) defined as local function components
+- Marquee/region-badge style section highlighting creator geographies (mirrors the BrandLogos marquee pattern)
+
+### `Testimonials` (`components/features/testimonials.tsx`)
+- `"use client"` — shadcn `Carousel` (Embla) + Lucide `Star` icons + decorative wave-line SVGs
+- Star-rating testimonial cards in a carousel, same Embla API pattern as CaseStudies/FaqCarousel
+
+### `BookCall` (`components/features/book-call.tsx`)
+- `"use client"` — Framer Motion + shadcn `Card`
+- Final CTA section mocking a booking calendar UI (static mockup, not the real booking flow — see `GetDemoFlow` for that)
+
+### Get a Demo flow (`components/features/get-demo/`)
+- Entry point `get-demo-flow.tsx` is a `"use client"` step state machine: `"schedule" → "details" → "confirmed"`, driven by local `useState` (no form library at the orchestration level).
+- Left panel (`event-info-panel.tsx`) is static/persistent across steps and shows a back button once the user has progressed (`canGoBack` logic).
+- Right panel swaps step content via `AnimatePresence mode="wait"` using the same y-axis fade pattern as OurProcess tabs (0.45s, shared `EASE`).
+- `schedule-step.tsx` uses shadcn `Calendar` (react-day-picker) for date selection and `timezone-select.tsx` (shadcn `Select`) for timezone; timezone defaults to `Intl.DateTimeFormat().resolvedOptions().timeZone`.
+- `details-form.tsx` uses `react-hook-form` + `zod` (via `@hookform/resolvers`) for the contact-details form; exports a `DemoDetails` type consumed by the flow.
+- `confirmed-panel.tsx` renders the booking summary (name, date, time, timezone) after submission.
+
+### About Us sections (`components/features/about-us/`)
+- Seven section components (`overview`, `our-history`, `our-beliefs`, `our-agency`, `our-team`, `our-partners`, `join-community`) composed in that order by `app/(home)/about-us/page.tsx`. Each is a self-contained section following the same Framer Motion entrance-stagger conventions as the home page sections.
+
 ### `Tabs` (`components/ui/tabs.tsx`)
 - `"use client"` — wraps `radix-ui` `Tabs` primitive
 - Exports: `Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants`
@@ -277,7 +323,7 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 
 ---
 
-## 🗺️ Home Page Section Map
+## 🗺️ Site Map
 
 ```
 / (Home)
@@ -285,19 +331,27 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 ├── <main>
 │   ├── <HeroSection />     ← full-viewport hero, animated headline + badge
 │   ├── <BrandLogos />      ← infinite marquee of 7 brand logos
+│   ├── <CreatorRegions />  ← creator-geography badge/marquee section
 │   ├── <Reviews />         ← premium interactive UGC video reviews carousel
 │   ├── <PlatformFeatures />← 3 stylized feature boxes (Partnerships Hub, CreativeOps, Campaign ROI)
 │   ├── <OurProcess />      ← 4-tab platform showcase with mockup images
 │   ├── <CaseStudies />     ← responsive black case-study cards carousel (1 mobile, 2 tablet, 3 desktop)
-│   └── <FaqCarousel />     ← resources/FAQ cards carousel with navigation arrows (1 mobile, 2 tablet, 3 desktop)
+│   ├── <Testimonials />    ← star-rating testimonial carousel
+│   ├── <FaqCarousel />     ← resources/FAQ cards carousel with navigation arrows (1 mobile, 2 tablet, 3 desktop)
+│   └── <BookCall />        ← final CTA, booking-calendar mockup
 └── <FooterSection />       ← 5-col grid footer + black bottom bar
+
+/about-us
+├── <NavBar /> + <FooterSection />  ← shared shell
+└── <main>: Overview → OurHistory → OurBeliefs → OurAgency → OurTeam → OurPartners → JoinCommunity
+
+/get-demo
+├── <NavBar /> + <FooterSection />  ← shared shell
+└── <main>: <GetDemoFlow />  ← multi-step booking form (schedule → details → confirmed)
 ```
 
 **Sections yet to be built** (append here as they are added):
-- [ ] How it Works / Step-by-step
-- [ ] Testimonials / Success Stories
 - [ ] Pricing
-- [ ] Final CTA / Contact
 
 ---
 
@@ -335,3 +389,10 @@ Two identical `motion.div` rows, each animating `x: [0, "-100%"]` with `ease: "l
 - Configured left/right circular arrow navigation overlay buttons (`CarouselPrevious` and `CarouselNext`).
 - Set up loop autoplay scrolling every 4 seconds, with custom pointer drag-pause handlers on Embla events.
 - Integrated the component into [page.tsx](file:///g:/next-js/tiksly-project/app/(home)/page.tsx) between CaseStudies and BookCall.
+
+### 2026-07-11 — /init pass: docs caught up to current codebase
+- Found and documented components/sections built since the last log entry without a matching entry: `CreatorRegions`, `Testimonials`, `BookCall` (home page sections), plus two entirely new routes — `/about-us` (7 sections in `components/features/about-us/`) and `/get-demo` (multi-step booking flow in `components/features/get-demo/`, orchestrated by `get-demo-flow.tsx` as a `schedule → details → confirmed` state machine using shadcn `Calendar`/`Select` + `react-hook-form`/`zod`).
+- Updated tech stack table: added `embla-carousel-react`, `swiper`, `react-hook-form` + `@hookform/resolvers` + `zod`, `date-fns` + `react-day-picker` (all already in `package.json` but undocumented).
+- Updated file structure, page composition, and renamed "Home Page Section Map" → "Site Map" to cover all 3 routes.
+- Removed stale "yet to be built" items (How it Works, Testimonials, Final CTA/Contact — all now built); left Pricing as the only open item.
+- No code changes made — documentation-only pass.

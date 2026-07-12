@@ -329,7 +329,7 @@ export default function HeroSection() {
           >
             <Link
               href="/get-demo"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-semibold hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Book a demo
             </Link>
