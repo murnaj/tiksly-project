@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Store, User } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NavBar = () => {
@@ -10,6 +11,10 @@ const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -136,21 +141,30 @@ const NavBar = () => {
 
               <Link
                 href="/about-us"
-                className="text-[15px] font-medium px-2 py-1  hover:bg-[#ECECEC] rounded-full  transition-colors text-black"
+                className={cn(
+                  "text-[15px] font-medium px-2 py-1 hover:bg-[#ECECEC] rounded-full transition-colors text-black",
+                  isActive("/about-us") && "bg-[#ECECEC]",
+                )}
               >
                 About Us
               </Link>
               <Link
                 href="/case-studies"
-                className="text-[15px] font-medium px-2 py-1  hover:bg-[#ECECEC] rounded-full transition-colors text-black"
+                className={cn(
+                  "text-[15px] font-medium px-2 py-1 hover:bg-[#ECECEC] rounded-full transition-colors text-black",
+                  isActive("/case-studies") && "bg-[#ECECEC]",
+                )}
               >
                 Case Study
               </Link>
               <Link
-                href="#"
-                className="text-[15px] font-medium px-2 py-1  hover:bg-[#ECECEC] rounded-full transition-colors text-black"
+                href="/blog"
+                className={cn(
+                  "text-[15px] font-medium px-2 py-1 hover:bg-[#ECECEC] rounded-full transition-colors text-black",
+                  isActive("/blog") && "bg-[#ECECEC]",
+                )}
               >
-                Contact
+                Blog
               </Link>
             </div>
 
@@ -311,16 +325,32 @@ const NavBar = () => {
             <Link
               href="/about-us"
               onClick={() => setIsOpen(false)}
-              className="block py-4 text-xl font-medium text-black border-b border-gray-100"
+              className={cn(
+                "block py-4 px-3 -mx-3 rounded-xl text-xl font-medium text-black border-b border-gray-100",
+                isActive("/about-us") && "bg-[#ECECEC]",
+              )}
             >
              About Us
             </Link>
             <Link
               href="/case-studies"
               onClick={() => setIsOpen(false)}
-              className="block py-4 text-xl font-medium text-black border-b border-gray-100"
+              className={cn(
+                "block py-4 px-3 -mx-3 rounded-xl text-xl font-medium text-black border-b border-gray-100",
+                isActive("/case-studies") && "bg-[#ECECEC]",
+              )}
             >
               Case Studies
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block py-4 px-3 -mx-3 rounded-xl text-xl font-medium text-black border-b border-gray-100",
+                isActive("/blog") && "bg-[#ECECEC]",
+              )}
+            >
+              Blog
             </Link>
           </div>
 
