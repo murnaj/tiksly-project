@@ -39,12 +39,12 @@ const itemVariants = {
 const CASE_STUDIES_DATA = [
   {
     id: "cs-1",
-    slug: "fatjoe-got-us-to-page-1",
+    slug: "tiksly-got-us-to-page-1",
     image: "/case-study/3.webp",
     tag: "Blogger Outreach",
-    title: "fatjoe Got Us To Page 1",
+    title: "tiksly Got Us To Page 1",
     description:
-      "\"Pink-jobs.com is 14 years old, but it wasn't until we used fatjoe's blogger outreach to improve our rankings and get onto the 1s...\"",
+      "\"Pink-jobs.com is 14 years old, but it wasn't until we used tiksly's blogger outreach to improve our rankings and get onto the 1s...\"",
     buttonText: "View Case Study",
   },
   {
@@ -54,7 +54,7 @@ const CASE_STUDIES_DATA = [
     tag: "Blogger Outreach",
     title: "Quality Links And Easy To Use",
     description:
-      '"We\'ve been using fatjoe as our link-building partner to help improve and/or maintain our rankings for highly competitive keywords in f..."',
+      '"We\'ve been using tiksly as our link-building partner to help improve and/or maintain our rankings for highly competitive keywords in f..."',
     buttonText: "View Case Study",
   },
   {
@@ -94,7 +94,7 @@ const CASE_STUDIES_DATA = [
     tag: "Blogger Outreach and Niche Edits",
     title: "0 To 50 Visits Per Day",
     description:
-      '"Website is a consumer money saving website, traffic has gone from zero to around 50 users per day organically, only used fatjoe for backlink..."',
+      '"Website is a consumer money saving website, traffic has gone from zero to around 50 users per day organically, only used tiksly for backlink..."',
     buttonText: "View Case Study",
   },
 ];

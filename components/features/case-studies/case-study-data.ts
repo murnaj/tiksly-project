@@ -92,8 +92,8 @@ export const clients: Client[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "fatjoe-got-us-to-page-1",
-    title: "fatjoe Got Us To Page 1",
+    slug: "tiksly-got-us-to-page-1",
+    title: "tiksly Got Us To Page 1",
     tag: "Blogger Outreach",
     image: "/case-study/3.webp",
     clientSlug: "priya-shah",

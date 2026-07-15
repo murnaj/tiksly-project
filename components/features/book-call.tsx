@@ -76,7 +76,7 @@ export default function BookCall() {
 
   return (
     <>
-      <section className="bg-white py-14 md:py-20 overflow-hidden">
+      <section className="bg-white py-14 md:py-20">
         <div className="container mx-auto px-3 lg:px-4">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
             <Card className="bg-[#B4F656] bg-[radial-gradient(71.9%_62.07%_at_50%_50%,rgba(255,255,255,0)_0%,rgba(253,249,249,0.6)_100%)] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible">
