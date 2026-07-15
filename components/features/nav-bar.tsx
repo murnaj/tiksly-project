@@ -62,7 +62,12 @@ const NavBar = () => {
                 onMouseEnter={() => setIsDropdownOpen(true)}
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                <button className="flex items-center gap-2 px-2 py-1  hover:bg-[#ECECEC] rounded-full text-[15px] font-medium  text-black">
+                <button
+                  className={cn(
+                    "flex items-center gap-2 px-2 py-1 hover:bg-[#ECECEC] rounded-full text-[15px] font-medium text-black",
+                    isActive("/services") && "bg-[#ECECEC]",
+                  )}
+                >
                   Services <ChevronDown className={`w-4 h-4 text-gray-500 ${isDropdownOpen ? "rotate-180 transition-all duration-300" : " transition-all duration-300"}`} />
                 </button>
 
@@ -77,62 +82,30 @@ const NavBar = () => {
                 >
                   <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-8 grid grid-cols-[1fr_1fr] gap-8 border border-gray-100 cursor-default">
                     {/* Column 1 */}
-                    <div className="flex flex-col gap-8">
-                      <div>
-                        <h3 className="text-gray-400 text-sm font-medium mb-4">
-                          By feature
-                        </h3>
-
-                        <div className="flex flex-col gap-6">
-                          <Link href="#" className="group">
-                            <h4 className="text-black font-semibold mb-1  transition-colors">
-                              Partnerships hub
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-gray-400 text-sm font-medium">Our Services</h3>
+                      <div className="flex flex-col gap-3">
+                        {["Account Creation", "Virtual Assistance", "Influencer Outreach", "TikTok Shop Ads"].map((service) => (
+                          <Link key={service} href="/services" className="group">
+                            <h4 className="text-black font-semibold transition-colors group-hover:text-gray-500">
+                              {service}
                             </h4>
-                            <p className="text-gray-500 text-sm leading-relaxed">
-                              Access thousands of vetted creators to form
-                              partnerships that last.
-                            </p>
                           </Link>
-
-                          <Link href="#" className="group">
-                            <h4 className="text-black font-semibold mb-1  transition-colors">
-                              CreativeOps
-                            </h4>
-                            <p className="text-gray-500 text-sm leading-relaxed">
-                              The first anti-guesswork system for creator
-                              marketing.
-                            </p>
-                          </Link>
-                        </div>
+                        ))}
                       </div>
                     </div>
 
                     {/* Column 2 */}
-                    <div className="flex flex-col gap-8">
-                      <div>
-                        <h3 className="text-gray-400 text-sm font-medium mb-4">
-                          By business
-                        </h3>
-
-                        <div className="flex flex-col gap-6">
-                          <Link href="#" className="group">
-                            <h4 className="text-black font-semibold mb-1  transition-colors">
-                              For Brands
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-gray-400 text-sm font-medium">&nbsp;</h3>
+                      <div className="flex flex-col gap-3">
+                        {["Violation Removal", "Product Category Approval", "1:1 Consultation"].map((service) => (
+                          <Link key={service} href="/services" className="group">
+                            <h4 className="text-black font-semibold transition-colors group-hover:text-gray-500">
+                              {service}
                             </h4>
-                            <p className="text-gray-500 text-sm leading-relaxed">
-                              Physical and digital products.
-                            </p>
                           </Link>
-
-                          <Link href="#" className="group">
-                            <h4 className="text-black font-semibold mb-1 transition-colors">
-                              For Agencies
-                            </h4>
-                            <p className="text-gray-500 text-sm leading-relaxed">
-                              Performance marketing teams.
-                            </p>
-                          </Link>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -256,9 +229,12 @@ const NavBar = () => {
             <div className="border-b border-gray-100">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center justify-between w-full py-4 text-xl font-medium text-black"
+                className={cn(
+                  "flex items-center justify-between w-full py-4 px-3 -mx-3 rounded-xl text-xl font-medium text-black",
+                  isActive("/services") && "bg-[#ECECEC]",
+                )}
               >
-                Platform
+                Services
                 <ChevronDown
                   className={cn(
                     "w-5 h-5 transition-transform duration-300",
@@ -275,49 +251,25 @@ const NavBar = () => {
                     : "grid-rows-[0fr] opacity-0",
                 )}
               >
-                <div className="overflow-hidden flex flex-col gap-6 pl-4">
-                  <div>
-                    <h3 className="text-gray-400 text-sm font-medium mb-3 mt-2">
-                      By feature
-                    </h3>
-                    <div className="flex flex-col gap-4">
-                      <Link
-                        href="#"
-                        className="text-black font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        Partnerships hub
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-black font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        CreativeOps
-                      </Link>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-gray-400 text-sm font-medium mb-3">
-                      By business
-                    </h3>
-                    <div className="flex flex-col gap-4">
-                      <Link
-                        href="#"
-                        className="text-black font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        For Brands
-                      </Link>
-                      <Link
-                        href="#"
-                        className="text-black font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        For Agencies
-                      </Link>
-                    </div>
-                  </div>
+                <div className="overflow-hidden flex flex-col pl-2 pb-2">
+                  {[
+                    "Account Creation",
+                    "Virtual Assistance",
+                    "Influencer Outreach",
+                    "TikTok Shop Ads",
+                    "Violation Removal",
+                    "Product Category Approval",
+                    "1:1 Consultation",
+                  ].map((service, i) => (
+                    <Link
+                      key={i}
+                      href="/services"
+                      onClick={() => setIsOpen(false)}
+                      className="text-[15px] font-medium text-black py-2.5 border-b border-gray-50 last:border-0 hover:text-gray-500 transition-colors"
+                    >
+                      {service}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
