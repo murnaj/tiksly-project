@@ -24,50 +24,6 @@ const item: Variants = {
   },
 };
 
-/* ── Official Brand Partner SVGs ───────────────────────────────────────── */
-
-function MetaLogoSVG() {
-  return (
-    <div className="flex items-center gap-1.5 font-bold text-black select-none">
-      <svg width="22" height="18" viewBox="0 0 22 18" fill="none" className="h-5 md:h-6 w-auto shrink-0">
-        <path
-          d="M12.65 1.13C11.59 2.02 10.67 3.33 9.87 4.51L8.73 6.21C8.05 7.22 7.05 8.82 6.19 9.96C5.13 11.39 4.57 11.53 3.97 11.53C3.5 11.53 3.04 11.33 2.73 10.84C2.5 10.48 2.32 9.87 2.32 9.08H0C0 10.22 0.25 11.29 0.76 12.1C1.38 13.1 2.38 13.77 3.97 13.77C5.31 13.77 6.32 13.19 7.52 11.66C8.19 10.78 8.54 10.25 9.9 7.93L10.57 6.77C11.19 5.72 11.73 4.78 12.27 4.02C13.27 2.58 14.16 1.77 15.27 1.77C16.29 1.77 17.23 2.43 17.94 3.5C18.96 5.01 19.42 7.12 19.42 9.03C19.42 10.36 19.09 11.53 17.77 11.53V13.77C19.31 13.77 20.22 12.98 20.69 12.2C21.18 11.39 21.46 10.36 21.46 8.96C21.46 6.61 20.85 4.34 19.6 2.53C18.45 0.88 16.95 0 15.38 0C14.45 0 13.51 0.4 12.65 1.13Z"
-          fill="#0081FB"
-        />
-      </svg>
-      <span className="tracking-tight text-black font-extrabold text-[14px] md:text-[15px]">Meta</span>
-    </div>
-  );
-}
-
-function TikTokShopSVG() {
-  return (
-    <div className="flex items-center gap-1.5 font-bold text-black select-none">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="h-4 md:h-5 w-auto shrink-0">
-        <path
-          d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.895 2.895 0 0 1 3.208-4.508V9.41a6.34 6.34 0 0 0-1.042-.087 6.34 6.34 0 1 0 6.342 6.342V8.92a8.213 8.213 0 0 0 4.908 1.593v-3.827z"
-          fill="#000000"
-        />
-      </svg>
-      <span className="tracking-tight text-black font-extrabold text-[14px] md:text-[15px]">TikTok Shop</span>
-    </div>
-  );
-}
-
-function YouTubeShortsSVG() {
-  return (
-    <div className="flex items-center gap-1.5 font-bold text-black select-none">
-      <svg width="20" height="24" viewBox="0 0 24 28" fill="none" className="h-4 md:h-5 w-auto shrink-0">
-        <path
-          d="M17.77 10.32l-1.2-.5 1.2-.5c1.74-.72 2.91-2.47 2.91-4.42 0-2.62-2.13-4.75-4.75-4.75-1.03 0-2.02.34-2.82.96L4.54 7.42C2.96 8.64 2 10.55 2 12.58c0 1.94.88 3.76 2.41 4.99l1.2.5-1.2.5C2.67 19.29 1.5 21.04 1.5 22.99c0 2.62 2.13 4.75 4.75 4.75 1.03 0 2.02-.34 2.82-.96l8.57-6.31c1.58-1.22 2.54-3.13 2.54-5.16 0-1.94-.88-3.76-2.41-4.99zM9.5 16.5v-9l7 4.5-7 4.5z"
-          fill="#FF0000"
-        />
-      </svg>
-      <span className="tracking-tight text-black font-extrabold text-[14px] md:text-[15px]">YouTube Shorts</span>
-    </div>
-  );
-}
-
 export default function HeroSection() {
   return (
     <section className="relative overflow-visible min-h-screen flex items-center">
@@ -112,10 +68,28 @@ export default function HeroSection() {
               Official Partners:
             </span>
 
-            <div className="flex items-center gap-5 md:gap-7">
-              <MetaLogoSVG />
-              <TikTokShopSVG />
-              <YouTubeShortsSVG />
+            <div className="flex items-center gap-4 md:gap-6">
+              <Image
+                src="/logos/meta.svg"
+                alt="Meta"
+                width={85}
+                height={22}
+                className="h-5 md:h-6 w-auto object-contain"
+              />
+              <Image
+                src="/logos/tiktok-shop.svg"
+                alt="Tiktok Shop"
+                width={95}
+                height={22}
+                className="h-5 md:h-6 w-auto object-contain"
+              />
+              <Image
+                src="/logos/youtube.svg"
+                alt="Youtube Shorts"
+                width={95}
+                height={22}
+                className="h-5 md:h-6 w-auto object-contain"
+              />
             </div>
           </motion.div>
 
