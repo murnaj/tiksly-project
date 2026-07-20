@@ -213,10 +213,10 @@ export default function FooterSection() {
 
             {/* Legal */}
             <div className="flex items-center gap-6 text-[14px] order-2 md:order-3">
-              <Link href="#" className="hover:text-white transition-colors duration-200">
+              <Link href="/terms-of-service" className="hover:text-white transition-colors duration-200">
                 Terms Of Service
               </Link>
-              <Link href="#" className="hover:text-white transition-colors duration-200">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">
                 Privacy Policy
               </Link>
             </div>
