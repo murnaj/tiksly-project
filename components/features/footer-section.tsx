@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail, Phone, MapPin, Building2 } from "lucide-react";
 
 /* ── SVG Icons ───────────────────────────────────────────────────────── */
 
@@ -71,10 +72,10 @@ function PinterestIcon() {
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
 const servicesLinks = [
-  { label: "Partnerships hub", href: "#" },
-  { label: "CreativeOps", href: "#" },
-  { label: "For Brands", href: "#" },
-  { label: "For Agencies", href: "#" },
+  { label: "Shop Management", href: "#" },
+  { label: "Affiliate & Creator Management", href: "#" },
+  { label: "TikTok Shop Ads", href: "#" },
+  { label: "Coaching & Consultation", href: "#" },
 ];
 
 const resourceLinks = [
@@ -83,16 +84,10 @@ const resourceLinks = [
   { label: "Checklists", href: "#" },
 ];
 
-const earnMoneyLinks = [
-  { label: "Become a creator", href: "#" },
-  { label: "Book a demo", href: "/get-demo" },
-];
 
 const companyLinks = [
   { label: "About us", href: "/about-us" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact us", href: "#" },
-  { label: "hello@tiksly.app", href: "mailto:hello@tiksly.app" },
 ];
 
 const socialLinks: { label: string; href: string; icon: React.ReactNode }[] = [
@@ -112,18 +107,68 @@ export default function FooterSection() {
       <div className="container mx-auto px-3 lg:px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-10 md:gap-12">
           
-          {/* Logo & Address */}
+          {/* Logo & Address / Contact */}
           <div className="flex flex-col gap-4">
             <span className="text-[28px] font-extrabold tracking-tighter text-black leading-none">
               tiksly
             </span>
-            <p className="text-gray-500 text-[15px] leading-relaxed max-w-64">
-              584 Castro St. 2163,
-              <br />
-              San Francisco, CA 94114,
-              <br />
-              United States
-            </p>
+
+            <div className="flex flex-col gap-3.5 text-[14px]">
+              {/* Email Pill Badge */}
+              <a
+                href="mailto:sales@tiksly.com"
+                className="inline-flex items-center gap-2.5 px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-100 rounded-xl text-black font-semibold text-[13px] transition-colors w-fit shadow-2xs"
+              >
+                <div className="w-6 h-6 rounded-lg bg-[#BCF96A] flex items-center justify-center shrink-0">
+                  <Mail className="w-3.5 h-3.5 text-black" />
+                </div>
+                <span>sales@tiksly.com</span>
+              </a>
+
+              {/* Phone Numbers */}
+              <div className="flex flex-col gap-1.5 pl-0.5">
+                <a
+                  href="tel:+14092694915"
+                  className="inline-flex items-center gap-2 text-[13px] text-gray-700 hover:text-black font-medium transition-colors"
+                >
+                  <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded-md font-bold text-gray-600">US</span>
+                  <span>+1 (409) 269-4915</span>
+                </a>
+                <a
+                  href="tel:+447412066394"
+                  className="inline-flex items-center gap-2 text-[13px] text-gray-700 hover:text-black font-medium transition-colors"
+                >
+                  <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded-md font-bold text-gray-600">GB</span>
+                  <span>+44 7412 066394</span>
+                </a>
+              </div>
+
+              {/* USA Office Card */}
+              <div className="bg-gray-50/90 border border-gray-100 rounded-2xl p-3 flex flex-col gap-1">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
+                  <Building2 className="w-3.5 h-3.5 text-[#0081FB]" />
+                  <span>USA Office</span>
+                </div>
+                <p className="text-gray-500 text-[12px] leading-relaxed">
+                  1001 S Main St, Suite 500,
+                  <br />
+                  Kalispell, MT 59901, USA
+                </p>
+              </div>
+
+              {/* UK Office Card */}
+              <div className="bg-gray-50/90 border border-gray-100 rounded-2xl p-3 flex flex-col gap-1">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
+                  <MapPin className="w-3.5 h-3.5 text-[#BCF96A]" />
+                  <span>UK Office</span>
+                </div>
+                <p className="text-gray-500 text-[12px] leading-relaxed">
+                  Unit 103 Chambers Business Centre,
+                  <br />
+                  Chapel Road, Oldham OL8 4QQ, UK
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Services */}
@@ -145,20 +190,6 @@ export default function FooterSection() {
             <h3 className="text-[16px] font-semibold text-black mb-5 tracking-tight">Resources</h3>
             <ul className="flex flex-col gap-3.5">
               {resourceLinks.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-[15px] text-gray-600 hover:text-black transition-colors duration-200">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Earn Money */}
-          <div>
-            <h3 className="text-[16px] font-semibold text-black mb-5 tracking-tight">Earn Money</h3>
-            <ul className="flex flex-col gap-3.5">
-              {earnMoneyLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-[15px] text-gray-600 hover:text-black transition-colors duration-200">
                     {link.label}

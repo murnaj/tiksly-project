@@ -54,6 +54,16 @@ export default function OurProcess() {
   return (
     <section className="w-full bg-white pt-14 md:pt-20 ">
       <div className="container mx-auto px-3 lg:px-4">
+          {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 px-2">
+          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
+            Onboarding Process
+          </h2>
+          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
+              Our seamless onboarding process aligns you with the right creators, manages
+            contracts, briefs campaigns, and tracks results—all from one unified dashboard.
+          </p>
+        </div>
         {/* Shadcn Tabs Root */}
         <Tabs
           defaultValue={processTabs[0].id}
