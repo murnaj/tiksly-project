@@ -214,6 +214,41 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
+          <motion.div
+            variants={item}
+            className="flex items-center justify-center gap-3 flex-wrap mb-4"
+          >
+            {/* UK TSP Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-3 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
+              <svg className="w-5 h-5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
+                <clipPath id="uk-flag">
+                  <path d="M0,0 v30 h60 v-30 z" />
+                </clipPath>
+                <clipPath id="uk-t">
+                  <path d="M30,15 h30 v15 z M30,15 h-30 v-15 z M30,15 h-30 v15 z M30,15 h30 v-15 z" />
+                </clipPath>
+                <g clipPath="url(#uk-flag)">
+                  <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                  <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+                  <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#uk-t)" stroke="#C8102E" strokeWidth="4" />
+                  <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
+                  <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+                </g>
+              </svg>
+              <span>UK TSP: <strong className="font-semibold text-black">7494315872973719280</strong></span>
+            </div>
+
+            {/* USA TSP Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-3 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
+              <svg className="w-5 h-5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
+                <rect width="60" height="30" fill="#B22234" />
+                <path d="M0,4.6h60M0,11.5h60M0,18.5h60M0,25.4h60" stroke="#fff" strokeWidth="2.3" />
+                <rect width="24" height="16.2" fill="#3C3B6E" />
+              </svg>
+              <span>USA TSP: <strong className="font-semibold text-black">7494489601127056460</strong></span>
+            </div>
+          </motion.div>
+
           {/* Main headline */}
           <motion.h1
             variants={item}
@@ -239,7 +274,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <motion.div
             variants={item}
-            className="flex items-center justify-center gap-3 flex-wrap mb-16"
+            className="mb-16"
           >
             <Link
               href="/get-demo"

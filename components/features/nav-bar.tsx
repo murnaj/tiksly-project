@@ -198,7 +198,7 @@ const NavBar = () => {
                                 href="/services"
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
-                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
+                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
                                   <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col gap-0.5 flex-1 pr-4">
@@ -235,7 +235,7 @@ const NavBar = () => {
                                 href="/services"
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
-                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
+                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
                                   <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col gap-0.5 flex-1 pr-4">
@@ -272,7 +272,7 @@ const NavBar = () => {
                                 href="/services"
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
-                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
+                                <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
                                   <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col gap-0.5 flex-1 pr-4">
