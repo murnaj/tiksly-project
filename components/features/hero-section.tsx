@@ -219,7 +219,7 @@ export default function HeroSection() {
             className="flex items-center justify-center gap-3 flex-wrap mb-4"
           >
             {/* UK TSP Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-3 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
+            <div className="inline-flex items-center gap-2 px-1.5 py-1.5 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
               <svg className="w-5 h-5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
                 <clipPath id="uk-flag">
                   <path d="M0,0 v30 h60 v-30 z" />
@@ -239,7 +239,7 @@ export default function HeroSection() {
             </div>
 
             {/* USA TSP Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-3 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
+            <div className="inline-flex items-center gap-2 px-1.5 py-1.5 bg-[#F5F5F5] border border-gray-200/80 rounded-full text-[13px] font-medium text-black shadow-2xs hover:bg-gray-100 transition-colors">
               <svg className="w-5 h-5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
                 <rect width="60" height="30" fill="#B22234" />
                 <path d="M0,4.6h60M0,11.5h60M0,18.5h60M0,25.4h60" stroke="#fff" strokeWidth="2.3" />

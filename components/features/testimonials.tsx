@@ -42,21 +42,24 @@ function RightWavyLine() {
   );
 }
 
-// Shopper Approved Custom SVG Logo Representation
-function ShopperApprovedLogo() {
+// Trustpilot Custom SVG Logo & Link
+function TrustpilotLogo() {
   return (
-    <div className="flex items-center gap-1.5 select-none">
-      <div className="relative flex items-center justify-center bg-[#0F2244] p-1 rounded-md">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L14.8 8.2L21.6 9L16.5 13.6L18 20.3L12 16.8L6 20.3L7.5 13.6L2.4 9L9.2 8.2L12 2Z" fill="#FFA500" />
-          <path d="M7.5 11.5L10.5 14.5L17.5 7.5" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <a
+      href="https://www.trustpilot.com/review/tiksly.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 select-none hover:opacity-85 transition-opacity"
+    >
+      <div className="w-6 h-6 bg-[#00B67A] flex items-center justify-center rounded-xs shrink-0">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
         </svg>
       </div>
-      <div className="flex flex-col items-start leading-none text-left">
-        <span className="text-[12px] font-extrabold text-[#0D0D0D] tracking-tighter">Shopper</span>
-        <span className="text-[10px] font-bold text-[#FFA500] tracking-tight uppercase">Approved</span>
-      </div>
-    </div>
+      <span className="text-[15px] font-bold text-black tracking-tight">
+        Trustpilot
+      </span>
+    </a>
   );
 }
 
@@ -242,15 +245,17 @@ export default function Testimonials() {
           <div className="flex">
             <Card className="border border-gray-100 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center  w-full min-h-55 select-none">
               <span className="text-[20px] font-bold text-[#0D0D0D] mb-1.5">Excellent</span>
-              <div className="flex gap-0.5 mb-2 text-[#FFA500]">
+              <div className="flex gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
+                  <div key={i} className="w-5 h-5 bg-[#00B67A] flex items-center justify-center rounded-xs">
+                    <Star className="w-3.5 h-3.5 fill-white stroke-none" />
+                  </div>
                 ))}
               </div>
-              <span className="text-[12px] font-semibold text-gray-400 mb-6">
-                Based on 1612 reviews
+              <span className="text-[12px] font-semibold text-gray-400 mb-5">
+                Based on 1,612 reviews
               </span>
-              <ShopperApprovedLogo />
+              <TrustpilotLogo />
             </Card>
           </div>
 

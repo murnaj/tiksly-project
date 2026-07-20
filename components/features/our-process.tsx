@@ -7,22 +7,22 @@ import { useState } from "react";
 
 const processTabs = [
   {
-    id: "manage",
-    label: "Manage",
-    title: "MANAGE PARTNERS",
-    description:
-      "Organize all your creator relationships in one unified CRM. Track conversations, manage contracts, upload briefs, and keep your communication streamlined in a single dashboard.",
-    ctaText: "Explore Manage",
-    ctaLink: "#",
-    image: "/process/videoframe_9629.png",
-  },
-  {
     id: "discover",
     label: "Discover",
     title: "DISCOVER TALENT",
     description:
       "Find the perfect creators for your brand from a database of millions. Filter by engagement rate, niche, location, audience demographics, and past performance metrics.",
     ctaText: "Explore Discover",
+    ctaLink: "#",
+    image: "/process/videoframe_9629.png",
+  },
+  {
+    id: "manage",
+    label: "Manage",
+    title: "MANAGE PARTNERS",
+    description:
+      "Organize all your creator relationships in one unified CRM. Track conversations, manage contracts, upload briefs, and keep your communication streamlined in a single dashboard.",
+    ctaText: "Explore Manage",
     ctaLink: "#",
     image: "/process/videoframe_3419.png",
   },
@@ -37,26 +37,26 @@ const processTabs = [
     image: "/process/videoframe_554.png",
   },
   {
-    id: "pay",
-    label: "Pay",
-    title: "PAY PARTNERS",
+    id: "results",
+    label: "Results",
+    title: "TRACK RESULTS",
     description:
-      "Tiksly bundles all creator payouts into a single invoice. Pay out across 180+ countries and set your own commissions. Creators get paid fast, and they actually enjoy the experience.",
-    ctaText: "Explore Pay",
+      "Monitor your return on ad spend (ROAS) and creator performance in real-time. Link Meta and TikTok ads managers directly to track impressions, conversions, and actual campaign profitability.",
+    ctaText: "Explore Results",
     ctaLink: "#",
     image: "/process/videoframe_2364.png",
   },
 ];
 
 export default function OurProcess() {
-  const [activeTab, setActiveTab] = useState("pay");
+  const [activeTab, setActiveTab] = useState(processTabs[0].id);
 
   return (
     <section className="w-full bg-white pt-14 md:pt-20 ">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Shadcn Tabs Root */}
         <Tabs
-          defaultValue="pay"
+          defaultValue={processTabs[0].id}
           value={activeTab}
           onValueChange={setActiveTab}
           className="w-full gap-0"
