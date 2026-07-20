@@ -117,61 +117,55 @@ export default function FooterSection() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 text-[14px]">
-              {/* Email Pill Badge */}
-              <a
-                href="mailto:sales@tiksly.com"
-                className="inline-flex items-center gap-2.5 px-3.5 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-100 rounded-xl text-black font-semibold text-[13px] transition-colors w-fit shadow-2xs"
-              >
-                <div className="w-6 h-6 rounded-lg bg-[#BCF96A] flex items-center justify-center shrink-0">
-                  <Mail className="w-3.5 h-3.5 text-black" />
-                </div>
-                <span>sales@tiksly.com</span>
-              </a>
+            <div className="flex flex-col gap-4 text-[14px]">
+              {/* Email & Phone Contact Block */}
+              <div className="flex flex-col gap-2.5">
+                <a
+                  href="mailto:sales@tiksly.com"
+                  className="inline-flex items-center gap-2 font-semibold text-black hover:text-[#0081FB] transition-colors w-fit text-[14px]"
+                >
+                  <Mail className="w-4 h-4 text-black shrink-0" />
+                  <span>sales@tiksly.com</span>
+                </a>
 
-              {/* Phone Numbers */}
-              <div className="flex flex-wrap items-center gap-4 text-[13px] pt-1">
-                <a
-                  href="tel:+14092694915"
-                  className="inline-flex items-center gap-2 text-gray-700 hover:text-black font-medium transition-colors"
-                >
-                  <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded-md font-bold text-gray-600">US</span>
-                  <span>+1 (409) 269-4915</span>
-                </a>
-                <a
-                  href="tel:+447412066394"
-                  className="inline-flex items-center gap-2 text-gray-700 hover:text-black font-medium transition-colors"
-                >
-                  <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded-md font-bold text-gray-600">GB</span>
-                  <span>+44 7412 066394</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-3 text-[13px] text-gray-600">
+                  <a
+                    href="tel:+14092694915"
+                    className="inline-flex items-center gap-1.5 hover:text-black transition-colors"
+                  >
+                    <span className="font-bold text-black text-xs">US</span>
+                    <span>+1 (409) 269-4915</span>
+                  </a>
+                  <span className="text-gray-300">•</span>
+                  <a
+                    href="tel:+447412066394"
+                    className="inline-flex items-center gap-1.5 hover:text-black transition-colors"
+                  >
+                    <span className="font-bold text-black text-xs">UK</span>
+                    <span>+44 7412 066394</span>
+                  </a>
+                </div>
               </div>
 
-              {/* USA & UK Offices Side by Side Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {/* USA Office Card */}
-                <div className="bg-gray-50/90 border border-gray-100 rounded-2xl p-3.5 flex flex-col gap-1">
+              {/* Office Addresses - Clean stacked layout with left border accents */}
+              <div className="flex flex-col gap-3.5 pt-2">
+                <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
-                    <Building2 className="w-3.5 h-3.5 text-[#0081FB]" />
-                    <span>USA Office</span>
+                    <Building2 className="w-3.5 h-3.5 text-black shrink-0" />
+                    <span>USA Headquarters</span>
                   </div>
-                  <p className="text-gray-500 text-[12px] leading-relaxed">
-                    1001 S Main St, Suite 500,
-                    <br />
-                    Kalispell, MT 59901, USA
+                  <p className="text-gray-500 text-[13px] leading-relaxed">
+                    1001 S Main St, Suite 500, Kalispell, MT 59901, USA
                   </p>
                 </div>
 
-                {/* UK Office Card */}
-                <div className="bg-gray-50/90 border border-gray-100 rounded-2xl p-3.5 flex flex-col gap-1">
+                <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
-                    <MapPin className="w-3.5 h-3.5 text-[#BCF96A]" />
+                    <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
                     <span>UK Office</span>
                   </div>
-                  <p className="text-gray-500 text-[12px] leading-relaxed">
-                    Unit 103 Chambers Business Ctr,
-                    <br />
-                    Chapel Rd, Oldham OL8 4QQ, UK
+                  <p className="text-gray-500 text-[13px] leading-relaxed">
+                    Unit 103 Chambers Business Centre, Chapel Road, Oldham OL8 4QQ, UK
                   </p>
                 </div>
               </div>
