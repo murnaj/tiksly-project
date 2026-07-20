@@ -13,7 +13,7 @@ import Testimonials from "@/components/features/testimonials";
 
 export default function Home() {
   return (
-    <div className="min-h-screen  bg-white">
+    <div className="min-h-screen bg-white">
       <NavBar />
       <main>
         <HeroSection />

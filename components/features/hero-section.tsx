@@ -25,82 +25,6 @@ const item: Variants = {
 };
 
 export default function HeroSection() {
-  const h1Ref = useRef<HTMLHeadingElement>(null);
-  const creatorRef = useRef<HTMLSpanElement>(null);
-  const intoRef = useRef<HTMLSpanElement>(null);
-  const mostRef = useRef<HTMLSpanElement>(null);
-  const channelRef = useRef<HTMLSpanElement>(null);
-  const [badgeScope, badgeAnimate] = useAnimate<HTMLSpanElement>();
-  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-
-  useEffect(() => {
-    const h1 = h1Ref.current;
-    const badge = badgeScope.current;
-    const channel = channelRef.current;
-    const most = mostRef.current;
-    const into = intoRef.current;
-    const creator = creatorRef.current;
-
-    if (!h1 || !badge || !channel || !most || !into || !creator) return;
-
-    let mounted = true;
-    let firstTick = true;
-
-    const getPos = (word: HTMLElement) => {
-      const h1Rect = h1.getBoundingClientRect();
-      const wRect = word.getBoundingClientRect();
-      const bRect = badge.getBoundingClientRect();
-      return {
-        x: wRect.left - h1Rect.left + wRect.width / 2 - bRect.width / 2,
-        y: wRect.top - h1Rect.top + wRect.height / 2 - bRect.height / 2,
-      };
-    };
-
-    // cycle: channel → most → into → creator → channel → ...
-    const words = [channel, most, into, creator];
-    let idx = 0;
-
-    const tick = () => {
-      if (!mounted) return;
-      const pos = getPos(words[idx]);
-
-      if (firstTick) {
-        firstTick = false;
-        badgeAnimate(
-          badge,
-          { x: pos.x, y: pos.y, opacity: 1 },
-          { duration: 0 },
-        );
-        idx = (idx + 1) % words.length;
-        timerRef.current = setTimeout(tick, 1800);
-        return;
-      }
-
-      badgeAnimate(
-        badge,
-        { x: pos.x, y: pos.y },
-        {
-          duration: 0.75,
-          ease: [0.22, 1, 0.36, 1],
-        },
-      )
-        .then(() => {
-          if (!mounted) return;
-          idx = (idx + 1) % words.length;
-          timerRef.current = setTimeout(tick, 1800);
-        })
-        .catch(() => {});
-    };
-
-    // wait for the h1 stagger animation to finish (~1.2 s) before starting
-    timerRef.current = setTimeout(tick, 1200);
-
-    return () => {
-      mounted = false;
-      clearTimeout(timerRef.current);
-    };
-  }, [badgeAnimate, badgeScope]);
-
   return (
     <section className="relative overflow-visible min-h-screen flex items-center">
       {/* Left organic shape — full height so it reaches behind the fixed navbar */}
@@ -292,22 +216,12 @@ export default function HeroSection() {
 
           {/* Main headline */}
           <motion.h1
-            ref={h1Ref}
             variants={item}
             className="relative md:text-[48px] xl:text-[52px] text-[30px] font-normal tracking-tighter text-black leading-[1.12] mb-7 max-w-4xl mx-auto"
           >
-            Turn <span ref={creatorRef}>creator</span> marketing{" "}
-            <span ref={intoRef}>into</span> <br className="hidden md:inline" />
-            your <span ref={mostRef}>most</span> profitable growth{" "}
-            <span ref={channelRef}>channel</span>
-            {/* Floating tiksly badge — animates between words automatically */}
-            <span
-              ref={badgeScope}
-              className="text-[25px] md:text-[35px] absolute inline-flex items-center bg-[#BCF96A] text-black rounded-full px-3 py-[0.1em] font-extrabold pointer-events-none will-change-transform whitespace-nowrap"
-              style={{ opacity: 0, top: 0, left: 0 }}
-            >
-              tiksly
-            </span>
+            Turn creator marketing into{" "}
+            <br className="hidden md:inline" /> your most profitable growth{" "}
+            channel
           </motion.h1>
 
           {/* Description */}
