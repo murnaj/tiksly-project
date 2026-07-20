@@ -57,6 +57,17 @@ function YouTubeIcon() {
   );
 }
 
+function PinterestIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.065-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.091.379-.293 1.189-.333 1.357-.053.225-.176.273-.406.165-1.513-.704-2.46-2.915-2.46-4.693 0-3.821 2.775-7.332 8.01-7.332 4.206 0 7.476 2.997 7.476 7.003 0 4.181-2.636 7.545-6.294 7.545-1.229 0-2.385-.639-2.78-1.392l-.758 2.888c-.274 1.054-1.018 2.374-1.517 3.183C9.691 23.87 10.824 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"
+      />
+    </svg>
+  );
+}
+
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
 const servicesLinks = [
@@ -67,10 +78,9 @@ const servicesLinks = [
 ];
 
 const resourceLinks = [
-  { label: "Creators", href: "#" },
-  { label: "Help center", href: "#" },
-  { label: "Success stories", href: "#" },
-  { label: "Creative insider", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "#" },
+  { label: "Checklists", href: "#" },
 ];
 
 const earnMoneyLinks = [
@@ -86,11 +96,11 @@ const companyLinks = [
 ];
 
 const socialLinks: { label: string; href: string; icon: React.ReactNode }[] = [
-  { label: "Facebook", href: "#", icon: <FacebookIcon /> },
-  { label: "Instagram", href: "#", icon: <InstagramIcon /> },
-  { label: "LinkedIn", href: "#", icon: <LinkedInIcon /> },
-  { label: "X", href: "#", icon: <XIcon /> },
-  { label: "YouTube", href: "#", icon: <YouTubeIcon /> },
+  { label: "Facebook", href: "https://www.facebook.com/tiksly", icon: <FacebookIcon /> },
+  { label: "Instagram", href: "https://www.instagram.com/tiksly_services/", icon: <InstagramIcon /> },
+  { label: "Pinterest", href: "https://www.pinterest.com/tiksly/", icon: <PinterestIcon /> },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/tiksly/", icon: <LinkedInIcon /> },
+  { label: "YouTube", href: "https://www.youtube.com/@Tiksly", icon: <YouTubeIcon /> },
 ];
 
 /* ── Component ────────────────────────────────────────────────────────── */
@@ -191,6 +201,8 @@ export default function FooterSection() {
                 <Link
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
