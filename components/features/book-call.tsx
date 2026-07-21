@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { X, ChevronDown, CalendarDays, MessageSquare, CheckCircle } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 

@@ -165,10 +165,10 @@ export default function HeroSection() {
           {/* Hero Image Preview */}
           <motion.div
             variants={item}
-            className="relative w-full max-w-5xl mx-auto rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] bg-[#F9F9F9]"
+            className="relative w-full max-w-5xl mx-auto"
           >
             <Image
-              src="/new-hero.webp"
+              src="/home-banner.jpg"
               alt="Tiksly Dashboard Overview"
               width={1200}
               height={750}
