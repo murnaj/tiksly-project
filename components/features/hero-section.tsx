@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useAnimate, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -68,7 +67,7 @@ export default function HeroSection() {
               Official Partners:
             </span>
 
-            <div className="flex items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-4">
               <Image
                 src="/logos/meta.svg"
                 alt="Meta"
