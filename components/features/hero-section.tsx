@@ -61,33 +61,33 @@ export default function HeroSection() {
           {/* Expert platform badges */}
           <motion.div
             variants={item}
-            className="flex items-center justify-center gap-4 md:gap-6 mb-7 flex-wrap"
+            className="flex items-center justify-center gap-4 mb-7 flex-wrap"
           >
             <span className="text-gray-500 text-[14px] md:text-[15px] font-medium">
               Official Partners:
             </span>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <Image
                 src="/logos/meta.svg"
                 alt="Meta"
                 width={85}
                 height={22}
-                className="h-5 md:h-6 w-auto object-contain"
+                className="h-4 w-auto object-contain"
               />
               <Image
                 src="/logos/tiktok-shop.svg"
                 alt="Tiktok Shop"
                 width={95}
                 height={22}
-                className="h-5 md:h-6 w-auto object-contain"
+                className="h-5 w-auto object-contain"
               />
               <Image
                 src="/logos/youtube.svg"
                 alt="Youtube Shorts"
                 width={95}
                 height={22}
-                className="h-5 md:h-6 w-auto object-contain"
+                className="h-4 w-auto object-contain"
               />
             </div>
           </motion.div>
