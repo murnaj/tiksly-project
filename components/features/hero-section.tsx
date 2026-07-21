@@ -148,7 +148,7 @@ export default function HeroSection() {
                     <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
                   </g>
                 </svg>
-                <span>UK TSP: <strong className=" text-black">7494315872973719280</strong></span>
+                <span>UK TSP: 7494315872973719280</span>
               </div>
 
               {/* USA TSP Badge */}
@@ -158,7 +158,7 @@ export default function HeroSection() {
                   <path d="M0,4.6h60M0,11.5h60M0,18.5h60M0,25.4h60" stroke="#fff" strokeWidth="2.3" />
                   <rect width="24" height="16.2" fill="#3C3B6E" />
                 </svg>
-                <span>USA TSP: <strong className=" text-black">7494489601127056460</strong></span>
+                <span>USA TSP: 7494489601127056460</span>
               </div>
             </motion.div>
           </motion.div>
