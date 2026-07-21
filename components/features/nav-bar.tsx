@@ -24,6 +24,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const servicesCol1 = {
   category: "Store Operations",
@@ -148,9 +149,13 @@ const NavBar = () => {
             {/* Logo */}
             <Link
               href="/"
-              className="text-3xl font-extrabold tracking-tighter text-black z-50"
             >
-              tiksly
+              <Image
+                src="/branding/logo-green.svg"
+                alt="Logo"
+                width={100}
+                height={100}
+              />
             </Link>
 
             {/* Desktop Navigation */}

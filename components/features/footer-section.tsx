@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Building2 } from "lucide-react";
+import Image from "next/image";
 
 /* ── SVG Icons ───────────────────────────────────────────────────────── */
 
@@ -105,13 +106,18 @@ export default function FooterSection() {
       {/* Main grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-12">
-          
+
           {/* Logo & Address / Contact */}
           <div className="flex flex-col gap-5">
             <div>
-              <span className="text-[30px] font-extrabold tracking-tighter text-black leading-none block mb-2">
-                tiksly
-              </span>
+              <div className="block mb-2">
+                <Image
+                  src="/branding/logo-green.svg"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                />
+              </div>
               <p className="text-gray-500 text-[14px] leading-relaxed max-w-sm">
                 Official TikTok Shop Partner & Creator Marketing Platform. Scaling e-commerce brands through high-converting UGC and performance ads.
               </p>
@@ -221,7 +227,7 @@ export default function FooterSection() {
       <div className="bg-black text-gray-400 px-4 w-full">
         <div className="container mx-auto py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            
+
             {/* Copyright */}
             <div className="text-[13px] text-gray-400 order-3 md:order-1">
               Copyright © 2026 tiksly. All rights reserved.
