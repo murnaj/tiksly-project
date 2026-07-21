@@ -100,12 +100,12 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.3, ease: EASE },
             y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[14%] left-[4%] xl:left-[8%] w-[230px] lg:w-[260px] xl:w-[285px] drop-shadow-md z-10"
+          className="absolute top-[14%] left-[4%] xl:left-[12%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
         >
           <Image
             src="/id-cards/left-side-1.png"
             alt="Creator Card 1"
-            width={300}
+            width={400}
             height={200}
             className="w-full h-auto object-contain"
             priority
@@ -126,12 +126,12 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.5, ease: EASE },
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[48%] left-[2%] xl:left-[6%] w-[230px] lg:w-[260px] xl:w-[285px] drop-shadow-md z-10"
+          className="absolute top-[48%] left-[2%] xl:left-[10%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
         >
           <Image
             src="/id-cards/left-side-2.png"
             alt="Creator Card 2"
-            width={300}
+            width={400}
             height={200}
             className="w-full h-auto object-contain"
             priority
@@ -206,12 +206,12 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.4, ease: EASE },
             y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[14%] right-[4%] xl:right-[8%] w-[230px] lg:w-[260px] xl:w-[285px] drop-shadow-md z-10"
+          className="absolute top-[14%] right-[4%] xl:right-[8%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
         >
           <Image
             src="/id-cards/right-side-1.png"
             alt="Creator Card 3"
-            width={300}
+            width={400}
             height={200}
             className="w-full h-auto object-contain"
             priority
@@ -232,12 +232,12 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.6, ease: EASE },
             y: { duration: 6.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[48%] right-[2%] xl:right-[6%] w-[230px] lg:w-[260px] xl:w-[285px] drop-shadow-md z-10"
+          className="absolute top-[48%] right-[2%] xl:right-[6%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
         >
           <Image
             src="/id-cards/right-side-2.png"
             alt="Creator Card 4"
-            width={300}
+            width={400}
             height={200}
             className="w-full h-auto object-contain"
             priority
