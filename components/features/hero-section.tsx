@@ -371,7 +371,7 @@ export default function HeroSection() {
           {/* Hero Image Preview */}
           <motion.div
             variants={item}
-            className="relative w-full max-w-4xl mx-auto rounded-t-2xl overflow-hidden shadow-2xl border-t border-x border-gray-200/60"
+            className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-t border-x border-gray-200/60"
           >
             <Image
               src="/home-banner.jpg"
