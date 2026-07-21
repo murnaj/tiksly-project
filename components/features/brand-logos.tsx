@@ -126,10 +126,6 @@ export default function BrandLogos() {
 
       {/* Infinite Marquee Container */}
       <div className="relative w-full overflow-hidden py-4">
-        {/* Gradient Mask Overlays (Left/Right) for premium fade effect */}
-        {/* <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" /> */}
-
         {/* Marquee Row */}
         <div className="flex flex-nowrap w-max">
           {/* First loop of logos */}
