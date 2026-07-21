@@ -28,62 +28,64 @@ export default function HeroSection() {
     <section className="relative overflow-hidden min-h-screen flex items-center">
       {/* Left side decoration & ID cards */}
       <div className="absolute left-0 top-0 bottom-0 w-80 lg:w-96 xl:w-[460px] pointer-events-none select-none hidden lg:block z-0">
-        {/* Top-Left Primary Green Dotted Arrow & Sparkles */}
-        <svg className="absolute -top-4 -left-4 w-80 lg:w-96 xl:w-[420px] h-[400px] pointer-events-none opacity-95" viewBox="0 0 400 400" fill="none">
-          {/* Main Outer Dotted Curve */}
-          <path
-            d="M 30 30 C 220 10 340 120 160 260 C 80 320 20 250 60 170 C 80 130 140 120 180 150"
+        {/* Left Side Animated Flowing Vector */}
+        <svg
+          className="absolute top-16 left-0 w-full h-[85%] pointer-events-none opacity-80"
+          viewBox="0 0 450 700"
+          fill="none"
+        >
+          {/* Main Flowing Dotted Path around cards */}
+          <motion.path
+            d="M 40 40 C 220 20 380 140 220 280 C 80 400 60 520 260 620"
             stroke="#BCF96A"
-            strokeWidth="2.5"
-            strokeDasharray="6 7"
+            strokeWidth="2.2"
+            strokeDasharray="6 8"
             strokeLinecap="round"
+            animate={{ strokeDashoffset: [0, -28] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
           />
-          {/* Arrowhead 1 */}
-          <path d="M 172 142 L 182 151 L 169 157 Z" fill="#BCF96A" />
 
-          {/* Inner Secondary Loop */}
-          <path
-            d="M 100 60 C 260 80 300 220 200 320"
+          {/* Secondary Accent Path */}
+          <motion.path
+            d="M 120 20 C 320 60 340 320 120 440 C 40 500 120 640 340 660"
             stroke="#A3E635"
-            strokeWidth="1.8"
+            strokeWidth="1.6"
             strokeDasharray="4 6"
             strokeLinecap="round"
+            opacity={0.6}
+            animate={{ strokeDashoffset: [0, 20] }}
+            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
           />
-          {/* Arrowhead 2 */}
-          <path d="M 191 313 L 200 320 L 207 311 Z" fill="#A3E635" />
 
-          {/* Primary Green Sparkles & Glow Nodes */}
-          <path d="M 180 25 L 183 L 192 L 183 L 180 35 L 177 L 168 L 177 Z" fill="#BCF96A" />
-          <path d="M 300 130 L 302.5 L 310 L 302.5 L 300 138 L 297.5 L 290 L 297.5 Z" fill="#BCF96A" />
-          <path d="M 90 280 L 92 L 98 L 92 L 90 286 L 88 L 82 L 88 Z" fill="#BCF96A" />
-          <circle cx="270" cy="80" r="4" fill="#BCF96A" />
-          <circle cx="140" cy="210" r="3" fill="#A3E635" />
-          <circle cx="40" cy="120" r="4" fill="#BCF96A" />
-        </svg>
+          {/* Animated Sparkle Stars */}
+          <motion.g
+            animate={{ scale: [0.8, 1.25, 0.8], opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+            style={{ transformOrigin: "210px 30px" }}
+          >
+            <path d="M 210 20 L 213 27 L 220 30 L 213 33 L 210 40 L 207 33 L 200 30 L 207 27 Z" fill="#BCF96A" />
+          </motion.g>
 
-        {/* Bottom-Left Primary Green Dotted Arrow */}
-        <svg className="absolute bottom-4 left-0 w-80 lg:w-96 h-[340px] pointer-events-none opacity-90" viewBox="0 0 360 340" fill="none">
-          <path
-            d="M 30 70 C 130 150 310 170 240 300"
-            stroke="#BCF96A"
-            strokeWidth="2.5"
-            strokeDasharray="6 7"
-            strokeLinecap="round"
-          />
-          <path d="M 230 290 L 240 300 L 249 292 Z" fill="#BCF96A" />
+          <motion.g
+            animate={{ scale: [1, 0.7, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", delay: 0.5 }}
+            style={{ transformOrigin: "320px 220px" }}
+          >
+            <path d="M 320 210 L 322.5 217.5 L 330 220 L 322.5 222.5 L 320 230 L 317.5 222.5 L 310 220 L 317.5 217.5 Z" fill="#84CC16" />
+          </motion.g>
 
-          <path
-            d="M 60 180 C 140 220 200 240 310 210"
-            stroke="#84CC16"
-            strokeWidth="1.8"
-            strokeDasharray="4 6"
-            strokeLinecap="round"
-          />
-          <path d="M 300 202 L 310 210 L 302 218 Z" fill="#84CC16" />
+          <motion.g
+            animate={{ scale: [0.85, 1.3, 0.85], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+            style={{ transformOrigin: "90px 480px" }}
+          >
+            <path d="M 90 470 L 92.5 477.5 L 100 480 L 92.5 482.5 L 90 490 L 87.5 482.5 L 80 480 L 87.5 477.5 Z" fill="#BCF96A" />
+          </motion.g>
 
-          <path d="M 180 170 L 183 L 192 L 183 L 180 180 L 177 L 168 L 177 Z" fill="#BCF96A" />
-          <circle cx="100" cy="120" r="3.5" fill="#BCF96A" />
-          <circle cx="280" cy="270" r="4" fill="#BCF96A" />
+          {/* Decorative Glowing Dots */}
+          <circle cx="160" cy="140" r="3.5" fill="#BCF96A" />
+          <circle cx="280" cy="460" r="3" fill="#A3E635" />
+          <circle cx="50" cy="300" r="4" fill="#BCF96A" opacity="0.7" />
         </svg>
 
         {/* Top-Left ID Card */}
@@ -100,7 +102,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.3, ease: EASE },
             y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[14%] left-[4%] xl:left-[12%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
+          className="absolute top-[14%] left-[4%] xl:left-[12%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/left-side-1.png"
@@ -126,7 +128,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.5, ease: EASE },
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[48%] left-[2%] xl:left-[10%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
+          className="absolute top-[48%] left-[2%] xl:left-[10%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/left-side-2.png"
@@ -141,58 +143,67 @@ export default function HeroSection() {
 
       {/* Right side decoration & ID cards */}
       <div className="absolute right-0 top-0 bottom-0 w-80 lg:w-96 xl:w-[460px] pointer-events-none select-none hidden lg:block z-0">
-        {/* Top-Right Primary Green Dotted Arrow & Sparkles */}
-        <svg className="absolute -top-4 -right-4 w-80 lg:w-96 xl:w-[420px] h-[400px] pointer-events-none opacity-95" viewBox="0 0 400 400" fill="none">
-          <path
-            d="M 370 30 C 180 10 60 120 240 260 C 320 320 380 250 340 170 C 320 130 260 120 220 150"
+        {/* Right Side Animated Flowing Vector */}
+        <svg
+          className="absolute top-16 right-0 w-full h-[85%] pointer-events-none opacity-80"
+          viewBox="0 0 450 700"
+          fill="none"
+        >
+          {/* Main Flowing Dotted Path around cards */}
+          <motion.path
+            d="M 410 40 C 230 20 70 140 230 280 C 370 400 390 520 190 620"
             stroke="#BCF96A"
-            strokeWidth="2.5"
-            strokeDasharray="6 7"
+            strokeWidth="2.2"
+            strokeDasharray="6 8"
             strokeLinecap="round"
+            animate={{ strokeDashoffset: [0, -28] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
           />
-          <path d="M 228 142 L 218 151 L 231 157 Z" fill="#BCF96A" />
 
-          <path
-            d="M 300 60 C 140 80 100 220 200 320"
+          {/* Secondary Accent Path */}
+          <motion.path
+            d="M 330 20 C 130 60 110 320 330 440 C 410 500 330 640 110 660"
             stroke="#A3E635"
-            strokeWidth="1.8"
+            strokeWidth="1.6"
             strokeDasharray="4 6"
             strokeLinecap="round"
+            opacity={0.6}
+            animate={{ strokeDashoffset: [0, 20] }}
+            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
           />
-          <path d="M 209 313 L 200 320 L 193 311 Z" fill="#A3E635" />
 
-          <path d="M 220 25 L 217 L 208 L 217 L 220 35 L 223 L 232 L 223 Z" fill="#BCF96A" />
-          <path d="M 100 130 L 97.5 L 90 L 97.5 L 100 138 L 102.5 L 110 L 102.5 Z" fill="#BCF96A" />
-          <path d="M 310 280 L 308 L 302 L 308 L 310 286 L 312 L 318 L 312 Z" fill="#BCF96A" />
-          <circle cx="130" cy="80" r="4" fill="#BCF96A" />
-          <circle cx="260" cy="210" r="3" fill="#A3E635" />
-          <circle cx="360" cy="120" r="4" fill="#BCF96A" />
+          {/* Animated Sparkle Stars */}
+          <motion.g
+            animate={{ scale: [0.8, 1.25, 0.8], opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+            style={{ transformOrigin: "240px 30px" }}
+          >
+            <path d="M 240 20 L 243 27 L 250 30 L 243 33 L 240 40 L 237 33 L 230 30 L 237 27 Z" fill="#BCF96A" />
+          </motion.g>
+
+          <motion.g
+            animate={{ scale: [1, 0.7, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", delay: 0.5 }}
+            style={{ transformOrigin: "130px 220px" }}
+          >
+            <path d="M 130 210 L 132.5 217.5 L 140 220 L 132.5 222.5 L 130 230 L 127.5 222.5 L 120 220 L 127.5 217.5 Z" fill="#84CC16" />
+          </motion.g>
+
+          <motion.g
+            animate={{ scale: [0.85, 1.3, 0.85], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+            style={{ transformOrigin: "360px 480px" }}
+          >
+            <path d="M 360 470 L 362.5 477.5 L 370 480 L 362.5 482.5 L 360 490 L 357.5 482.5 L 350 480 L 357.5 477.5 Z" fill="#BCF96A" />
+          </motion.g>
+
+          {/* Decorative Glowing Dots */}
+          <circle cx="290" cy="140" r="3.5" fill="#BCF96A" />
+          <circle cx="170" cy="460" r="3" fill="#A3E635" />
+          <circle cx="400" cy="300" r="4" fill="#BCF96A" opacity="0.7" />
         </svg>
 
-        {/* Bottom-Right Primary Green Dotted Arrow */}
-        <svg className="absolute bottom-4 right-0 w-80 lg:w-96 h-[340px] pointer-events-none opacity-90" viewBox="0 0 360 340" fill="none">
-          <path
-            d="M 330 70 C 230 150 50 170 120 300"
-            stroke="#BCF96A"
-            strokeWidth="2.5"
-            strokeDasharray="6 7"
-            strokeLinecap="round"
-          />
-          <path d="M 130 290 L 120 300 L 111 292 Z" fill="#BCF96A" />
-
-          <path
-            d="M 300 180 C 220 220 160 240 50 210"
-            stroke="#84CC16"
-            strokeWidth="1.8"
-            strokeDasharray="4 6"
-            strokeLinecap="round"
-          />
-          <path d="M 60 202 L 50 210 L 58 218 Z" fill="#84CC16" />
-
-          <path d="M 180 170 L 177 L 168 L 177 L 180 180 L 183 L 192 L 183 Z" fill="#BCF96A" />
-          <circle cx="260" cy="120" r="3.5" fill="#BCF96A" />
-          <circle cx="80" cy="270" r="4" fill="#BCF96A" />
-        </svg>
+        {/* Top-Right ID Card */}
         <motion.div
           initial={{ opacity: 0, x: 30, y: 10, rotate: 4 }}
           animate={{
@@ -206,7 +217,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.4, ease: EASE },
             y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[14%] right-[4%] xl:right-[8%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
+          className="absolute top-[14%] right-[4%] xl:right-[8%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/right-side-1.png"
@@ -232,7 +243,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.6, ease: EASE },
             y: { duration: 6.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[48%] right-[2%] xl:right-[6%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_12px_25px_rgba(188,249,106,0.5)] z-10"
+          className="absolute top-[48%] right-[2%] xl:right-[6%] w-[230px] lg:w-[285px] xl:w-[300px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/right-side-2.png"
