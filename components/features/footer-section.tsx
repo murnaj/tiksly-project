@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Building2 } from "lucide-react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 /* ── SVG Icons ───────────────────────────────────────────────────────── */
 
@@ -101,8 +105,18 @@ const socialLinks: { label: string; href: string; icon: React.ReactNode }[] = [
 /* ── Component ────────────────────────────────────────────────────────── */
 
 export default function FooterSection() {
+  const footerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const logoY = useTransform(scrollYProgress, [0, 1], [80, 0]);
+  const logoScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [0.1, 0.4, 0.85]);
+
   return (
-    <footer className="bg-white border-t border-gray-100 w-full">
+    <footer ref={footerRef} className="relative bg-[#0B0C0E] border-t border-gray-800/80 text-white w-full overflow-hidden">
       {/* Main grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-12">
@@ -110,15 +124,15 @@ export default function FooterSection() {
           {/* Logo & Address / Contact */}
           <div className="flex flex-col gap-5">
             <div>
-              <div className="block mb-2">
+              {/* <div className="block mb-3">
                 <Image
                   src="/branding/logo-green.svg"
                   alt="Logo"
-                  width={100}
-                  height={100}
+                  width={110}
+                  height={110}
                 />
-              </div>
-              <p className="text-gray-500 text-[14px] leading-relaxed max-w-sm">
+              </div> */}
+              <p className="text-gray-400 text-[14px] leading-relaxed max-w-sm">
                 Official TikTok Shop Partner & Creator Marketing Platform. Scaling e-commerce brands through high-converting UGC and performance ads.
               </p>
             </div>
@@ -128,26 +142,26 @@ export default function FooterSection() {
               <div className="flex flex-col gap-2.5">
                 <a
                   href="mailto:sales@tiksly.com"
-                  className="inline-flex items-center gap-2 font-semibold text-black hover:text-[#0081FB] transition-colors w-fit text-[14px]"
+                  className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#BCF96A] transition-colors w-fit text-[14px]"
                 >
-                  <Mail className="w-4 h-4 text-black shrink-0" />
+                  <Mail className="w-4 h-4 text-[#BCF96A] shrink-0" />
                   <span>sales@tiksly.com</span>
                 </a>
 
-                <div className="flex flex-wrap items-center gap-3 text-[13px] text-gray-600">
+                <div className="flex flex-wrap items-center gap-3 text-[13px] text-gray-300">
                   <a
                     href="tel:+14092694915"
-                    className="inline-flex items-center gap-1.5 hover:text-black transition-colors"
+                    className="inline-flex items-center gap-1.5 hover:text-[#BCF96A] transition-colors"
                   >
-                    <span className="font-bold text-black text-xs">US</span>
+                    <span className="font-bold text-[#BCF96A] text-xs">US</span>
                     <span>+1 (409) 269-4915</span>
                   </a>
-                  <span className="text-gray-300">•</span>
+                  <span className="text-gray-700">•</span>
                   <a
                     href="tel:+447412066394"
-                    className="inline-flex items-center gap-1.5 hover:text-black transition-colors"
+                    className="inline-flex items-center gap-1.5 hover:text-[#BCF96A] transition-colors"
                   >
-                    <span className="font-bold text-black text-xs">UK</span>
+                    <span className="font-bold text-[#BCF96A] text-xs">UK</span>
                     <span>+44 7412 066394</span>
                   </a>
                 </div>
@@ -156,21 +170,21 @@ export default function FooterSection() {
               {/* Office Addresses - Clean stacked layout with left border accents */}
               <div className="flex flex-col gap-3.5 pt-2">
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
-                    <Building2 className="w-3.5 h-3.5 text-black shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#BCF96A] uppercase tracking-wider">
+                    <Building2 className="w-3.5 h-3.5 text-[#BCF96A] shrink-0" />
                     <span>USA Headquarters</span>
                   </div>
-                  <p className="text-gray-500 text-[13px] leading-relaxed">
+                  <p className="text-gray-400 text-[13px] leading-relaxed">
                     1001 S Main St, Suite 500, Kalispell, MT 59901, USA
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-black uppercase tracking-wider">
-                    <MapPin className="w-3.5 h-3.5 text-black shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#BCF96A] uppercase tracking-wider">
+                    <MapPin className="w-3.5 h-3.5 text-[#BCF96A] shrink-0" />
                     <span>UK Office</span>
                   </div>
-                  <p className="text-gray-500 text-[13px] leading-relaxed">
+                  <p className="text-gray-400 text-[13px] leading-relaxed">
                     Unit 103 Chambers Business Centre, Chapel Road, Oldham OL8 4QQ, UK
                   </p>
                 </div>
@@ -180,11 +194,11 @@ export default function FooterSection() {
 
           {/* Services */}
           <div>
-            <h3 className="text-[16px] font-bold text-black mb-5 tracking-tight">Services</h3>
+            <h3 className="text-[16px] font-bold text-white mb-5 tracking-tight">Services</h3>
             <ul className="flex flex-col gap-3">
               {servicesLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-600 hover:text-black transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -194,11 +208,11 @@ export default function FooterSection() {
 
           {/* Resources */}
           <div>
-            <h3 className="text-[16px] font-bold text-black mb-5 tracking-tight">Resources</h3>
+            <h3 className="text-[16px] font-bold text-white mb-5 tracking-tight">Resources</h3>
             <ul className="flex flex-col gap-3">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-600 hover:text-black transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -208,11 +222,11 @@ export default function FooterSection() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[16px] font-bold text-black mb-5 tracking-tight">Company</h3>
+            <h3 className="text-[16px] font-bold text-white mb-5 tracking-tight">Company</h3>
             <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-600 hover:text-black transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -223,13 +237,29 @@ export default function FooterSection() {
         </div>
       </div>
 
+      {/* Giant Parallax Watermark Logo Banner */}
+      <div className="w-full overflow-hidden pt-8 pb-4 pointer-events-none select-none border-t border-gray-800/50 bg-gradient-to-b from-transparent via-[#14161B]/60 to-[#0B0C0E]">
+        <motion.div
+          style={{ y: logoY, scale: logoScale, opacity: logoOpacity }}
+          className="flex justify-center items-center py-6"
+        >
+          <Image
+            src="/branding/logo-green.svg"
+            alt="Tiksly Brand Logo Parallax"
+            width={720}
+            height={220}
+            className="w-[85%] max-w-[680px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(188,249,106,0.25)]"
+          />
+        </motion.div>
+      </div>
+
       {/* Bottom bar */}
-      <div className="bg-black text-gray-400 px-4 w-full">
+      <div className="bg-[#07080A] border-t border-gray-800/60 text-gray-400 px-4 w-full">
         <div className="container mx-auto py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
 
             {/* Copyright */}
-            <div className="text-[13px] text-gray-400 order-3 md:order-1">
+            <div className="text-[13px] text-gray-500 order-3 md:order-1">
               Copyright © 2026 tiksly. All rights reserved.
             </div>
 
@@ -251,10 +281,10 @@ export default function FooterSection() {
 
             {/* Legal */}
             <div className="flex items-center gap-6 text-[13px] order-2 md:order-3">
-              <Link href="/terms-of-service" className="hover:text-white transition-colors duration-200">
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
                 Terms Of Service
               </Link>
-              <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
                 Privacy Policy
               </Link>
             </div>
