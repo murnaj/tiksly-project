@@ -120,10 +120,10 @@ export default function HeroSection() {
             className="mb-16"
           >
             <Link
-              href="/get-demo"
+              href="/book-a-meeting"
               className="mb-6 inline-flex items-center gap-2 px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95"
             >
-              Book a demo
+              Book a meeting
             </Link>
 
             <motion.div

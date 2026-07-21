@@ -4,12 +4,12 @@ import FooterSection from "@/components/features/footer-section";
 import GetDemoFlow from "@/components/features/get-demo/get-demo-flow";
 
 export const metadata: Metadata = {
-  title: "Get a Demo | Tiksly",
+  title: "Book a Meeting | Tiksly",
   description:
-    "Book a 30 minute demo call with the Tiksly team and see how to turn any product link into instant video briefs.",
+    "Book a meeting with the Tiksly team and see how to scale your brand revenue on TikTok Shop.",
 };
 
-export default function GetDemoPage() {
+export default function BookAMeetingPage() {
   return (
     <div className="min-h-screen bg-white">
       <NavBar />
