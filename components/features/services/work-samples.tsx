@@ -31,14 +31,11 @@ const SAMPLES: WorkSample[] = [
   { videoId: "79e7cf49cdb4ab1729369b36e5afd8cc", brand: "Maxiblock", brandColor: "bg-teal-400", tag: "B-roll", name: "Avy", location: "Arcen", flag: "🇳🇱", avatar: "/Jonah_Nebraska.webp" },
 ];
 
-const thumbUrl = (videoId: string) =>
-  `https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`;
-
 /**
- * A single sample card. A cheap poster JPG is always the base layer; the heavy
- * Cloudflare Stream iframe is mounted only while the card is actually on screen
- * (the observer toggles both ways, so scrolling past — horizontally or
- * vertically — unmounts the iframe and kills the stream).
+ * A single sample card. A cheap poster JPG is always the base layer; the
+ * lightweight HLS <video> plays only while the card is actually on screen (the
+ * observer toggles both ways, so scrolling past — horizontally or vertically —
+ * detaches the stream).
  */
 function WorkSampleCard({ sample }: { sample: WorkSample }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,23 +59,7 @@ function WorkSampleCard({ sample }: { sample: WorkSample }) {
     >
       {/* Video area */}
       <div className="relative aspect-[3/4] w-full bg-slate-900 overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={thumbUrl(sample.videoId)}
-          alt={`${sample.brand} - ${sample.tag}`}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {active && (
-          <iframe
-            src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${sample.videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=none`}
-            className="absolute inset-0 w-full h-full border-0"
-            allow="autoplay; encrypted-media"
-            loading="lazy"
-            title={`${sample.brand} - ${sample.tag}`}
-          />
-        )}
+        <HlsVideo videoId={sample.videoId} active={active} />
 
         {/* Top scrim for text contrast */}
         <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
