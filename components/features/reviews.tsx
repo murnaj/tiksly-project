@@ -2,9 +2,8 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { MapPin, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { HlsVideo } from "@/components/features/hls-video";
 
 
 interface Reviewer {
@@ -440,38 +439,84 @@ const getLocInfo = (countryName: string, index: number) => {
  * smooth instead of trying to run 20+ players at once.
  */
 function ReviewTile({ review, idx }: { review: Review; idx: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
-      { root: null, rootMargin: "400px", threshold: 0.01 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (hovered) {
+      video.defaultMuted = true;
+      video.muted = true;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [hovered]);
 
   const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const FlagIcon = getFlagComponent(review.reviewer.countryName);
 
+  const videoSrc = review.videoId
+    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/downloads/default.mp4`
+    : "";
+
+  const thumbUrl = review.videoId
+    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`
+    : "";
+
   return (
     <div
-      ref={ref}
-      className="relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]"
     >
       {/* Video Area */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
-        {review.videoId && (
-          <HlsVideo videoId={review.videoId} active={active} />
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className={cn(
+              "absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-0",
+              hovered ? "opacity-100" : "opacity-0"
+            )}
+          />
+        )}
+
+        {/* Static poster image always visible underneath */}
+        {thumbUrl && (
+          <Image
+            src={thumbUrl}
+            alt={review.caption}
+            fill
+            sizes="(max-width: 640px) 190px, 240px"
+            className={cn(
+              "object-cover transition-opacity duration-300 z-10 pointer-events-none",
+              hovered ? "opacity-0" : "opacity-100"
+            )}
+          />
+        )}
+
+        {/* Glassmorphism Play overlay button when not hovered */}
+        {!hovered && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/5 z-20 pointer-events-none">
+            <div className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center shadow-md">
+              <Play className="w-4 h-4 text-black fill-black ml-0.5" />
+            </div>
+          </div>
         )}
 
         {/* Top scrim for text contrast */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-20" />
 
         {/* Brand badge */}
         <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
