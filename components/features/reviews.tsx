@@ -437,16 +437,44 @@ const getLocInfo = (countryName: string, index: number) => {
  * smooth instead of trying to run 20+ players at once.
  */
 function ReviewTile({ review, idx }: { review: Review; idx: number }) {
-  const [hovered, setHovered] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        setActive(entry.isIntersecting);
+      },
+      { root: null, rootMargin: "120px", threshold: 0.01 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (active) {
+      video.defaultMuted = true;
+      video.muted = true;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [active]);
 
   const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const FlagIcon = getFlagComponent(review.reviewer.countryName);
 
-  // Official Cloudflare Stream player iframe URL (highly cached & responsive)
-  const iframeUrl = review.videoId
-    ? `https://iframe.videodelivery.net/${review.videoId}?autoplay=true&muted=true&loop=true&controls=false&preload=auto`
+  // Direct progressive MP4 stream (always enabled on Cloudflare Stream)
+  const videoSrc = review.videoId
+    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/manifest/video.mp4`
     : "";
 
   const thumbUrl = review.videoId
@@ -455,23 +483,25 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
 
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      ref={ref}
       className="relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]"
     >
       {/* Video Area */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
-        {hovered && iframeUrl ? (
-          <iframe
-            src={iframeUrl}
-            className="absolute inset-0 w-full h-full border-0 z-0 pointer-events-none"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title={review.caption}
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover z-0"
           />
-        ) : null}
+        )}
 
-        {/* Static poster image visible when not hovered */}
+        {/* Static poster image visible when not loaded */}
         {thumbUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -479,18 +509,9 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
             alt={review.caption}
             className={cn(
               "absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-10 pointer-events-none",
-              hovered ? "opacity-0" : "opacity-100"
+              active ? "opacity-0" : "opacity-100"
             )}
           />
-        )}
-
-        {/* Glassmorphism Play overlay button when not hovered */}
-        {!hovered && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/5 z-20 pointer-events-none">
-            <div className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center shadow-md">
-              <Play className="w-4 h-4 text-black fill-black ml-0.5" />
-            </div>
-          </div>
         )}
 
         {/* Top scrim for text contrast */}
