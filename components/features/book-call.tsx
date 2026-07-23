@@ -49,16 +49,16 @@ export default function BookCall() {
                 {/* Right copy */}
                 <motion.div variants={itemVariants} className="flex flex-col gap-6 text-left max-w-xl lg:max-w-none">
                   <h2 className="text-[28px] md:text-[42px] xl:text-[48px] font-semibold text-[#212120] leading-[1.12] tracking-tight">
-                    Want to see Tiksly in action? Get a quick demo.
+                    Let&apos;s build the shop your competitors wish they had.
                   </h2>
                   <p className="text-[14px] md:text-[16px] text-[#212120]/80 font-medium leading-relaxed">
-                    Hey, I&apos;m Tom! If you&apos;re curious about Tiksly, let&apos;s hop on a brief demo call. I&apos;ll show you how to turn any product link into instant video briefs and find creators for your category.
+                    Book a free growth call. We&apos;ll audit your shop, show you exactly where the money is leaking, and hand you a plan whether you work with us or not. Twenty minutes and zero pressure.
                   </p>
 
                   {/* Dropdown button */}
                   <div className="pt-2">
                     <Link href={"/contact"} className="px-6 py-3 bg-black cursor-pointer text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
-                      Contact
+                      Get my free growth plan
                     </Link>
                   </div>
                 </motion.div>

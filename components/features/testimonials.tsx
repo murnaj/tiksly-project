@@ -171,13 +171,13 @@ export default function Testimonials() {
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold tracking-tight text-black mb-4 leading-tight"
           >
-            What our customers think.
+            Don't take our word for it. Take theirs.
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-sm md:max-w-xl mx-auto"
           >
-            Read feedback from Agencies, In-House Marketing Teams & Individuals just like you!
+           We're rated 4.8 by the brands and sellers we've grown. Every review is real and public. Read the good and the honest.
           </motion.p>
         </motion.div>
 
@@ -253,7 +253,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <span className="text-[12px] font-semibold text-gray-400 mb-5">
-                Based on 1,612 reviews
+                Based on 100+ Reviews
               </span>
               <TrustpilotLogo />
             </Card>

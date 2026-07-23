@@ -9,40 +9,40 @@ const processTabs = [
   {
     id: "discover",
     label: "Discover",
-    title: "DISCOVER TALENT",
+    title: "DISCOVER",
     description:
-      "Find the perfect creators for your brand from a database of millions. Filter by engagement rate, niche, location, audience demographics, and past performance metrics.",
-    ctaText: "Explore Discover",
+      "We tear apart your shop, your product, and your market, then build a plan around your actual numbers instead of a recycled template. No fluff. No guesswork.",
+    ctaText: "Get my free growth plan",
     ctaLink: "#",
     image: "/process/videoframe_9629.png",
   },
   {
     id: "manage",
     label: "Manage",
-    title: "MANAGE PARTNERS",
+    title: "MANAGE",
     description:
-      "Organize all your creator relationships in one unified CRM. Track conversations, manage contracts, upload briefs, and keep your communication streamlined in a single dashboard.",
-    ctaText: "Explore Manage",
+      "Our team takes over the heavy lifting. Creators, content, ads, and daily ops. You approve, we execute, the shop runs.",
+    ctaText: "Get my free growth plan",
     ctaLink: "#",
     image: "/process/videoframe_3419.png",
   },
   {
     id: "track",
     label: "Track",
-    title: "TRACK CAMPAIGNS",
+    title: "TRACK",
     description:
-      "Monitor your creator campaigns in real-time. Gather automatically updated analytics on reach, impressions, click-through rates, conversions, and ROI without manual spreadsheets.",
-    ctaText: "Explore Track",
+      "Real dashboards. Real ROAS. Real GMV. You always know exactly what's working and exactly what it's making you.",
+    ctaText: "Get my free growth plan",
     ctaLink: "#",
     image: "/process/videoframe_554.png",
   },
   {
     id: "results",
     label: "Results",
-    title: "TRACK RESULTS",
+    title: "RESULTS",
     description:
-      "Monitor your return on ad spend (ROAS) and creator performance in real-time. Link Meta and TikTok ads managers directly to track impressions, conversions, and actual campaign profitability.",
-    ctaText: "Explore Results",
+      "Consistent, compounding revenue. The kind that quietly turns TikTok Shop into your number one channel while everyone else is still guessing.",
+    ctaText: "Get my free growth plan",
     ctaLink: "#",
     image: "/process/videoframe_2364.png",
   },
@@ -54,15 +54,11 @@ export default function OurProcess() {
   return (
     <section className="w-full bg-white pt-14 md:pt-20 ">
       <div className="container mx-auto px-3 lg:px-4">
-          {/* Section Header */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
             Onboarding Process
           </h2>
-          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
-              Our seamless onboarding process aligns you with the right creators, manages
-            contracts, briefs campaigns, and tracks results—all from one unified dashboard.
-          </p>
         </div>
         {/* Shadcn Tabs Root */}
         <Tabs

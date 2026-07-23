@@ -303,9 +303,8 @@ export default function HeroSection() {
             variants={item}
             className="relative md:text-[44px] xl:text-[48px] text-[28px] font-semibold tracking-tighter text-black leading-[1.12] mb-4 max-w-4xl mx-auto"
           >
-            Turn creator marketing into{" "}
-            <br className="hidden md:inline" /> your most profitable growth{" "}
-            channel
+            A full-stack TikTok Shop agency{" "}
+            <br className="hidden md:inline" /> built to scale your revenue
           </motion.h1>
 
           {/* Description */}
@@ -313,11 +312,8 @@ export default function HeroSection() {
             variants={item}
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed mb-6 max-w-[620px] mx-auto"
           >
-            Tiksly is a unified, data-fed system for producing, testing, and{" "}
-            <br className="hidden md:inline" />
-            scaling creator ads that drive revenue, from creative{" "}
-            <br className="hidden md:inline" />
-            collaboration to precision performance.
+            We build your shop, run your creators, manage your ads, and handle your fulfillment.
+            You just watch the revenue roll in. We've taken shops from zero to seven figures in GMV and yours could be next.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -329,7 +325,7 @@ export default function HeroSection() {
               href="/book-a-meeting"
               className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
             >
-              Book a meeting
+              Get my free growth plan
             </Link>
 
             <motion.div

@@ -120,7 +120,7 @@ export default function BrandLogos() {
       {/* Subtitle */}
       <div className="container mx-auto  mb-10">
         <p className="text-[#212120]/80 text-[15px] font-semibold tracking-tight text-center">
-          Trusted by 22,000+ brands worldwide
+         The brands already winning with us
         </p>
       </div>
 

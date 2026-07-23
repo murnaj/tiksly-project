@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -14,18 +14,6 @@ import { cn } from "@/lib/utils";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-// Category definitions with icons
-// const CATEGORIES = [
-//   { id: "health-wellness", name: "Health & Wellness", icon: Leaf },
-//   { id: "cosmetics-beauty", name: "Cosmetics & Beauty", icon: Sparkles },
-//   { id: "apparel-fashion", name: "Apparel & Fashion", icon: Shirt },
-//   { id: "apps-services", name: "Apps & Digital Services", icon: Smartphone },
-//   { id: "food-beverage", name: "Food & Beverage", icon: Coffee },
-//   { id: "pets", name: "Pets", icon: PawPrint },
-//   { id: "children-family", name: "Children & Family", icon: Smile },
-//   { id: "technology-gadgets", name: "Technology & Gadgets", icon: Cpu },
-//   { id: "home-lifestyle", name: "Home & Lifestyle", icon: HomeIcon },
-// ];
 
 interface Reviewer {
   name: string;
@@ -37,618 +25,185 @@ interface Reviewer {
 
 interface Review {
   id: string;
-  category: string;
-  image: string;
+  videoId?: string;
   caption: string;
   reviewer: Reviewer;
 }
 
-// Complete mock reviews database
-const REVIEWS_DATA: Record<string, Review[]> = {
-  "Health & Wellness": [
-    {
-      id: "hw-1",
-      category: "Health & Wellness",
-      image: "/process/videoframe_1.png",
-      caption: "I always had pain in my feet ⚡",
-      reviewer: {
-        name: "Josh",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/josh.webp",
-      },
+const CLOUDFLARE_CUSTOMER_CODE = "customer-wyu58i20r3viufsr";
+
+const REVIEWS_DATA: Review[] = [
+  {
+    id: "hw-1",
+    videoId: "ab807060990361a8baeca01ee02fca85",
+    caption: "I always had pain in my feet ⚡",
+    reviewer: {
+      name: "Josh",
+      rating: 4.8,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/josh.webp",
     },
-    {
-      id: "hw-2",
-      category: "Health & Wellness",
-      image: "/process/videoframe_2.png",
-      caption: "Creatine Gummies are a SCAM! 😡",
-      reviewer: {
-        name: "Jessica",
-        rating: 4.7,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/Chelsea.webp",
-      },
+  },
+  {
+    id: "hw-2",
+    videoId: "ce3082f8b2b1151137c5b9a82aa9b342",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Jessica",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+      avatar: "/Chelsea.webp",
     },
-    {
-      id: "hw-3",
-      category: "Health & Wellness",
-      image: "/process/videoframe_3.png",
-      caption: "KNEE MASSAGER.",
-      reviewer: {
-        name: "Brie",
-        rating: 4.9,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/Brie_Tennessee.webp",
-      },
+  },
+  {
+    id: "hw-3",
+    videoId: "ced34f0b20b4edf473a0055a73b9d71b",
+    caption: "KNEE MASSAGER.",
+    reviewer: {
+      name: "Brie",
+      rating: 4.9,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/Brie_Tennessee.webp",
     },
-    {
-      id: "hw-4",
-      category: "Health & Wellness",
-      image: "/process/videoframe_4.png",
-      caption: "unlike chocolate it's not gonna melt 😉",
-      reviewer: {
-        name: "Jonah",
-        rating: 4.8,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/Jonah_Nebraska.webp",
-      },
+  },
+  {
+    id: "hw-4",
+    videoId: "11d8f8e7bae109fa8d663716d9796058",
+    caption: "unlike chocolate it's not gonna melt 😉",
+    reviewer: {
+      name: "Jonah",
+      rating: 4.8,
+      countryName: "Canada",
+      countryFlag: "🇨🇦",
+      avatar: "/Jonah_Nebraska.webp",
     },
-    {
-      id: "hw-5",
-      category: "Health & Wellness",
-      image: "/process/videoframe_5.png",
-      caption: "go grab yours now before they're gone",
-      reviewer: {
-        name: "Alexis",
-        rating: 4.9,
-        countryName: "Australia",
-        countryFlag: "🇦🇺",
-        avatar: "/Alexis_California.webp",
-      },
+  },
+  {
+    id: "hw-5",
+    videoId: "472c8a404f7d396a08417a00d5507f1c",
+    caption: "go grab yours now before they're gone",
+    reviewer: {
+      name: "Alexis",
+      rating: 4.9,
+      countryName: "Australia",
+      countryFlag: "🇦🇺",
+      avatar: "/Alexis_California.webp",
     },
-  ],
-  "Cosmetics & Beauty": [
+  },
+
     {
-      id: "cb-1",
-      category: "Cosmetics & Beauty",
-      image: "/process/videoframe_6.png",
-      caption: "The only lash serum that actually works! ✨",
-      reviewer: {
-        name: "Sophia",
-        rating: 4.9,
-        countryName: "France",
-        countryFlag: "🇫🇷",
-        avatar: "/process/videoframe_9629.png",
-      },
+    id: "hw-6",
+    videoId: "0aaea0305aa72881f52d75978391efb9",
+    caption: "I always had pain in my feet ⚡",
+    reviewer: {
+      name: "Josh",
+      rating: 4.8,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/josh.webp",
     },
-    {
-      id: "cb-2",
-      category: "Cosmetics & Beauty",
-      image: "/process/videoframe_1.png",
-      caption: "Get ready with me: Hydration Edition Grwm 🧴",
-      reviewer: {
-        name: "Elena",
-        rating: 4.7,
-        countryName: "Italy",
-        countryFlag: "🇮🇹",
-        avatar: "/process/videoframe_2.png",
-      },
+  },
+  {
+    id: "hw-7",
+    videoId: "a4e66c51a879a405eba452d44017299b",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Jessica",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+      avatar: "/Chelsea.webp",
     },
-    {
-      id: "cb-3",
-      category: "Cosmetics & Beauty",
-      image: "/process/videoframe_2.png",
-      caption: "BEST LIP GLOSS EVER! 💄",
-      reviewer: {
-        name: "Jessica",
-        rating: 4.8,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_9629.png",
-      },
+  },
+  {
+    id: "hw-8",
+    videoId: "8880a052180933af96cb96020e560c85",
+    caption: "KNEE MASSAGER.",
+    reviewer: {
+      name: "Brie",
+      rating: 4.9,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/Brie_Tennessee.webp",
     },
-    {
-      id: "cb-4",
-      category: "Cosmetics & Beauty",
-      image: "/process/videoframe_3.png",
-      caption: "Say goodbye to dark spots! 🌟",
-      reviewer: {
-        name: "Amara",
-        rating: 4.9,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_554.png",
-      },
+  },
+  {
+    id: "hw-9",
+    videoId: "79e7cf49cdb4ab1729369b36e5afd8cc",
+    caption: "unlike chocolate it's not gonna melt 😉",
+    reviewer: {
+      name: "Jonah",
+      rating: 4.8,
+      countryName: "Canada",
+      countryFlag: "🇨🇦",
+      avatar: "/Jonah_Nebraska.webp",
     },
-    {
-      id: "cb-5",
-      category: "Cosmetics & Beauty",
-      image: "/process/videoframe_4.png",
-      caption: "No makeup makeup routine tutorial 👇",
-      reviewer: {
-        name: "Chloe",
-        rating: 4.6,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_1.png",
-      },
+  },
+  {
+    id: "hw-10",
+    videoId: "77ee39539df24d8b2221621ad13893b2",
+    caption: "go grab yours now before they're gone",
+    reviewer: {
+      name: "Alexis",
+      rating: 4.9,
+      countryName: "Australia",
+      countryFlag: "🇦🇺",
+      avatar: "/Alexis_California.webp",
     },
-  ],
-  "Apparel & Fashion": [
-    {
-      id: "af-1",
-      category: "Apparel & Fashion",
-      image: "/process/videoframe_4.png",
-      caption: "Styling this oversized hoodie 3 ways 🧥",
-      reviewer: {
-        name: "Leo",
-        rating: 4.7,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_5.png",
-      },
+  },
+
+      {
+    id: "hw-11",
+    videoId: "9eeb72536d1b478e604752b4ef089d96",
+    caption: "I always had pain in my feet ⚡",
+    reviewer: {
+      name: "Josh",
+      rating: 4.8,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/josh.webp",
     },
-    {
-      id: "af-2",
-      category: "Apparel & Fashion",
-      image: "/process/videoframe_5.png",
-      caption: "Honest review of these activewear sets 🏋️‍♀️",
-      reviewer: {
-        name: "Aria",
-        rating: 4.8,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_9629.png",
-      },
+  },
+  {
+    id: "hw-12",
+    videoId: "894c688f6c8c83c71eef8a2e6dc18278",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Jessica",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+      avatar: "/Chelsea.webp",
     },
-    {
-      id: "af-3",
-      category: "Apparel & Fashion",
-      image: "/process/videoframe_6.png",
-      caption: "SUMMER LOOKBOOK ☀️",
-      reviewer: {
-        name: "Marcus",
-        rating: 4.9,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_2364.png",
-      },
+  },
+  {
+    id: "hw-13",
+    videoId: "b1c7031bfed77c225dd2a2e657d3f4f6",
+    caption: "KNEE MASSAGER.",
+    reviewer: {
+      name: "Brie",
+      rating: 4.9,
+      countryName: "United States",
+      countryFlag: "🇺🇸",
+      avatar: "/Brie_Tennessee.webp",
     },
-    {
-      id: "af-4",
-      category: "Apparel & Fashion",
-      image: "/process/videoframe_1.png",
-      caption: "These sneakers feel like clouds ☁️",
-      reviewer: {
-        name: "Lucas",
-        rating: 4.9,
-        countryName: "Germany",
-        countryFlag: "🇩🇪",
-        avatar: "/process/videoframe_554.png",
-      },
+  },
+  {
+    id: "hw-14",
+    videoId: "2384c4da51b3d5466e704f49b59f9137",
+    caption: "unlike chocolate it's not gonna melt 😉",
+    reviewer: {
+      name: "Jonah",
+      rating: 4.8,
+      countryName: "Canada",
+      countryFlag: "🇨🇦",
+      avatar: "/Jonah_Nebraska.webp",
     },
-    {
-      id: "af-5",
-      category: "Apparel & Fashion",
-      image: "/process/videoframe_2.png",
-      caption: "Are luxury sunglasses worth it? 😎",
-      reviewer: {
-        name: "Zara",
-        rating: 4.6,
-        countryName: "Spain",
-        countryFlag: "🇪🇸",
-        avatar: "/process/videoframe_3.png",
-      },
-    },
-  ],
-  "Apps & Digital Services": [
-    {
-      id: "ad-1",
-      category: "Apps & Services",
-      image: "/process/videoframe_2.png",
-      caption: "How I learn Spanish in 5 mins a day 🇪🇸",
-      reviewer: {
-        name: "Mateo",
-        rating: 4.8,
-        countryName: "Spain",
-        countryFlag: "🇪🇸",
-        avatar: "/process/videoframe_1.png",
-      },
-    },
-    {
-      id: "ad-2",
-      category: "Apps & Services",
-      image: "/process/videoframe_3.png",
-      caption: "This editing app changed my workflow! 🎬",
-      reviewer: {
-        name: "Maya",
-        rating: 4.9,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "ad-3",
-      category: "Apps & Services",
-      image: "/process/videoframe_4.png",
-      caption: "My new favorite coding assistant 💻",
-      reviewer: {
-        name: "David",
-        rating: 5.0,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "ad-4",
-      category: "Apps & Services",
-      image: "/process/videoframe_5.png",
-      caption: "Best productivity dashboard for 2026 📈",
-      reviewer: {
-        name: "Liam",
-        rating: 4.7,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_6.png",
-      },
-    },
-    {
-      id: "ad-5",
-      category: "Apps & Services",
-      image: "/process/videoframe_6.png",
-      caption: "Stop wasting time, use this AI tool!",
-      reviewer: {
-        name: "Ryan",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_2364.png",
-      },
-    },
-  ],
-  "Food & Beverage": [
-    {
-      id: "fb-1",
-      category: "Food & Beverage",
-      image: "/process/videoframe_5.png",
-      caption: "The tastiest vegan protein shake ever 🥤",
-      reviewer: {
-        name: "Emma",
-        rating: 4.9,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "fb-2",
-      category: "Food & Beverage",
-      image: "/process/videoframe_6.png",
-      caption: "Brewing the perfect cup of coffee ☕",
-      reviewer: {
-        name: "Daniel",
-        rating: 4.8,
-        countryName: "Brazil",
-        countryFlag: "🇧🇷",
-        avatar: "/process/videoframe_3.png",
-      },
-    },
-    {
-      id: "fb-3",
-      category: "Food & Beverage",
-      image: "/process/videoframe_1.png",
-      caption: "Are these healthy sodas actually good? 🥤",
-      reviewer: {
-        name: "Chloe",
-        rating: 4.7,
-        countryName: "Australia",
-        countryFlag: "🇦🇺",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "fb-4",
-      category: "Food & Beverage",
-      image: "/process/videoframe_2.png",
-      caption: "Snack haul: Keto-friendly edition 🥜",
-      reviewer: {
-        name: "Ethan",
-        rating: 4.6,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "fb-5",
-      category: "Food & Beverage",
-      image: "/process/videoframe_3.png",
-      caption: "I replaced my energy drinks with this ⚡",
-      reviewer: {
-        name: "Noah",
-        rating: 4.9,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_4.png",
-      },
-    },
-  ],
-  "Pets": [
-    {
-      id: "pt-1",
-      category: "Pets",
-      image: "/process/videoframe_1.png",
-      caption: "My dog is obsessed with these treats! 🐶",
-      reviewer: {
-        name: "Bella",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "pt-2",
-      category: "Pets",
-      image: "/process/videoframe_2.png",
-      caption: "Unboxing the ultimate cat scratcher 🐱",
-      reviewer: {
-        name: "Milo",
-        rating: 4.7,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_5.png",
-      },
-    },
-    {
-      id: "pt-3",
-      category: "Pets",
-      image: "/process/videoframe_3.png",
-      caption: "This harness stopped my pup from pulling 🐕",
-      reviewer: {
-        name: "Sarah",
-        rating: 4.9,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "pt-4",
-      category: "Pets",
-      image: "/process/videoframe_4.png",
-      caption: "Best automatic pet feeder review 🐾",
-      reviewer: {
-        name: "Cooper",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_6.png",
-      },
-    },
-    {
-      id: "pt-5",
-      category: "Pets",
-      image: "/process/videoframe_5.png",
-      caption: "We tried a custom dog puzzle toy 🧩",
-      reviewer: {
-        name: "Lucy",
-        rating: 4.9,
-        countryName: "Australia",
-        countryFlag: "🇦🇺",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-  ],
-  "Children & Family": [
-    {
-      id: "cf-1",
-      category: "Children & Family",
-      image: "/process/videoframe_3.png",
-      caption: "Montessori toys my toddler loves 🧸",
-      reviewer: {
-        name: "Sophia",
-        rating: 4.9,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "cf-2",
-      category: "Children & Family",
-      image: "/process/videoframe_4.png",
-      caption: "This stroller fits in the overhead bin! ✈️",
-      reviewer: {
-        name: "James",
-        rating: 4.7,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "cf-3",
-      category: "Children & Family",
-      image: "/process/videoframe_5.png",
-      caption: "Family bedtime routine game-changer 😴",
-      reviewer: {
-        name: "Emily",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "cf-4",
-      category: "Children & Family",
-      image: "/process/videoframe_6.png",
-      caption: "Sensory play ideas for rainy days 🎨",
-      reviewer: {
-        name: "Olivia",
-        rating: 4.9,
-        countryName: "Australia",
-        countryFlag: "🇦🇺",
-        avatar: "/process/videoframe_1.png",
-      },
-    },
-    {
-      id: "cf-5",
-      category: "Children & Family",
-      image: "/process/videoframe_1.png",
-      caption: "Reviewing our new diaper backpack 🎒",
-      reviewer: {
-        name: "William",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_2364.png",
-      },
-    },
-  ],
-  "Technology & Gadgets": [
-    {
-      id: "tg-1",
-      category: "Technology & Gadgets",
-      image: "/process/videoframe_2.png",
-      caption: "Active noise cancelling on these is wild 🎧",
-      reviewer: {
-        name: "Benjamin",
-        rating: 4.8,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "tg-2",
-      category: "Technology & Gadgets",
-      image: "/process/videoframe_3.png",
-      caption: "Mechanical keyboard unboxing & sound test ⌨️",
-      reviewer: {
-        name: "Mia",
-        rating: 4.7,
-        countryName: "Japan",
-        countryFlag: "🇯🇵",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "tg-3",
-      category: "Technology & Gadgets",
-      image: "/process/videoframe_4.png",
-      caption: "This desk light mimics natural sunlight 💡",
-      reviewer: {
-        name: "Alex",
-        rating: 4.9,
-        countryName: "Germany",
-        countryFlag: "🇩🇪",
-        avatar: "/process/videoframe_2364.png",
-      },
-    },
-    {
-      id: "tg-4",
-      category: "Technology & Gadgets",
-      image: "/process/videoframe_5.png",
-      caption: "Ultra-thin magsafe power bank test 🔋",
-      reviewer: {
-        name: "Charlotte",
-        rating: 4.8,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_1.png",
-      },
-    },
-    {
-      id: "tg-5",
-      category: "Technology & Gadgets",
-      image: "/process/videoframe_6.png",
-      caption: "Is this smartwatch worth the hype? ⌚",
-      reviewer: {
-        name: "Henry",
-        rating: 4.7,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-  ],
-  "Home & Lifestyle": [
-    {
-      id: "hl-1",
-      category: "Home & Lifestyle",
-      image: "/process/videoframe_6.png",
-      caption: "My apartment smell-good routine 🕯️",
-      reviewer: {
-        name: "Grace",
-        rating: 4.9,
-        countryName: "France",
-        countryFlag: "🇫🇷",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-    {
-      id: "hl-2",
-      category: "Home & Lifestyle",
-      image: "/process/videoframe_1.png",
-      caption: "Styling our living room corner 🛋️",
-      reviewer: {
-        name: "Thomas",
-        rating: 4.7,
-        countryName: "United Kingdom",
-        countryFlag: "🇬🇧",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "hl-3",
-      category: "Home & Lifestyle",
-      image: "/process/videoframe_2.png",
-      caption: "This plant hanger is a work of art 🪴",
-      reviewer: {
-        name: "Oliver",
-        rating: 4.8,
-        countryName: "Netherlands",
-        countryFlag: "🇳🇱",
-        avatar: "/process/videoframe_554.png",
-      },
-    },
-    {
-      id: "hl-4",
-      category: "Home & Lifestyle",
-      image: "/process/videoframe_3.png",
-      caption: "Desk makeover: minimal setup 🖥️",
-      reviewer: {
-        name: "Leo",
-        rating: 4.9,
-        countryName: "United States",
-        countryFlag: "🇺🇸",
-        avatar: "/process/videoframe_2364.png",
-      },
-    },
-    {
-      id: "hl-5",
-      category: "Home & Lifestyle",
-      image: "/process/videoframe_4.png",
-      caption: "Reviewing the viral silk pillowcase 😴",
-      reviewer: {
-        name: "Lily",
-        rating: 4.8,
-        countryName: "Canada",
-        countryFlag: "🇨🇦",
-        avatar: "/process/videoframe_9629.png",
-      },
-    },
-  ],
-};
+  }
+];
 
 // Vector Flags duplicated from creator-regions.tsx and expanded
 function USFlag() {
@@ -843,17 +398,84 @@ const getFlagComponent = (countryName: string) => {
   }
 };
 
-const getBrandInfo = (category: string, index: number) => {
+const getBrandInfo = (index: number) => {
   const brands = [
-    { name: "Hello Eve", color: "bg-rose-100 text-rose-700" },
-    { name: "Waterdrop", color: "bg-blue-100 text-blue-700" },
-    { name: "Moonboon", color: "bg-amber-100 text-amber-800" },
-    { name: "Shape Republic", color: "bg-orange-100 text-orange-700" },
-    { name: "Dream With Us", color: "bg-emerald-100 text-emerald-700" },
+    { name: "Pandasocks", color: "bg-slate-100 text-slate-700" },
+    { name: "Eterika", color: "bg-pink-100 text-pink-700" },
     { name: "Mini Melts", color: "bg-purple-100 text-purple-700" },
+    { name: "Shape Republic", color: "bg-orange-100 text-orange-700" },
+    { name: "GLAS", color: "bg-cyan-100 text-cyan-700" },
+    { name: "WOW TEA", color: "bg-amber-100 text-amber-700" },
+    { name: "Gizzmo", color: "bg-blue-100 text-blue-700" },
+    { name: "Top Shop", color: "bg-rose-100 text-rose-700" },
   ];
-  return brands[(category.charCodeAt(0) + index) % brands.length];
+  return brands[index % brands.length];
 };
+
+// Real creator headshots to rotate through (avoids reusing dashboard screenshots as fake avatars)
+const AVATAR_POOL = [
+  "/josh.webp",
+  "/Chelsea.webp",
+  "/Brie_Tennessee.webp",
+  "/Jonah_Nebraska.webp",
+  "/Alexis_California.webp",
+];
+const getAvatar = (index: number) => AVATAR_POOL[index % AVATAR_POOL.length];
+
+/**
+ * Only mounts the (heavy) Cloudflare Stream iframe once the card actually
+ * scrolls into view. Off-screen cards show a lightweight static thumbnail
+ * instead — with 14+ reviews looping, autoplaying every video at once would
+ * open dozens of concurrent video streams and freeze the tab.
+ */
+function LazyStreamCard({ videoId, caption }: { videoId?: string; caption: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || inView) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "150px", threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [inView]);
+
+  if (!videoId) return <div ref={containerRef} className="absolute inset-0" />;
+
+  return (
+    <div ref={containerRef} className="absolute inset-0">
+      {inView ? (
+        <iframe
+          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=metadata`}
+          className="absolute inset-0 w-full h-full border-0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          loading="lazy"
+          title={caption}
+        />
+      ) : (
+        // Static poster frame — Cloudflare Stream's built-in thumbnail endpoint, no video stream opened yet
+        <Image
+          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s`}
+          alt={caption}
+          fill
+          unoptimized
+          className="object-cover"
+        />
+      )}
+    </div>
+  );
+}
 
 const getVideoType = (index: number) => {
   const types = ["Testimonial", "Meta Ad", "B-roll", "Unboxing"];
@@ -876,15 +498,11 @@ const getLocInfo = (countryName: string, index: number) => {
 };
 
 const Reviews = () => {
-  const [activeCategory, setActiveCategory] = useState("Health & Wellness");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const swiperRef = useRef<any>(null);
-  console.log(setActiveCategory);
 
-  const currentReviews = REVIEWS_DATA[activeCategory] || [];
-  
   // Duplicate the reviews array to ensure there are enough slides (>= 15) for Swiper loop to work without gaps
-  const displayReviews = [...currentReviews, ...currentReviews, ...currentReviews].map((review, idx) => ({
+  const displayReviews = [...REVIEWS_DATA, ...REVIEWS_DATA].map((review, idx) => ({
     ...review,
     uniqueKey: `${review.id}-dup-${idx}`,
     indexOffset: idx,
@@ -904,30 +522,6 @@ const Reviews = () => {
       }}
       className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16"
     >
-      {/* Category Tabs Container */}
-      {/* <div className="container mx-auto px-4 mb-12 md:mb-16">
-        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-2">
-          {CATEGORIES.map((cat) => {
-            const Icon = cat.icon;
-            const isActive = cat.name === activeCategory;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.name)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] md:text-sm font-medium transition-all duration-300 cursor-pointer border",
-                  isActive
-                    ? "bg-white text-black border-transparent  transform scale-[1.04]"
-                    : "text-slate-700 border-transparent hover:text-black hover:bg-white/40"
-                )}
-              >
-                <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-[#0081FB]" : "text-slate-500")} />
-                <span>{cat.name}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div> */}
 
       <style>{`
         .swiper-reviews-container .swiper-wrapper {
@@ -935,13 +529,18 @@ const Reviews = () => {
         }
       `}</style>
 
+  {/* Title */}
+      <div className="container mx-auto mb-6 text-center">
+        <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
+           This is what selling on TikTok actually looks like.
+        </span>
+      </div>
+
       {/* Slider Viewport */}
-      <div className="relative w-full max-w-[1450px] mx-auto flex items-center justify-center select-none overflow-visible">
+      <div className="relative w-full mx-auto flex items-center justify-center select-none overflow-visible">
         
-        {/* Swiper Slider with activeCategory key to force rebuild on category switch */}
         <div className="w-full overflow-visible">
           <Swiper
-            key={activeCategory}
             modules={[Autoplay]}
             autoplay={{
               delay: 0,
@@ -969,14 +568,14 @@ const Reviews = () => {
                 spaceBetween: 14,
               },
               1280: {
-                slidesPerView: 5.2,
+                slidesPerView: 5,
                 spaceBetween: 14,
               },
             }}
             className="swiper-reviews-container overflow-visible"
           >
             {displayReviews.map((review) => {
-              const brandInfo = getBrandInfo(review.category, review.indexOffset);
+              const brandInfo = getBrandInfo(review.indexOffset);
               const videoType = getVideoType(review.indexOffset);
               const locationCity = getLocInfo(review.reviewer.countryName, review.indexOffset);
               const FlagIcon = getFlagComponent(review.reviewer.countryName);
@@ -992,14 +591,9 @@ const Reviews = () => {
                   >
                     {/* Video Area Container */}
                     <div className="relative aspect-9/14 w-full overflow-hidden rounded-[1.25rem] bg-slate-900 ">
-                      <Image
-                        src={review.image}
-                        alt={review.caption}
-                        fill
-                        className="object-cover"
-                      />
+                      <LazyStreamCard videoId={review.videoId} caption={review.caption} />
                       {/* Dark Vignette Overlay for Text Contrast */}
-                      <div className="absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-black/10 z-10" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-black/10 z-10 pointer-events-none" />
 
                       {/* Top Left Badge: Brand Pill */}
                       <div className="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded-full flex items-center gap-1 z-20">
@@ -1023,7 +617,7 @@ const Reviews = () => {
                     <div className="flex items-center gap-2 pt-3 pb-0.5 px-1 text-left bg-white rounded-b-3xl">
                       <div className="w-7 h-7 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
                         <Image
-                          src={review.reviewer.avatar}
+                          src={getAvatar(review.indexOffset)}
                           alt={review.reviewer.name}
                           fill
                           className="object-cover"

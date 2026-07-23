@@ -35,7 +35,7 @@ export default function CreatorRegions() {
       {/* Title */}
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
-          Meet our creators from
+          Making brands money across:
         </span>
       </div>
 

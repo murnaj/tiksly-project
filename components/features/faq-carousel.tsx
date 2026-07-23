@@ -15,33 +15,53 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const FAQ_DATA = [
   {
     id: "faq-1",
-    question: "1. What exactly does your TikTok Shop Agency do for my business?",
-    answer: "We handle everything required to launch, scale, and manage your TikTok Shop. This includes creator outreach and product seeding, producing high-converting UGC video ads, managing your shop operations, optimizing affiliate plans, and running targeted TikTok Shop Ads to drive consistent sales.",
+    question: "I've been burned by an agency before. Why is Tiksly any different?",
+    answer: "Because most agencies chase followers and post pretty screenshots while your bank account stays flat. We chase GMV. Everything we do ties back to one number, the revenue in your shop, and you see it in a live dashboard so we've got nowhere to hide. If it's not making you money, we're not doing it.",
   },
   {
     id: "faq-2",
-    question: "2. How much does your TikTok Shop Agency cost?",
-    answer: "Our pricing is structured based on the size of your catalog and the scale of distribution required. We offer transparent monthly retainer plans alongside performance incentives, ensuring our goals are fully aligned with your revenue growth. Get in touch for a custom quote.",
+    question: "What exactly do you handle, and what's left for me?",
+    answer: "We handle the whole channel. Shop setup, listings, creators, affiliates, UGC, ads, live selling, compliance, and daily ops. What's left for you is approving the big calls and doing what you do best, which is running your business. No learning TikTok's back end at midnight. No chasing creators who ghost.",
   },
   {
     id: "faq-3",
-    question: "3. How fast will I see results from your TikTok Shop Agency?",
-    answer: "Most brands see their first set of creator videos and initial sales within the first 14 to 21 days of launching. As the TikTok algorithm begins to optimize and our creator seeding program scales, compound growth typically accelerates around month 2 and 3.",
+    question: "How much does it cost?",
+    answer: "Depends on what you need, and we won't pretend otherwise. Management retainers, creator programs, and project work are all priced differently. You'll see clear starting prices on each service page and we'll quote your exact scope on the call. No surprise invoices and no getting locked into something you didn't ask for.",
   },
   {
     id: "faq-4",
-    question: "4. Why does your TikTok Shop Agency only take 12 clients?",
-    answer: "We limit our client roster to exactly 12 brands at any given time to maintain the highest quality of service. This allows our dedicated team of video editors, creator outreach specialists, and media buyers to act as a true extension of your in-house team.",
+    question: "I'm just starting out. Am I too small for you?",
+    answer: "No. We've taken shops from literally zero, and one of our sellers built a $5,000 a month business on an $800 budget. If you're serious and you've got a product people actually want, we can work with you. If you're already doing volume, even better, we'll pour fuel on it.",
   },
   {
     id: "faq-5",
-    question: "5. What businesses work best with your TikTok Shop Agency?",
-    answer: "We drive the best results for DTC brands in Beauty & Cosmetics, Apparel & Fashion, Health & Wellness, Home & Kitchen, and consumer gadgets. Having an active inventory, an appealing product offering, and margins that support affiliate commissions are key indicators of success.",
+    question: "How fast will I actually see results?",
+    answer: "Most brands see their first real sales inside 30 days, with the bigger growth landing over 60 to 90 days as the creator and content engine compounds. Ads can move quicker. We'll give you an honest timeline for your specific product on day one, not a fantasy to close the deal.",
   },
   {
     id: "faq-6",
-    question: "6. Does your TikTok Shop Agency guarantee results?",
-    answer: "While we cannot guarantee exact sales figures due to variables in market demand and stock availability, we guarantee the delivery of high-quality assets, active creator partnerships, and optimized ad accounts. Our performance-based structures show our commitment to your ROI.",
+    question: "Does this work for my niche?",
+    answer: "If it sells on TikTok, it works. We've driven results across fashion, beauty, health and wellness, home, collectibles, food and beverage, and more. On the call we'll tell you straight whether your product is a fit, because putting you in a program that won't work helps nobody.",
+  },
+  {
+    id: "faq-7",
+    question: "Do I stay in control of my shop and my brand?",
+    answer: "Completely. It stays your shop, your brand, your account, your data. We operate inside it, you keep the keys, and everything we run stays on brand. You approve, we execute.",
+  },
+  {
+    id: "faq-8",
+    question: "Do you work with brands outside the US and UK?",
+    answer: "Yes. We're TSP verified in the US and UK and we actively run shops across Europe and Southeast Asia. If TikTok Shop is live in your market, we can help you win in it.",
+  },
+  {
+    id: "faq-9",
+    question: "Are you actually a verified TikTok Shop Partner?",
+    answer: "Yes, in both the US and UK. Ask us for our TSP IDs on the call and we'll show them on the spot. No smoke, no mirrors.",
+  },
+  {
+    id: "faq-10",
+    question: "I run an agency. Can you do this under my brand?",
+    answer: "We can. We white label the entire operation, work under an NDA, and deliver branded reporting your clients never know isn't in house. Reach out through the agency option and we'll send you the partner details.",
   },
 ];
 
@@ -84,14 +104,8 @@ export default function FaqCarousel() {
             variants={itemVariants}
             className="text-2xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.1] text-black mb-5"
           >
-            Questions About Our TikTok Shop Agency?
+            The questions you're actually thinking. Answered straight.
           </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-500 text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed max-w-sm md:max-w-lg lg:max-w-2xl mx-auto"
-          >
-            We know picking the right TikTok Shop Agency is important. Here are the questions we hear most from businesses like yours – and our honest answers.
-          </motion.p>
         </motion.div>
 
         {/* Accordion Layout */}
