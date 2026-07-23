@@ -117,7 +117,8 @@ export function HlsVideo({
         muted
         loop
         playsInline
-        preload="none"
+        autoPlay
+        preload="auto"
         poster={streamThumb(videoId)}
         className={className ?? "absolute inset-0 w-full h-full object-cover"}
       />
