@@ -244,7 +244,7 @@ export default function FooterSection() {
           className="flex justify-center items-center py-6"
         >
           <Image
-            src="/branding/logo-green.svg"
+            src="/branding/logo-white.svg"
             alt="Tiksly Brand Logo Parallax"
             width={720}
             height={220}
