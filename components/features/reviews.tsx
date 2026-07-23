@@ -475,13 +475,12 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
 
         {/* Static poster image visible when not hovered */}
         {thumbUrl && (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={thumbUrl}
             alt={review.caption}
-            fill
-            sizes="(max-width: 640px) 190px, 240px"
             className={cn(
-              "object-cover transition-opacity duration-300 z-10 pointer-events-none",
+              "absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-10 pointer-events-none",
               hovered ? "opacity-0" : "opacity-100"
             )}
           />
