@@ -5,11 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HlsVideo } from "@/components/features/hls-video";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-/** Same Cloudflare Stream account used across the site */
-const CLOUDFLARE_CUSTOMER_CODE = "customer-wyu58i20r3viufsr";
 
 interface WorkSample {
   videoId: string;
