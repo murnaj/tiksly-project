@@ -55,7 +55,7 @@ export default function GetDemoFlow() {
                 {step === "schedule" && (
                   <motion.div
                     key="schedule"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.45, ease: EASE }}
@@ -75,7 +75,7 @@ export default function GetDemoFlow() {
                 {step === "details" && (
                   <motion.div
                     key="details"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.45, ease: EASE }}
@@ -87,7 +87,7 @@ export default function GetDemoFlow() {
                 {step === "confirmed" && (
                   <motion.div
                     key="confirmed"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.45, ease: EASE }}

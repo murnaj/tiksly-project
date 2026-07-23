@@ -92,7 +92,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
         {view === "hub" && (
           <motion.div
             key="hub"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
@@ -195,7 +195,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
         {view === "brand" && (
           <motion.div
             key="brand"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
@@ -532,7 +532,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
         {view === "creator" && (
           <motion.div
             key="creator"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
@@ -673,7 +673,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
         {view === "agency" && (
           <motion.div
             key="agency"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35 }}
