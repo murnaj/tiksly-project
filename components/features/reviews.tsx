@@ -94,7 +94,7 @@ const REVIEWS_DATA: Review[] = [
     },
   },
 
-    {
+  {
     id: "hw-6",
     videoId: "0aaea0305aa72881f52d75978391efb9",
     caption: "I always had pain in my feet ⚡",
@@ -155,7 +155,7 @@ const REVIEWS_DATA: Review[] = [
     },
   },
 
-      {
+  {
     id: "hw-11",
     videoId: "9eeb72536d1b478e604752b4ef089d96",
     caption: "I always had pain in my feet ⚡",
@@ -400,14 +400,14 @@ const getFlagComponent = (countryName: string) => {
 
 const getBrandInfo = (index: number) => {
   const brands = [
-    { name: "Pandasocks", color: "bg-slate-100 text-slate-700" },
-    { name: "Eterika", color: "bg-pink-100 text-pink-700" },
-    { name: "Mini Melts", color: "bg-purple-100 text-purple-700" },
-    { name: "Shape Republic", color: "bg-orange-100 text-orange-700" },
-    { name: "GLAS", color: "bg-cyan-100 text-cyan-700" },
-    { name: "WOW TEA", color: "bg-amber-100 text-amber-700" },
-    { name: "Gizzmo", color: "bg-blue-100 text-blue-700" },
-    { name: "Top Shop", color: "bg-rose-100 text-rose-700" },
+    { name: "Pandasocks", color: "bg-slate-400" },
+    { name: "Eterika", color: "bg-pink-400" },
+    { name: "Mini Melts", color: "bg-purple-400" },
+    { name: "Shape Republic", color: "bg-orange-400" },
+    { name: "GLAS", color: "bg-cyan-400" },
+    { name: "WOW TEA", color: "bg-amber-400" },
+    { name: "Gizzmo", color: "bg-blue-400" },
+    { name: "Top Shop", color: "bg-rose-400" },
   ];
   return brands[index % brands.length];
 };
@@ -509,16 +509,23 @@ const Reviews = () => {
   }));
 
   return (
-    <section 
+    <section
       onMouseEnter={() => {
-        if (swiperRef.current && swiperRef.current.autoplay) {
-          swiperRef.current.autoplay.stop();
-        }
+        const swiper = swiperRef.current;
+        if (!swiper || !swiper.autoplay || !swiper.wrapperEl) return;
+        // Freeze the wrapper at its exact current position first — otherwise the
+        // in-flight 5s CSS transition keeps animating for up to 5s after stop().
+        const computedTransform = getComputedStyle(swiper.wrapperEl).transform;
+        swiper.wrapperEl.style.transitionDuration = "0ms";
+        swiper.wrapperEl.style.transform = computedTransform;
+        swiper.autoplay.stop();
       }}
       onMouseLeave={() => {
-        if (swiperRef.current && swiperRef.current.autoplay) {
-          swiperRef.current.autoplay.start();
-        }
+        const swiper = swiperRef.current;
+        if (!swiper || !swiper.autoplay || !swiper.wrapperEl) return;
+        swiper.wrapperEl.style.transitionDuration = "";
+        swiper.wrapperEl.style.transform = "";
+        swiper.autoplay.start();
       }}
       className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16"
     >
@@ -529,16 +536,16 @@ const Reviews = () => {
         }
       `}</style>
 
-  {/* Title */}
+      {/* Title */}
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
-           This is what selling on TikTok actually looks like.
+          This is what selling on TikTok actually looks like.
         </span>
       </div>
 
       {/* Slider Viewport */}
       <div className="relative w-full mx-auto flex items-center justify-center select-none overflow-visible">
-        
+
         <div className="w-full overflow-visible">
           <Swiper
             modules={[Autoplay]}
@@ -557,19 +564,19 @@ const Reviews = () => {
             breakpoints={{
               640: {
                 slidesPerView: 2.4,
-                spaceBetween: 12,
+                spaceBetween: 6,
               },
               768: {
                 slidesPerView: 3.2,
-                spaceBetween: 12,
+                spaceBetween: 6,
               },
               1024: {
                 slidesPerView: 4.2,
-                spaceBetween: 14,
+                spaceBetween: 6,
               },
               1280: {
-                slidesPerView: 5,
-                spaceBetween: 14,
+                slidesPerView: 8,
+                spaceBetween: 6,
               },
             }}
             className="swiper-reviews-container overflow-visible"
@@ -584,38 +591,38 @@ const Reviews = () => {
                 <SwiperSlide key={review.uniqueKey} className="flex items-center justify-center overflow-visible py-8">
                   <div
                     className={cn(
-                      "transition-all duration-300 mx-auto ease-out relative rounded-3xl p-2.5 bg-white border border-gray-100 flex flex-col w-full shadow-[0_4px_16px_rgba(0,0,0,0.02)]",
-                      "w-full max-w-[210px] sm:max-w-[230px] md:max-w-[170px] lg:max-w-[200px] xl:max-w-[230px]",
-                      "hover:scale-[1.05] hover:-translate-y-1.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:border-gray-200 hover:z-10"
+                      "transition-all duration-300 mx-auto ease-out relative bg-white border-r border-gray-100 flex flex-col w-full",
+                      "w-full max-w-[190px] md:max-w-[250px] rounded-lg overflow-hidden",
                     )}
                   >
-                    {/* Video Area Container */}
-                    <div className="relative aspect-9/14 w-full overflow-hidden rounded-[1.25rem] bg-slate-900 ">
+                    {/* Video Area Container — flat, edge-to-edge */}
+                    <div className="relative aspect-[2/4] w-full overflow-hidden bg-slate-900">
                       <LazyStreamCard videoId={review.videoId} caption={review.caption} />
-                      {/* Dark Vignette Overlay for Text Contrast */}
-                      <div className="absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-black/10 z-10 pointer-events-none" />
 
-                      {/* Top Left Badge: Brand Pill */}
-                      <div className="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded-full flex items-center gap-1 z-20">
-                        <div className={cn("w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-black uppercase tracking-tight shrink-0 select-none", brandInfo.color)}>
+                      {/* Top scrim for text contrast */}
+                      <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
+
+                      {/* Brand badge */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
+                        <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
                           {brandInfo.name.charAt(0)}
                         </div>
-                        <span className="text-[9px] font-bold text-black tracking-tight whitespace-nowrap">
+                        <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
                           {brandInfo.name}
                         </span>
                       </div>
 
-                      {/* Bottom Left Badge: Video Tag */}
-                      <div className="absolute bottom-2.5 left-2.5 bg-white/95 px-2.5 py-1 rounded-[6px] z-20">
-                        <span className="text-[8px] font-extrabold text-black tracking-tight whitespace-nowrap uppercase">
+                      {/* Bottom tag */}
+                      <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
+                        <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
                           {videoType}
                         </span>
                       </div>
                     </div>
 
-                    {/* Bottom Profile Area */}
-                    <div className="flex items-center gap-2 pt-3 pb-0.5 px-1 text-left bg-white rounded-b-3xl">
-                      <div className="w-7 h-7 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
+                    {/* Profile strip below */}
+                    <div className="flex items-center gap-2 px-3 py-3 bg-white">
+                      <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
                         <Image
                           src={getAvatar(review.indexOffset)}
                           alt={review.reviewer.name}
@@ -624,13 +631,13 @@ const Reviews = () => {
                         />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[12px] font-bold text-black leading-none truncate">
+                        <span className="text-[13px] font-bold text-black leading-none truncate">
                           {review.reviewer.name}
                         </span>
-                        <div className="flex items-center gap-1.5 mt-1 text-[9px] text-gray-400 font-semibold leading-none">
-                          <MapPin className="w-2.5 h-2.5 shrink-0 text-gray-400" />
-                          <span className="truncate max-w-[72px]">{locationCity}</span>
-                          <span className="shrink-0 ml-0.5"><FlagIcon /></span>
+                        <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
+                          <MapPin className="w-2.5 h-2.5 shrink-0" />
+                          <span className="truncate max-w-[80px]">{locationCity}</span>
+                          <span className="shrink-0"><FlagIcon /></span>
                         </div>
                       </div>
                     </div>
