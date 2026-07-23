@@ -4,12 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import { HlsVideo } from "@/components/features/hls-video";
 
 
 interface Reviewer {
@@ -418,51 +413,6 @@ const AVATAR_POOL = [
   "/Alexis_California.webp",
 ];
 const getAvatar = (index: number) => AVATAR_POOL[index % AVATAR_POOL.length];
-
-const thumbUrl = (videoId: string) =>
-  `https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`;
-
-/**
- * Performance model:
- * - A cheap static poster (Cloudflare's own thumbnail JPG) is ALWAYS the base layer.
- * - The heavy Cloudflare Stream <iframe> is mounted only when `active` is true.
- *   The parent carousel keeps `active` true for the handful of slides currently
- *   in view AND only while the whole section is on screen. Scroll away → every
- *   iframe unmounts, killing all video streams so the rest of the page stays fast.
- */
-function VideoCell({
-  videoId,
-  caption,
-  active,
-}: {
-  videoId?: string;
-  caption: string;
-  active: boolean;
-}) {
-  return (
-    <div className="absolute inset-0">
-      {videoId && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={thumbUrl(videoId)}
-          alt={caption}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      )}
-      {videoId && active && (
-        <iframe
-          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=none`}
-          className="absolute inset-0 w-full h-full border-0"
-          allow="autoplay; encrypted-media"
-          loading="lazy"
-          title={caption}
-        />
-      )}
-    </div>
-  );
-}
 
 const getVideoType = (index: number) => {
   const types = ["Testimonial", "Meta Ad", "B-roll", "Unboxing"];
