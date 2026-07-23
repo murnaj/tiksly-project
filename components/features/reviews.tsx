@@ -2,17 +2,17 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 import {
   MapPin
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-// Swiper core styles
-import "swiper/css";
-import "swiper/css/autoplay";
 
 
 interface Reviewer {
@@ -498,44 +498,42 @@ const getLocInfo = (countryName: string, index: number) => {
 };
 
 const Reviews = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const swiperRef = useRef<any>(null);
+  const [api, setApi] = useState<CarouselApi>();
 
-  // Duplicate the reviews array to ensure there are enough slides (>= 15) for Swiper loop to work without gaps
-  const displayReviews = [...REVIEWS_DATA, ...REVIEWS_DATA].map((review, idx) => ({
-    ...review,
-    uniqueKey: `${review.id}-dup-${idx}`,
-    indexOffset: idx,
-  }));
+  // Interaction-aware autoplay — same pattern as CaseStudies/FaqCarousel:
+  // a plain setInterval calling scrollNext(), cleared instantly on hover/drag.
+  // Embla's own transition per step is short (~300ms), so clearing the
+  // interval makes it feel like an immediate stop — unlike the old Swiper
+  // continuous-scroll hack which kept animating for up to 5s after "stop".
+  useEffect(() => {
+    if (!api) return;
+
+    let intervalId: ReturnType<typeof setInterval>;
+
+    const startAutoplay = () => {
+      intervalId = setInterval(() => {
+        api.scrollNext();
+      }, 2200);
+    };
+
+    const stopAutoplay = () => {
+      clearInterval(intervalId);
+    };
+
+    startAutoplay();
+
+    api.on("pointerDown", stopAutoplay);
+    api.on("pointerUp", startAutoplay);
+
+    return () => {
+      stopAutoplay();
+      api.off("pointerDown", stopAutoplay);
+      api.off("pointerUp", startAutoplay);
+    };
+  }, [api]);
 
   return (
-    <section
-      onMouseEnter={() => {
-        const swiper = swiperRef.current;
-        if (!swiper || !swiper.autoplay || !swiper.wrapperEl) return;
-        // Freeze the wrapper at its exact current position first — otherwise the
-        // in-flight 5s CSS transition keeps animating for up to 5s after stop().
-        const computedTransform = getComputedStyle(swiper.wrapperEl).transform;
-        swiper.wrapperEl.style.transitionDuration = "0ms";
-        swiper.wrapperEl.style.transform = computedTransform;
-        swiper.autoplay.stop();
-      }}
-      onMouseLeave={() => {
-        const swiper = swiperRef.current;
-        if (!swiper || !swiper.autoplay || !swiper.wrapperEl) return;
-        swiper.wrapperEl.style.transitionDuration = "";
-        swiper.wrapperEl.style.transform = "";
-        swiper.autoplay.start();
-      }}
-      className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16"
-    >
-
-      <style>{`
-        .swiper-reviews-container .swiper-wrapper {
-          transition-timing-function: linear !important;
-        }
-      `}</style>
-
+    <section className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16">
       {/* Title */}
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
@@ -544,55 +542,31 @@ const Reviews = () => {
       </div>
 
       {/* Slider Viewport */}
-      <div className="relative w-full mx-auto flex items-center justify-center select-none overflow-visible">
-
-        <div className="w-full overflow-visible">
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            speed={5000}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            centeredSlides={false}
-            loop={true}
-            slidesPerView={1.8}
-            spaceBetween={8}
-            breakpoints={{
-              640: {
-                slidesPerView: 2.4,
-                spaceBetween: 8,
-              },
-              768: {
-                slidesPerView: 3.2,
-                spaceBetween: 8,
-              },
-              1024: {
-                slidesPerView: 4.2,
-                spaceBetween: 8,
-              },
-              1280: {
-                slidesPerView: 6,
-                spaceBetween: 8,
-              },
-            }}
-            className="swiper-reviews-container overflow-visible"
-          >
-            {displayReviews.map((review) => {
-              const brandInfo = getBrandInfo(review.indexOffset);
-              const videoType = getVideoType(review.indexOffset);
-              const locationCity = getLocInfo(review.reviewer.countryName, review.indexOffset);
+      <div
+        className="relative w-full mx-auto select-none"
+        onMouseEnter={() => api?.plugins()}
+      >
+        <Carousel
+          setApi={setApi}
+          opts={{ loop: true, align: "start", dragFree: true }}
+          className="w-full overflow-hidden px-4"
+        >
+          <CarouselContent className="-ml-2 md:-ml-3">
+            {REVIEWS_DATA.map((review, idx) => {
+              const brandInfo = getBrandInfo(idx);
+              const videoType = getVideoType(idx);
+              const locationCity = getLocInfo(review.reviewer.countryName, idx);
               const FlagIcon = getFlagComponent(review.reviewer.countryName);
 
               return (
-                <SwiperSlide key={review.uniqueKey} className="flex items-center justify-center overflow-visible py-8">
+                <CarouselItem
+                  key={review.id}
+                  className="pl-2 md:pl-3 basis-[52%] sm:basis-[38%] md:basis-[28%] lg:basis-[21%] xl:basis-[17%]"
+                >
                   <div
                     className={cn(
-                      "transition-all duration-300 mx-auto ease-out relative bg-white border-r border-gray-100 flex flex-col w-full",
-                      "w-full max-w-[190px] md:max-w-[250px] rounded-lg overflow-hidden",
+                      "transition-all duration-300 ease-out relative bg-white border border-gray-100 flex flex-col w-full",
+                      "rounded-lg overflow-hidden",
                     )}
                   >
                     {/* Video Area Container — flat, edge-to-edge */}
@@ -624,7 +598,7 @@ const Reviews = () => {
                     <div className="flex items-center gap-2 px-3 py-3 bg-white">
                       <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
                         <Image
-                          src={getAvatar(review.indexOffset)}
+                          src={getAvatar(idx)}
                           alt={review.reviewer.name}
                           fill
                           className="object-cover"
@@ -642,12 +616,11 @@ const Reviews = () => {
                       </div>
                     </div>
                   </div>
-                </SwiperSlide>
+                </CarouselItem>
               );
             })}
-          </Swiper>
-        </div>
-
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
