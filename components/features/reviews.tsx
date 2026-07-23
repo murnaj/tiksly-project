@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { MapPin, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HlsVideo } from "@/components/features/hls-video";
 
 
 interface Reviewer {
@@ -438,7 +439,6 @@ const getLocInfo = (countryName: string, index: number) => {
  */
 function ReviewTile({ review, idx }: { review: Review; idx: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -448,34 +448,16 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
       ([entry]) => {
         setActive(entry.isIntersecting);
       },
-      { root: null, rootMargin: "120px", threshold: 0.01 }
+      { root: null, rootMargin: "350px", threshold: 0.01 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (active) {
-      video.defaultMuted = true;
-      video.muted = true;
-      video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-  }, [active]);
-
   const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const FlagIcon = getFlagComponent(review.reviewer.countryName);
-
-  // Direct progressive MP4 stream (always enabled on Cloudflare Stream)
-  const videoSrc = review.videoId
-    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/manifest/video.mp4`
-    : "";
 
   const thumbUrl = review.videoId
     ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`
@@ -488,17 +470,8 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
     >
       {/* Video Area */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
-        {videoSrc && (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            muted
-            loop
-            playsInline
-            autoPlay
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover z-0"
-          />
+        {review.videoId && (
+          <HlsVideo videoId={review.videoId} active={active} />
         )}
 
         {/* Static poster image visible when not loaded */}
