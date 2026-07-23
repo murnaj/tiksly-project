@@ -560,23 +560,23 @@ const Reviews = () => {
             centeredSlides={false}
             loop={true}
             slidesPerView={1.8}
-            spaceBetween={10}
+            spaceBetween={8}
             breakpoints={{
               640: {
                 slidesPerView: 2.4,
-                spaceBetween: 6,
+                spaceBetween: 8,
               },
               768: {
                 slidesPerView: 3.2,
-                spaceBetween: 6,
+                spaceBetween: 8,
               },
               1024: {
                 slidesPerView: 4.2,
-                spaceBetween: 6,
+                spaceBetween: 8,
               },
               1280: {
-                slidesPerView: 8,
-                spaceBetween: 6,
+                slidesPerView: 6,
+                spaceBetween: 8,
               },
             }}
             className="swiper-reviews-container overflow-visible"
