@@ -448,7 +448,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => setActive(entry.isIntersecting),
-      { root: null, rootMargin: "0px", threshold: 0.15 }
+      { root: null, rootMargin: "400px", threshold: 0.01 }
     );
     obs.observe(el);
     return () => obs.disconnect();

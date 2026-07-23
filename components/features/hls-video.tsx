@@ -40,6 +40,9 @@ export function HlsVideo({
     const video = videoRef.current;
     if (!video) return;
 
+    video.defaultMuted = true;
+    video.muted = true;
+
     let cancelled = false;
 
     const teardown = () => {
