@@ -440,29 +440,15 @@ const getLocInfo = (countryName: string, index: number) => {
  */
 function ReviewTile({ review, idx }: { review: Review; idx: number }) {
   const [hovered, setHovered] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (hovered) {
-      video.defaultMuted = true;
-      video.muted = true;
-      video.play().catch(() => {});
-    } else {
-      video.pause();
-      video.currentTime = 0;
-    }
-  }, [hovered]);
 
   const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const FlagIcon = getFlagComponent(review.reviewer.countryName);
 
-  const videoSrc = review.videoId
-    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/downloads/default.mp4`
+  // Official Cloudflare Stream player iframe URL (highly cached & responsive)
+  const iframeUrl = review.videoId
+    ? `https://iframe.videodelivery.net/${review.videoId}?autoplay=true&muted=true&loop=true&controls=false&preload=auto`
     : "";
 
   const thumbUrl = review.videoId
@@ -477,22 +463,17 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
     >
       {/* Video Area */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
-        {videoSrc && (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className={cn(
-              "absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-0",
-              hovered ? "opacity-100" : "opacity-0"
-            )}
+        {hovered && iframeUrl ? (
+          <iframe
+            src={iframeUrl}
+            className="absolute inset-0 w-full h-full border-0 z-0 pointer-events-none"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title={review.caption}
           />
-        )}
+        ) : null}
 
-        {/* Static poster image always visible underneath */}
+        {/* Static poster image visible when not hovered */}
         {thumbUrl && (
           <Image
             src={thumbUrl}
