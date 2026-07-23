@@ -33,56 +33,97 @@ const SAMPLES: WorkSample[] = [
   { videoId: "79e7cf49cdb4ab1729369b36e5afd8cc", brand: "Maxiblock", brandColor: "bg-teal-400", tag: "B-roll", name: "Avy", location: "Arcen", flag: "🇳🇱", avatar: "/Jonah_Nebraska.webp" },
 ];
 
-const DISPLAY_SAMPLES = [...SAMPLES, ...SAMPLES];
+const thumbUrl = (videoId: string) =>
+  `https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`;
 
-/** Only mounts the Cloudflare Stream iframe once the card scrolls into view — avoids autoplaying every video at once */
-function LazyStreamCard({ videoId, caption }: { videoId: string; caption: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+/**
+ * A single sample card. A cheap poster JPG is always the base layer; the heavy
+ * Cloudflare Stream iframe is mounted only while the card is actually on screen
+ * (the observer toggles both ways, so scrolling past — horizontally or
+ * vertically — unmounts the iframe and kills the stream).
+ */
+function WorkSampleCard({ sample }: { sample: WorkSample }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el || inView) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "150px", threshold: 0.2 }
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { rootMargin: "100px", threshold: 0.25 }
     );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [inView]);
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0">
-      {inView ? (
-        <iframe
-          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=metadata`}
-          className="absolute inset-0 w-full h-full border-0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
+    <div
+      ref={ref}
+      className="relative shrink-0 w-[190px] md:w-[220px] border-r border-gray-100 bg-white"
+    >
+      {/* Video area */}
+      <div className="relative aspect-[3/4] w-full bg-slate-900 overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumbUrl(sample.videoId)}
+          alt={`${sample.brand} - ${sample.tag}`}
           loading="lazy"
-          title={caption}
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-      ) : (
-        <Image
-          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s`}
-          alt={caption}
-          fill
-          unoptimized
-          className="object-cover"
-        />
-      )}
+        {active && (
+          <iframe
+            src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${sample.videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=none`}
+            className="absolute inset-0 w-full h-full border-0"
+            allow="autoplay; encrypted-media"
+            loading="lazy"
+            title={`${sample.brand} - ${sample.tag}`}
+          />
+        )}
+
+        {/* Top scrim for text contrast */}
+        <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
+
+        {/* Brand badge */}
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
+          <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", sample.brandColor)}>
+            {sample.brand.charAt(0)}
+          </div>
+          <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
+            {sample.brand}
+          </span>
+        </div>
+
+        {/* Bottom tag */}
+        <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
+          <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
+            {sample.tag}
+          </span>
+        </div>
+      </div>
+
+      {/* Profile strip below */}
+      <div className="flex items-center gap-2 px-3 py-3 bg-white">
+        <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
+          <Image src={sample.avatar} alt={sample.name} width={32} height={32} className="object-cover w-full h-full" />
+        </div>
+        <div className="flex flex-col min-w-0">
+          <span className="text-[13px] font-bold text-black leading-none truncate">
+            {sample.name}
+          </span>
+          <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
+            <MapPin className="w-2.5 h-2.5 shrink-0" />
+            <span className="truncate max-w-[80px]">{sample.location}</span>
+            <span className="shrink-0">{sample.flag}</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function WorkSamples() {
-  const swiperTrackRef = useRef<HTMLDivElement>(null);
-
   return (
     <section className="bg-white py-16 md:py-24 border-b border-gray-100 overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
@@ -109,58 +150,10 @@ export default function WorkSamples() {
       </div>
 
       {/* Edge-to-edge horizontal filmstrip */}
-      <div
-        ref={swiperTrackRef}
-        className="w-full overflow-x-auto no-scrollbar"
-      >
+      <div className="w-full overflow-x-auto no-scrollbar">
         <div className="flex w-max">
-          {DISPLAY_SAMPLES.map((sample, i) => (
-            <div
-              key={`${sample.brand}-${i}`}
-              className="relative shrink-0 w-[190px] md:w-[220px] border-r border-gray-100 bg-white"
-            >
-              {/* Video area */}
-              <div className="relative aspect-[3/4] w-full bg-slate-900 overflow-hidden">
-                <LazyStreamCard videoId={sample.videoId} caption={`${sample.brand} - ${sample.tag}`} />
-
-                {/* Top scrim for text contrast */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
-
-                {/* Brand badge */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
-                  <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", sample.brandColor)}>
-                    {sample.brand.charAt(0)}
-                  </div>
-                  <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
-                    {sample.brand}
-                  </span>
-                </div>
-
-                {/* Bottom tag */}
-                <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
-                  <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
-                    {sample.tag}
-                  </span>
-                </div>
-              </div>
-
-              {/* Profile strip below */}
-              <div className="flex items-center gap-2 px-3 py-3 bg-white">
-                <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
-                  <Image src={sample.avatar} alt={sample.name} fill className="object-cover" />
-                </div>
-                <div className="flex flex-col min-w-0">
-                  <span className="text-[13px] font-bold text-black leading-none truncate">
-                    {sample.name}
-                  </span>
-                  <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
-                    <MapPin className="w-2.5 h-2.5 shrink-0" />
-                    <span className="truncate max-w-[80px]">{sample.location}</span>
-                    <span className="shrink-0">{sample.flag}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {SAMPLES.map((sample) => (
+            <WorkSampleCard key={sample.brand} sample={sample} />
           ))}
         </div>
       </div>

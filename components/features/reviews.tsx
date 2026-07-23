@@ -4,6 +4,12 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 
 interface Reviewer {
@@ -413,55 +419,45 @@ const AVATAR_POOL = [
 ];
 const getAvatar = (index: number) => AVATAR_POOL[index % AVATAR_POOL.length];
 
+const thumbUrl = (videoId: string) =>
+  `https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`;
+
 /**
- * Only mounts the (heavy) Cloudflare Stream iframe once the card actually
- * scrolls into view. Off-screen cards show a lightweight static thumbnail
- * instead — with 14+ reviews looping, autoplaying every video at once would
- * open dozens of concurrent video streams and freeze the tab.
+ * Performance model:
+ * - A cheap static poster (Cloudflare's own thumbnail JPG) is ALWAYS the base layer.
+ * - The heavy Cloudflare Stream <iframe> is mounted only when `active` is true.
+ *   The parent carousel keeps `active` true for the handful of slides currently
+ *   in view AND only while the whole section is on screen. Scroll away → every
+ *   iframe unmounts, killing all video streams so the rest of the page stays fast.
  */
-function LazyStreamCard({ videoId, caption }: { videoId?: string; caption: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el || inView) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "150px", threshold: 0.2 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [inView]);
-
-  if (!videoId) return <div ref={containerRef} className="absolute inset-0" />;
-
+function VideoCell({
+  videoId,
+  caption,
+  active,
+}: {
+  videoId?: string;
+  caption: string;
+  active: boolean;
+}) {
   return (
-    <div ref={containerRef} className="absolute inset-0">
-      {inView ? (
+    <div className="absolute inset-0">
+      {videoId && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={thumbUrl(videoId)}
+          alt={caption}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
+      {videoId && active && (
         <iframe
-          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=metadata`}
+          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=none`}
           className="absolute inset-0 w-full h-full border-0"
           allow="autoplay; encrypted-media"
-          allowFullScreen
           loading="lazy"
           title={caption}
-        />
-      ) : (
-        // Static poster frame — Cloudflare Stream's built-in thumbnail endpoint, no video stream opened yet
-        <Image
-          src={`https://${CLOUDFLARE_CUSTOMER_CODE}.cloudflarestream.com/${videoId}/thumbnails/thumbnail.jpg?time=1s`}
-          alt={caption}
-          fill
-          unoptimized
-          className="object-cover"
         />
       )}
     </div>
@@ -489,27 +485,53 @@ const getLocInfo = (countryName: string, index: number) => {
 };
 
 const Reviews = () => {
-  // Duplicate array once for seamless infinite loop marquee scrolling
-  const displayReviews = [...REVIEWS_DATA, ...REVIEWS_DATA];
+  const sectionRef = useRef<HTMLElement>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [inViewSlides, setInViewSlides] = useState<number[]>([]);
+  const [sectionInView, setSectionInView] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  // Pause EVERYTHING (autoplay + video mounting) whenever the section is off
+  // screen. This is the single biggest win — no video streams run while the
+  // user is reading other parts of the page.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setSectionInView(entry.isIntersecting),
+      { rootMargin: "200px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Track which slides Embla currently shows, so only those mount an iframe.
+  useEffect(() => {
+    if (!api) return;
+    const update = () => setInViewSlides(api.slidesInView());
+    update();
+    api.on("slidesInView", update);
+    api.on("reInit", update);
+    return () => {
+      api.off("slidesInView", update);
+      api.off("reInit", update);
+    };
+  }, [api]);
+
+  // Interaction-aware autoplay: steps one slide at a time (static between
+  // steps, so no continuous repaint). Only runs while the section is visible
+  // and the user is not hovering — clearing the interval stops it instantly.
+  useEffect(() => {
+    if (!api || !sectionInView || hovered) return;
+    const id = setInterval(() => api.scrollNext(), 3500);
+    return () => clearInterval(id);
+  }, [api, sectionInView, hovered]);
 
   return (
-    <section className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16">
-      {/* CSS styling for seamless custom marquee animation */}
-      <style>{`
-        @keyframes reviewsMarquee {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .reviews-marquee-track {
-          display: flex;
-          width: max-content;
-          animation: reviewsMarquee 42s linear infinite;
-        }
-        .reviews-marquee-container:hover .reviews-marquee-track {
-          animation-play-state: paused;
-        }
-      `}</style>
-
+    <section
+      ref={sectionRef}
+      className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16"
+    >
       {/* Title */}
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
@@ -518,72 +540,83 @@ const Reviews = () => {
       </div>
 
       {/* Slider Viewport */}
-      <div className="relative w-full overflow-hidden reviews-marquee-container select-none">
-        <div className="reviews-marquee-track gap-4 md:gap-5 py-4">
-          {displayReviews.map((review, idx) => {
-            const brandInfo = getBrandInfo(idx);
-            const videoType = getVideoType(idx);
-            const locationCity = getLocInfo(review.reviewer.countryName, idx);
-            const FlagIcon = getFlagComponent(review.reviewer.countryName);
+      <div
+        className="relative w-full mx-auto select-none"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <Carousel
+          setApi={setApi}
+          opts={{ loop: true, align: "start", dragFree: true, containScroll: "trimSnaps" }}
+          className="w-full overflow-hidden px-4"
+        >
+          <CarouselContent className="-ml-3">
+            {REVIEWS_DATA.map((review, idx) => {
+              const brandInfo = getBrandInfo(idx);
+              const videoType = getVideoType(idx);
+              const locationCity = getLocInfo(review.reviewer.countryName, idx);
+              const FlagIcon = getFlagComponent(review.reviewer.countryName);
+              const active = sectionInView && inViewSlides.includes(idx);
 
-            return (
-              <div
-                key={`${review.id}-marquee-${idx}`}
-                className={cn(
-                  "transition-all duration-300 ease-out relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:scale-[1.03] hover:-translate-y-1",
-                  "w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]",
-                )}
-              >
-                {/* Video Area Container — flat, edge-to-edge */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
-                  <LazyStreamCard videoId={review.videoId} caption={review.caption} />
+              return (
+                <CarouselItem
+                  key={review.id}
+                  className="pl-3 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-[16.66%]"
+                >
+                  <div className="relative bg-white border border-gray-100 flex flex-col rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+                    {/* Video Area */}
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
+                      <VideoCell videoId={review.videoId} caption={review.caption} active={active} />
 
-                  {/* Top scrim for text contrast */}
-                  <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
+                      {/* Top scrim for text contrast */}
+                      <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
 
-                  {/* Brand badge */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
-                    <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
-                      {brandInfo.name.charAt(0)}
+                      {/* Brand badge */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
+                        <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
+                          {brandInfo.name.charAt(0)}
+                        </div>
+                        <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
+                          {brandInfo.name}
+                        </span>
+                      </div>
+
+                      {/* Bottom tag */}
+                      <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
+                        <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
+                          {videoType}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
-                      {brandInfo.name}
-                    </span>
-                  </div>
 
-                  {/* Bottom tag */}
-                  <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
-                    <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
-                      {videoType}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Profile strip below */}
-                <div className="flex items-center gap-2 px-3 py-3 bg-white">
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
-                    <Image
-                      src={getAvatar(idx)}
-                      alt={review.reviewer.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[13px] font-bold text-black leading-none truncate">
-                      {review.reviewer.name}
-                    </span>
-                    <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
-                      <MapPin className="w-2.5 h-2.5 shrink-0" />
-                      <span className="truncate max-w-[80px]">{locationCity}</span>
-                      <span className="shrink-0"><FlagIcon /></span>
+                    {/* Profile strip below */}
+                    <div className="flex items-center gap-2 px-3 py-3 bg-white">
+                      <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
+                        <Image
+                          src={getAvatar(idx)}
+                          alt={review.reviewer.name}
+                          width={32}
+                          height={32}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[13px] font-bold text-black leading-none truncate">
+                          {review.reviewer.name}
+                        </span>
+                        <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
+                          <MapPin className="w-2.5 h-2.5 shrink-0" />
+                          <span className="truncate max-w-[80px]">{locationCity}</span>
+                          <span className="shrink-0"><FlagIcon /></span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
