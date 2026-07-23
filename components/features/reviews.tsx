@@ -2,16 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-
-import {
-  MapPin
-} from "lucide-react";
+import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 
@@ -498,42 +489,27 @@ const getLocInfo = (countryName: string, index: number) => {
 };
 
 const Reviews = () => {
-  const [api, setApi] = useState<CarouselApi>();
-
-  // Interaction-aware autoplay — same pattern as CaseStudies/FaqCarousel:
-  // a plain setInterval calling scrollNext(), cleared instantly on hover/drag.
-  // Embla's own transition per step is short (~300ms), so clearing the
-  // interval makes it feel like an immediate stop — unlike the old Swiper
-  // continuous-scroll hack which kept animating for up to 5s after "stop".
-  useEffect(() => {
-    if (!api) return;
-
-    let intervalId: ReturnType<typeof setInterval>;
-
-    const startAutoplay = () => {
-      intervalId = setInterval(() => {
-        api.scrollNext();
-      }, 2200);
-    };
-
-    const stopAutoplay = () => {
-      clearInterval(intervalId);
-    };
-
-    startAutoplay();
-
-    api.on("pointerDown", stopAutoplay);
-    api.on("pointerUp", startAutoplay);
-
-    return () => {
-      stopAutoplay();
-      api.off("pointerDown", stopAutoplay);
-      api.off("pointerUp", startAutoplay);
-    };
-  }, [api]);
+  // Duplicate array once for seamless infinite loop marquee scrolling
+  const displayReviews = [...REVIEWS_DATA, ...REVIEWS_DATA];
 
   return (
     <section className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16">
+      {/* CSS styling for seamless custom marquee animation */}
+      <style>{`
+        @keyframes reviewsMarquee {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .reviews-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: reviewsMarquee 42s linear infinite;
+        }
+        .reviews-marquee-container:hover .reviews-marquee-track {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       {/* Title */}
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
@@ -542,85 +518,72 @@ const Reviews = () => {
       </div>
 
       {/* Slider Viewport */}
-      <div
-        className="relative w-full mx-auto select-none"
-        onMouseEnter={() => api?.plugins()}
-      >
-        <Carousel
-          setApi={setApi}
-          opts={{ loop: true, align: "start", dragFree: true }}
-          className="w-full overflow-hidden px-4"
-        >
-          <CarouselContent className="-ml-2 md:-ml-3">
-            {REVIEWS_DATA.map((review, idx) => {
-              const brandInfo = getBrandInfo(idx);
-              const videoType = getVideoType(idx);
-              const locationCity = getLocInfo(review.reviewer.countryName, idx);
-              const FlagIcon = getFlagComponent(review.reviewer.countryName);
+      <div className="relative w-full overflow-hidden reviews-marquee-container select-none">
+        <div className="reviews-marquee-track gap-4 md:gap-5 py-4">
+          {displayReviews.map((review, idx) => {
+            const brandInfo = getBrandInfo(idx);
+            const videoType = getVideoType(idx);
+            const locationCity = getLocInfo(review.reviewer.countryName, idx);
+            const FlagIcon = getFlagComponent(review.reviewer.countryName);
 
-              return (
-                <CarouselItem
-                  key={review.id}
-                  className="pl-2 md:pl-3 basis-[52%] sm:basis-[38%] md:basis-[28%] lg:basis-[21%] xl:basis-[17%]"
-                >
-                  <div
-                    className={cn(
-                      "transition-all duration-300 ease-out relative bg-white border border-gray-100 flex flex-col w-full",
-                      "rounded-lg overflow-hidden",
-                    )}
-                  >
-                    {/* Video Area Container — flat, edge-to-edge */}
-                    <div className="relative aspect-[2/4] w-full overflow-hidden bg-slate-900">
-                      <LazyStreamCard videoId={review.videoId} caption={review.caption} />
+            return (
+              <div
+                key={`${review.id}-marquee-${idx}`}
+                className={cn(
+                  "transition-all duration-300 ease-out relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:scale-[1.03] hover:-translate-y-1",
+                  "w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]",
+                )}
+              >
+                {/* Video Area Container — flat, edge-to-edge */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
+                  <LazyStreamCard videoId={review.videoId} caption={review.caption} />
 
-                      {/* Top scrim for text contrast */}
-                      <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
+                  {/* Top scrim for text contrast */}
+                  <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-10" />
 
-                      {/* Brand badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
-                        <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
-                          {brandInfo.name.charAt(0)}
-                        </div>
-                        <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
-                          {brandInfo.name}
-                        </span>
-                      </div>
-
-                      {/* Bottom tag */}
-                      <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
-                        <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
-                          {videoType}
-                        </span>
-                      </div>
+                  {/* Brand badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
+                    <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
+                      {brandInfo.name.charAt(0)}
                     </div>
+                    <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
+                      {brandInfo.name}
+                    </span>
+                  </div>
 
-                    {/* Profile strip below */}
-                    <div className="flex items-center gap-2 px-3 py-3 bg-white">
-                      <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
-                        <Image
-                          src={getAvatar(idx)}
-                          alt={review.reviewer.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-[13px] font-bold text-black leading-none truncate">
-                          {review.reviewer.name}
-                        </span>
-                        <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
-                          <MapPin className="w-2.5 h-2.5 shrink-0" />
-                          <span className="truncate max-w-[80px]">{locationCity}</span>
-                          <span className="shrink-0"><FlagIcon /></span>
-                        </div>
-                      </div>
+                  {/* Bottom tag */}
+                  <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
+                    <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
+                      {videoType}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Profile strip below */}
+                <div className="flex items-center gap-2 px-3 py-3 bg-white">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
+                    <Image
+                      src={getAvatar(idx)}
+                      alt={review.reviewer.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[13px] font-bold text-black leading-none truncate">
+                      {review.reviewer.name}
+                    </span>
+                    <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
+                      <MapPin className="w-2.5 h-2.5 shrink-0" />
+                      <span className="truncate max-w-[80px]">{locationCity}</span>
+                      <span className="shrink-0"><FlagIcon /></span>
                     </div>
                   </div>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-        </Carousel>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
