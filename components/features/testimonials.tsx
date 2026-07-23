@@ -135,7 +135,7 @@ export default function Testimonials() {
 
   // Entrance Animations
   const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 1, y: 0 },
     show: {
       opacity: 1,
       y: 0,
@@ -148,7 +148,7 @@ export default function Testimonials() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 0 },
     show: {
       opacity: 1,
       y: 0,

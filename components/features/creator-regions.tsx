@@ -41,7 +41,7 @@ export default function CreatorRegions() {
 
       {/* Infinite Marquee Container */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, ease: EASE }}

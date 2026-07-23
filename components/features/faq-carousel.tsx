@@ -48,7 +48,7 @@ const FAQ_DATA = [
 export default function FaqCarousel() {
   // Entrance Animation Stagger Variants
   const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 1, y: 0 },
     show: {
       opacity: 1,
       y: 0,
@@ -61,7 +61,7 @@ export default function FaqCarousel() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 0 },
     show: {
       opacity: 1,
       y: 0,

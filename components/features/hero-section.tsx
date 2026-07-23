@@ -7,19 +7,19 @@ import Link from "next/link";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const container: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.25 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: EASE },
+    transition: { duration: 0.65, ease: EASE },
   },
 };
 

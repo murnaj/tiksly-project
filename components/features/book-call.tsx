@@ -24,11 +24,11 @@ function validate(form: FormData): FormErrors {
 
 export default function BookCall() {
   const containerVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 1, y: 0 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE, staggerChildren: 0.15, delayChildren: 0.1 } },
   };
   const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 1, y: 0 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
   };
 

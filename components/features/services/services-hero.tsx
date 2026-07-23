@@ -6,19 +6,19 @@ import Image from "next/image";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const container: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.25 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: EASE },
+    transition: { duration: 0.6, ease: EASE },
   },
 };
 
@@ -33,7 +33,8 @@ export default function ServicesHero() {
           <motion.div
             variants={container}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
             className="flex flex-col items-start"
           >
             {/* Headline */}
@@ -113,8 +114,9 @@ export default function ServicesHero() {
           {/* RIGHT — image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.4 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
             className="relative w-full rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] bg-[#F9F9F9]"
           >
             <Image

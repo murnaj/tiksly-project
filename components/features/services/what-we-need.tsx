@@ -39,12 +39,12 @@ const needs = [
 ];
 
 const container = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 0 },
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } },
 };
 
@@ -54,7 +54,7 @@ export default function WhatWeNeed() {
       <div className="container mx-auto px-3 lg:px-4">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: EASE }}

@@ -12,11 +12,11 @@ import CaseStudyCard from "./case-study-card";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const container: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
 const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 0 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
