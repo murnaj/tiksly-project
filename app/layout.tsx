@@ -30,8 +30,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.className} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.className} h-full antialiased no-js`}
+      suppressHydrationWarning
     >
+      <head>
+        <noscript>
+          <style>{`
+    [style] {
+      opacity: 1 !important;
+       transform: none !important;
+      animation: none !important;
+    }
+  `}</style>
+        </noscript>
+
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.remove('no-js')" }} />
+      </head>
       <body className="overflow-x-hidden">{children}</body>
     </html>
   );

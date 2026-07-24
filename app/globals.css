@@ -170,3 +170,10 @@
     max-width: 1300px;
   }
 }
+
+/* ========= no-js fallback ========= */
+.no-js [style] {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
