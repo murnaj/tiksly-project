@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -22,6 +23,42 @@ function validate(form: FormData): FormErrors {
   return errors;
 }
 
+function GMVCounter() {
+  const [count, setCount] = useState(0.0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+    
+    let startTimestamp: number | null = null;
+    const duration = 1500; // 1.5s animation duration
+    const target = 1.4;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      // Ease out quad
+      const easeProgress = progress * (2 - progress);
+      
+      setCount(easeProgress * target);
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    
+    window.requestAnimationFrame(step);
+  }, [isInView]);
+
+  return (
+    <span ref={ref}>
+      ${count.toFixed(1)}M
+    </span>
+  );
+}
+
 export default function BookCall() {
   const containerVariants = {
     hidden: { opacity: 1, y: 0 },
@@ -39,15 +76,15 @@ export default function BookCall() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
             <Card className="bg-[#BCF96A] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible shadow-xl shadow-lime-955/5">
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
-                
+
                 {/* Left side: Custom HTML/CSS Mockup Graphic */}
                 <div className="relative flex items-center justify-center w-full max-w-[360px] md:max-w-[400px] lg:max-w-none aspect-[1.15/1] mx-auto min-h-[380px] md:min-h-[420px] select-none z-10">
-                  
+
                   {/* Phone Mockup */}
                   <div className="absolute left-2 md:left-6 bottom-4 w-[130px] md:w-[155px] aspect-[9/18] bg-[#131313] rounded-[2rem] border-[3.5px] border-[#222] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col items-center justify-center -rotate-6 z-0 transition-transform duration-500 hover:rotate-0">
                     {/* Speaker notch */}
                     <div className="absolute top-2 w-12 h-2.5 bg-black rounded-full" />
-                    
+
                     {/* Inside screen content */}
                     <div className="flex flex-col items-center justify-center">
                       <div className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white backdrop-blur-xs hover:scale-110 active:scale-95 transition-all cursor-pointer">
@@ -56,7 +93,7 @@ export default function BookCall() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     {/* Bottom badge overlay in phone */}
                     <div className="absolute bottom-4 left-3 right-3 bg-[#BCF96A] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-black rounded-full animate-ping" />
@@ -72,7 +109,7 @@ export default function BookCall() {
                         src="/avatars/ahmed.png"
                         alt="Ahmad"
                         fill
-                        className="object-contain object-bottom"
+                        className="object-cover object-top"
                         priority
                       />
                     </div>
@@ -86,7 +123,13 @@ export default function BookCall() {
                         </svg>
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[11px] font-extrabold text-black leading-none">Ahmad</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[11px] font-extrabold text-black leading-none">Ahmad</span>
+                          <svg className="w-3.5 h-3.5 text-[#0081FB] fill-current shrink-0" viewBox="0 0 24 24">
+                            <title>Verified</title>
+                            <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.7L23 12zm-13 5l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                          </svg>
+                        </div>
                         <span className="text-[8px] font-bold text-neutral-400 mt-0.5 leading-none">Founder · TikTok Shop Partner</span>
                       </div>
                     </div>
@@ -105,7 +148,7 @@ export default function BookCall() {
                       </svg>
                       <span className="text-[8px] font-bold text-neutral-400 uppercase tracking-tight whitespace-nowrap">GMV this shop</span>
                     </div>
-                    <span className="text-[18px] font-black text-black leading-none">$1.4M</span>
+                    <span className="text-[18px] font-black text-black leading-none"><GMVCounter /></span>
                     <span className="text-[8px] font-bold text-emerald-500 mt-1 flex items-center gap-0.5">
                       ↑ 12 months, from zero
                     </span>
@@ -126,13 +169,13 @@ export default function BookCall() {
                 {/* Right Copy */}
                 <motion.div variants={itemVariants} className="flex flex-col gap-6 text-left max-w-xl lg:max-w-none">
                   <h2 className="text-[32px] md:text-[44px] xl:text-[50px] font-extrabold text-black leading-[1.1] tracking-tight">
-                    Let&apos;s build your{" "}
-                    <span className="bg-white/90 px-2 py-0.5 rounded-lg inline-block shadow-xs">growth</span>{" "}
-                    <span className="bg-white/90 px-2 py-0.5 rounded-lg inline-block shadow-xs">plan</span>
-                    , together.
+                    Let&apos;s build the shop your{" "}
+                    <span className="bg-white/90 px-2 py-0.5 rounded-lg inline-block shadow-xs">competitors</span>{" "}
+                    <span className="bg-white/90 px-2 py-0.5 rounded-lg inline-block shadow-xs">wish</span>{" "}
+                    they had.
                   </h2>
                   <p className="text-[15px] md:text-[17px] text-[#212120]/80 font-medium leading-relaxed">
-                    I&apos;m Ahmad, founder of Tiksly. Book a free call and I&apos;ll personally walk through your shop, show you exactly where the revenue&apos;s hiding, and hand you a plan to go get it. Twenty minutes and zero pressure.
+                    Book a free growth call. We'll audit your shop, show you exactly where the money is leaking, and hand you a plan whether you work with us or not. Twenty minutes and zero pressure.
                   </p>
 
                   <div className="flex flex-col gap-3 pt-2">
@@ -143,16 +186,6 @@ export default function BookCall() {
                       <span>Get my free growth plan</span>
                       <span className="transition-transform group-hover:translate-x-1 duration-200">→</span>
                     </Link>
-
-                    <a
-                      href="https://wa.me/1234567890"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[13px] md:text-[14px] font-bold text-neutral-800 hover:text-black transition-colors inline-flex items-center gap-1 group w-fit mt-1 cursor-pointer"
-                    >
-                      <span>Or message us on WhatsApp and get a reply before your coffee gets cold</span>
-                      <span className="transition-transform group-hover:translate-x-1 duration-200">→</span>
-                    </a>
                   </div>
                 </motion.div>
 

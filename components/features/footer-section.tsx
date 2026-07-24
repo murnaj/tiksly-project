@@ -133,7 +133,7 @@ export default function FooterSection() {
                 />
               </div> */}
               <p className="text-gray-400 text-[14px] leading-relaxed max-w-sm">
-                Official TikTok Shop Partner & Creator Marketing Platform. Scaling e-commerce brands through high-converting UGC and performance ads.
+                The full-stack TikTok Shop agency. Built by operators, trusted by brands.
               </p>
             </div>
 
