@@ -78,10 +78,10 @@ export default function BookCall() {
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
 
                 {/* Left side: Custom HTML/CSS Mockup Graphic */}
-                <div className="relative flex items-center justify-center w-full max-w-[360px] md:max-w-[400px] lg:max-w-none aspect-[1.15/1] mx-auto min-h-[380px] md:min-h-[420px] select-none z-10">
+                <div className="relative w-[340px] md:w-[410px] aspect-[1/1.1] mx-auto select-none z-10">
 
                   {/* Phone Mockup */}
-                  <div className="absolute left-2 md:left-6 bottom-4 w-[130px] md:w-[155px] aspect-[9/18] bg-[#131313] rounded-[2rem] border-[3.5px] border-[#222] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col items-center justify-center -rotate-6 z-0 transition-transform duration-500 hover:rotate-0">
+                  <div className="absolute left-[-25px] md:left-[-35px] top-[60px] md:top-[80px] w-[130px] md:w-[155px] aspect-[9/18] bg-[#131313] rounded-[2rem] border-[3.5px] border-[#222] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col items-center justify-center -rotate-6 z-0 transition-transform duration-500 hover:rotate-0">
                     {/* Speaker notch */}
                     <div className="absolute top-2 w-12 h-2.5 bg-black rounded-full" />
 
@@ -102,9 +102,9 @@ export default function BookCall() {
                   </div>
 
                   {/* Portrait Card */}
-                  <div className="absolute left-[100px] md:left-[130px] bottom-8 w-[190px] md:w-[220px] aspect-[4/5] bg-[#c3fd03] rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden rotate-3 z-10 transition-transform duration-500 hover:rotate-0">
+                  <div className="absolute left-[80px] md:left-[95px] top-[40px] md:top-[50px] w-[230px] md:w-[275px] aspect-[4/5] bg-[#d4d6cf] rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden z-10 transition-transform duration-500 hover:scale-[1.02]">
                     {/* Portrait Image */}
-                    <div className="absolute inset-0 w-full h-full bg-white">
+                    <div className="absolute inset-0 w-full h-full bg-[#d4d6cf]">
                       <Image
                         src="/avatars/ahmed.png"
                         alt="Ahmad"
@@ -139,7 +139,7 @@ export default function BookCall() {
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
                     transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                    className="absolute -top-3 right-0 md:right-4 bg-white rounded-2xl p-3.5 shadow-xl border border-black/5 flex flex-col z-20 w-[125px] md:w-[135px] rotate-3 hover:scale-105 transition-transform duration-300"
+                    className="absolute right-[-25px] md:right-[-30px] top-[5px] md:top-[10px] bg-white rounded-2xl p-3.5 shadow-xl border border-black/5 flex flex-col z-20 w-[130px] md:w-[145px] rotate-3 hover:scale-105 transition-transform duration-300"
                   >
                     <div className="flex items-center gap-1 mb-1">
                       {/* Icon */}
@@ -158,7 +158,7 @@ export default function BookCall() {
                   <motion.div
                     animate={{ y: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-                    className="absolute bottom-2 -right-4 bg-[#111] text-[#c3fd03] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit -rotate-3 hover:scale-105 transition-transform duration-300"
+                    className="absolute bottom-6 md:bottom-8 right-[-25px] md:right-[-35px] bg-[#111] text-[#c3fd03] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit rotate-6 hover:scale-105 transition-transform duration-300"
                   >
                     <span className="w-1.5 h-1.5 bg-[#c3fd03] rounded-full animate-pulse" />
                     <span className="text-white">247 creators active</span>
