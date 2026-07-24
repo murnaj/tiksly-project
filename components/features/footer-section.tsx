@@ -103,13 +103,18 @@ const servicesLinks = [
 
 const resourceLinks = [
   { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "#" },
+  { label: "Case Studies", href: "#" },
   { label: "Checklists", href: "#" },
+  { label: "Free Tools", href: "#" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Careers ", href: "#" },
+  { label: "Community", href: "#" },
 ];
 
-const companyLinks = [
-  { label: "About us", href: "/about-us" },
-  { label: "Contact us", href: "#" },
+const freeToolLinks = [
+  { label: "Profit Calculator", href: "#" },
+  { label: "Diamond Calculator", href: "#" },
+  { label: "Shop Name Generator", href: "#" }, 
 ];
 
 const socialLinks: { label: string; href: string; icon: React.ReactNode }[] = [
@@ -156,40 +161,37 @@ export default function FooterSection() {
             </div>
 
             <div className="flex flex-col gap-4 text-[14px]">
-              {/* Email & Phone Contact Block */}
-              <div className="flex flex-col gap-2.5">
+              {/* Email & Instant Messaging Blocks */}
+              <div className="flex flex-col gap-3.5">
                 <a
-                  href="mailto:sales@tiksly.com"
-                  className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#BCF96A] transition-colors w-fit text-[14px]"
+                  href="https://wa.me/447412066394"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
                 >
-                  <Mail className="w-4 h-4 text-[#BCF96A] shrink-0" />
-                  <span>sales@tiksly.com</span>
+                  <WhatsAppIcon />
+                  <span>+447412066394</span>
                 </a>
 
-                <div className="flex flex-wrap items-center gap-3 text-[13px] text-gray-300">
-                  <a
-                    href="tel:+14092694915"
-                    className="inline-flex items-center gap-1.5 hover:text-[#BCF96A] transition-colors"
-                  >
-                    <span className="font-bold text-[#BCF96A] text-xs">US</span>
-                    <span>+1 (409) 269-4915</span>
-                  </a>
-                  <span className="text-gray-700">•</span>
-                  <a
-                    href="tel:+447412066394"
-                    className="inline-flex items-center gap-1.5 hover:text-[#BCF96A] transition-colors"
-                  >
-                    <span className="font-bold text-[#BCF96A] text-xs">UK</span>
-                    <span>+44 7412 066394</span>
-                  </a>
+                <div className="inline-flex items-center gap-2.5 text-gray-300 w-fit text-[14.5px] font-medium">
+                  <WeChatIcon />
+                  <span>+447412066394</span>
                 </div>
+
+                <a
+                  href="mailto:sales@tiksly.com"
+                  className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
+                >
+                  <Mail className="w-4 h-4 shrink-0 text-[#c3fd03]" />
+                  <span>sales@tiksly.com</span>
+                </a>
               </div>
 
               {/* Office Addresses - Clean stacked layout with left border accents */}
               <div className="flex flex-col gap-3.5 pt-2">
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#BCF96A] uppercase tracking-wider">
-                    <Building2 className="w-3.5 h-3.5 text-[#BCF96A] shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#c3fd03] uppercase tracking-wider">
+                    <Building2 className="w-3.5 h-3.5 text-[#c3fd03] shrink-0" />
                     <span>USA Headquarters</span>
                   </div>
                   <p className="text-gray-400 text-[13px] leading-relaxed">
@@ -198,8 +200,8 @@ export default function FooterSection() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#BCF96A] uppercase tracking-wider">
-                    <MapPin className="w-3.5 h-3.5 text-[#BCF96A] shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#c3fd03] uppercase tracking-wider">
+                    <MapPin className="w-3.5 h-3.5 text-[#c3fd03] shrink-0" />
                     <span>UK Office</span>
                   </div>
                   <p className="text-gray-400 text-[13px] leading-relaxed">
@@ -216,7 +218,7 @@ export default function FooterSection() {
             <ul className="flex flex-col gap-3">
               {servicesLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#c3fd03] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -230,7 +232,7 @@ export default function FooterSection() {
             <ul className="flex flex-col gap-3">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#c3fd03] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -240,11 +242,11 @@ export default function FooterSection() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[16px] font-bold text-white mb-5 tracking-tight">Company</h3>
+            <h3 className="text-[16px] font-bold text-white mb-5 tracking-tight">Free Tools</h3>
             <ul className="flex flex-col gap-3">
-              {companyLinks.map((link) => (
+              {freeToolLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
+                  <Link href={link.href} className="text-[14px] text-gray-400 hover:text-[#c3fd03] transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -266,7 +268,7 @@ export default function FooterSection() {
             alt="Tiksly Brand Logo Parallax"
             width={720}
             height={220}
-            className="w-[85%] max-w-[680px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(188,249,106,0.25)]"
+            className="w-[85%] max-w-[680px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(195,253,3,0.25)]"
           />
         </motion.div>
       </div>
@@ -290,7 +292,7 @@ export default function FooterSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-gray-400 hover:text-[#BCF96A] transition-colors duration-200"
+                  className="text-gray-400 hover:text-[#c3fd03] transition-colors duration-200"
                 >
                   {s.icon}
                 </Link>
@@ -299,10 +301,10 @@ export default function FooterSection() {
 
             {/* Legal */}
             <div className="flex items-center gap-6 text-[13px] order-2 md:order-3">
-              <Link href="/terms-of-service" className="text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-[#c3fd03] transition-colors duration-200">
                 Terms Of Service
               </Link>
-              <Link href="/privacy-policy" className="text-gray-400 hover:text-[#BCF96A] transition-colors duration-200">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-[#c3fd03] transition-colors duration-200">
                 Privacy Policy
               </Link>
             </div>
