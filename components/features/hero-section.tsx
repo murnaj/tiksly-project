@@ -27,7 +27,7 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden min-h-screen lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center">
       {/* Left side decoration & ID cards */}
-      <div className="absolute left-0 top-0 bottom-0 w-80 lg:w-96 xl:w-[460px] pointer-events-none select-none hidden lg:block z-0">
+      <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-[360px] 2xl:w-[460px] pointer-events-none select-none hidden xl:block z-0">
         {/* Left Side Animated Flowing Vector */}
         <svg
           className="absolute top-16 left-0 w-full h-[85%] pointer-events-none opacity-80"
@@ -102,7 +102,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.3, ease: EASE },
             y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[16%] left-[4%] xl:left-[10%] w-[210px] lg:w-[260px] xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
+          className="absolute top-[16%] left-[2%] 2xl:left-[10%] w-[160px] xl:w-[210px] 2xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/left-side-1.png"
@@ -128,7 +128,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.5, ease: EASE },
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[52%] left-[2%] xl:left-[8%] w-[210px] lg:w-[260px] xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
+          className="absolute top-[52%] left-[1%] 2xl:left-[8%] w-[160px] xl:w-[210px] 2xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/left-side-2.png"
@@ -142,7 +142,7 @@ export default function HeroSection() {
       </div>
 
       {/* Right side decoration & ID cards */}
-      <div className="absolute right-0 top-0 bottom-0 w-80 lg:w-96 xl:w-[460px] pointer-events-none select-none hidden lg:block z-0">
+      <div className="absolute right-0 top-0 bottom-0 w-80 xl:w-[360px] 2xl:w-[460px] pointer-events-none select-none hidden xl:block z-0">
         {/* Right Side Animated Flowing Vector */}
         <svg
           className="absolute top-16 right-0 w-full h-[85%] pointer-events-none opacity-80"
@@ -217,7 +217,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.4, ease: EASE },
             y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[16%] right-[4%] xl:right-[6%] w-[210px] lg:w-[260px] xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
+          className="absolute top-[16%] right-[2%] 2xl:right-[6%] w-[160px] xl:w-[210px] 2xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/right-side-1.png"
@@ -243,7 +243,7 @@ export default function HeroSection() {
             x: { duration: 0.8, delay: 0.6, ease: EASE },
             y: { duration: 6.5, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute top-[52%] right-[2%] xl:right-[4%] w-[210px] lg:w-[260px] xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
+          className="absolute top-[52%] right-[1%] 2xl:right-[4%] w-[160px] xl:w-[210px] 2xl:w-[280px] drop-shadow-[0_15px_30px_rgba(188,249,106,0.25)] z-10"
         >
           <Image
             src="/id-cards/right-side-2.png"
