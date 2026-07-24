@@ -14,7 +14,7 @@ const processTabs = [
       "We tear apart your shop, your product, and your market, then build a plan around your actual numbers instead of a recycled template. No fluff. No guesswork.",
     ctaText: "Get my free growth plan",
     ctaLink: "#",
-    image: "/process/videoframe_9629.png",
+    image: "/process/discover.png",
   },
   {
     id: "manage",
@@ -24,7 +24,7 @@ const processTabs = [
       "Our team takes over the heavy lifting. Creators, content, ads, and daily ops. You approve, we execute, the shop runs.",
     ctaText: "Get my free growth plan",
     ctaLink: "#",
-    image: "/process/videoframe_3419.png",
+    image: "/process/manage.png",
   },
   {
     id: "track",
@@ -34,7 +34,7 @@ const processTabs = [
       "Real dashboards. Real ROAS. Real GMV. You always know exactly what's working and exactly what it's making you.",
     ctaText: "Get my free growth plan",
     ctaLink: "#",
-    image: "/process/videoframe_554.png",
+    image: "/process/track.png",
   },
   {
     id: "results",
@@ -44,7 +44,7 @@ const processTabs = [
       "Consistent, compounding revenue. The kind that quietly turns TikTok Shop into your number one channel while everyone else is still guessing.",
     ctaText: "Get my free growth plan",
     ctaLink: "#",
-    image: "/process/videoframe_2364.png",
+    image: "/process/results.png",
   },
 ];
 
