@@ -39,63 +39,59 @@ const itemVariants = {
 const CASE_STUDIES_DATA = [
   {
     id: "cs-1",
-    slug: "tiksly-got-us-to-page-1",
+    slug: "collectibles-brand",
     image: "/case-study/3.webp",
-    tag: "Blogger Outreach",
-    title: "tiksly Got Us To Page 1",
+    // tag: "Blogger Outreach",
+    title: "Collectibles brand",
     description:
-      "\"Pink-jobs.com is 14 years old, but it wasn't until we used tiksly's blogger outreach to improve our rankings and get onto the 1s...\"",
-    buttonText: "View Case Study",
+      "Zero to $1.4M in 12 months We turned a struggling marketplace seller into a content driven TikTok Shop machine. Viral content, affiliate partnerships, and live selling built a seven figure channel from a standing start.",
+    buttonText: "Read the full story",
   },
   {
     id: "cs-2",
-    slug: "quality-links-and-easy-to-use",
+    slug: "Raelenesa-handbag-brand",
     image: "/case-study/2.webp",
-    tag: "Blogger Outreach",
-    title: "Quality Links And Easy To Use",
-    description:
-      '"We\'ve been using tiksly as our link-building partner to help improve and/or maintain our rankings for highly competitive keywords in f..."',
-    buttonText: "View Case Study",
+    // tag: "Blogger Outreach",
+    title: "Raelenesa handbag brand",
+    description: "$45.35K GMV in 90 days A fashion handbag brand went from nothing to 5,270 sales and a 4.6★ rating through category approval, creator seeding, and a live commerce strategy. And we were just warming up.",
+    buttonText: "Read the full story",
   },
   {
     id: "cs-3",
-    slug: "revenue-quintupled",
+    slug: "the-15-hour-side-hustle",
     image: "/case-study/1.webp",
-    tag: "Blogger Outreach and Niche Edits",
-    title: "Revenue Quintupled",
-    description:
-      '"For our e-commerce site specialising in personalised gifts, we experienced a significant increase in organic traffic and revenue—both quintu..."',
-    buttonText: "View Case Study",
+    // tag: "Blogger Outreach and Niche Edits",
+    title: "The 15 hour side hustle",
+    description: "$38,142 in a single December on 15 hours a week A full time office worker built a holiday shop that netted 34% margins and held a 4.68★ store health score, powered entirely by creators and automation. No expensive ads. No burnout.",
+    buttonText: "Read the full story",
   },
   {
     id: "cs-4",
-    slug: "lead-generation-doubled-in-3-months",
+    slug: "creator-seeding-launch",
     image: "/case-study/4.webp",
-    tag: "Blogger Outreach",
-    title: "Lead Generation More Than Doubled In 3 Months",
-    description:
-      '"This website is in the cooking products industry. With regular guest blog posting, the site\'s exposure on Google has increased dramati..."',
-    buttonText: "View Case Study",
+    // tag: "Blogger Outreach",
+    title: "Creator seeding launch",
+    description: "Zero to 1,000 orders in the first month A brand new shop with no reviews and no ranking hit its first 1,000 orders in 30 days through a micro creator seeding system publishing content at scale.",
+    buttonText: "Read the full story",
   },
   {
     id: "cs-5",
-    slug: "zero-to-12-leads-per-month",
+    slug: "stay-at-home-mom-affiliate",
     image: "/case-study/5.webp",
-    tag: "Blogger Outreach and Niche Edits",
-    title: "0 Leads To 12 Leads Per Month",
-    description:
-      '"Presentation design agency. Helped build and establish from scratch. From a website that was generating 0 monthly leads one year ago to one..."',
-    buttonText: "View Case Study",
+    // tag: "Blogger Outreach and Niche Edits",
+    title: "Stay at home mom, affiliate",
+    description: "$800 startup to $5,000 a month Proof the model works at any size. Consistent content, smart product picks, and 5,000+ processed orders built a reliable home business in six months.",
+    buttonText: "Read the full story",
   },
   {
     id: "cs-6",
     slug: "zero-to-50-visits-per-day",
     image: "/case-study/6.webp",
-    tag: "Blogger Outreach and Niche Edits",
+    // tag: "Blogger Outreach and Niche Edits",
     title: "0 To 50 Visits Per Day",
     description:
-      '"Website is a consumer money saving website, traffic has gone from zero to around 50 users per day organically, only used tiksly for backlink..."',
-    buttonText: "View Case Study",
+      "Website is a consumer money saving website, traffic has gone from zero to around 50 users per day organically, only used tiksly for backlink...",
+    buttonText: "Read the full story",
   },
 ];
 
@@ -146,14 +142,13 @@ export default function CaseStudies() {
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6"
           >
-           Real shops. Real numbers. Real receipts.
+            Real shops. Real numbers. Real receipts.
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto"
           >
-           We don't do vanity metrics or screenshots you can't verify. Here's what actually happens when brands and sellers hand us the wheel.
-
+            We don't do vanity metrics or screenshots you can't verify. Here's what actually happens when brands and sellers hand us the wheel.
           </motion.p>
         </motion.div>
 
@@ -192,13 +187,8 @@ export default function CaseStudies() {
                     {/* Text Details Area */}
                     <div className="flex flex-col flex-1 p-6 md:p-4 justify-between bg-[#0D0D0D]">
                       <div className="flex flex-col mb-4">
-                        {/* Tag */}
-                        <span className="text-[12px] md:text-[13px] font-bold text-gray-500 uppercase tracking-wider">
-                          {study.tag}
-                        </span>
-
                         {/* Title */}
-                        <h3 className="text-lg md:text-xl font-bold text-white tracking-tight mt-2.5 line-clamp-2 min-h-[56px] leading-snug">
+                        <h3 className="text-lg md:text-xl font-bold text-white tracking-tight mt-2.5 line-clamp-2 leading-snug">
                           {study.title}
                         </h3>
 
@@ -212,7 +202,7 @@ export default function CaseStudies() {
                       <div>
                         <Link
                           href={`/case-studies/${study.slug}`}
-                          className="inline-block w-full sm:w-auto text-center px-6 py-2.5 bg-transparent border border-white/20 text-white rounded-full text-[14px] font-semibold hover:bg-white hover:text-black transition-all duration-200 active:scale-95 shadow-sm"
+                          className="inline-block w-full sm:w-auto text-center px-6 py-2.5 bg-transparent border border-white/20 text-white rounded-full text-[14px] font-semibold hover:bg-white hover:text-black! transition-all duration-200 active:scale-95 shadow-sm"
                         >
                           {study.buttonText}
                         </Link>
@@ -223,6 +213,17 @@ export default function CaseStudies() {
               ))}
             </CarouselContent>
           </Carousel>
+        </div>
+
+        {/* Bottom CTA Button */}
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/case-studies"
+            className="px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-bold hover:bg-neutral-800 transition-all hover:scale-[1.02] active:scale-95 inline-flex items-center gap-2 group cursor-pointer"
+          >
+            <span>See all case studies</span>
+            <span className="transition-transform group-hover:translate-x-1 duration-200">→</span>
+          </Link>
         </div>
       </div>
     </section>
