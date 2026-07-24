@@ -99,7 +99,7 @@ export default function OurProcess() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="bg-[#D9D0C1] rounded-[2rem] p-4 md:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
+                        className="bg-[#f4f9e8] rounded-[2rem] p-4 md:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
                       >
                         {/* Left Side: Content */}
                         <div className="flex flex-col items-center lg:items-start text-left">
