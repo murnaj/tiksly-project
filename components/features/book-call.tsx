@@ -74,7 +74,7 @@ export default function BookCall() {
       <section className="bg-white py-14 md:py-20 select-none">
         <div className="container mx-auto px-3 lg:px-4">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
-            <Card className="bg-[#BCF96A] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible shadow-xl shadow-lime-955/5">
+            <Card className="bg-[#c3fd03] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible shadow-xl shadow-lime-955/5">
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
 
                 {/* Left side: Custom HTML/CSS Mockup Graphic */}
@@ -95,14 +95,14 @@ export default function BookCall() {
                     </div>
 
                     {/* Bottom badge overlay in phone */}
-                    <div className="absolute bottom-4 left-3 right-3 bg-[#BCF96A] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
+                    <div className="absolute bottom-4 left-3 right-3 bg-[#c3fd03] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-black rounded-full animate-ping" />
                       <span>ShopStats</span>
                     </div>
                   </div>
 
                   {/* Portrait Card */}
-                  <div className="absolute left-[100px] md:left-[130px] bottom-8 w-[190px] md:w-[220px] aspect-[4/5] bg-[#BCF96A] rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden rotate-3 z-10 transition-transform duration-500 hover:rotate-0">
+                  <div className="absolute left-[100px] md:left-[130px] bottom-8 w-[190px] md:w-[220px] aspect-[4/5] bg-[#c3fd03] rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden rotate-3 z-10 transition-transform duration-500 hover:rotate-0">
                     {/* Portrait Image */}
                     <div className="absolute inset-0 w-full h-full bg-white">
                       <Image
@@ -118,7 +118,7 @@ export default function BookCall() {
                     <div className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl p-3 shadow-md flex items-center gap-2 z-20">
                       {/* Checkmark circle */}
                       <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white shrink-0">
-                        <svg className="w-3 h-3 fill-none stroke-current stroke-[3] text-[#BCF96A]" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 fill-none stroke-current stroke-[3] text-[#c3fd03]" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
@@ -158,9 +158,9 @@ export default function BookCall() {
                   <motion.div
                     animate={{ y: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-                    className="absolute bottom-2 -right-4 bg-[#111] text-[#BCF96A] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit -rotate-3 hover:scale-105 transition-transform duration-300"
+                    className="absolute bottom-2 -right-4 bg-[#111] text-[#c3fd03] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit -rotate-3 hover:scale-105 transition-transform duration-300"
                   >
-                    <span className="w-1.5 h-1.5 bg-[#BCF96A] rounded-full animate-pulse" />
+                    <span className="w-1.5 h-1.5 bg-[#c3fd03] rounded-full animate-pulse" />
                     <span className="text-white">247 creators active</span>
                   </motion.div>
 

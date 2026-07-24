@@ -106,7 +106,7 @@ export default function OurProcess() {
                             className="flex flex-col items-center lg:items-start text-center lg:text-left"
                           >
                             {/* Step Badge */}
-                            <div className="inline-block px-3.5 py-1 bg-[#BCF96A] text-[11px] font-bold text-black rounded-full uppercase mb-5 tracking-wider">
+                            <div className="inline-block px-3.5 py-1 bg-[#c3fd03] text-[11px] font-bold text-black rounded-full uppercase mb-5 tracking-wider">
                               STEP {index + 1}
                             </div>
 
