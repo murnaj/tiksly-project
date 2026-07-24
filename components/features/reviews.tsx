@@ -539,7 +539,7 @@ const Reviews = () => {
   const marqueeItems = [...REVIEWS_DATA, ...REVIEWS_DATA];
 
   return (
-    <section className="bg-[#E6F1FF] pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16">
+    <section className="bg-gradient-to-b from-white via-[#F5FEE9] to-white pt-14 md:pt-20 mt-5 md:mt-10 overflow-hidden w-full relative pb-16">
       {/* Continuous marquee animation. GPU transform only → smooth. Pauses on hover. */}
       <style>{`
         @keyframes reviewsMarquee {
@@ -569,6 +569,10 @@ const Reviews = () => {
 
       {/* Marquee viewport */}
       <div className="relative w-full overflow-hidden reviews-marquee-container select-none">
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-[#F5FEE9] to-transparent z-30 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-[#F5FEE9] to-transparent z-30 pointer-events-none" />
+
         <div className="reviews-marquee-track gap-4 md:gap-5 py-4">
           {marqueeItems.map((review, i) => (
             <ReviewTile

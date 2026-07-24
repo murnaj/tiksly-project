@@ -73,7 +73,7 @@ export default function OurProcess() {
         >
           {/* Tab Selector Bar */}
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-[#111111] text-white rounded-full p-1.5 flex gap-1 w-fit border border-white/5 h-11.5">
+            <TabsList className="bg-[#111111] text-white rounded-full p-1.5 flex gap-1 w-fit border border-white/5 h-11.5!">
               {processTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
