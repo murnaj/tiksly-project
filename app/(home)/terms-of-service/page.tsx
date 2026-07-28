@@ -8,7 +8,6 @@ import {
   RotateCcw,
   ShieldAlert,
   ExternalLink,
-  Scale,
   RefreshCw,
   Phone,
   Mail,

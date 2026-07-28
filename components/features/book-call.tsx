@@ -8,20 +8,20 @@ import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type FormData = { name: string; email: string; phone: string; message: string };
-type FormErrors = Partial<FormData>;
+// type FormData = { name: string; email: string; phone: string; message: string };
+// type FormErrors = Partial<FormData>;
 
-function validate(form: FormData): FormErrors {
-  const errors: FormErrors = {};
-  if (!form.name.trim()) errors.name = "Full name is required.";
-  if (!form.email.trim()) errors.email = "Email is required.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = "Enter a valid email address.";
-  if (!form.phone.trim()) errors.phone = "Phone number is required.";
-  else if (!/^\+?[\d\s\-().]{7,20}$/.test(form.phone)) errors.phone = "Enter a valid phone number.";
-  if (!form.message.trim()) errors.message = "Please write a message.";
-  else if (form.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
-  return errors;
-}
+// function validate(form: FormData): FormErrors {
+//   const errors: FormErrors = {};
+//   if (!form.name.trim()) errors.name = "Full name is required.";
+//   if (!form.email.trim()) errors.email = "Email is required.";
+//   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = "Enter a valid email address.";
+//   if (!form.phone.trim()) errors.phone = "Phone number is required.";
+//   else if (!/^\+?[\d\s\-().]{7,20}$/.test(form.phone)) errors.phone = "Enter a valid phone number.";
+//   if (!form.message.trim()) errors.message = "Please write a message.";
+//   else if (form.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
+//   return errors;
+// }
 
 function GMVCounter() {
   const [count, setCount] = useState(0.0);
@@ -175,7 +175,7 @@ export default function BookCall() {
                     they had.
                   </h2>
                   <p className="text-[15px] md:text-[17px] text-[#212120]/80 font-medium leading-relaxed">
-                    Book a free growth call. We'll audit your shop, show you exactly where the money is leaking, and hand you a plan whether you work with us or not. Twenty minutes and zero pressure.
+                    Book a free growth call. We&apos;ll audit your shop, show you exactly where the money is leaking, and hand you a plan whether you work with us or not. Twenty minutes and zero pressure.
                   </p>
 
                   <div className="flex flex-col gap-3 pt-2">

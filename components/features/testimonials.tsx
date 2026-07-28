@@ -171,13 +171,13 @@ export default function Testimonials() {
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold tracking-tight text-black mb-4 leading-tight"
           >
-            Don't take our word for it. Take theirs.
+            Don&apos;t take our word for it. Take theirs.
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-sm md:max-w-xl mx-auto"
           >
-           We're rated 4.8 by the brands and sellers we've grown. Every review is real and public. Read the good and the honest.
+           We&apos;re rated 4.8 by the brands and sellers we&apos;ve grown. Every review is real and public. Read the good and the honest.
           </motion.p>
         </motion.div>
 

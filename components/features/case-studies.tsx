@@ -148,7 +148,7 @@ export default function CaseStudies() {
             variants={itemVariants}
             className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto"
           >
-            We don't do vanity metrics or screenshots you can't verify. Here's what actually happens when brands and sellers hand us the wheel.
+            We don&apos;t do vanity metrics or screenshots you can&apos;t verify. Here&apos;s what actually happens when brands and sellers hand us the wheel.
           </motion.p>
         </motion.div>
 

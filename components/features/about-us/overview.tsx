@@ -36,7 +36,7 @@ export default function Overview() {
         </div>
 
         {/* Image Container */}
-        <div className="relative w-full aspect-4/3 lg:aspect-auto lg:h-[500px]">
+        <div className="relative w-full aspect-4/3 lg:aspect-auto lg:h-125">
           {/* Subtle dot pattern background accent (mimicking the design reference) */}
           <div className="absolute -top-6 -left-3 lg:-left-6 w-32 h-32 bg-[radial-gradient(#e5e7eb_2px,transparent_2px)] bg-size-[16px_16px] z-0 opacity-50" />
           <div className="absolute -bottom-6 -right-3 lg:-right-6 w-32 h-32 bg-[radial-gradient(#e5e7eb_2px,transparent_2px)] bg-size-[16px_16px] z-0 opacity-50" />
