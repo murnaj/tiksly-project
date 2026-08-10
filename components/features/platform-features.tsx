@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Store, Users, Megaphone, GraduationCap, Radio, Video, Info } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const containerVariants = {
@@ -95,7 +94,7 @@ export default function PlatformFeatures() {
 
           </h2>
           <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
-           Right now you're probably stitching together a freelancer here, an influencer guy there, and a VA who ghosts you every other week. That's why it's not working. We do the whole thing under one roof, with one strategy and one team that actually picks up the phone.
+           Right now you&apos;re probably stitching together a freelancer here, an influencer guy there, and a VA who ghosts you every other week. That&apos;s why it&apos;s not working. We do the whole thing under one roof, with one strategy and one team that actually picks up the phone.
           </p>
         </div>
 

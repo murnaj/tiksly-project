@@ -72,16 +72,16 @@ function InstagramIcon() {
   );
 }
 
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-      <path
-        fill="currentColor"
-        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-      />
-    </svg>
-  );
-}
+// function XIcon() {
+//   return (
+//     <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
+//       <path
+//         fill="currentColor"
+//         d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+//       />
+//     </svg>
+//   );
+// }
 
 function FacebookIcon() {
   return (
@@ -202,12 +202,12 @@ export default function FooterSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
                 >
-                  <Image src="/WhatSapp.svg" alt="WhatsApp" width={18} height={18} className="shrink-0" />
+                  <WhatsAppIcon />
                   <span>+447412066394</span>
                 </a>
 
                 <div className="inline-flex items-center gap-2.5 text-gray-300 w-fit text-[14.5px] font-medium">
-                  <Image src="/Wechat.svg" alt="WeChat" width={18} height={18} className="shrink-0" />
+                  <WeChatIcon />
                   <span>+447412066394</span>
                 </div>
 
@@ -215,7 +215,7 @@ export default function FooterSection() {
                   href="mailto:sales@tiksly.com"
                   className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
                 >
-                  <Image src="/Email.svg" alt="Email" width={18} height={18} className="shrink-0" />
+                  <EmailIcon />
                   <span>sales@tiksly.com</span>
                 </a>
               </div>

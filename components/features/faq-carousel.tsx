@@ -104,7 +104,7 @@ export default function FaqCarousel() {
             variants={itemVariants}
             className="text-2xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.1] text-black mb-5"
           >
-            The questions you're actually thinking. Answered straight.
+            The questions you&apos;re actually thinking. Answered straight.
           </motion.h2>
         </motion.div>
 

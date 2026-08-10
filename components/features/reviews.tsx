@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin, Play } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HlsVideo } from "@/components/features/hls-video";
 
@@ -357,32 +357,32 @@ function NetherlandsFlag() {
   );
 }
 
-const getFlagComponent = (countryName: string) => {
+const getFlagIcon = (countryName: string) => {
   switch (countryName) {
     case "United States":
-      return USFlag;
+      return <USFlag />;
     case "Canada":
-      return CanadaFlag;
+      return <CanadaFlag />;
     case "United Kingdom":
-      return UKFlag;
+      return <UKFlag />;
     case "Australia":
-      return AustraliaFlag;
+      return <AustraliaFlag />;
     case "France":
-      return FranceFlag;
+      return <FranceFlag />;
     case "Italy":
-      return ItalyFlag;
+      return <ItalyFlag />;
     case "Spain":
-      return SpainFlag;
+      return <SpainFlag />;
     case "Germany":
-      return GermanyFlag;
+      return <GermanyFlag />;
     case "Japan":
-      return JapanFlag;
+      return <JapanFlag />;
     case "Brazil":
-      return BrazilFlag;
+      return <BrazilFlag />;
     case "Netherlands":
-      return NetherlandsFlag;
+      return <NetherlandsFlag />;
     default:
-      return USFlag;
+      return <USFlag />;
   }
 };
 
@@ -457,7 +457,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
   const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
-  const FlagIcon = getFlagComponent(review.reviewer.countryName);
+  const flagIcon = getFlagIcon(review.reviewer.countryName);
 
   const thumbUrl = review.videoId
     ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`
@@ -469,7 +469,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
       className="relative bg-white border border-gray-100 flex flex-col shrink-0 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 w-[190px] sm:w-[210px] md:w-[220px] lg:w-[240px]"
     >
       {/* Video Area */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
+      <div className="relative aspect-3/4 w-full overflow-hidden bg-slate-950">
         {review.videoId && (
           <HlsVideo videoId={review.videoId} active={active} />
         )}
@@ -526,7 +526,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
           <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-semibold leading-none">
             <MapPin className="w-2.5 h-2.5 shrink-0" />
             <span className="truncate max-w-[80px]">{locationCity}</span>
-            <span className="shrink-0"><FlagIcon /></span>
+            <span className="shrink-0">{flagIcon}</span>
           </div>
         </div>
       </div>

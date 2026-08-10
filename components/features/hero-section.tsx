@@ -27,7 +27,7 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center">
       {/* Left side decoration & ID cards */}
-      <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-[360px] 2xl:w-[460px] pointer-events-none select-none hidden xl:block z-0">
+      <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-90 2xl:w-115 pointer-events-none select-none hidden xl:block z-0">
         {/* Left Side Animated Flowing Vector */}
         <svg
           className="absolute top-16 left-0 w-full h-[85%] pointer-events-none opacity-80"
@@ -313,7 +313,7 @@ export default function HeroSection() {
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed mb-6 max-w-[620px] mx-auto"
           >
             We build your shop, run your creators, manage your ads, and handle your fulfillment.
-            You just watch the revenue roll in. We've taken shops from zero to seven figures in GMV and yours could be next.
+            You just watch the revenue roll in. We&apos;ve taken shops from zero to seven figures in GMV and yours could be next.
           </motion.p>
 
           {/* CTA Buttons */}

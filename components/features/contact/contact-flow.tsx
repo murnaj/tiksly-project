@@ -40,7 +40,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
   const [brandErrors, setBrandErrors] = useState<{ name?: boolean; email?: boolean }>({});
 
   // Strategy Call Slot Selection
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  // const [_, setSelectedSlot] = useState<string | null>(null);
 
   // Creator Form State
   const [creatorSubmitted, setCreatorSubmitted] = useState(false);
@@ -99,7 +99,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
             className="text-center"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter text-black leading-tight mb-3">
-              Let's talk{" "}
+              Let&apos;s talk{" "}
               <span className="inline-block bg-[#BCF96A] text-black px-3.5 py-0.5 rounded-2xl">
                 growth
               </span>
@@ -121,7 +121,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Store className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I'm a brand</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m a brand</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     I want to grow my revenue on TikTok Shop
                   </p>
@@ -141,9 +141,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Video className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I'm a creator</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m a creator</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                    I'm looking for brand partnerships and deals
+                    I&apos;m looking for brand partnerships and deals
                   </p>
                 </div>
                 <div className="inline-flex items-center gap-2 text-black font-extrabold text-sm group-hover:gap-3 transition-all">
@@ -161,9 +161,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Handshake className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I'm an agency</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m an agency</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                    I want to white-label Tiksly's TikTok Shop services
+                    I want to white-label Tiksly&apos;s TikTok Shop services
                   </p>
                 </div>
                 <div className="inline-flex items-center gap-2 text-black font-extrabold text-sm group-hover:gap-3 transition-all">
@@ -395,7 +395,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                     <div className="space-y-4">
                       <div>
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                          What's your biggest challenge right now?
+                          What&apos;s your biggest challenge right now?
                         </label>
                         <textarea
                           rows={4}
@@ -430,10 +430,10 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                         <CheckCircle2 className="w-8 h-8 text-black" />
                       </div>
                       <h3 className="text-2xl font-extrabold text-black">
-                        You're in, {brandName.split(" ")[0] || "there"}!
+                        You&apos;re in, {brandName.split(" ")[0] || "there"}!
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed max-w-md">
-                        We've got your details! Our team will review your shop and email you within 24 hours with your custom growth strategy.
+                        We&apos;ve got your details! Our team will review your shop and email you within 24 hours with your custom growth strategy.
                       </p>
                       <button
                         onClick={() => navigateToView("hub")}
@@ -480,10 +480,10 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                       ))}
                     </div>
                     <p className="text-gray-700 text-xs sm:text-sm italic leading-relaxed mb-3">
-                      "They took our shop from nearly closed to $8K in sales in the first month."
+                      &ldquo;They took our shop from nearly closed to $8K in sales in the first month.&rdquo;
                     </p>
                     <span className="text-xs font-semibold text-gray-500 block">
-                      — Client name · Brand · United States
+                      — Client name &middot; Brand &middot; United States
                     </span>
                   </div>
 
@@ -644,7 +644,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   </button>
 
                   <p className="text-xs text-gray-400 text-center mt-4">
-                    We review applications weekly and reach out when there's a brand fit.
+                    We review applications weekly and reach out when there&apos;s a brand fit.
                   </p>
                 </div>
               ) : (
@@ -654,7 +654,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   </div>
                   <h2 className="text-2xl font-extrabold text-black">Application received!</h2>
                   <p className="text-gray-600 text-sm max-w-md mx-auto leading-relaxed">
-                    We review every week. If your profile fits an active brand campaign, you'll
+                    We review every week. If your profile fits an active brand campaign, you&apos;ll
                     hear from us by email — keep an eye on your inbox.
                   </p>
                   <button
@@ -694,7 +694,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                     Partner with Tiksly
                   </h2>
                   <p className="text-gray-500 text-sm mb-4">
-                    White-label our TikTok Shop fulfillment under your agency's brand.
+                    White-label our TikTok Shop fulfillment under your agency&apos;s brand.
                   </p>
 
                   <div className="flex flex-wrap gap-2 pb-2">
