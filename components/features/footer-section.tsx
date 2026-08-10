@@ -166,7 +166,13 @@ export default function FooterSection() {
   const logoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [0.1, 0.4, 0.85]);
 
   return (
-    <footer ref={footerRef} className="relative bg-[#0B0C0E] border-t border-gray-800/80 text-white w-full overflow-hidden">
+    <footer ref={footerRef} className="relative bg-[#0B0C0E] text-white w-full">
+      {/* Wave top divider */}
+      <div className="absolute -top-[49px] left-0 right-0 leading-none pointer-events-none">
+        <svg viewBox="0 0 1440 50" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }} fill="#0B0C0E" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,35 C120,10 280,50 480,20 C640,0 800,45 1000,18 C1150,2 1320,42 1440,22 L1440,50 L0,50 Z"/>
+        </svg>
+      </div>
       {/* Main grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-12">
