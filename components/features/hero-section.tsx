@@ -25,7 +25,7 @@ const item: Variants = {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden min-h-screen lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center">
+    <section className="relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center">
       {/* Left side decoration & ID cards */}
       <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-[360px] 2xl:w-[460px] pointer-events-none select-none hidden xl:block z-0">
         {/* Left Side Animated Flowing Vector */}
@@ -257,7 +257,7 @@ export default function HeroSection() {
       </div>
 
       {/* Center content */}
-      <div className="relative z-10 w-full pt-20 pb-0">
+      <div className="relative z-10 w-full pt-24 pb-10 lg:pt-20 lg:pb-0">
         <motion.div
           variants={container}
           initial="hidden"
@@ -367,7 +367,7 @@ export default function HeroSection() {
           {/* Hero Image Preview */}
           <motion.div
             variants={item}
-            className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-t border-x border-gray-200/60"
+            className="relative w-full max-w-3xl 2xl:max-w-4xl mx-auto rounded-2xl overflow-hidden border-t border-x border-gray-200/60"
           >
             <Image
               src="/home-banner.jpg"

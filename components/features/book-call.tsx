@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -85,31 +86,32 @@ export default function BookCall() {
                     {/* Speaker notch */}
                     <div className="absolute top-2 w-12 h-2.5 bg-black rounded-full" />
 
-                    {/* Inside screen content */}
-                    <div className="flex flex-col items-center justify-center">
-                      <div className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white backdrop-blur-xs hover:scale-110 active:scale-95 transition-all cursor-pointer">
-                        <svg className="w-3.5 h-3.5 fill-current text-white ml-0.5" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+                    {/* Lottie Animation fills phone screen */}
+                    <div className="absolute inset-0 w-full h-full">
+                      <DotLottieReact
+                        src="https://lottie.host/a9807c32-ed46-4f73-96fb-d37775c892ae/kEBONTJRLo.lottie"
+                        loop
+                        autoplay
+                        style={{ width: "100%", height: "100%" }}
+                      />
                     </div>
 
                     {/* Bottom badge overlay in phone */}
-                    <div className="absolute bottom-4 left-3 right-3 bg-[#c3fd03] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
+                    {/* <div className="absolute bottom-4 left-3 right-3 bg-[#c3fd03] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-black rounded-full animate-ping" />
                       <span>ShopStats</span>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Portrait Card */}
                   <div className="absolute left-[65px] sm:left-[80px] md:left-[95px] top-[40px] md:top-[50px] w-[190px] sm:w-[230px] md:w-[275px] aspect-[4/5] bg-[#d4d6cf] rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden z-10 transition-transform duration-500 hover:scale-[1.02]">
                     {/* Portrait Image */}
-                    <div className="absolute inset-0 w-full h-full bg-[#d4d6cf]">
+                    <div className="absolute inset-0 w-full h-full bg-[#d4d6cf] flex items-center justify-center">
                       <Image
                         src="/avatars/ahmed.png"
                         alt="Ahmad"
-                        fill
-                        className="object-cover object-top"
+                        width={500}
+                        height={190}
                         priority
                       />
                     </div>
@@ -130,7 +132,7 @@ export default function BookCall() {
                             <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.7L23 12zm-13 5l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                           </svg>
                         </div>
-                        <span className="text-[8px] font-bold text-neutral-400 mt-0.5 leading-none">Founder · TikTok Shop Partner</span>
+                        <span className="text-[8px] font-bold text-neutral-400 mt-0.5 leading-none">TikTok Shop Agency Creator Partner (CAP)</span>
                       </div>
                     </div>
                   </div>

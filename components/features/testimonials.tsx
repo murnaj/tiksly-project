@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
@@ -56,9 +57,22 @@ function TrustpilotLogo() {
           <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
         </svg>
       </div>
-      <span className="text-[15px] font-bold text-black tracking-tight">
-        Trustpilot
-      </span>
+    </a>
+  );
+}
+
+// Google My Business Logo & Link
+function GoogleReviewsLogo() {
+  return (
+    <a
+      href="https://www.google.com/search?q=tiksly&oq=tiksly&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgcIAhAAGIAEMgYIAxAAGB4yBggEEEUYOzIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzYzNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8#lrd=0x47738b55a49a2363:0x3e2f087f90c52cbd,3,,,,"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 select-none hover:opacity-85 transition-opacity"
+    >
+      <div className="w-6 h-6 shrink-0 overflow-hidden rounded-xs">
+        <Image src="/gmb-icon.webp" alt="Google My Business" width={24} height={24} className="w-full h-full object-contain" />
+      </div>
     </a>
   );
 }
@@ -255,7 +269,10 @@ export default function Testimonials() {
               <span className="text-[12px] font-semibold text-gray-400 mb-5">
                 Based on 100+ Reviews
               </span>
-              <TrustpilotLogo />
+              <div className="flex flex-row gap-3 items-center">
+                <TrustpilotLogo /> +
+                <GoogleReviewsLogo />
+              </div>
             </Card>
           </div>
 

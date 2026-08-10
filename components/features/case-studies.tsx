@@ -128,7 +128,7 @@ export default function CaseStudies() {
   }, [api]);
 
   return (
-    <section className="w-full  pt-20 md:pt-28  lg:pt-20  overflow-hidden">
+    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white w-full pt-20 md:pt-28  lg:pt-20  overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Section Header */}
         <motion.div

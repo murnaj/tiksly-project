@@ -116,7 +116,7 @@ const logos = [
 
 export default function BrandLogos() {
   return (
-    <section className="w-full bg-white pb-4 border-b border-gray-50 overflow-hidden">
+    <section className="w-full bg-white pt-8 pb-4 border-b border-gray-50 overflow-hidden">
       {/* Subtitle */}
       <div className="container mx-auto  mb-10">
         <p className="text-[#212120]/80 text-[15px] font-semibold tracking-tight text-center">

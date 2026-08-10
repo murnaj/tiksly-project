@@ -73,12 +73,12 @@ export default function OurProcess() {
         >
           {/* Tab Selector Bar */}
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-[#111111] text-white rounded-full p-1.5 flex gap-1 w-fit border border-white/5 h-11.5!">
+            <TabsList className="bg-[#111111] text-white rounded-full p-1.5 flex gap-1 w-full md:w-fit border border-white/5 h-auto!">
               {processTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="px-6 py-3 rounded-full text-[13px] md:text-[16px] font-semibold capitalize transition-all duration-300 text-neutral-400 hover:text-white data-[state=active]:bg-white! data-[state=active]:text-black! data-[state=active]:ring-2! data-[state=active]:ring-white! data-[state=active]:ring-offset-2! data-[state=active]:ring-offset-black! data-[state=active]:shadow-md! cursor-pointer"
+                  className="flex-1 md:flex-none px-2 py-2.5 md:px-6 md:py-3 rounded-full text-[12px] md:text-[16px] font-semibold capitalize transition-all duration-300 text-neutral-400 hover:text-white data-[state=active]:bg-white! data-[state=active]:text-black! data-[state=active]:ring-2! data-[state=active]:ring-white! data-[state=active]:ring-offset-2! data-[state=active]:ring-offset-black! data-[state=active]:shadow-md! cursor-pointer"
                 >
                   {tab.label}
                 </TabsTrigger>

@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Store, Users, Megaphone, GraduationCap, Radio, Video, Info, ArrowRight } from "lucide-react";
+import { Store, Users, Megaphone, GraduationCap, Radio, Video, Info } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -106,7 +105,7 @@ export default function PlatformFeatures() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8"
         >
           {cardData.map((card) => {
             const isLime = card.theme === "lime";
@@ -158,7 +157,7 @@ export default function PlatformFeatures() {
                     <div className="mb-10">
                       <Button
                         variant={isDark ? "outline" : "default"}
-                        className={`rounded-full px-7 py-5 font-semibold text-[15px] cursor-pointer transition-all duration-200 hover:scale-[1.03] active:scale-95 border-none shadow-none ${isDark
+                        className={`w-full rounded-full px-7 py-5 font-semibold text-[15px] cursor-pointer transition-all duration-200 hover:scale-[1.03] active:scale-95 border-none shadow-none whitespace-normal text-center ${isDark
                           ? "bg-white text-black hover:bg-gray-150"
                           : "bg-black text-white hover:bg-gray-800"
                           }`}

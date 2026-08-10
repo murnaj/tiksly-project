@@ -2,9 +2,51 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Building2 } from "lucide-react";
+import { Building2 } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+/* ── Flag Icons ──────────────────────────────────────────────────────── */
+
+function USFlag() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 w-4 h-4">
+      <g clipPath="url(#us-footer)">
+        <path d="M8 16.5C12.4183 16.5 16 12.9183 16 8.5C16 4.08172 12.4183 0.5 8 0.5C3.58172 0.5 0 4.08172 0 8.5C0 12.9183 3.58172 16.5 8 16.5Z" fill="#F0F0F0"/>
+        <path d="M7.65198 8.50001H15.9998C15.9998 7.77794 15.9035 7.07845 15.7242 6.41304H7.65198V8.50001Z" fill="#D80027"/>
+        <path d="M7.65198 4.32569H14.8256C14.3359 3.52657 13.7097 2.82022 12.9797 2.23872H7.65198V4.32569Z" fill="#D80027"/>
+        <path d="M7.99983 16.5C9.88261 16.5 11.6131 15.8493 12.9797 14.7609H3.01996C4.38652 15.8493 6.11705 16.5 7.99983 16.5Z" fill="#D80027"/>
+        <path d="M1.17405 12.6733H14.8257C15.2188 12.0318 15.5237 11.3305 15.7243 10.5863H0.275452C0.475983 11.3305 0.780889 12.0318 1.17405 12.6733Z" fill="#D80027"/>
+        <path d="M3.70575 1.74931H4.43478L3.75666 2.24197L4.01569 3.03912L3.33759 2.54647L2.6595 3.03912L2.88325 2.35047C2.28619 2.84781 1.76287 3.4305 1.33162 4.07975H1.56522L1.13356 4.39334C1.06631 4.50553 1.00181 4.6195 0.94 4.73516L1.14612 5.36956L0.761563 5.09016C0.665969 5.29269 0.578531 5.49978 0.499938 5.71119L0.727031 6.41019H1.56522L0.887094 6.90284L1.14612 7.7L0.468031 7.20734L0.0618437 7.50247C0.0211875 7.82928 0 8.16216 0 8.5H8C8 4.08175 8 3.56087 8 0.5C6.41963 0.5 4.94641 0.958438 3.70575 1.74931ZM4.01569 7.7L3.33759 7.20734L2.6595 7.7L2.91853 6.90284L2.24041 6.41019H3.07859L3.33759 5.61303L3.59659 6.41019H4.43478L3.75666 6.90284L4.01569 7.7ZM3.75666 4.57241L4.01569 5.36956L3.33759 4.87691L2.6595 5.36956L2.91853 4.57241L2.24041 4.07975H3.07859L3.33759 3.28259L3.59659 4.07975H4.43478L3.75666 4.57241ZM6.88525 7.7L6.20716 7.20734L5.52906 7.7L5.78809 6.90284L5.10997 6.41019H5.94816L6.20716 5.61303L6.46616 6.41019H7.30434L6.62622 6.90284L6.88525 7.7ZM6.62622 4.57241L6.88525 5.36956L6.20716 4.87691L5.52906 5.36956L5.78809 4.57241L5.10997 4.07975H5.94816L6.20716 3.28259L6.46616 4.07975H7.30434L6.62622 4.57241ZM6.62622 2.24197L6.88525 3.03912L6.20716 2.54647L5.52906 3.03912L5.78809 2.24197L5.10997 1.74931H5.94816L6.20716 0.952156L6.46616 1.74931H7.30434L6.62622 2.24197Z" fill="#0052B4"/>
+      </g>
+      <defs><clipPath id="us-footer"><rect width="16" height="16" fill="white" transform="translate(0 0.5)"/></clipPath></defs>
+    </svg>
+  );
+}
+
+function UKFlag() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 w-4 h-4">
+      <g clipPath="url(#uk-footer)">
+        <path d="M8 16.5C12.4183 16.5 16 12.9183 16 8.5C16 4.08172 12.4183 0.5 8 0.5C3.58172 0.5 0 4.08172 0 8.5C0 12.9183 3.58172 16.5 8 16.5Z" fill="#F0F0F0"/>
+        <path d="M1.65379 3.62866C1.02538 4.44626 0.551541 5.3886 0.275635 6.41232H4.43745L1.65379 3.62866Z" fill="#0052B4"/>
+        <path d="M15.7247 6.41241C15.4488 5.38872 14.9749 4.44638 14.3465 3.62878L11.5629 6.41241H15.7247Z" fill="#0052B4"/>
+        <path d="M0.275635 10.5868C0.551572 11.6105 1.02542 12.5528 1.65379 13.3704L4.43736 10.5868H0.275635Z" fill="#0052B4"/>
+        <path d="M12.8704 2.15318C12.0528 1.52478 11.1105 1.05093 10.0867 0.774994V4.93678L12.8704 2.15318Z" fill="#0052B4"/>
+        <path d="M3.12927 14.8451C3.94687 15.4735 4.88921 15.9474 5.9129 16.2233V12.0616L3.12927 14.8451Z" fill="#0052B4"/>
+        <path d="M5.91287 0.774994C4.88918 1.05093 3.94684 1.52477 3.12927 2.15315L5.91287 4.93674V0.774994Z" fill="#0052B4"/>
+        <path d="M10.0867 16.2233C11.1104 15.9474 12.0528 15.4735 12.8703 14.8452L10.0867 12.0616V16.2233Z" fill="#0052B4"/>
+        <path d="M11.5629 10.5868L14.3465 13.3704C14.9749 12.5529 15.4488 11.6105 15.7247 10.5868H11.5629Z" fill="#0052B4"/>
+        <path d="M15.9323 7.45653H9.04353V0.567719C8.70191 0.52325 8.35366 0.5 8 0.5C7.64628 0.5 7.29809 0.52325 6.95653 0.567719V7.45647H0.0677188C0.02325 7.79809 0 8.14634 0 8.5C0 8.85372 0.02325 9.20191 0.0677188 9.54347H6.95647V16.4323C7.29809 16.4768 7.64628 16.5 8 16.5C8.35366 16.5 8.70191 16.4768 9.04347 16.4323V9.54353H15.9323C15.9768 9.20191 16 8.85372 16 8.5C16 8.14634 15.9768 7.79809 15.9323 7.45653Z" fill="#D80027"/>
+        <path d="M10.087 10.5875L13.6569 14.1574C13.821 13.9933 13.9777 13.8217 14.1271 13.6438L11.0708 10.5875H10.087Z" fill="#D80027"/>
+        <path d="M5.91305 10.5875L2.34314 14.1573C2.50726 14.3215 2.67886 14.4781 2.85673 14.6276L5.91305 11.5712V10.5875Z" fill="#D80027"/>
+        <path d="M5.91293 6.41274L2.34305 2.84277C2.17887 3.0069 2.02224 3.17849 1.8728 3.35637L4.92915 6.41271H5.91293V6.41274Z" fill="#D80027"/>
+        <path d="M10.087 6.41346L13.6569 2.84353C13.4928 2.67934 13.3212 2.52271 13.1433 2.37331L10.087 5.42965V6.41346Z" fill="#D80027"/>
+      </g>
+      <defs><clipPath id="uk-footer"><rect width="16" height="16" fill="white" transform="translate(0 0.5)"/></clipPath></defs>
+    </svg>
+  );
+}
 
 /* ── SVG Icons ───────────────────────────────────────────────────────── */
 
@@ -74,21 +116,6 @@ function PinterestIcon() {
   );
 }
 
-function WhatsAppIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" aria-hidden="true">
-      <path d="M12.031 2c-5.516 0-9.989 4.478-9.989 9.995 0 2.006.592 3.874 1.612 5.434l-1.654 5.046 5.215-1.577a9.92 9.92 0 0 0 4.817 1.24c5.515 0 9.988-4.478 9.988-9.995C22.02 6.478 17.546 2 12.031 2zm0 18.286c-1.748 0-3.376-.487-4.789-1.328l-.343-.207-3.195.966.985-3.003-.238-.372c-.896-1.423-1.369-3.076-1.369-4.808 0-4.636 3.791-8.411 8.449-8.411 4.658 0 8.45 3.775 8.45 8.411 0 4.636-3.791 8.412-8.45 8.412zm4.846-6.071c-.266-.134-1.572-.774-1.816-.862-.244-.089-.422-.134-.599.134-.177.266-.687.862-.842 1.039-.155.177-.311.199-.577.066-1.282-.64-2.198-1.127-3.064-2.616-.222-.382.222-.355.635-1.182.074-.15.037-.282-.018-.393-.056-.111-.5-.138-.636-.453-.13-.306-.27-.265-.37-.27H9.28c-.11-.005-.288.036-.439.201-.151.165-.577.564-.577 1.374 0 .81.59 1.594.673 1.704.083.11 1.161 1.773 2.812 2.484.393.17.7.27.939.346.395.126.754.108 1.037.066.315-.047 1.572-.642 1.794-1.261.222-.619.222-1.15.155-1.261-.067-.11-.244-.2-.51-.334z" />
-    </svg>
-  );
-}
-
-function WeChatIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" aria-hidden="true">
-      <path d="M8.5 2C4.36 2 1 4.9 1 8.5c0 2 .9 3.8 2.4 5.1L2.5 17l3.5-1.8c.8.2 1.7.3 2.5.3 4.14 0 7.5-2.9 7.5-6.5S12.64 2 8.5 2zm-2 4.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm9 4c-3.3 0-6 2.2-6 5s2.7 5 6 5c.7 0 1.3-.1 1.9-.3l2.6 1.3-.6-2c1.3-1 2.1-2.4 2.1-4 0-2.8-2.7-5-6-5zm-1.5 3a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm3 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z" />
-    </svg>
-  );
-}
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
@@ -169,16 +196,12 @@ export default function FooterSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
                 >
-                  <span className="text-[#c3fd03] shrink-0">
-                    <WhatsAppIcon />
-                  </span>
+                  <Image src="/WhatSapp.svg" alt="WhatsApp" width={18} height={18} className="shrink-0" />
                   <span>+447412066394</span>
                 </a>
 
                 <div className="inline-flex items-center gap-2.5 text-gray-300 w-fit text-[14.5px] font-medium">
-                  <span className="text-[#c3fd03] shrink-0">
-                    <WeChatIcon />
-                  </span>
+                  <Image src="/Wechat.svg" alt="WeChat" width={18} height={18} className="shrink-0" />
                   <span>+447412066394</span>
                 </div>
 
@@ -186,14 +209,14 @@ export default function FooterSection() {
                   href="mailto:sales@tiksly.com"
                   className="inline-flex items-center gap-2.5 text-gray-300 hover:text-[#c3fd03] transition-colors w-fit text-[14.5px] font-medium"
                 >
-                  <Mail className="w-4 h-4 shrink-0 text-[#c3fd03]" />
+                  <Image src="/Email.svg" alt="Email" width={18} height={18} className="shrink-0" />
                   <span>sales@tiksly.com</span>
                 </a>
               </div>
 
               {/* Office Addresses - Clean stacked layout with left border accents */}
               <div className="flex flex-col gap-3.5 pt-2">
-                <div className="flex flex-col gap-1">
+                {/* <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#c3fd03] uppercase tracking-wider">
                     <Building2 className="w-3.5 h-3.5 text-[#c3fd03] shrink-0" />
                     <span>Pakistan (operations hub)</span>
@@ -201,11 +224,11 @@ export default function FooterSection() {
                   <p className="text-gray-400 text-[13px] leading-relaxed">
                     Opposite Sub Divisional Court, Tandlianwala, Pakistan
                   </p>
-                </div>
+                </div> */}
 
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#c3fd03] uppercase tracking-wider">
-                     <MapPin className="w-3.5 h-3.5 text-[#c3fd03] shrink-0" />
+                    <USFlag />
                     <span>USA Office</span>
                   </div>
                   <p className="text-gray-400 text-[13px] leading-relaxed">
@@ -215,7 +238,7 @@ export default function FooterSection() {
 
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#c3fd03] uppercase tracking-wider">
-                    <MapPin className="w-3.5 h-3.5 text-[#c3fd03] shrink-0" />
+                    <UKFlag />
                     <span>UK Office</span>
                   </div>
                   <p className="text-gray-400 text-[13px] leading-relaxed">
