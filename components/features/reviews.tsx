@@ -545,9 +545,9 @@ const Reviews = () => {
 
       {/* Title */}
       <div className="container mx-auto mb-6 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black mb-4 leading-tight">Don't take our word for it. </h2>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black mb-4 leading-tight">Don't take our word for it. Take theirs.</h2>
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
-          The proof is in the videos ..
+          This is what selling on TikTok actually looks like.
         </span>
       </div>
 
