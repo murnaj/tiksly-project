@@ -12,7 +12,6 @@ interface Reviewer {
   rating: number;
   countryName: string;
   countryFlag: string;
-  avatar: string;
 }
 
 interface Review {
@@ -28,169 +27,188 @@ const REVIEWS_DATA: Review[] = [
     videoId: "ce3082f8b2b1151137c5b9a82aa9b342",
     caption: "I always had pain in my feet ⚡",
     reviewer: {
-      name: "Josh",
+      name: "Emma",
       rating: 4.8,
       countryName: "United States",
       countryFlag: "🇺🇸",
-      avatar: "/josh.webp",
     },
   },
   {
     id: "hw-2",
-    videoId: "ced34f0b20b4edf473a0055a73b9d71b",
+    videoId: "ab807060990361a8baeca01ee02fca85",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jessica",
+      name: "Elijah",
       rating: 4.7,
       countryName: "United Kingdom",
       countryFlag: "🇬🇧",
-      avatar: "/Chelsea.webp",
     },
   },
   {
     id: "hw-3",
-    videoId: "11d8f8e7bae109fa8d663716d9796058",
-    caption: "KNEE MASSAGER.",
+    videoId: "ced34f0b20b4edf473a0055a73b9d71b",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Brie",
-      rating: 4.9,
-      countryName: "United States",
-      countryFlag: "🇺🇸",
-      avatar: "/Brie_Tennessee.webp",
+      name: "Evelyn",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+    },
+  },
+  {
+    id: "hw-4",
+    videoId: "11d8f8e7bae109fa8d663716d9796058",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Noah",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-4",
     videoId: "472c8a404f7d396a08417a00d5507f1c",
-    caption: "unlike chocolate it's not gonna melt 😉",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jonah",
-      rating: 4.8,
-      countryName: "Canada",
-      countryFlag: "🇨🇦",
-      avatar: "/Jonah_Nebraska.webp",
+      name: "Lucas",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-5",
     videoId: "0aaea0305aa72881f52d75978391efb9",
-    caption: "go grab yours now before they're gone",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Alexis",
-      rating: 4.9,
-      countryName: "Australia",
-      countryFlag: "🇦🇺",
-      avatar: "/Alexis_California.webp",
+      name: "James",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-6",
     videoId: "a4e66c51a879a405eba452d44017299b",
-    caption: "I always had pain in my feet ⚡",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Josh",
-      rating: 4.8,
-      countryName: "United States",
-      countryFlag: "🇺🇸",
-      avatar: "/josh.webp",
+      name: "Mia",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+    },
+  },
+  {
+    id: "hw-6",
+    videoId: "8880a052180933af96cb96020e560c85",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Olivia",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-7",
-    videoId: "8880a052180933af96cb96020e560c85",
+    videoId: "79e7cf49cdb4ab1729369b36e5afd8cc",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jessica",
+      name: "Sophia",
       rating: 4.7,
       countryName: "United Kingdom",
       countryFlag: "🇬🇧",
-      avatar: "/Chelsea.webp",
     },
   },
   {
     id: "hw-8",
-    videoId: "79e7cf49cdb4ab1729369b36e5afd8cc",
-    caption: "KNEE MASSAGER.",
+    videoId: "77ee39539df24d8b2221621ad13893b2",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Brie",
-      rating: 4.9,
-      countryName: "United States",
-      countryFlag: "🇺🇸",
-      avatar: "/Brie_Tennessee.webp",
+      name: "Isabella",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-9",
-    videoId: "ce3082f8b2b1151137c5b9a82aa9b342",
-    caption: "unlike chocolate it's not gonna melt 😉",
+    videoId: "9eeb72536d1b478e604752b4ef089d96",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jonah",
-      rating: 4.8,
-      countryName: "Canada",
-      countryFlag: "🇨🇦",
-      avatar: "/Jonah_Nebraska.webp",
+      name: "William",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-10",
-    videoId: "ced34f0b20b4edf473a0055a73b9d71b",
-    caption: "go grab yours now before they're gone",
+    videoId: "894c688f6c8c83c71eef8a2e6dc18278",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Alexis",
-      rating: 4.9,
-      countryName: "Australia",
-      countryFlag: "🇦🇺",
-      avatar: "/Alexis_California.webp",
+      name: "Mason",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-11",
-    videoId: "11d8f8e7bae109fa8d663716d9796058",
-    caption: "I always had pain in my feet ⚡",
+    videoId: "9e7ad391188bbfeb730c75755e662845",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Josh",
-      rating: 4.8,
-      countryName: "United States",
-      countryFlag: "🇺🇸",
-      avatar: "/josh.webp",
+      name: "Benjamin",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-12",
-    videoId: "472c8a404f7d396a08417a00d5507f1c",
+    videoId: "b1c7031bfed77c225dd2a2e657d3f4f6",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jessica",
+      name: "Jacob",
       rating: 4.7,
       countryName: "United Kingdom",
       countryFlag: "🇬🇧",
-      avatar: "/Chelsea.webp",
     },
   },
   {
     id: "hw-13",
-    videoId: "0aaea0305aa72881f52d75978391efb9",
-    caption: "KNEE MASSAGER.",
+    videoId: "2384c4da51b3d5466e704f49b59f9137",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Brie",
-      rating: 4.9,
-      countryName: "United States",
-      countryFlag: "🇺🇸",
-      avatar: "/Brie_Tennessee.webp",
+      name: "Amelia",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
   },
   {
     id: "hw-14",
-    videoId: "a4e66c51a879a405eba452d44017299b",
-    caption: "unlike chocolate it's not gonna melt 😉",
+    videoId: "1851b7f14202fa484c2b024aa54d9c38",
+    caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Jonah",
-      rating: 4.8,
-      countryName: "Canada",
-      countryFlag: "🇨🇦",
-      avatar: "/Jonah_Nebraska.webp",
+      name: "Harper",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
     },
-  }
+  },
+  {
+    id: "hw-14",
+    videoId: "2b7716ff7e2eb183741ff99fbf990be6",
+    caption: "Creatine Gummies are a SCAM! 😡",
+    reviewer: {
+      name: "Charlotte",
+      rating: 4.7,
+      countryName: "United Kingdom",
+      countryFlag: "🇬🇧",
+    },
+  },
 ];
 
 // Vector Flags duplicated from creator-regions.tsx and expanded
@@ -400,16 +418,6 @@ const getBrandInfo = (index: number) => {
   return brands[index % brands.length];
 };
 
-// Real creator headshots to rotate through (avoids reusing dashboard screenshots as fake avatars)
-const AVATAR_POOL = [
-  "/josh.webp",
-  "/Chelsea.webp",
-  "/Brie_Tennessee.webp",
-  "/Jonah_Nebraska.webp",
-  "/Alexis_California.webp",
-];
-const getAvatar = (index: number) => AVATAR_POOL[index % AVATAR_POOL.length];
-
 const getVideoType = (index: number) => {
   const types = ["Testimonial", "Meta Ad", "B-roll", "Unboxing"];
   return types[index % types.length];
@@ -491,14 +499,14 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
         <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-20" />
 
         {/* Brand badge */}
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
+        {/* <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
           <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
             {brandInfo.name.charAt(0)}
           </div>
           <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
             {brandInfo.name}
           </span>
-        </div>
+        </div> */}
 
         {/* Bottom tag */}
         <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
@@ -512,7 +520,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
       <div className="flex items-center gap-2 px-3 py-3 bg-white">
         <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 relative bg-slate-50 shrink-0">
           <Image
-            src={getAvatar(idx)}
+            src={thumbUrl}
             alt={review.reviewer.name}
             width={32}
             height={32}

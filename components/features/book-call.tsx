@@ -72,7 +72,7 @@ export default function BookCall() {
 
   return (
     <>
-      <section className="bg-white py-14 md:py-20 select-none">
+      <section className="bg-white pt-14 md:pt-20 pt-18 md:pb-24 select-none">
         <div className="container mx-auto px-3 lg:px-4">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
             <Card className="bg-[#c3fd03] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible shadow-xl shadow-lime-955/5">
@@ -95,12 +95,6 @@ export default function BookCall() {
                         style={{ width: "100%", height: "100%" }}
                       />
                     </div>
-
-                    {/* Bottom badge overlay in phone */}
-                    {/* <div className="absolute bottom-4 left-3 right-3 bg-[#c3fd03] text-black text-[9px] font-black py-1.5 px-2 rounded-md flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 bg-black rounded-full animate-ping" />
-                      <span>ShopStats</span>
-                    </div> */}
                   </div>
 
                   {/* Portrait Card */}
@@ -160,7 +154,7 @@ export default function BookCall() {
                   <motion.div
                     animate={{ y: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-                    className="absolute bottom-6 md:bottom-8 right-[-15px] sm:right-[-25px] md:right-[-35px] bg-[#111] text-[#c3fd03] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit rotate-6 hover:scale-105 transition-transform duration-300"
+                    className="absolute bottom-9 md:bottom-14 right-[-15px] sm:right-[-25px] md:right-[-35px] bg-[#111] text-[#c3fd03] text-[9px] font-bold py-1.5 px-3 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 z-20 w-fit rotate-6 hover:scale-105 transition-transform duration-300"
                   >
                     <span className="w-1.5 h-1.5 bg-[#c3fd03] rounded-full animate-pulse" />
                     <span className="text-white">247 creators active</span>
