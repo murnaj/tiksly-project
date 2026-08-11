@@ -19,7 +19,14 @@ import {
   Package, 
   FileText,
   MapPin,
-  ChevronDown
+  ChevronDown,
+  Calendar,
+  MessageSquare,
+  BarChart,
+  Check,
+  GitBranch,
+  Lock,
+  AlertCircle
 } from "lucide-react";
 import NavBar from "@/components/features/nav-bar";
 import FooterSection from "@/components/features/footer-section";
@@ -139,160 +146,274 @@ export default function ShopManagementPage() {
               </div>
             </motion.div>
 
-            {/* RIGHT COLUMN: Tailwind Interactive Dashboard Mockup */}
+            {/* RIGHT COLUMN: Light Mode High-Fidelity ClickUp-Style Mockup */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-              className="relative w-full aspect-[4/3] rounded-[2.5rem] bg-[#0E1117] border border-gray-800 shadow-2xl shadow-neutral-900/60 overflow-hidden text-gray-300 flex flex-col"
+              className="relative w-full aspect-[4/3] rounded-[2.5rem] bg-white border border-gray-200 shadow-2xl shadow-neutral-200/50 overflow-hidden text-neutral-700 flex flex-col z-10"
             >
-              {/* Browser bar top */}
-              <div className="h-10 border-b border-gray-800 bg-[#161B22] flex items-center px-4 justify-between shrink-0">
+              {/* Browser Bar */}
+              <div className="h-10 border-b border-gray-200/80 bg-[#F6F8FA] flex items-center px-4 justify-between shrink-0">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
                 </div>
-                <div className="bg-[#0D1117] text-[10px] text-gray-500 px-8 py-1 rounded-md border border-gray-800 select-none">
-                  tiksly.hub / operations / shop-management
+                <div className="bg-white text-[10px] text-gray-400 px-8 py-1 rounded-md border border-gray-200 select-none font-medium">
+                  tiksly.com / services / shop-management
                 </div>
                 <div className="w-12" />
               </div>
 
-              {/* Main Mockup Area */}
-              <div className="flex-1 flex overflow-hidden min-h-0">
+              {/* Main Area */}
+              <div className="flex-1 flex overflow-hidden min-h-0 text-[12px]">
                 
-                {/* Sidebar */}
-                <div className="w-[85px] sm:w-[130px] border-r border-gray-800 bg-[#161B22] flex flex-col shrink-0 py-3 gap-5">
-                  <div className="px-3">
-                    <span className="text-[14px] font-black uppercase text-[#BCF96A] tracking-wider">Tiksly</span>
+                {/* Sidebar (ClickUp Style) */}
+                <div className="w-[110px] sm:w-[155px] border-r border-gray-200 bg-[#FAFAFA] flex flex-col shrink-0 py-3.5 justify-between select-none">
+                  <div className="flex flex-col gap-4">
+                    {/* Workspace Selector */}
+                    <div className="px-3 flex items-center gap-1.5">
+                      <div className="w-4.5 h-4.5 rounded-md bg-[#0081FB] text-white flex items-center justify-center text-[10px] font-black shrink-0 shadow-xs">T</div>
+                      <span className="text-[12px] font-black text-neutral-800 tracking-tight whitespace-nowrap">Tiksly Hub</span>
+                    </div>
+
+                    {/* Nav Items */}
+                    <div className="flex flex-col gap-0.5 px-2">
+                      <div className="flex items-center justify-between p-1.5 hover:bg-neutral-200/40 rounded-lg text-neutral-600 cursor-pointer">
+                        <div className="flex items-center gap-2">
+                          <Inbox className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                          <span className="font-semibold text-neutral-700">Inbox</span>
+                        </div>
+                        <span className="w-4 h-4 rounded-full bg-rose-500 text-white flex items-center justify-center text-[8px] font-black shrink-0">3</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-1.5 hover:bg-neutral-200/40 rounded-lg text-neutral-600 cursor-pointer">
+                        <Users className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                        <span className="font-semibold text-neutral-700">My Tasks</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-1.5 hover:bg-neutral-200/40 rounded-lg text-neutral-600 cursor-pointer">
+                        <Calendar className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                        <span className="font-semibold text-neutral-700">Schedule</span>
+                      </div>
+                    </div>
+
+                    {/* Spaces section */}
+                    <div className="flex flex-col gap-1 px-2">
+                      <span className="text-[8px] font-bold text-gray-400 uppercase px-1.5">Spaces</span>
+                      <div className="flex flex-col gap-0.5 bg-neutral-200/30 rounded-lg p-1">
+                        <div className="flex items-center gap-1.5 p-1 text-neutral-800 font-bold shrink-0">
+                          <span className="text-rose-500 text-[13px] shrink-0">📁</span>
+                          <span>Marketing</span>
+                        </div>
+                        <div className="pl-5 flex flex-col gap-1 text-[11px] text-neutral-500 font-medium pb-1 select-none">
+                          <span className="hover:text-black cursor-pointer">Campaigns</span>
+                          <span className="hover:text-black cursor-pointer">Blogs</span>
+                          <span className="text-[#0081FB] font-semibold cursor-pointer">Brand Assets</span>
+                          <span className="hover:text-black cursor-pointer">Workflows</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-1 px-1.5">
-                    <div className="flex items-center gap-2 p-2 bg-[#0D1117] rounded-xl text-[12px] font-bold text-white shrink-0">
-                      <Inbox className="w-4 h-4 text-[#BCF96A]" />
-                      <span className="hidden sm:inline">Overview</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-xl text-[12px] font-medium text-gray-400 hover:bg-gray-800/40 shrink-0">
-                      <Store className="w-4 h-4" />
-                      <span className="hidden sm:inline">Store Ops</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-xl text-[12px] font-medium text-gray-400 hover:bg-gray-800/40 shrink-0">
-                      <Users className="w-4 h-4" />
-                      <span className="hidden sm:inline">Affiliates</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-xl text-[12px] font-medium text-gray-400 hover:bg-gray-800/40 shrink-0">
-                      <Megaphone className="w-4 h-4" />
-                      <span className="hidden sm:inline">Campaigns</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-xl text-[12px] font-medium text-gray-400 hover:bg-gray-800/40 shrink-0">
-                      <TrendingUp className="w-4 h-4" />
-                      <span className="hidden sm:inline">Analytics</span>
+
+                  {/* Creator Avatars in Sidebar bottom */}
+                  <div className="px-3 pt-3 border-t border-gray-200/80 hidden sm:flex flex-col gap-1.5">
+                    <span className="text-[8px] font-bold text-gray-400 uppercase">Active Creators</span>
+                    <div className="flex flex-col gap-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-4 h-4 rounded-full overflow-hidden bg-neutral-200 shrink-0 relative">
+                          <Image src="/creators/emma.png" alt="Emma" fill className="object-cover" />
+                        </div>
+                        <span className="text-[10px] text-neutral-600 font-semibold truncate">Emma (US)</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-4 h-4 rounded-full overflow-hidden bg-neutral-200 shrink-0 relative">
+                          <Image src="/creators/elijah.png" alt="Elijah" fill className="object-cover" />
+                        </div>
+                        <span className="text-[10px] text-neutral-600 font-semibold truncate">Elijah (UK)</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Content Panel */}
-                <div className="flex-1 flex flex-col overflow-hidden min-h-0 bg-[#0D1117]">
-                  {/* Top Bar inside panel */}
-                  <div className="h-12 border-b border-gray-800 px-4 flex items-center justify-between shrink-0 bg-[#161B22]/40">
+                {/* Right Panel (Mockup Table Workspace) */}
+                <div className="flex-1 flex flex-col bg-white overflow-hidden min-h-0">
+                  {/* Top bar inside panel */}
+                  <div className="border-b border-gray-200 px-4 pt-3 flex flex-col justify-between shrink-0 bg-white gap-2 select-none">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#BCF96A] text-lg">📁</span>
-                      <span className="text-[13px] font-bold text-white uppercase tracking-tight">Shop Ops Workspace</span>
+                      <span className="text-rose-500 text-base">📁</span>
+                      <span className="text-[13px] font-extrabold text-neutral-800">Marketing</span>
+                      <span className="text-gray-300">|</span>
+                      <span className="text-gray-400 text-[10px]">Active Tasks</span>
                     </div>
-                    <div className="flex gap-2">
-                      <button 
-                        onClick={() => setActiveTab("tasks")}
-                        className={`text-[11px] font-extrabold px-2.5 py-1 rounded-md transition-colors ${activeTab === "tasks" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-400"}`}
-                      >
-                        Tasks
-                      </button>
-                      <button 
-                        onClick={() => setActiveTab("stats")}
-                        className={`text-[11px] font-extrabold px-2.5 py-1 rounded-md transition-colors ${activeTab === "stats" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-400"}`}
-                      >
-                        Stats
-                      </button>
+
+                    {/* Tabs row matching ClickUp layout */}
+                    <div className="flex gap-4 text-[11px] font-bold text-neutral-500 mt-1">
+                      <div className="pb-2 border-b-2 border-transparent hover:text-black cursor-pointer flex items-center gap-1">
+                        <MessageSquare className="w-3 h-3 text-neutral-400 shrink-0" />
+                        <span>Chat</span>
+                      </div>
+                      <div className="pb-2 border-b-2 border-[#0081FB] text-[#0081FB] flex items-center gap-1">
+                        <Check className="w-3 h-3 shrink-0" />
+                        <span>Tasks</span>
+                      </div>
+                      <div className="pb-2 border-b-2 border-transparent hover:text-black cursor-pointer flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-neutral-400 shrink-0" />
+                        <span>Schedule</span>
+                      </div>
+                      <div className="pb-2 border-b-2 border-transparent hover:text-black cursor-pointer flex items-center gap-1">
+                        <BarChart className="w-3 h-3 text-neutral-400 shrink-0" />
+                        <span>Gantt</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Tab Contents */}
-                  <div className="flex-1 overflow-y-auto p-4 min-h-0">
-                    {activeTab === "tasks" ? (
-                      <div className="flex flex-col gap-5 text-left">
-                        {/* Done Tasks */}
-                        <div>
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">DONE</span>
-                            <span className="text-gray-500 text-[11px] font-bold">5 tasks completed</span>
-                          </div>
-                          <div className="flex flex-col gap-1.5">
-                            <div className="bg-[#161B22]/60 p-2.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                              <div className="flex items-center gap-2.5">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                                <span className="text-[13px] font-bold text-gray-200">Catalog setup & listing optimization</span>
-                              </div>
-                              <span className="text-[10px] text-gray-500 font-bold shrink-0">12 items synced</span>
-                            </div>
-                            <div className="bg-[#161B22]/60 p-2.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                              <div className="flex items-center gap-2.5">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                                <span className="text-[13px] font-bold text-gray-200">Commission plans configurations</span>
-                              </div>
-                              <span className="text-[10px] text-gray-500 font-bold shrink-0">15% base set</span>
-                            </div>
-                          </div>
+                  {/* Tasks List */}
+                  <div className="flex-1 overflow-y-auto p-4 min-h-0 text-left">
+                    <div className="flex flex-col gap-5">
+                      
+                      {/* DONE Task Group */}
+                      <div>
+                        <div className="flex items-center gap-1.5 mb-2 select-none">
+                          <span className="text-[8px] text-gray-400">▼</span>
+                          <span className="bg-emerald-500 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-1 shadow-xs">
+                            <span>Done</span>
+                            <span className="bg-emerald-600 w-3.5 h-3.5 rounded-full flex items-center justify-center text-[8px] font-black text-white shrink-0">5</span>
+                          </span>
                         </div>
 
-                        {/* In Progress Tasks */}
-                        <div>
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="bg-blue-500/20 text-blue-400 text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">IN PROGRESS</span>
-                            <span className="text-gray-500 text-[11px] font-bold">3 tasks active</span>
-                          </div>
-                          <div className="flex flex-col gap-1.5">
-                            <div className="bg-[#161B22]/60 p-2.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                              <div className="flex items-center gap-2.5">
-                                <RotateCw className="w-4 h-4 text-blue-400 shrink-0 animate-spin" />
-                                <span className="text-[13px] font-bold text-gray-200">Affiliate creator outreach campaign</span>
+                        {/* DONE Task Rows */}
+                        <div className="flex flex-col border-l border-emerald-200 pl-3 ml-1.5 gap-2.5">
+                          {/* Row 1 */}
+                          <div className="flex justify-between items-center group">
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <Check className="w-2.5 h-2.5 text-emerald-600" />
                               </div>
-                              <span className="text-[10px] text-blue-400 font-bold shrink-0">50 target daily</span>
+                              <span className="text-[12px] font-semibold text-neutral-700 line-through decoration-neutral-350">Catalog Setup & Listings Uploaded</span>
                             </div>
-                            <div className="bg-[#161B22]/60 p-2.5 rounded-xl border border-gray-800/80 flex items-center justify-between">
-                              <div className="flex items-center gap-2.5">
-                                <RotateCw className="w-4 h-4 text-blue-400 shrink-0 animate-spin" />
-                                <span className="text-[13px] font-bold text-gray-200">B-roll & review sample shipping ops</span>
-                              </div>
-                              <span className="text-[10px] text-gray-500 font-bold shrink-0">22 units sent</span>
+                            <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-gray-250 shrink-0 relative">
+                              <Image src="/creators/emma.png" alt="Emma" fill className="object-cover" />
                             </div>
                           </div>
+
+                          {/* Row 2 */}
+                          <div className="flex flex-col gap-2">
+                            <div className="flex justify-between items-center">
+                              <div className="flex items-center gap-2">
+                                <div className="w-4 h-4 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                  <Check className="w-2.5 h-2.5 text-emerald-600" />
+                                </div>
+                                <span className="text-[12px] font-semibold text-neutral-700 line-through decoration-neutral-350 flex items-center gap-1.5">
+                                  <span>Website Assets Sync</span>
+                                  <GitBranch className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                                  <span className="text-[9px] text-neutral-400 font-bold shrink-0">2</span>
+                                </span>
+                              </div>
+                              <div className="flex -space-x-1.5 select-none">
+                                <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-white shrink-0 relative z-10">
+                                  <Image src="/creators/elijah.png" alt="Elijah" fill className="object-cover" />
+                                </div>
+                                <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-white shrink-0 relative z-0">
+                                  <Image src="/Alexis_California.webp" alt="Alexis" fill className="object-cover" />
+                                </div>
+                              </div>
+                            </div>
+                            {/* Nested Sub-Rows */}
+                            <div className="pl-6 flex flex-col gap-2 border-l border-gray-150">
+                              <div className="flex justify-between items-center text-[11px]">
+                                <span className="text-neutral-500 font-medium flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full border border-neutral-400 inline-block shrink-0" />
+                                  <span>Tiksly Landing Page Mockup</span>
+                                </span>
+                                <div className="w-4 h-4 rounded-full overflow-hidden bg-neutral-100 border border-gray-200 shrink-0 relative">
+                                  <Image src="/creators/emma.png" alt="Emma" fill className="object-cover" />
+                                </div>
+                              </div>
+                              <div className="flex justify-between items-center text-[11px]">
+                                <span className="text-neutral-500 font-medium flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full border border-neutral-400 inline-block shrink-0" />
+                                  <span>Shop-management Services Layout</span>
+                                </span>
+                                <div className="w-4 h-4 rounded-full overflow-hidden bg-neutral-100 border border-gray-200 shrink-0 relative">
+                                  <Image src="/creators/elijah.png" alt="Elijah" fill className="object-cover" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      {/* IN PROGRESS Task Group */}
+                      <div>
+                        <div className="flex items-center gap-1.5 mb-2 select-none">
+                          <span className="text-[8px] text-gray-400">▼</span>
+                          <span className="bg-[#0081FB] text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-1 shadow-xs">
+                            <span>In Progress</span>
+                            <span className="bg-[#006ACC] w-3.5 h-3.5 rounded-full flex items-center justify-center text-[8px] font-black text-white shrink-0">3</span>
+                          </span>
                         </div>
 
-                      </div>
-                    ) : (
-                      /* Stats View */
-                      <div className="grid grid-cols-2 gap-4 text-left">
-                        <div className="bg-[#161B22] p-4 rounded-2xl border border-gray-850">
-                          <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Total Sales (30d)</span>
-                          <h4 className="text-2xl font-black text-white mt-1">$24,850</h4>
-                          <span className="text-[10px] text-emerald-400 font-semibold mt-1 block">↑ 18.5% from last week</span>
-                        </div>
-                        <div className="bg-[#161B22] p-4 rounded-2xl border border-gray-850">
-                          <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Active Creators</span>
-                          <h4 className="text-2xl font-black text-[#BCF96A] mt-1">112 active</h4>
-                          <span className="text-[10px] text-gray-400 font-semibold mt-1 block">22 video posts this week</span>
-                        </div>
-                        <div className="col-span-2 bg-[#161B22] p-4 rounded-2xl border border-gray-850 flex flex-col gap-2">
-                          <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Seller Compliance Status</span>
-                          <div className="flex items-center justify-between">
-                            <span className="text-[13px] text-emerald-400 font-extrabold">Good Standing (0 points)</span>
-                            <span className="w-3.5 h-3.5 bg-emerald-500 rounded-full animate-ping" />
+                        {/* IN PROGRESS Task Rows */}
+                        <div className="flex flex-col border-l border-blue-200 pl-3 ml-1.5 gap-2.5">
+                          {/* Row 1 */}
+                          <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 rounded-full border border-blue-300 flex items-center justify-center shrink-0">
+                                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                              </div>
+                              <span className="text-[12px] font-semibold text-neutral-800">Affiliate Creator Outreach & Message Box</span>
+                            </div>
+                            <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-gray-200 shrink-0 relative">
+                              <Image src="/Chelsea.webp" alt="Chelsea" fill className="object-cover" />
+                            </div>
                           </div>
-                          <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden mt-1">
-                            <div className="bg-emerald-500 w-[100%] h-full" />
+
+                          {/* Row 2 */}
+                          <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 rounded-full border border-blue-300 flex items-center justify-center shrink-0">
+                                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                              </div>
+                              <span className="text-[12px] font-semibold text-neutral-800 flex items-center gap-1.5">
+                                <span>Competitor Ads Analysis & Research</span>
+                                <GitBranch className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                                <span className="text-[9px] text-neutral-400 font-bold shrink-0">1</span>
+                              </span>
+                            </div>
+                            <div className="flex -space-x-1.5 select-none">
+                              <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-white shrink-0 relative z-10">
+                                <Image src="/avatars/ahmed.png" alt="Ahmed" fill className="object-cover" />
+                              </div>
+                              <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-white shrink-0 relative z-0">
+                                <Image src="/Jonah_Nebraska.webp" alt="Jonah" fill className="object-cover" />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Row 3 */}
+                          <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 rounded-full border border-blue-300 flex items-center justify-center shrink-0">
+                                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                              </div>
+                              <span className="text-[12px] font-semibold text-neutral-800 flex items-center gap-1.5">
+                                <Lock className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                                <span>Seller Compliance Audit Reports</span>
+                                <span className="text-[9px] font-extrabold text-rose-500 bg-rose-50 px-1 py-0.5 rounded-sm border border-rose-100 flex items-center gap-0.5 shrink-0">
+                                  <AlertCircle className="w-2.5 h-2.5 text-rose-500 shrink-0" />
+                                  <span>5d</span>
+                                </span>
+                              </span>
+                            </div>
+                            <div className="w-5 h-5 rounded-full overflow-hidden bg-neutral-100 border border-gray-200 shrink-0 relative">
+                              <Image src="/josh.webp" alt="Josh" fill className="object-cover" />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    )}
+
+                    </div>
                   </div>
                 </div>
 
