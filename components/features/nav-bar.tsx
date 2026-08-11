@@ -34,21 +34,25 @@ const servicesCol1 = {
       name: "Shop Management",
       desc: "Full seller center setup, listing & operation",
       icon: Store,
+      href: "/services/shop-management",
     },
     {
       name: "Account Creation",
       desc: "Fast verified shop onboarding & setup",
       icon: UserPlus,
+      href: "#",
     },
     {
       name: "Category Approval",
       desc: "Unlock restricted product categories",
       icon: ShieldCheck,
+      href: "#",
     },
     {
       name: "Violation Removal",
       desc: "Clear account strikes & restore standing",
       icon: ShieldAlert,
+      href: "#",
     },
   ],
 };
@@ -61,21 +65,25 @@ const servicesCol2 = {
       name: "Affiliate & Creator Ops",
       desc: "Scale with top-tier TikTok influencers",
       icon: Users,
+      href: "#",
     },
     {
       name: "UGC Content Creation",
       desc: "High-converting short video ad creatives",
       icon: Video,
+      href: "#",
     },
     {
       name: "TikTok Shop Ads",
       desc: "Targeted ad campaigns & revenue scaling",
       icon: Megaphone,
+      href: "#",
     },
     {
       name: "Live Streaming",
       desc: "End-to-end live host & shop production",
       icon: Radio,
+      href: "#",
     },
   ],
 };
@@ -88,21 +96,25 @@ const servicesCol3 = {
       name: "Virtual Assistance",
       desc: "Dedicated 24/7 store support agents",
       icon: Headphones,
+      href: "#",
     },
     {
       name: "Automation",
       desc: "Streamline inventory & order processing",
       icon: Zap,
+      href: "#",
     },
     {
       name: "3PL & Fulfillment",
       desc: "Seamless warehousing & fast shipping",
       icon: Package,
+      href: "#",
     },
     {
       name: "Coaching & Consultation",
       desc: "1-on-1 mentorship & growth strategy",
       icon: GraduationCap,
+      href: "#",
     },
   ],
 };
@@ -200,7 +212,7 @@ const NavBar = () => {
                             return (
                               <Link
                                 key={item.name}
-                                href="/services"
+                                href={item.href}
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
                                 <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
@@ -237,7 +249,7 @@ const NavBar = () => {
                             return (
                               <Link
                                 key={item.name}
-                                href="/services"
+                                href={item.href}
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
                                 <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
@@ -274,7 +286,7 @@ const NavBar = () => {
                             return (
                               <Link
                                 key={item.name}
-                                href="/services"
+                                href={item.href}
                                 className="group relative flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 hover:bg-gray-50/90 hover:scale-[1.01]"
                               >
                                 <div className="w-9 h-9 rounded-xl bg-[#BCF96A] text-black flex items-center justify-center group-hover:scale-105 transition-all duration-200 shrink-0 mt-0.5 shadow-xs">
@@ -394,7 +406,7 @@ const NavBar = () => {
                               return (
                                 <Link
                                   key={item.name}
-                                  href="/services"
+                                  href={item.href}
                                   onClick={() => setIsOpen(false)}
                                   className="flex items-start gap-3 p-2 rounded-xl hover:bg-white transition-all group"
                                 >

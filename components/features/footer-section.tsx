@@ -136,7 +136,7 @@ function PinterestIcon() {
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
 const servicesLinks = [
-  { label: "Shop Management", href: "#" },
+  { label: "Shop Management", href: "/services/shop-management" },
   { label: "Affiliate & Creator Management", href: "#" },
   { label: "TikTok Shop Ads", href: "#" },
   { label: "UGC Content", href: "#" },
