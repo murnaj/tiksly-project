@@ -191,7 +191,7 @@ export default function FooterSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Grid Pattern Background */}
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: "28px 28px",
@@ -201,11 +201,11 @@ export default function FooterSection() {
         {/* Moving Ambient Parallax Blobs */}
         <motion.div
           style={{ y: blobY1 }}
-          className="absolute -top-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-[#BCF96A] opacity-[0.06] blur-[100px]"
+          className="absolute -top-[5%] left-[5%] w-[450px] h-[450px] rounded-full bg-[#BCF96A] opacity-[0.16] blur-[110px]"
         />
         <motion.div
           style={{ y: blobY2 }}
-          className="absolute -bottom-[10%] right-[15%] w-[500px] h-[500px] rounded-full bg-[#0081FB] opacity-[0.05] blur-[130px]"
+          className="absolute -bottom-[5%] right-[10%] w-[550px] h-[550px] rounded-full bg-[#0081FB] opacity-[0.14] blur-[140px]"
         />
       </div>
 
@@ -353,7 +353,9 @@ export default function FooterSection() {
       </div>
 
       {/* Giant Parallax Watermark Logo Banner */}
-      <div className="w-full overflow-hidden pt-8 pb-4 pointer-events-none select-none border-t border-gray-800/50">
+      <div className="w-full overflow-hidden pt-8 pb-4 pointer-events-none select-none relative">
+        {/* Glowing Gradient Divider */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0081FB]/30 via-[#BCF96A]/60 via-[#0081FB]/30 to-transparent" />
         <motion.div
           style={{ y: logoY, scale: logoScale, opacity: logoOpacity }}
           className="flex justify-center items-center py-6"
@@ -369,7 +371,9 @@ export default function FooterSection() {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-[#07080A] border-t border-gray-800/60 text-gray-400 px-4 w-full">
+      <div className="bg-[#07080A] text-gray-400 px-4 w-full relative">
+        {/* Glowing Gradient Divider */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0081FB]/20 via-[#BCF96A]/40 via-[#0081FB]/20 to-transparent" />
         <div className="container mx-auto py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
 
