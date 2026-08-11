@@ -51,8 +51,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Evelyn",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Canada",
+      countryFlag: "🇨🇦",
     },
   },
   {
@@ -62,19 +62,19 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Noah",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Australia",
+      countryFlag: "🇦🇺",
     },
   },
   {
-    id: "hw-4",
+    id: "hw-4-2",
     videoId: "472c8a404f7d396a08417a00d5507f1c",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
       name: "Lucas",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Germany",
+      countryFlag: "🇩🇪",
     },
   },
   {
@@ -84,8 +84,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "James",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "United States",
+      countryFlag: "🇺🇸",
     },
   },
   {
@@ -95,19 +95,19 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Mia",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Italy",
+      countryFlag: "🇮🇹",
     },
   },
   {
-    id: "hw-6",
+    id: "hw-6-2",
     videoId: "8880a052180933af96cb96020e560c85",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
       name: "Olivia",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Spain",
+      countryFlag: "🇪🇸",
     },
   },
   {
@@ -117,8 +117,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Sophia",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "France",
+      countryFlag: "🇫🇷",
     },
   },
   {
@@ -128,8 +128,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Isabella",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Brazil",
+      countryFlag: "🇧🇷",
     },
   },
   {
@@ -150,8 +150,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Mason",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Canada",
+      countryFlag: "🇨🇦",
     },
   },
   {
@@ -161,8 +161,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Benjamin",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Netherlands",
+      countryFlag: "🇳🇱",
     },
   },
   {
@@ -172,8 +172,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Jacob",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "United States",
+      countryFlag: "🇺🇸",
     },
   },
   {
@@ -183,8 +183,8 @@ const REVIEWS_DATA: Review[] = [
     reviewer: {
       name: "Amelia",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Australia",
+      countryFlag: "🇦🇺",
     },
   },
   {
@@ -199,14 +199,14 @@ const REVIEWS_DATA: Review[] = [
     },
   },
   {
-    id: "hw-14",
+    id: "hw-14-2",
     videoId: "2b7716ff7e2eb183741ff99fbf990be6",
     caption: "Creatine Gummies are a SCAM! 😡",
     reviewer: {
-      name: "Charlotte",
+      name: "Yuki",
       rating: 4.7,
-      countryName: "United Kingdom",
-      countryFlag: "🇬🇧",
+      countryName: "Japan",
+      countryFlag: "🇯🇵",
     },
   },
 ];
@@ -404,20 +404,6 @@ const getFlagIcon = (countryName: string) => {
   }
 };
 
-const getBrandInfo = (index: number) => {
-  const brands = [
-    { name: "Pandasocks", color: "bg-slate-400" },
-    { name: "Eterika", color: "bg-pink-400" },
-    { name: "Mini Melts", color: "bg-purple-400" },
-    { name: "Shape Republic", color: "bg-orange-400" },
-    { name: "GLAS", color: "bg-cyan-400" },
-    { name: "WOW TEA", color: "bg-amber-400" },
-    { name: "Gizzmo", color: "bg-blue-400" },
-    { name: "Top Shop", color: "bg-rose-400" },
-  ];
-  return brands[index % brands.length];
-};
-
 const getVideoType = (index: number) => {
   const types = ["Testimonial", "Meta Ad", "B-roll", "Unboxing"];
   return types[index % types.length];
@@ -462,7 +448,6 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
     return () => obs.disconnect();
   }, []);
 
-  const brandInfo = getBrandInfo(idx);
   const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const flagIcon = getFlagIcon(review.reviewer.countryName);
@@ -497,16 +482,6 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
 
         {/* Top scrim for text contrast */}
         <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-20" />
-
-        {/* Brand badge */}
-        {/* <div className="absolute top-3 left-3 flex items-center gap-1.5 z-20">
-          <div className={cn("w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0", brandInfo.color)}>
-            {brandInfo.name.charAt(0)}
-          </div>
-          <span className="text-white text-[13px] font-semibold tracking-tight drop-shadow-sm whitespace-nowrap">
-            {brandInfo.name}
-          </span>
-        </div> */}
 
         {/* Bottom tag */}
         <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
