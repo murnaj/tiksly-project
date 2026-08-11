@@ -181,12 +181,48 @@ export default function FooterSection() {
   const logoScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const logoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [0.1, 0.4, 0.85]);
 
+  // Ambient parallax blobs scroll transformations
+  const blobY1 = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const blobY2 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
   return (
     <footer ref={footerRef} className="relative bg-[#0B0C0E] text-white w-full">
-      {/* Wave top divider */}
-      <div className="absolute -top-[49px] left-0 right-0 leading-none pointer-events-none">
+      {/* Background decorations container (clips blobs and grid, leaves wave divider unclipped) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Grid Pattern Background */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        {/* Moving Ambient Parallax Blobs */}
+        <motion.div
+          style={{ y: blobY1 }}
+          className="absolute -top-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-[#BCF96A] opacity-[0.06] blur-[100px]"
+        />
+        <motion.div
+          style={{ y: blobY2 }}
+          className="absolute -bottom-[10%] right-[15%] w-[500px] h-[500px] rounded-full bg-[#0081FB] opacity-[0.05] blur-[130px]"
+        />
+      </div>
+
+      {/* Wave top divider with glowing gradient stroke */}
+      <div className="absolute -top-[49px] left-0 right-0 leading-none pointer-events-none z-10">
         <svg viewBox="0 0 1440 50" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }} fill="#0B0C0E" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0081FB" stopOpacity="0" />
+              <stop offset="15%" stopColor="#0081FB" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#BCF96A" stopOpacity="0.9" />
+              <stop offset="85%" stopColor="#0081FB" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#0081FB" stopOpacity="0" />
+            </linearGradient>
+          </defs>
           <path d="M0,35 C120,10 280,50 480,20 C640,0 800,45 1000,18 C1150,2 1320,42 1440,22 L1440,50 L0,50 Z"/>
+          <path d="M0,35 C120,10 280,50 480,20 C640,0 800,45 1000,18 C1150,2 1320,42 1440,22" fill="none" stroke="url(#wave-gradient)" strokeWidth="2.5" />
         </svg>
       </div>
       {/* Main grid */}
