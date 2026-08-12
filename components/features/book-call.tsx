@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { Store } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -113,11 +114,11 @@ export default function BookCall() {
                     {/* Bottom White Profile Strip */}
                     <div className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl p-3 shadow-md flex items-center gap-2 z-20">
                       {/* Checkmark circle */}
-                      <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white shrink-0">
+                      {/* <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white shrink-0">
                         <svg className="w-3 h-3 fill-none stroke-current stroke-[3] text-[#c3fd03]" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
-                      </div>
+                      </div> */}
                       <div className="flex flex-col">
                         <div className="flex items-center gap-1">
                           <span className="text-[11px] font-extrabold text-black leading-none">Ahmad</span>
@@ -139,9 +140,7 @@ export default function BookCall() {
                   >
                     <div className="flex items-center gap-1 mb-1">
                       {/* Icon */}
-                      <svg className="w-3 h-3 text-indigo-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
+                      <Store className="w-3 h-3 text-indigo-500 shrink-0" />
                       <span className="text-[8px] font-bold text-neutral-400 uppercase tracking-tight whitespace-nowrap">GMV this shop</span>
                     </div>
                     <span className="text-[18px] font-black text-black leading-none"><GMVCounter /></span>
