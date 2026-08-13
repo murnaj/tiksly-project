@@ -82,31 +82,67 @@ export default function ShopManagementPage() {
                     </span>
                   </Link>
                   <Link
-                    href="#"
+                    href="/services/account-creation"
                     className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
                   >
-                   Account Creation
+                    Account Creation
                   </Link>
                   <Link
-                    href="#"
+                    href="/services/category-approval"
                     className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
                   >
-                    TikTok Shop Ads
+                    Category Approval
                   </Link>
                   <Link
-                    href="#"
+                    href="/services/violation-removal"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    Violation Removal
+                  </Link>
+                  <Link
+                    href="/services/affiliate-creator-ops"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    Affiliate & Creator Ops
+                  </Link>
+                  <Link
+                    href="/services/ugc-content-creation"
                     className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
                   >
                     UGC Content
                   </Link>
                   <Link
-                    href="#"
+                    href="/services/tiktok-shop-ads"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    TikTok Shop Ads
+                  </Link>
+                  <Link
+                    href="/services/live-streaming"
                     className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
                   >
                     Live Streaming
                   </Link>
                   <Link
-                    href="#"
+                    href="/services/virtual-assistance"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    Virtual Assistance
+                  </Link>
+                  <Link
+                    href="/services/automation"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    Automation
+                  </Link>
+                  <Link
+                    href="/services/3pl-fulfillment"
+                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
+                  >
+                    3PL & Fulfillment
+                  </Link>
+                  <Link
+                    href="/services/coaching-consultation"
                     className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
                   >
                     Coaching & Consultation
