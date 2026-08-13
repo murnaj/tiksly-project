@@ -56,7 +56,7 @@ export default function OurHistory() {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12 md:mb-20">
-          <div className="flex bg-zinc-100 rounded-full p-1.5 md:p-2 overflow-x-auto max-w-full no-scrollbar">
+          <div className="flex bg-[#111111] rounded-full p-1.5 md:p-2 overflow-x-auto max-w-full no-scrollbar border border-white/5">
             {historyData.map((item) => {
               const isActive = activeYear === item.year;
               return (
@@ -65,13 +65,13 @@ export default function OurHistory() {
                   onClick={() => setActiveYear(item.year)}
                   className={cn(
                     "relative px-6 md:px-10 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 cursor-pointer",
-                    isActive ? "text-white shadow-sm" : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-200/50"
+                    isActive ? "text-black" : "text-neutral-400 hover:text-white"
                   )}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTabHistory"
-                      className="absolute inset-0 bg-[#000000] rounded-full"
+                      className="absolute inset-0 bg-white rounded-full ring-2 ring-white ring-offset-2 ring-offset-black shadow-md"
                       initial={false}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
