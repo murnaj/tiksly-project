@@ -188,15 +188,14 @@ export default function ShopManagementPage() {
                 </span>
                 <br className="hidden md:block" />
                 <span className="text-black">days — </span>
-                <span className="text-neutral-300">
+                <span className="text-[#BCF96A]">
                   because no one&apos;s running
                   <br className="hidden md:block" /> the whole thing
                 </span>
               </h2>
               <p className="text-gray-500 text-[15px] md:text-[17px] mt-6 leading-relaxed max-w-3xl mx-auto font-medium">
                 A freelancer here. A VA there. An &quot;influencer guy&quot; who ghosts.
-                It&apos;s not a team, it&apos;s a tangle, and
-                <br className="hidden md:block" /> your sales are stuck in the
+                It&apos;s not a team, it&apos;s a tangle, and your sales are stuck in the
                 knots.
               </p>
             </div>
@@ -290,14 +289,9 @@ export default function ShopManagementPage() {
               </div>
 
               {/* Tiksly Black Pill */}
-              <div className="absolute top-[38%] right-[10%] bg-[#121212] rounded-[1.25rem] shadow-[0_20px_40px_rgb(0,0,0,0.2)] px-8 py-6 flex flex-col items-center justify-center gap-1.5 z-20 hover:scale-105 transition-transform duration-300">
+              <div className="absolute top-[45%] right-0 bg-[#121212] rounded-[1.25rem] shadow-[0_20px_40px_rgb(0,0,0,0.2)] px-8 py-6 flex flex-col items-center justify-center gap-1.5 z-20 hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-[0.4rem] bg-[#BCF96A] text-black font-black flex items-center justify-center text-[18px]">
-                    t
-                  </div>
-                  <span className="text-[26px] font-bold text-white tracking-tight">
-                    Tiksly
-                  </span>
+                  <Image src="/branding/logo-white.svg" alt="Tiksly Logo" width={150} height={100} />
                 </div>
                 <span className="text-[#BCF96A] text-[11px] font-black uppercase tracking-wider mt-1">
                   one team, everything connected
@@ -444,9 +438,6 @@ export default function ShopManagementPage() {
         <section className="bg-white py-16 md:py-24 border-y border-gray-100 select-none">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-[13px] font-bold text-gray-400 uppercase tracking-widest">
-                Scope of Work
-              </span>
               <h2 className="text-3xl md:text-4xl lg:text-[45px] font-black uppercase tracking-tighter text-black mt-3">
                 Full seller center operations{" "}
                 <span className="bg-[#BCF96A] px-3 py-0.5 rounded-full inline-block font-black">
@@ -562,9 +553,6 @@ export default function ShopManagementPage() {
         <section className="bg-white py-16 md:py-24 select-none">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-[13px] font-bold text-gray-400 uppercase tracking-widest">
-                Investment
-              </span>
               <h2 className="text-3xl md:text-4xl lg:text-[45px] font-black uppercase tracking-tighter text-black mt-3">
                 Simple, transparent{" "}
                 <span className="bg-[#BCF96A] px-3 py-0.5 rounded-full inline-block font-black">
