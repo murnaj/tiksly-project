@@ -25,10 +25,16 @@ const historyData = [
     image: "/about-us/our-history/3.webp"
   },
   {
+    year: "2025",
+    title: "Global Expansion & Scaling",
+    description: "We expanded our reach to international markets, managing over 50+ major brands and establishing Tiksly as a premier official partner for TikTok Shop scaling and operations.",
+    image: "/about-us/our-history/4.webp"
+  },
+  {
     year: "2026",
     title: "Today & Beyond",
-    description: "Tiksly continues to push boundaries, driving success for brands worldwide. And this is just the beginning our journey of growth, innovation, and excellence is far from over.",
-    image: "/about-us/our-history/4.webp"
+    description: "Tiksly continues to push boundaries, driving success for brands worldwide. And this is just the beginning—our journey of growth, innovation, and excellence is far from over.",
+    image: "/about-us/our-history/5.png"
   }
 ];
 
@@ -43,9 +49,6 @@ export default function OurHistory() {
         
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-12 md:mb-16">
-          <div className="bg-[#FFF4ED] text-[#F3763D] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-            Tiksly History
-          </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950">
             Our History
           </h2>
@@ -68,7 +71,7 @@ export default function OurHistory() {
                   {isActive && (
                     <motion.div
                       layoutId="activeTabHistory"
-                      className="absolute inset-0 bg-[#F3763D] rounded-full"
+                      className="absolute inset-0 bg-[#000000] rounded-full"
                       initial={false}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
