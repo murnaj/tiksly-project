@@ -57,11 +57,11 @@ export default function OurProcess() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-4">
-            Onboarding Process
+            How we take you from stuck to scaling
           </h2>
-          <p className="text-neutral-500 text-[16px] md:text-[18px] font-medium">
+          {/* <p className="text-neutral-500 text-[16px] md:text-[18px] font-medium">
             Four steps. One team. Zero guesswork.
-          </p>
+          </p> */}
         </div>
 
         {/* Shadcn Tabs Root */}

@@ -103,7 +103,7 @@ export default function BookCall() {
                     {/* Portrait Image */}
                     <div className="absolute inset-0 w-full h-full bg-[#d4d6cf] flex items-center justify-center">
                       <Image
-                        src="/avatars/ahmed.png"
+                        src="/avatars/ahmad.jpg"
                         alt="Ahmad"
                         width={500}
                         height={190}
@@ -113,12 +113,6 @@ export default function BookCall() {
 
                     {/* Bottom White Profile Strip */}
                     <div className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl p-3 shadow-md flex items-center gap-2 z-20">
-                      {/* Checkmark circle */}
-                      {/* <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white shrink-0">
-                        <svg className="w-3 h-3 fill-none stroke-current stroke-[3] text-[#c3fd03]" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div> */}
                       <div className="flex flex-col">
                         <div className="flex items-center gap-1">
                           <span className="text-[11px] font-extrabold text-black leading-none">Ahmad</span>
