@@ -62,19 +62,19 @@ export default function ComparisonTable() {
         >
           <div className="rounded-3xl border border-gray-200 overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)]">
             {/* Header */}
-            <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200">
-              <div className="p-5 md:p-6 flex items-center">
-                <span className="text-[13px] md:text-[15px] font-bold text-gray-500 uppercase tracking-widest">
+            <div className="grid grid-cols-[1.2fr_1.1fr_1.1fr] md:grid-cols-3 bg-gray-50 border-b border-gray-200">
+              <div className="p-3 md:p-6 flex items-center">
+                <span className="text-[11px] md:text-[15px] font-bold text-gray-500 uppercase tracking-widest">
                   Features
                 </span>
               </div>
-              <div className="p-5 md:p-6 border-l border-gray-200 bg-[#BCF96A]/10">
-                <span className="text-[18px] md:text-[22px] font-black text-black">
+              <div className="p-3 md:p-6 border-l border-gray-200 bg-[#BCF96A]/10">
+                <span className="text-[16px] md:text-[22px] font-black text-black">
                   Tiksly
                 </span>
               </div>
-              <div className="p-5 md:p-6 border-l border-gray-200">
-                <span className="text-[15px] md:text-[18px] font-bold text-gray-400">
+              <div className="p-3 md:p-6 border-l border-gray-200">
+                <span className="text-[13px] md:text-[18px] font-bold text-gray-400">
                   Other Agencies
                 </span>
               </div>
@@ -83,30 +83,30 @@ export default function ComparisonTable() {
             {/* Body */}
             <div className="divide-y divide-gray-100 bg-white">
               {comparisonData.map((row, idx) => (
-                <div key={idx} className="grid grid-cols-3 hover:bg-gray-50/50 transition-colors">
-                  <div className="p-5 md:p-6 flex items-center">
-                    <span className="text-[14px] md:text-[16px] font-semibold text-gray-800">
+                <div key={idx} className="grid grid-cols-[1.2fr_1.1fr_1.1fr] md:grid-cols-3 hover:bg-gray-50/50 transition-colors">
+                  <div className="p-3 md:p-6 flex items-center">
+                    <span className="text-[12px] md:text-[16px] font-semibold text-gray-800">
                       {row.feature}
                     </span>
                   </div>
                   
                   {/* Tiksly Column */}
-                  <div className="p-5 md:p-6 border-l border-gray-200 bg-[#BCF96A]/5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 rounded-full bg-[#BCF96A] flex items-center justify-center shrink-0 shadow-sm">
-                        <Check className="w-3 h-3 text-black" strokeWidth={3} />
+                  <div className="p-3 md:p-6 border-l border-gray-200 bg-[#BCF96A]/5">
+                    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+                      <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#BCF96A] flex items-center justify-center shrink-0 shadow-sm">
+                        <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-black" strokeWidth={3} />
                       </div>
-                      <span className="text-[14px] md:text-[16px] font-bold text-black text-center">
+                      <span className="text-[11px] md:text-[16px] font-bold text-black text-center">
                         {row.tiksly}
                       </span>
                     </div>
                   </div>
 
                   {/* Others Column */}
-                  <div className="p-5 md:p-6 border-l border-gray-200 text-center">
-                    <div className="flex items-center gap-2">
-                      <X className="w-4 h-4 text-gray-300 shrink-0" />
-                      <span className="text-[14px] md:text-[15px] font-medium text-gray-400">
+                  <div className="p-3 md:p-6 border-l border-gray-200 flex items-center justify-center text-center">
+                    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+                      <X className="w-3 h-3 md:w-4 md:h-4 text-gray-300 shrink-0" />
+                      <span className="text-[11px] md:text-[15px] font-medium text-gray-400">
                         {row.others}
                       </span>
                     </div>
