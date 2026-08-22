@@ -42,7 +42,7 @@ export default function AccountCreationPage() {
       <NavBar />
 
       <main className="pt-24 md:pt-32 pb-20 select-none">
-        {/* HERO SECTION - CLICKUP STYLE */}
+        {/* HERO SECTION */}
         <section className="relative w-full overflow-hidden mb-16 md:mb-24">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] xl:grid-cols-[1fr_1.25fr] gap-12 lg:gap-8 items-center">
