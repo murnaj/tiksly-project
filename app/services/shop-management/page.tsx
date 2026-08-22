@@ -39,8 +39,37 @@ export default function ShopManagementPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, ease: EASE }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5"
             >
+              {/* Animated Shop Management Pill Badge with moving colorful gradient border */}
+              <div className="inline-flex items-center self-start mb-1">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                  className="relative p-[1.5px] rounded-full overflow-hidden shadow-xs cursor-default"
+                >
+                  {/* Rotating Conic Gradient Border */}
+                  <motion.div
+                    className="absolute -inset-[150%] rounded-full pointer-events-none"
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                  />
+
+                  {/* Inner Badge */}
+                  <div className="relative bg-white px-3.5 py-1 rounded-full flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#BCF96A] animate-pulse" />
+                    <span className="text-[11.5px] md:text-[12px] font-extrabold uppercase tracking-wider text-black">
+                      Shop Management
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+
               <h1 className="text-3xl md:text-[45px] lg:text-[50px] font-black text-black leading-[1.05] tracking-tighter uppercase">
                 The complete
                 <br />
@@ -70,98 +99,49 @@ export default function ShopManagementPage() {
                   explore our services
                 </p>
 
-                {/* Highlighted Services Pills */}
+                {/* Outline Services Pills (Non-clickable) */}
                 <div className="flex flex-wrap gap-2 max-w-xl">
-                  <Link
-                    href="/services/shop-management"
-                    className="flex items-center gap-1.5 px-4 py-2 bg-[#BCF96A] text-black rounded-full text-[13px] font-bold shadow-md shadow-blue-500/20 transition-all hover:scale-105"
-                  >
-                    <span>Shop Management</span>
-                    <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">
-                      ✓
-                    </span>
-                  </Link>
-                  <Link
-                    href="/services/account-creation"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Account Creation
-                  </Link>
-                  <Link
-                    href="/services/category-approval"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Category Approval
-                  </Link>
-                  <Link
-                    href="/services/violation-removal"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Violation Removal
-                  </Link>
-                  <Link
-                    href="/services/affiliate-creator-ops"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Affiliate & Creator Ops
-                  </Link>
-                  <Link
-                    href="/services/ugc-content-creation"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    UGC Content
-                  </Link>
-                  <Link
-                    href="/services/tiktok-shop-ads"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    TikTok Shop Ads
-                  </Link>
-                  <Link
-                    href="/services/live-streaming"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Live Streaming
-                  </Link>
-                  <Link
-                    href="/services/virtual-assistance"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Virtual Assistance
-                  </Link>
-                  <Link
-                    href="/services/automation"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Automation
-                  </Link>
-                  <Link
-                    href="/services/3pl-fulfillment"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    3PL & Fulfillment
-                  </Link>
-                  <Link
-                    href="/services/coaching-consultation"
-                    className="px-4 py-2 bg-white border border-gray-200/80 text-neutral-600 hover:border-gray-300 hover:text-black rounded-full text-[13px] font-bold transition-all hover:scale-105"
-                  >
-                    Coaching & Consultation
-                  </Link>
+                  {[
+                    "Shop Management",
+                    "Account Creation",
+                    "Category Approval",
+                    "Violation Removal",
+                    "Affiliate & Creator Ops",
+                    "UGC Content",
+                    "TikTok Shop Ads",
+                    "Live Streaming",
+                    "Virtual Assistance",
+                    "Automation",
+                    "3PL & Fulfillment",
+                    "Coaching & Consultation",
+                  ].map((service, idx) => (
+                    <div
+                      key={idx}
+                      className="px-3.5 py-1.5 bg-white border border-gray-200/90 text-neutral-700 rounded-full text-[12px] md:text-[13px] font-semibold select-none cursor-default shadow-2xs hover:border-gray-300 transition-colors"
+                    >
+                      {service}
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
 
-            {/* RIGHT COLUMN: Banner Image */}
-            <div className="flex items-center justify-center w-full h-full my-auto">
+            {/* RIGHT COLUMN: Banner Image with Bottom & Right Fade + Premium Glow */}
+            <div className="relative flex items-center justify-center w-full h-full my-auto">
+              {/* Subtle ambient gradient back-glow */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#BCF96A]/20 via-[#0081FB]/10 to-transparent rounded-[2.5rem] blur-2xl pointer-events-none -z-10" />
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
                 style={{
-                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%)",
+                  maskImage:
+                    "radial-gradient(135% 120% at 0% 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0) 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(135% 120% at 0% 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0) 100%)",
                 }}
-                className="relative aspect-4/3 rounded-[1rem] overflow-hidden shadow-2xl shadow-neutral-200/50 border border-gray-100 z-10"
+                className="relative aspect-4/3 rounded-[1.5rem] overflow-hidden shadow-2xl shadow-neutral-200/50 border border-gray-100/80 z-10 w-full"
               >
                 <Image
                   src="/TikTok Shop Ads Services banner.jpg"
@@ -171,7 +151,10 @@ export default function ShopManagementPage() {
                   className="w-full h-auto object-cover"
                   priority
                 />
-                <div className="absolute inset-x-0 bottom-0 h-28 md:h-36 bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
+                {/* Bottom Fade Gradient Overlay */}
+                <div className="absolute inset-x-0 bottom-0 h-32 md:h-44 bg-gradient-to-t from-white via-white/70 to-transparent pointer-events-none" />
+                {/* Right Fade Gradient Overlay */}
+                <div className="absolute inset-y-0 right-0 w-28 md:w-44 bg-gradient-to-l from-white via-white/70 to-transparent pointer-events-none" />
               </motion.div>
             </div>
           </div>
