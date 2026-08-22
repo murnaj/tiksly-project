@@ -52,7 +52,7 @@ const servicesCol1 = {
       name: "Violation Removal",
       desc: "Clear account strikes & restore standing",
       icon: ShieldAlert,
-      href: "#",
+      href: "/services/violation-removal",
     },
   ],
 };
