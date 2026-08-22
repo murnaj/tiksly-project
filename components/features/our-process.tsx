@@ -55,13 +55,10 @@ export default function OurProcess() {
     <section className="w-full bg-white pt-14 md:pt-20 ">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 px-2">
+        <div className="text-center mx-auto mb-10 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-4">
             How we take you from stuck to scaling
           </h2>
-          {/* <p className="text-neutral-500 text-[16px] md:text-[18px] font-medium">
-            Four steps. One team. Zero guesswork.
-          </p> */}
         </div>
 
         {/* Shadcn Tabs Root */}
@@ -89,7 +86,7 @@ export default function OurProcess() {
           {/* Tab Content Cards */}
           <div className="bg-[#f4f9e8] rounded-[2rem] p-6 md:p-12 lg:p-16 relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
-              
+
               {/* Left Side: Content Column */}
               <div className="relative min-h-[300px] md:min-h-[260px] lg:min-h-[340px] flex items-center w-full">
                 <div className="w-full">
