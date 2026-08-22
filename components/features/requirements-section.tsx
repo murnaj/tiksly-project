@@ -259,18 +259,20 @@ export default function RequirementsSection() {
     <section className="py-16 md:py-24 bg-[#FAFAFA] border-y border-gray-100 select-none">
       <div className="container mx-auto px-4 lg:px-6 max-w-[1200px]">
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-[12px] font-black text-neutral-400 tracking-widest uppercase mb-4">
-            Your part is easy
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-black leading-[1.05] mb-6">
-            What we need from you
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 md:mb-16 text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-[45px] lg:text-[50px] font-black tracking-tight text-black leading-tight md:leading-[1.1] mb-5">
+            What you need for approval
           </h2>
-          <p className="text-gray-500 text-[15px] md:text-[17px] leading-relaxed max-w-2xl mx-auto font-medium">
+          <p className="text-gray-500 text-[15px] md:text-[16.5px] leading-relaxed font-medium">
             Requirements depend on the market you want to sell in. Choose yours
             below, we&apos;ll handle the rest.
           </p>
-        </div>
+        </motion.div>
 
         {/* Region Pills */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
