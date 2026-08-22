@@ -250,7 +250,7 @@ export default function ShopManagementPage() {
               {/* Floating Pills */}
               <div className="absolute top-[20%] left-[15%] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2.5 flex items-center gap-2 z-10 hover:-translate-y-1 transition-transform cursor-default">
                 <div className="w-7 h-7 rounded bg-[#7B61FF] text-white flex items-center justify-center shadow-inner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-folder-icon lucide-folder"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></svg>
+                  <User className="w-3.5 h-3.5" strokeWidth={3} />
                 </div>
                 <span className="text-[13px] font-extrabold text-black pr-2">
                   VA
@@ -293,15 +293,50 @@ export default function ShopManagementPage() {
                 </span>
               </div>
 
-              {/* Tiksly Black Pill */}
-              <div className="absolute top-[45%] right-0 bg-[#121212] rounded-[1.25rem] shadow-[0_20px_40px_rgb(0,0,0,0.2)] px-8 py-6 flex flex-col items-center justify-center gap-1.5 z-20 hover:scale-105 transition-transform duration-300">
-                <div className="flex items-center gap-2.5">
-                  <Image src="/branding/logo-white.svg" alt="Tiksly Logo" width={150} height={100} />
+              {/* Tiksly Black Pill with Animated Moving Colorful Gradient Border */}
+              <motion.div
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute top-[45%] right-0 z-20 p-[2.5px] rounded-[1.35rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.25)] group cursor-default"
+              >
+                {/* Rotating Colorful Gradient Border */}
+                <motion.div
+                  className="absolute -inset-[150%] rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Outer Glow */}
+                <motion.div
+                  className="absolute -inset-[100%] rounded-full opacity-60 blur-md pointer-events-none"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Inner Black Card Content */}
+                <div className="relative bg-[#121212] rounded-[1.2rem] px-8 py-6 flex flex-col items-center justify-center gap-1.5 transition-transform duration-300 group-hover:scale-[1.02]">
+                  <div className="flex items-center gap-2.5">
+                    <Image src="/branding/logo-white.svg" alt="Tiksly Logo" width={150} height={100} priority />
+                  </div>
+                  <span className="text-[#BCF96A] text-[11px] font-black uppercase tracking-wider mt-1">
+                    one team, everything connected
+                  </span>
                 </div>
-                <span className="text-[#BCF96A] text-[11px] font-black uppercase tracking-wider mt-1">
-                  one team, everything connected
-                </span>
-              </div>
+              </motion.div>
             </div>
 
             {/* The Illustration Area - Mobile View (md:hidden) */}
@@ -314,7 +349,7 @@ export default function ShopManagementPage() {
                 <div className="flex flex-wrap justify-center gap-2">
                   <div className="bg-white rounded-xl shadow-xs border border-gray-100 p-2 flex items-center gap-2">
                     <div className="w-6 h-6 rounded bg-[#7B61FF] text-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-folder-icon lucide-folder"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></svg>
+                      <User className="w-3 h-3" strokeWidth={3} />
                     </div>
                     <span className="text-[12px] font-extrabold text-black pr-1">
                       VA
@@ -364,20 +399,43 @@ export default function ShopManagementPage() {
                 ↓
               </div>
 
-              {/* Tiksly Black Card */}
-              <div className="w-full bg-[#121212] rounded-2xl shadow-xl p-5 flex flex-col items-center justify-center gap-1.5 text-center">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-[0.4rem] bg-[#BCF96A] text-black font-black flex items-center justify-center text-[16px]">
-                    t
+              {/* Tiksly Black Card (Mobile) with Animated Moving Colorful Gradient Border */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-full relative p-[2.5px] rounded-2xl overflow-hidden shadow-xl"
+              >
+                {/* Rotating Colorful Gradient Border */}
+                <motion.div
+                  className="absolute -inset-[150%] rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                />
+
+                <div className="relative w-full bg-[#121212] rounded-[0.9rem] p-5 flex flex-col items-center justify-center gap-1.5 text-center">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-[0.4rem] bg-[#BCF96A] text-black font-black flex items-center justify-center text-[16px]">
+                      t
+                    </div>
+                    <span className="text-2xl font-bold text-white tracking-tight">
+                      Tiksly
+                    </span>
                   </div>
-                  <span className="text-2xl font-bold text-white tracking-tight">
-                    Tiksly
+                  <span className="text-[#BCF96A] text-[10px] font-black uppercase tracking-wider mt-1">
+                    one team, everything connected
                   </span>
                 </div>
-                <span className="text-[#BCF96A] text-[10px] font-black uppercase tracking-wider mt-1">
-                  one team, everything connected
-                </span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Three Columns Bottom */}
