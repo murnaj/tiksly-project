@@ -58,7 +58,11 @@ export default function ShopManagementPage() {
                           "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
                       }}
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                     />
 
                     {/* Inner Badge */}
@@ -81,14 +85,15 @@ export default function ShopManagementPage() {
                 </h1>
 
                 <p className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-xl">
-                  Listing, creators, ads, and live sellin, all run by one team that treats your shop like its own money is on the line.
+                  Listing, creators, ads, and live sellin, all run by one team
+                  that treats your shop like its own money is on the line.
                 </p>
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
                   <Link
                     href="/book-a-meeting"
-                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
                   >
                     Get my free growth plan
                   </Link>
@@ -150,8 +155,10 @@ export default function ShopManagementPage() {
                   {/* Product Card Container with ClickUp-style Bottom Fade */}
                   <div
                     style={{
-                      maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
-                      WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                      maskImage:
+                        "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
                     }}
                     className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] bg-white"
                   >
@@ -195,9 +202,9 @@ export default function ShopManagementPage() {
                 </span>
               </h2>
               <p className="text-gray-500 text-[15px] md:text-[17px] mt-6 leading-relaxed max-w-3xl mx-auto font-medium">
-                A freelancer here. A VA there. An &quot;influencer guy&quot; who ghosts.
-                It&apos;s not a team, it&apos;s a tangle, and your sales are stuck in the
-                knots.
+                A freelancer here. A VA there. An &quot;influencer guy&quot; who
+                ghosts. It&apos;s not a team, it&apos;s a tangle, and your sales
+                are stuck in the knots.
               </p>
             </div>
 
@@ -264,7 +271,21 @@ export default function ShopManagementPage() {
 
               <div className="absolute top-[65%] left-[15%] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2.5 flex items-center gap-2 z-10 hover:-translate-y-1 transition-transform cursor-default">
                 <div className="w-7 h-7 rounded bg-[#0081FB] text-white flex items-center justify-center shadow-inner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-smartphone-icon lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-smartphone-icon lucide-smartphone"
+                  >
+                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                    <path d="M12 18h.01" />
+                  </svg>
                 </div>
                 <span className="text-[13px] font-extrabold text-black pr-2">
                   Influencer guy
@@ -273,7 +294,21 @@ export default function ShopManagementPage() {
 
               <div className="absolute top-[35%] left-[28%] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2.5 flex items-center gap-2 z-10 hover:-translate-y-1 transition-transform cursor-default">
                 <div className="w-7 h-7 rounded bg-[#FF4D4D] text-white flex items-center justify-center shadow-inner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chart-line-icon lucide-chart-line"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="m19 9-5 5-4-4-3 3" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-chart-line-icon lucide-chart-line"
+                  >
+                    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                    <path d="m19 9-5 5-4-4-3 3" />
+                  </svg>
                 </div>
                 <span className="text-[13px] font-extrabold text-black pr-2">
                   Ad manager
@@ -282,7 +317,23 @@ export default function ShopManagementPage() {
 
               <div className="absolute top-[70%] left-[32%] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2.5 flex items-center gap-2 z-10 hover:-translate-y-1 transition-transform cursor-default">
                 <div className="w-7 h-7 rounded bg-[#00D084] text-white flex items-center justify-center shadow-inner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-table-icon lucide-table"><path d="M12 3v18" /><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-table-icon lucide-table"
+                  >
+                    <path d="M12 3v18" />
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="M3 9h18" />
+                    <path d="M3 15h18" />
+                  </svg>
                 </div>
                 <span className="text-[13px] font-extrabold text-black pr-2">
                   Spreadsheet
@@ -309,7 +360,11 @@ export default function ShopManagementPage() {
                       "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
                   }}
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
 
                 {/* Outer Glow */}
@@ -320,13 +375,23 @@ export default function ShopManagementPage() {
                       "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
                   }}
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
 
                 {/* Inner Black Card Content */}
                 <div className="relative bg-[#121212] rounded-[1.2rem] px-8 py-6 flex flex-col items-center justify-center gap-1.5 transition-transform duration-300 group-hover:scale-[1.02]">
                   <div className="flex items-center gap-2.5">
-                    <Image src="/branding/logo-white.svg" alt="Tiksly Logo" width={150} height={100} priority />
+                    <Image
+                      src="/branding/logo-white.svg"
+                      alt="Tiksly Logo"
+                      width={150}
+                      height={100}
+                      priority
+                    />
                   </div>
                   <span className="text-[#BCF96A] text-[11px] font-black uppercase tracking-wider mt-1">
                     one team, everything connected
@@ -363,7 +428,28 @@ export default function ShopManagementPage() {
 
                   <div className="bg-white rounded-xl shadow-xs border border-gray-100 p-2 flex items-center gap-2">
                     <div className="w-6 h-6 rounded bg-[#0081FB] text-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-smartphone-icon lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-smartphone-icon lucide-smartphone"
+                      >
+                        <rect
+                          width="14"
+                          height="20"
+                          x="5"
+                          y="2"
+                          rx="2"
+                          ry="2"
+                        />
+                        <path d="M12 18h.01" />
+                      </svg>
                     </div>
                     <span className="text-[12px] font-extrabold text-black pr-1">
                       Influencer guy
@@ -372,7 +458,21 @@ export default function ShopManagementPage() {
 
                   <div className="bg-white rounded-xl shadow-xs border border-gray-100 p-2 flex items-center gap-2">
                     <div className="w-6 h-6 rounded bg-[#FF4D4D] text-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chart-line-icon lucide-chart-line"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="m19 9-5 5-4-4-3 3" /></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-chart-line-icon lucide-chart-line"
+                      >
+                        <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                        <path d="m19 9-5 5-4-4-3 3" />
+                      </svg>
                     </div>
                     <span className="text-[12px] font-extrabold text-black pr-1">
                       Ad manager
@@ -381,7 +481,23 @@ export default function ShopManagementPage() {
 
                   <div className="bg-white rounded-xl shadow-xs border border-gray-100 p-2 flex items-center gap-2">
                     <div className="w-6 h-6 rounded bg-[#00D084] text-white flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-table-icon lucide-table"><path d="M12 3v18" /><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-table-icon lucide-table"
+                      >
+                        <path d="M12 3v18" />
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="M3 9h18" />
+                        <path d="M3 15h18" />
+                      </svg>
                     </div>
                     <span className="text-[12px] font-extrabold text-black pr-1">
                       Spreadsheet
@@ -415,7 +531,11 @@ export default function ShopManagementPage() {
                       "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
                   }}
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
 
                 <div className="relative w-full bg-[#121212] rounded-[0.9rem] p-5 flex flex-col items-center justify-center gap-1.5 text-center">
@@ -465,8 +585,8 @@ export default function ShopManagementPage() {
                   <strong className="text-black font-extrabold">
                     $1,000s burned
                   </strong>{" "}
-                  on ads that don&apos;t convert and creators who take the sample and
-                  vanish.
+                  on ads that don&apos;t convert and creators who take the
+                  sample and vanish.
                 </p>
               </div>
 
@@ -500,10 +620,12 @@ export default function ShopManagementPage() {
               <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
                 Full seller center operations
               </h2>
-              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">Tired of logging into the Seller Center, checking compliance
+              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
+                Tired of logging into the Seller Center, checking compliance
                 strikes, mapping inventory levels, and reviewing creator
                 messages? We take the entire operations checklist off your
-                plate.</p>
+                plate.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -540,7 +662,24 @@ export default function ShopManagementPage() {
               {/* Feature 3 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
                 <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-truck-icon lucide-truck"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-truck-icon lucide-truck"
+                  >
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                    <path d="M15 18H9" />
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+                    <circle cx="17" cy="18" r="2" />
+                    <circle cx="7" cy="18" r="2" />
+                  </svg>
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
                   Logistics & 3PL Sync
@@ -607,10 +746,13 @@ export default function ShopManagementPage() {
         <section className="bg-white py-16 md:py-24 select-none">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center mx-auto mb-16 px-2">
-              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">Simple, transparent pricing
+              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
+                Simple, transparent pricing
               </h2>
-              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">Get a full operations team for less than the cost of a single
-                entry-level hire. No hidden fees.</p>
+              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
+                Get a full operations team for less than the cost of a single
+                entry-level hire. No hidden fees.
+              </p>
             </div>
 
             <div className="max-w-5xl mx-auto">
@@ -651,7 +793,8 @@ export default function ShopManagementPage() {
                         90-Day Guarantee
                       </strong>
                       If we don&apos;t increase your affiliate revenue within 90
-                      days, we&apos;ll waive our retainer for the following month.
+                      days, we&apos;ll waive our retainer for the following
+                      month.
                     </p>
                   </div>
                 </div>
@@ -691,7 +834,8 @@ export default function ShopManagementPage() {
                     <p className="text-[13px] text-gray-300 leading-relaxed font-medium">
                       <strong className="text-white">90-Day Guarantee:</strong>{" "}
                       If we don&apos;t increase your affiliate revenue within 90
-                      days, we&apos;ll waive our retainer for the following month.
+                      days, we&apos;ll waive our retainer for the following
+                      month.
                     </p>
                   </div>
 

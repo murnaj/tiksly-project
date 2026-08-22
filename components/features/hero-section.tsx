@@ -63,23 +63,42 @@ export default function HeroSection() {
             transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
             style={{ transformOrigin: "210px 30px" }}
           >
-            <path d="M 210 20 L 213 27 L 220 30 L 213 33 L 210 40 L 207 33 L 200 30 L 207 27 Z" fill="#BCF96A" />
+            <path
+              d="M 210 20 L 213 27 L 220 30 L 213 33 L 210 40 L 207 33 L 200 30 L 207 27 Z"
+              fill="#BCF96A"
+            />
           </motion.g>
 
           <motion.g
             animate={{ scale: [1, 0.7, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", delay: 0.5 }}
+            transition={{
+              repeat: Infinity,
+              duration: 2.8,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
             style={{ transformOrigin: "320px 220px" }}
           >
-            <path d="M 320 210 L 322.5 217.5 L 330 220 L 322.5 222.5 L 320 230 L 317.5 222.5 L 310 220 L 317.5 217.5 Z" fill="#84CC16" />
+            <path
+              d="M 320 210 L 322.5 217.5 L 330 220 L 322.5 222.5 L 320 230 L 317.5 222.5 L 310 220 L 317.5 217.5 Z"
+              fill="#84CC16"
+            />
           </motion.g>
 
           <motion.g
             animate={{ scale: [0.85, 1.3, 0.85], opacity: [0.4, 0.9, 0.4] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+              ease: "easeInOut",
+              delay: 1,
+            }}
             style={{ transformOrigin: "90px 480px" }}
           >
-            <path d="M 90 470 L 92.5 477.5 L 100 480 L 92.5 482.5 L 90 490 L 87.5 482.5 L 80 480 L 87.5 477.5 Z" fill="#BCF96A" />
+            <path
+              d="M 90 470 L 92.5 477.5 L 100 480 L 92.5 482.5 L 90 490 L 87.5 482.5 L 80 480 L 87.5 477.5 Z"
+              fill="#BCF96A"
+            />
           </motion.g>
 
           {/* Decorative Glowing Dots */}
@@ -178,23 +197,42 @@ export default function HeroSection() {
             transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
             style={{ transformOrigin: "240px 30px" }}
           >
-            <path d="M 240 20 L 243 27 L 250 30 L 243 33 L 240 40 L 237 33 L 230 30 L 237 27 Z" fill="#BCF96A" />
+            <path
+              d="M 240 20 L 243 27 L 250 30 L 243 33 L 240 40 L 237 33 L 230 30 L 237 27 Z"
+              fill="#BCF96A"
+            />
           </motion.g>
 
           <motion.g
             animate={{ scale: [1, 0.7, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", delay: 0.5 }}
+            transition={{
+              repeat: Infinity,
+              duration: 2.8,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
             style={{ transformOrigin: "130px 220px" }}
           >
-            <path d="M 130 210 L 132.5 217.5 L 140 220 L 132.5 222.5 L 130 230 L 127.5 222.5 L 120 220 L 127.5 217.5 Z" fill="#84CC16" />
+            <path
+              d="M 130 210 L 132.5 217.5 L 140 220 L 132.5 222.5 L 130 230 L 127.5 222.5 L 120 220 L 127.5 217.5 Z"
+              fill="#84CC16"
+            />
           </motion.g>
 
           <motion.g
             animate={{ scale: [0.85, 1.3, 0.85], opacity: [0.4, 0.9, 0.4] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+              ease: "easeInOut",
+              delay: 1,
+            }}
             style={{ transformOrigin: "360px 480px" }}
           >
-            <path d="M 360 470 L 362.5 477.5 L 370 480 L 362.5 482.5 L 360 490 L 357.5 482.5 L 350 480 L 357.5 477.5 Z" fill="#BCF96A" />
+            <path
+              d="M 360 470 L 362.5 477.5 L 370 480 L 362.5 482.5 L 360 490 L 357.5 482.5 L 350 480 L 357.5 477.5 Z"
+              fill="#BCF96A"
+            />
           </motion.g>
 
           {/* Decorative Glowing Dots */}
@@ -303,8 +341,8 @@ export default function HeroSection() {
             variants={item}
             className="relative md:text-[44px] xl:text-[48px] text-[28px] font-semibold tracking-tighter text-black leading-[1.12] mb-4 max-w-4xl mx-auto"
           >
-            A full-stack TikTok Shop agency{" "}
-            <br className="hidden md:inline" /> built to scale your revenue
+            A full-stack TikTok Shop agency <br className="hidden md:inline" />{" "}
+            built to scale your revenue
           </motion.h1>
 
           {/* Description */}
@@ -312,18 +350,17 @@ export default function HeroSection() {
             variants={item}
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed mb-6 max-w-[620px] mx-auto"
           >
-            We build your shop, run your creators, manage your ads, and handle your fulfillment.
-            You just watch the revenue roll in. We&apos;ve taken shops from zero to seven figures in GMV and yours could be next.
+            We build your shop, run your creators, manage your ads, and handle
+            your fulfillment. You just watch the revenue roll in. We&apos;ve
+            taken shops from zero to seven figures in GMV and yours could be
+            next.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div
-            variants={item}
-            className="mb-8"
-          >
+          <motion.div variants={item} className="mb-8">
             <Link
               href="/book-a-meeting"
-              className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+              className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
             >
               Get my free growth plan
             </Link>
@@ -334,7 +371,10 @@ export default function HeroSection() {
             >
               {/* UK TSP Badge */}
               <div className="inline-flex items-center gap-2 text-[12px] font-medium text-black">
-                <svg className="w-4.5 h-4.5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
+                <svg
+                  className="w-4.5 h-4.5 rounded-full overflow-hidden shrink-0 shadow-2xs"
+                  viewBox="0 0 60 30"
+                >
                   <clipPath id="uk-flag">
                     <path d="M0,0 v30 h60 v-30 z" />
                   </clipPath>
@@ -343,10 +383,27 @@ export default function HeroSection() {
                   </clipPath>
                   <g clipPath="url(#uk-flag)">
                     <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
-                    <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#uk-t)" stroke="#C8102E" strokeWidth="4" />
-                    <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
-                    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+                    <path
+                      d="M0,0 L60,30 M60,0 L0,30"
+                      stroke="#fff"
+                      strokeWidth="6"
+                    />
+                    <path
+                      d="M0,0 L60,30 M60,0 L0,30"
+                      clipPath="url(#uk-t)"
+                      stroke="#C8102E"
+                      strokeWidth="4"
+                    />
+                    <path
+                      d="M30,0 v30 M0,15 h60"
+                      stroke="#fff"
+                      strokeWidth="10"
+                    />
+                    <path
+                      d="M30,0 v30 M0,15 h60"
+                      stroke="#C8102E"
+                      strokeWidth="6"
+                    />
                   </g>
                 </svg>
                 <span>UK TSP: 7494315872973719280</span>
@@ -354,9 +411,16 @@ export default function HeroSection() {
 
               {/* USA TSP Badge */}
               <div className="inline-flex items-center gap-2 text-[12px] font-medium text-black">
-                <svg className="w-4.5 h-4.5 rounded-full overflow-hidden shrink-0 shadow-2xs" viewBox="0 0 60 30">
+                <svg
+                  className="w-4.5 h-4.5 rounded-full overflow-hidden shrink-0 shadow-2xs"
+                  viewBox="0 0 60 30"
+                >
                   <rect width="60" height="30" fill="#B22234" />
-                  <path d="M0,4.6h60M0,11.5h60M0,18.5h60M0,25.4h60" stroke="#fff" strokeWidth="2.3" />
+                  <path
+                    d="M0,4.6h60M0,11.5h60M0,18.5h60M0,25.4h60"
+                    stroke="#fff"
+                    strokeWidth="2.3"
+                  />
                   <rect width="24" height="16.2" fill="#3C3B6E" />
                 </svg>
                 <span>USA TSP: 7494489601127056460</span>

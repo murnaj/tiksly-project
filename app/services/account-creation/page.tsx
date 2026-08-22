@@ -3,10 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ShieldCheck,
-  Check} from "lucide-react";
+import { ArrowRight, ShieldCheck, Check } from "lucide-react";
 import NavBar from "@/components/features/nav-bar";
 import FooterSection from "@/components/features/footer-section";
 import BrandLogos from "@/components/features/brand-logos";
@@ -103,7 +100,7 @@ export default function AccountCreationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
                   <Link
                     href="/book-a-meeting"
-                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
                   >
                     Get my free growth plan
                   </Link>

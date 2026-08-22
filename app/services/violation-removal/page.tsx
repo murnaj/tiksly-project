@@ -100,7 +100,7 @@ export default function ViolationRemovalPage() {
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
                   <Link
                     href="/book-a-meeting"
-                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
                   >
                     Get my free growth plan
                   </Link>
