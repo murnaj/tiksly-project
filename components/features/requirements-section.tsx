@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, CreditCard } from "lucide-react";
-import { FileCheck } from "lucide-react";
+
 import { IdCard } from "lucide-react";
-import { FileDigit } from "lucide-react";
+
 import { Mail } from "lucide-react";
 import { Smartphone } from "lucide-react";
 
@@ -21,28 +21,136 @@ type RequirementCard = {
 
 const regionRequirements: Record<string, RequirementCard[]> = {
   "United States": [
-    { id: 1, title: "LLC company", desc: "A registered US LLC. No LLC yet? We can set one up.", badge: { text: "We can help", type: "help" }, iconType: "document" },
-    { id: 2, title: "ID or passport", desc: "For identity verification", badge: { text: "Required", type: "required" }, iconType: "id" },
-    { id: 3, title: "Utility bill", desc: "As proof of address", badge: { text: "Required", type: "required" }, iconType: "bill" },
-    { id: 4, title: "Business bank account", desc: "For payouts. We can guide you through it.", badge: { text: "We can help", type: "help" }, iconType: "card" },
-    { id: 5, title: "SSN or EIN", desc: "Tax ID required for US verification", badge: { text: "US only", type: "specific" }, iconType: "tax" },
-    { id: 6, title: "Email & phone", desc: "For the account and notifications", badge: { text: "Required", type: "required" }, iconType: "contact" },
+    {
+      id: 1,
+      title: "LLC company",
+      desc: "A registered US LLC. No LLC yet? We can set one up.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "document",
+    },
+    {
+      id: 2,
+      title: "ID or passport",
+      desc: "For identity verification",
+      badge: { text: "Required", type: "required" },
+      iconType: "id",
+    },
+    {
+      id: 3,
+      title: "Utility bill",
+      desc: "As proof of address",
+      badge: { text: "Required", type: "required" },
+      iconType: "bill",
+    },
+    {
+      id: 4,
+      title: "Business bank account",
+      desc: "For payouts. We can guide you through it.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "card",
+    },
+    {
+      id: 5,
+      title: "SSN or EIN",
+      desc: "Tax ID required for US verification",
+      badge: { text: "US only", type: "specific" },
+      iconType: "tax",
+    },
+    {
+      id: 6,
+      title: "Email & phone",
+      desc: "For the account and notifications",
+      badge: { text: "Required", type: "required" },
+      iconType: "contact",
+    },
   ],
   "United Kingdom": [
-    { id: 1, title: "LTD company", desc: "A registered UK LTD. No LTD yet? We can set one up.", badge: { text: "We can help", type: "help" }, iconType: "document" },
-    { id: 2, title: "ID or passport", desc: "For identity verification", badge: { text: "Required", type: "required" }, iconType: "id" },
-    { id: 3, title: "Utility bill", desc: "As proof of address", badge: { text: "Required", type: "required" }, iconType: "bill" },
-    { id: 4, title: "Business bank account", desc: "For payouts. We can guide you through it.", badge: { text: "We can help", type: "help" }, iconType: "card" },
-    { id: 5, title: "UTR or VAT", desc: "Tax ID required for UK verification", badge: { text: "UK only", type: "specific" }, iconType: "tax" },
-    { id: 6, title: "Email & phone", desc: "For the account and notifications", badge: { text: "Required", type: "required" }, iconType: "contact" },
+    {
+      id: 1,
+      title: "LTD company",
+      desc: "A registered UK LTD. No LTD yet? We can set one up.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "document",
+    },
+    {
+      id: 2,
+      title: "ID or passport",
+      desc: "For identity verification",
+      badge: { text: "Required", type: "required" },
+      iconType: "id",
+    },
+    {
+      id: 3,
+      title: "Utility bill",
+      desc: "As proof of address",
+      badge: { text: "Required", type: "required" },
+      iconType: "bill",
+    },
+    {
+      id: 4,
+      title: "Business bank account",
+      desc: "For payouts. We can guide you through it.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "card",
+    },
+    {
+      id: 5,
+      title: "UTR or VAT",
+      desc: "Tax ID required for UK verification",
+      badge: { text: "UK only", type: "specific" },
+      iconType: "tax",
+    },
+    {
+      id: 6,
+      title: "Email & phone",
+      desc: "For the account and notifications",
+      badge: { text: "Required", type: "required" },
+      iconType: "contact",
+    },
   ],
-  "Netherlands": [
-    { id: 1, title: "BV company or KVK", desc: "A registered Dutch entity. We can advise on setup.", badge: { text: "We can help", type: "help" }, iconType: "document" },
-    { id: 2, title: "ID or passport", desc: "For identity verification", badge: { text: "Required", type: "required" }, iconType: "id" },
-    { id: 3, title: "Utility bill", desc: "As proof of address", badge: { text: "Required", type: "required" }, iconType: "bill" },
-    { id: 4, title: "Business bank account", desc: "For payouts. We can guide you through it.", badge: { text: "We can help", type: "help" }, iconType: "card" },
-    { id: 5, title: "BTW (VAT) Number", desc: "Tax ID required for NL verification", badge: { text: "NL only", type: "specific" }, iconType: "tax" },
-    { id: 6, title: "Email & phone", desc: "For the account and notifications", badge: { text: "Required", type: "required" }, iconType: "contact" },
+  Netherlands: [
+    {
+      id: 1,
+      title: "BV company or KVK",
+      desc: "A registered Dutch entity. We can advise on setup.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "document",
+    },
+    {
+      id: 2,
+      title: "ID or passport",
+      desc: "For identity verification",
+      badge: { text: "Required", type: "required" },
+      iconType: "id",
+    },
+    {
+      id: 3,
+      title: "Utility bill",
+      desc: "As proof of address",
+      badge: { text: "Required", type: "required" },
+      iconType: "bill",
+    },
+    {
+      id: 4,
+      title: "Business bank account",
+      desc: "For payouts. We can guide you through it.",
+      badge: { text: "We can help", type: "help" },
+      iconType: "card",
+    },
+    {
+      id: 5,
+      title: "BTW (VAT) Number",
+      desc: "Tax ID required for NL verification",
+      badge: { text: "NL only", type: "specific" },
+      iconType: "tax",
+    },
+    {
+      id: 6,
+      title: "Email & phone",
+      desc: "For the account and notifications",
+      badge: { text: "Required", type: "required" },
+      iconType: "contact",
+    },
   ],
 };
 
@@ -54,13 +162,14 @@ export default function RequirementsSection() {
   const cards = regionRequirements[selectedRegion];
 
   const renderIcon = (type: RequirementCard["iconType"]) => {
-    const iconContainerClass = "w-16 h-16 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] flex items-center justify-center border border-gray-100";
-    
+    const iconContainerClass =
+      "w-16 h-16 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] flex items-center justify-center border border-gray-100";
+
     switch (type) {
       case "document":
         return (
           <div className={iconContainerClass}>
-            <FileCheck className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
+            <FileText className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
           </div>
         );
       case "id":
@@ -78,25 +187,28 @@ export default function RequirementsSection() {
       case "card":
         return (
           <div className="w-16 h-16 bg-[#1a1a1a] rounded-2xl shadow-lg flex items-center justify-center border border-gray-800 relative overflow-hidden">
-             {/* Simulating a credit card look */}
-             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-             <CreditCard className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
+            {/* Simulating a credit card look */}
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+            <CreditCard className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
           </div>
         );
       case "tax":
         return (
           <div className="w-20 h-12 bg-white rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] flex items-center justify-center border border-gray-100 px-3">
-             <div className="flex flex-col items-center gap-1 w-full">
-                <div className="w-full flex justify-between px-1">
-                   <div className="h-1 w-2 bg-gray-200 rounded-full"></div>
-                   <div className="h-1 w-4 bg-gray-200 rounded-full"></div>
-                </div>
-                <div className="flex gap-1">
-                  {[...Array(6)].map((_, i) => (
-                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-                  ))}
-                </div>
-             </div>
+            <div className="flex flex-col items-center gap-1 w-full">
+              <div className="w-full flex justify-between px-1">
+                <div className="h-1 w-2 bg-gray-200 rounded-full"></div>
+                <div className="h-1 w-4 bg-gray-200 rounded-full"></div>
+              </div>
+              <div className="flex gap-1">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-1.5 rounded-full bg-gray-300"
+                  ></div>
+                ))}
+              </div>
+            </div>
           </div>
         );
       case "contact":
@@ -127,13 +239,16 @@ export default function RequirementsSection() {
             What we need from you
           </h2>
           <p className="text-gray-500 text-[15px] md:text-[17px] leading-relaxed max-w-2xl mx-auto font-medium">
-            Requirements depend on the market you want to sell in. Choose yours below, we&apos;ll handle the rest.
+            Requirements depend on the market you want to sell in. Choose yours
+            below, we&apos;ll handle the rest.
           </p>
         </div>
 
         {/* Region Pills */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <span className="text-[14px] font-bold text-gray-500">I want to sell in:</span>
+          <span className="text-[14px] font-bold text-gray-500">
+            I want to sell in:
+          </span>
           <div className="flex flex-wrap justify-center gap-2">
             {regions.map((region) => (
               <button
@@ -181,8 +296,8 @@ export default function RequirementsSection() {
                           card.badge.type === "help"
                             ? "bg-[#BCF96A] text-black"
                             : card.badge.type === "required"
-                            ? "bg-white text-gray-500 shadow-sm border border-gray-100"
-                            : "bg-white text-gray-500 shadow-sm border border-gray-100"
+                              ? "bg-white text-gray-500 shadow-sm border border-gray-100"
+                              : "bg-white text-gray-500 shadow-sm border border-gray-100"
                         }`}
                       >
                         {card.badge.text}
