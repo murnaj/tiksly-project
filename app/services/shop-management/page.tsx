@@ -157,6 +157,10 @@ export default function ShopManagementPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
+                style={{
+                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%)",
+                }}
                 className="relative aspect-4/3 rounded-[1rem] overflow-hidden shadow-2xl shadow-neutral-200/50 border border-gray-100 z-10"
               >
                 <Image
@@ -167,6 +171,7 @@ export default function ShopManagementPage() {
                   className="w-full h-auto object-cover"
                   priority
                 />
+                <div className="absolute inset-x-0 bottom-0 h-28 md:h-36 bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
               </motion.div>
             </div>
           </div>
@@ -179,7 +184,7 @@ export default function ShopManagementPage() {
         <CreatorRegions />
 
         {/* NEW ROADMAP / TANGLE SECTION */}
-        <section className="py-16 md:py-24 bg-white select-none overflow-hidden">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-white via-[#F6FED9] to-white select-none overflow-hidden">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black tracking-tighter leading-[1.05]">
@@ -437,25 +442,20 @@ export default function ShopManagementPage() {
         {/* FEATURES GRID SECTION */}
         <section className="bg-white py-16 md:py-24 border-y border-gray-100 select-none">
           <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-[45px] font-black uppercase tracking-tighter text-black mt-3">
-                Full seller center operations{" "}
-                <span className="bg-[#BCF96A] px-3 py-0.5 rounded-full inline-block font-black">
-                  handled
-                </span>
+            <div className="text-center mx-auto mb-16 px-2">
+              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
+                Full seller center operations
               </h2>
-              <p className="text-gray-500 text-[15px] mt-4 leading-relaxed">
-                Tired of logging into the Seller Center, checking compliance
+              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">Tired of logging into the Seller Center, checking compliance
                 strikes, mapping inventory levels, and reviewing creator
                 messages? We take the entire operations checklist off your
-                plate.
-              </p>
+                plate.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Feature 1 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#0081FB]/10 text-[#0081FB] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -470,7 +470,7 @@ export default function ShopManagementPage() {
 
               {/* Feature 2 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#BCF96A]/20 text-[#212120] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <Package className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -485,7 +485,7 @@ export default function ShopManagementPage() {
 
               {/* Feature 3 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#0081FB]/10 text-[#0081FB] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-truck-icon lucide-truck"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -500,7 +500,7 @@ export default function ShopManagementPage() {
 
               {/* Feature 4 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#BCF96A]/20 text-[#212120] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <Users className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -515,7 +515,7 @@ export default function ShopManagementPage() {
 
               {/* Feature 5 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#0081FB]/10 text-[#0081FB] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <FileText className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -530,7 +530,7 @@ export default function ShopManagementPage() {
 
               {/* Feature 6 */}
               <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 bg-[#BCF96A]/20 text-[#212120] rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-black uppercase tracking-tight text-black">
@@ -552,17 +552,11 @@ export default function ShopManagementPage() {
         {/* PRICING SECTION */}
         <section className="bg-white py-16 md:py-24 select-none">
           <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-[45px] font-black uppercase tracking-tighter text-black mt-3">
-                Simple, transparent{" "}
-                <span className="bg-[#BCF96A] px-3 py-0.5 rounded-full inline-block font-black">
-                  pricing
-                </span>
+            <div className="text-center mx-auto mb-16 px-2">
+              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">Simple, transparent pricing
               </h2>
-              <p className="text-gray-500 text-[15px] mt-4 leading-relaxed font-medium">
-                Get a full operations team for less than the cost of a single
-                entry-level hire. No hidden fees.
-              </p>
+              <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">Get a full operations team for less than the cost of a single
+                entry-level hire. No hidden fees.</p>
             </div>
 
             <div className="max-w-5xl mx-auto">

@@ -73,7 +73,7 @@ export default function BookCall() {
 
   return (
     <>
-      <section className="bg-white pt-14 md:pt-20 pt-18 md:pb-24 select-none">
+      <section className="bg-white pt-14 md:pt-20 pb-24 select-none">
         <div className="container mx-auto px-3 lg:px-4">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
             <Card className="bg-[#c3fd03] border-none rounded-[2.5rem] p-6 md:p-12 lg:p-16 relative overflow-visible shadow-xl shadow-lime-955/5">

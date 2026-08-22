@@ -9,6 +9,7 @@ import OurBeliefs from "@/components/features/about-us/our-beliefs";
 import OurPartners from "@/components/features/about-us/our-partners";
 import JoinCommunity from "@/components/features/about-us/join-community";
 import AboutHeroSection from "@/components/features/about-us/hero-section";
+import OurCharity from "@/components/features/about-us/our-charity";
 
 export const metadata: Metadata = {
   title: "About Us - Tiksly",
@@ -19,7 +20,7 @@ export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-white">
       <NavBar />
-      <main className="pt-24 md:pt-32">
+      <main className="pt-24 md:pt-32 pb-20 select-none">
         <AboutHeroSection />
         <Overview />
         <OurBeliefs />
@@ -27,6 +28,7 @@ export default function AboutUsPage() {
         <OurAgency />
         <OurTeam />
         <OurPartners />
+        <OurCharity />
         <JoinCommunity />
       </main>
       <FooterSection />

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <NavBar />
-      <main>
+      <main className="pb-20 select-none">
         <HeroSection />
         <BrandLogos />
         <CreatorRegions />

@@ -60,18 +60,12 @@ const partnerLogos = [
   },
 ];
 
-const charities = [
-  { name: "Edhi Foundation", src: "/about-us/our-partners/edhi-1.webp" },
-  { name: "Government Emblem", src: "/about-us/our-partners/govt-2.webp" },
-  { name: "Shaukat Khanum", src: "/about-us/our-partners/Shaukat-Khanum-3.webp" },
-  { name: "Saylani", src: "/about-us/our-partners/Saylani-4.webp" },
-];
 
 export default function OurPartners() {
   const displayLogos = [...partnerLogos, ...partnerLogos];
 
   return (
-      <section className="w-full bg-white py-16 md:py-24 overflow-hidden">
+      <section className="w-full bg-white overflow-hidden">
         <div className="text-center mx-auto mb-16 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
             Our Partners
