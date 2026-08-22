@@ -179,7 +179,7 @@ export default function Testimonials() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center mx-auto mb-16"
         >
           <motion.h2
             variants={itemVariants}

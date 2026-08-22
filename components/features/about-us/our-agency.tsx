@@ -5,26 +5,23 @@ export default function OurAgency() {
   return (
     <section className="bg-white py-16 md:py-20 overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
-        
+
         {/* Header Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 leading-tight">
-              Get To Know More About Tiksly
-            </h2>
-          </div>
-          <div>
-            <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-              Dive into our story and expertise. Explore our values, achievements, and commitment to exceptional service. Get acquainted with us today.
-            </p>
-          </div>
+        <div className="text-center mx-auto mb-16 px-2">
+          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
+            Get To Know More About Tiksly
+          </h2>
+          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
+            Dive into our story and expertise. Explore our values, achievements, and commitment to exceptional service. Get acquainted with us today.
+          </p>
         </div>
+
 
         {/* Video Thumbnail Container */}
         <div className="relative w-full aspect-video md:aspect-21/9 lg:aspect-2.5/1 rounded-[2rem] overflow-hidden group">
-          <a 
-            href="https://www.youtube.com/watch?v=Epp5qkyXY6s" 
-            target="_blank" 
+          <a
+            href="https://www.youtube.com/watch?v=Epp5qkyXY6s"
+            target="_blank"
             rel="noopener noreferrer"
             className="block w-full h-full relative"
           >
@@ -36,7 +33,7 @@ export default function OurAgency() {
               className="object-cover"
               priority
             />
-            
+
             {/* Dark Overlay for better button contrast on hover */}
             <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-black/20" />
 
@@ -48,7 +45,7 @@ export default function OurAgency() {
             </div>
           </a>
         </div>
-        
+
       </div>
     </section>
   );

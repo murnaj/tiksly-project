@@ -136,7 +136,7 @@ export default function CaseStudies() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-3xl mx-auto mb-16 px-2"
+          className="text-center mx-auto mb-16 px-2"
         >
           <motion.h2
             variants={itemVariants}
@@ -146,7 +146,7 @@ export default function CaseStudies() {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto"
+            className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto"
           >
             We don&apos;t do vanity metrics or screenshots you can&apos;t verify. Here&apos;s what actually happens when brands and sellers hand us the wheel.
           </motion.p>

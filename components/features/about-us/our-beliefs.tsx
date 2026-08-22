@@ -35,7 +35,7 @@ const beliefs = [
 
 export default function OurBeliefs() {
   return (
-    <section className="bg-zinc-950 py-20 md:py-28 text-white">
+    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white py-20 md:py-28">
       <div className="container mx-auto px-3 lg:px-4">
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center">

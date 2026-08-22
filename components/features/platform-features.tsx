@@ -88,12 +88,12 @@ export default function PlatformFeatures() {
     <section className="w-full bg-white pt-16 lg:pt-20  overflow-hidden">
       <div className="container mx-auto px-3 lg:px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 px-2">
+        <div className="text-center mx-auto mb-16 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
             One agency. Every piece of your TikTok Shop.
 
           </h2>
-          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
            Right now you&apos;re probably stitching together a freelancer here, an influencer guy there, and a VA who ghosts you every other week. That&apos;s why it&apos;s not working. We do the whole thing under one roof, with one strategy and one team that actually picks up the phone.
           </p>
         </div>
