@@ -40,7 +40,7 @@ const servicesCol1 = {
       name: "Account Creation",
       desc: "Fast verified shop onboarding & setup",
       icon: UserPlus,
-      href: "#",
+      href: "/services/account-creation",
     },
     {
       name: "Category Approval",
