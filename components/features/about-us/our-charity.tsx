@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import React from 'react'
 
 const charities = [
-  { name: "Edhi Foundation", src: "/about-us/our-partners/edhi-1.webp" },
-  { name: "Government Emblem", src: "/about-us/our-partners/govt-2.webp" },
-  { name: "Shaukat Khanum", src: "/about-us/our-partners/Shaukat-Khanum-3.webp" },
-  { name: "Saylani", src: "/about-us/our-partners/Saylani-4.webp" },
+  { name: "Edhi Foundation", src: "/charity/edhi-foundation.svg" },
+  { name: "Government Emblem", src: "/charity/pakistan.svg" },
+  { name: "Shaukat Khanum", src: "/charity/shaukat-khanum.svg" },
+  { name: "Saylani", src: "/charity/saylani.svg" },
 ];
 
 const OurCharity = () => {
@@ -23,7 +22,6 @@ const OurCharity = () => {
             {charities.map((charity, index) => (
               <div 
                 key={index}
-                className="bg-zinc-950 rounded-xl md:rounded-2xl flex items-center justify-center p-6 md:p-8 aspect-4/3 w-full shadow-xs border border-zinc-100/80"
               >
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
