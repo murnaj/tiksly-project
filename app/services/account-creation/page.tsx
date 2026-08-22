@@ -6,21 +6,14 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   ShieldCheck,
-  Check,
-  Globe,
-  Building2,
-  CreditCard,
-  CheckCircle2,
-} from "lucide-react";
+  Check} from "lucide-react";
 import NavBar from "@/components/features/nav-bar";
 import FooterSection from "@/components/features/footer-section";
 import BrandLogos from "@/components/features/brand-logos";
-import CreatorRegions from "@/components/features/creator-regions";
-import OurProcess from "@/components/features/our-process";
-import CaseStudies from "@/components/features/case-studies";
 import Testimonials from "@/components/features/testimonials";
 import FaqCarousel from "@/components/features/faq-carousel";
 import BookCall from "@/components/features/book-call";
+import ComparisonTable from "@/components/features/comparison-table";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -253,6 +246,8 @@ export default function AccountCreationPage() {
 
         {/* BrandLogos */}
         <BrandLogos />
+
+        <ComparisonTable />
 
         <Testimonials />
 
