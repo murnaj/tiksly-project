@@ -114,14 +114,26 @@ export default function ShopManagementPage() {
                     "Automation",
                     "3PL & Fulfillment",
                     "Coaching & Consultation",
-                  ].map((service, idx) => (
-                    <div
-                      key={idx}
-                      className="px-3.5 py-1.5 bg-white border border-gray-200/90 text-neutral-700 rounded-full text-[12px] md:text-[13px] font-semibold select-none cursor-default shadow-2xs hover:border-gray-300 transition-colors"
-                    >
-                      {service}
-                    </div>
-                  ))}
+                  ].map((service, idx) => {
+                    const isCurrent = service === "Shop Management";
+                    return (
+                      <div
+                        key={idx}
+                        className={`flex items-center gap-1.5 px-3.5 py-1.5 bg-white rounded-full text-[12px] md:text-[13px] font-semibold select-none cursor-default transition-colors ${
+                          isCurrent
+                            ? "border border-black text-black shadow-xs font-bold"
+                            : "border border-gray-200/90 text-neutral-700 shadow-2xs hover:border-gray-300"
+                        }`}
+                      >
+                        <span>{service}</span>
+                        {isCurrent && (
+                          <span className="w-4 h-4 rounded-full bg-[#BCF96A] text-black flex items-center justify-center text-[10px] font-black shrink-0">
+                            ✓
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </motion.div>
