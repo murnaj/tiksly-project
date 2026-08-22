@@ -22,8 +22,8 @@ export default function AboutUsPage() {
       <main className="pt-24 md:pt-32">
         <AboutHeroSection />
         <Overview />
-        <OurHistory />
         <OurBeliefs />
+        <OurHistory />
         <OurAgency />
         <OurTeam />
         <OurPartners />

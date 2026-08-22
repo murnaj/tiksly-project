@@ -68,41 +68,103 @@ const charities = [
 ];
 
 export default function OurPartners() {
+  const displayLogos = [...partnerLogos, ...partnerLogos];
+
   return (
-    <div className="w-full">
-      {/* Top Section: Partners */}
-      
-
-      {/* Bottom Section: Charity */}
-      <section className="w-full bg-black py-20 md:py-28 text-center text-white">
-        <div className="container mx-auto px-3 lg:px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight max-w-4xl mx-auto mb-6 leading-tight">
-            Every month we donate a percentage of company profits to a charity chosen by one of our team.
+      <section className="w-full bg-white py-16 md:py-24 overflow-hidden">
+        <div className="text-center mx-auto mb-16 px-2">
+          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
+            Our Partners
           </h2>
-          <p className="text-zinc-400 max-w-3xl mx-auto text-xs md:text-sm mb-16">
-            As well as monthly donations, we donate profits of our Swag to Cancer Research and our team regularly takes part in various charitable events.
+          <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
+            Tiksly isn&apos;t just a service provider. We&apos;re a growth partner for ambitious brands that want to win.
           </p>
+        </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {charities.map((charity, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-xl md:rounded-2xl flex items-center justify-center p-6 md:p-8 aspect-4/3 w-full"
-              >
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={charity.src}
-                    alt={`${charity.name} Logo`}
-                    width={180}
-                    height={100}
-                    className="object-cover max-h-full max-w-full"
-                  />
-                </div>
-              </div>
-            ))}
+        {/* Infinite Marquee Container */}
+        <div className="relative w-full overflow-hidden py-4">
+          {/* Marquee Row */}
+          <div className="flex flex-nowrap w-max">
+            {/* First loop of logos */}
+            <motion.div
+              className="flex items-center gap-16 md:gap-24 flex-nowrap shrink-0 pr-16 md:pr-24"
+              animate={{ x: [0, "-100%"] }}
+              transition={{
+                ease: "linear",
+                duration: 25,
+                repeat: Infinity,
+              }}
+            >
+              {displayLogos.map((logo, idx) => (
+                <motion.div
+                  key={`${logo.name}-loop1-${idx}`}
+                  className="relative flex items-center justify-center shrink-0 pointer-events-auto"
+                  animate={{
+                    y: logo.yRange,
+                  }}
+                  transition={{
+                    duration: logo.floatDuration,
+                    delay: logo.floatDelay,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="relative h-8 md:h-10 flex items-center justify-center">
+                    <Image
+                      src={logo.src}
+                      alt={`${logo.name} Logo`}
+                      width={logo.width}
+                      height={logo.height}
+                      className="object-contain w-auto h-full max-h-10"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Second loop of logos (identical duplicate for seamless scrolling) */}
+            <motion.div
+              className="flex items-center gap-16 md:gap-24 flex-nowrap shrink-0 pr-16 md:pr-24"
+              animate={{ x: [0, "-100%"] }}
+              transition={{
+                ease: "linear",
+                duration: 25,
+                repeat: Infinity,
+              }}
+            >
+              {displayLogos.map((logo, idx) => (
+                <motion.div
+                  key={`${logo.name}-loop2-${idx}`}
+                  className="relative flex items-center justify-center shrink-0 pointer-events-auto"
+                  animate={{
+                    y: logo.yRange,
+                  }}
+                  transition={{
+                    duration: logo.floatDuration,
+                    delay: logo.floatDelay,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="relative h-8 md:h-10 flex items-center justify-center">
+                    <Image
+                      src={logo.src}
+                      alt={`${logo.name} Logo`}
+                      width={logo.width}
+                      height={logo.height}
+                      className="object-contain w-auto h-full max-h-10"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
-    </div>
+    
   );
 }
