@@ -14,6 +14,7 @@ import Testimonials from "@/components/features/testimonials";
 import FaqCarousel from "@/components/features/faq-carousel";
 import BookCall from "@/components/features/book-call";
 import ComparisonTable from "@/components/features/comparison-table";
+import RequirementsSection from "@/components/features/requirements-section";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -248,6 +249,8 @@ export default function AccountCreationPage() {
         <BrandLogos />
 
         <ComparisonTable />
+
+        <RequirementsSection />
 
         <Testimonials />
 
