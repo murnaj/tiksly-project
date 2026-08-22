@@ -4,10 +4,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, CreditCard } from "lucide-react";
 
-import { IdCard } from "lucide-react";
+import { User } from "lucide-react";
 
 import { Mail } from "lucide-react";
-import { Smartphone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -175,7 +175,7 @@ export default function RequirementsSection() {
       case "id":
         return (
           <div className={iconContainerClass}>
-            <IdCard className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
+            <User className="w-8 h-8 text-[#BCF96A]" strokeWidth={1.5} />
           </div>
         );
       case "bill":
