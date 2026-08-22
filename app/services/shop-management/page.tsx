@@ -32,187 +32,143 @@ export default function ShopManagementPage() {
 
       <main className="pt-24 md:pt-32 pb-20 select-none">
         {/* HERO SECTION - CLICKUP STYLE */}
-        <section className="container mx-auto px-4 lg:px-6 mb-16 md:mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-start">
-            {/* LEFT COLUMN: Values & Service Selector */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, ease: EASE }}
-              className="flex flex-col gap-5"
-            >
-              {/* Animated Shop Management Pill Badge with moving colorful gradient border */}
-              <div className="inline-flex items-center self-start mb-1">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, ease: EASE }}
-                  className="relative p-[1.5px] rounded-full overflow-hidden shadow-xs cursor-default"
-                >
-                  {/* Rotating Conic Gradient Border */}
+        <section className="relative w-full overflow-hidden mb-16 md:mb-24">
+          <div className="container mx-auto px-4 lg:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] xl:grid-cols-[1fr_1.25fr] gap-12 lg:gap-8 items-center">
+              {/* LEFT COLUMN: Values & Service Selector */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, ease: EASE }}
+                className="flex flex-col gap-5 z-10"
+              >
+                {/* Animated Shop Management Pill Badge with moving colorful gradient border */}
+                <div className="inline-flex items-center self-start mb-1">
                   <motion.div
-                    className="absolute -inset-[150%] rounded-full pointer-events-none"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
-                    }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
-                  />
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: EASE }}
+                    className="relative p-[1.5px] rounded-full overflow-hidden shadow-xs cursor-default"
+                  >
+                    {/* Rotating Conic Gradient Border */}
+                    <motion.div
+                      className="absolute -inset-[150%] rounded-full pointer-events-none"
+                      style={{
+                        background:
+                          "conic-gradient(from 0deg, #BCF96A, #0081FB, #FF004F, #7B61FF, #00D084, #00F2EA, #BCF96A)",
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                    />
 
-                  {/* Inner Badge */}
-                  <div className="relative bg-white px-3.5 py-1 rounded-full flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#BCF96A] animate-pulse" />
-                    <span className="text-[11.5px] md:text-[12px] font-extrabold uppercase tracking-wider text-black">
-                      Shop Management
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
+                    {/* Inner Badge */}
+                    <div className="relative bg-white px-3.5 py-1 rounded-full flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#BCF96A] animate-pulse" />
+                      <span className="text-[11.5px] md:text-[12px] font-extrabold uppercase tracking-wider text-black">
+                        Shop Management
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
 
-              <h1 className="text-3xl md:text-[45px] lg:text-[50px] font-black text-black leading-[1.05] tracking-tighter uppercase">
-                The complete
-                <br />
-                <span className="bg-[#BCF96A] text-black px-4 rounded-full inline-block font-black my-1">
-                  operations
-                </span>{" "}
-                engine for tiktok shop
-              </h1>
+                <h1 className="text-3xl md:text-[45px] lg:text-[50px] font-black text-black leading-[1.05] tracking-tighter uppercase">
+                  The complete
+                  <br />
+                  <span className="bg-[#BCF96A] text-black px-4 rounded-full inline-block font-black my-1">
+                    operations
+                  </span>{" "}
+                  engine for tiktok shop
+                </h1>
 
-              <p className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-xl">
-                Listing, creators, ads, and live sellin, all run by one team that treats your shop like its own money is on the line.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <Link
-                  href="/book-a-meeting"
-                  className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
-                >
-                  Get my free growth plan
-                </Link>
-              </div>
-
-              {/* Divider and Service Selector */}
-              <div className="border-t border-gray-200/80 pt-8 mt-4">
-                <p className="text-[10px] font-black text-neutral-400 tracking-wider uppercase mb-4">
-                  explore our services
+                <p className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-xl">
+                  Listing, creators, ads, and live sellin, all run by one team that treats your shop like its own money is on the line.
                 </p>
 
-                {/* Outline Services Pills (Non-clickable) */}
-                <div className="flex flex-wrap gap-2 max-w-xl">
-                  {[
-                    "Shop Management",
-                    "Account Creation",
-                    "Category Approval",
-                    "Violation Removal",
-                    "Affiliate & Creator Ops",
-                    "UGC Content",
-                    "TikTok Shop Ads",
-                    "Live Streaming",
-                    "Virtual Assistance",
-                    "Automation",
-                    "3PL & Fulfillment",
-                    "Coaching & Consultation",
-                  ].map((service, idx) => {
-                    const isCurrent = service === "Shop Management";
-                    return (
-                      <div
-                        key={idx}
-                        className={`flex items-center gap-1.5 px-3.5 py-1.5 bg-white rounded-full text-[12px] md:text-[13px] font-semibold select-none cursor-default transition-colors ${
-                          isCurrent
-                            ? "border border-black text-black shadow-xs font-bold"
-                            : "border border-gray-200/90 text-neutral-700 shadow-2xs hover:border-gray-300"
-                        }`}
-                      >
-                        <span>{service}</span>
-                        {isCurrent && (
-                          <span className="w-4 h-4 rounded-full bg-[#BCF96A] text-black flex items-center justify-center text-[10px] font-black shrink-0">
-                            ✓
-                          </span>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* RIGHT COLUMN: Premium SaaS Window Mockup */}
-            <div className="relative flex items-center justify-center w-full h-full my-auto">
-              {/* Subtle ambient back-glow */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-[#BCF96A]/25 via-[#0081FB]/10 to-transparent rounded-[3rem] blur-2xl pointer-events-none -z-10" />
-
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                animate={{
-                  opacity: 1,
-                  y: [0, -8, 0],
-                  scale: 1,
-                }}
-                transition={{
-                  opacity: { duration: 0.6, ease: EASE },
-                  scale: { duration: 0.6, ease: EASE },
-                  y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                }}
-                className="relative w-full bg-gradient-to-b from-white to-neutral-50/80 rounded-2xl md:rounded-[2rem] p-2.5 md:p-3.5 border border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] select-none"
-              >
-                {/* Window Header Bar */}
-                <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 mb-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="flex items-center gap-1.5 px-3 py-0.5 bg-neutral-100 rounded-full text-[11px] text-neutral-500 font-medium tracking-tight">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#27C93F]" />
-                    seller-us.tiktok.com/analytics
-                  </div>
-                  <div className="w-10" />
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                  <Link
+                    href="/book-a-meeting"
+                    className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+                  >
+                    Get my free growth plan
+                  </Link>
                 </div>
 
-                {/* Main Dashboard Image */}
-                <div className="relative w-full aspect-4/3 rounded-xl md:rounded-2xl overflow-hidden bg-white border border-gray-100">
-                  <Image
-                    src="/TikTok Shop Ads Services banner.jpg"
-                    alt="TikTok Shop Ads Services"
-                    width={900}
-                    height={650}
-                    className="w-full h-full object-cover object-top"
-                    priority
-                  />
+                {/* Divider and Service Selector */}
+                <div className="border-t border-gray-200/80 pt-8 mt-4">
+                  <p className="text-[10px] font-black text-neutral-400 tracking-wider uppercase mb-4">
+                    explore our services
+                  </p>
+
+                  {/* Outline Services Pills (Non-clickable) */}
+                  <div className="flex flex-wrap gap-2 max-w-xl">
+                    {[
+                      "Shop Management",
+                      "Account Creation",
+                      "Category Approval",
+                      "Violation Removal",
+                      "Affiliate & Creator Ops",
+                      "UGC Content",
+                      "TikTok Shop Ads",
+                      "Live Streaming",
+                      "Virtual Assistance",
+                      "Automation",
+                      "3PL & Fulfillment",
+                      "Coaching & Consultation",
+                    ].map((service, idx) => {
+                      const isCurrent = service === "Shop Management";
+                      return (
+                        <div
+                          key={idx}
+                          className={`flex items-center gap-1.5 px-3.5 py-1.5 bg-white rounded-full text-[12px] md:text-[13px] font-semibold select-none cursor-default transition-colors ${
+                            isCurrent
+                              ? "border border-black text-black shadow-xs font-bold"
+                              : "border border-gray-200/90 text-neutral-700 shadow-2xs hover:border-gray-300"
+                          }`}
+                        >
+                          <span>{service}</span>
+                          {isCurrent && (
+                            <span className="w-4 h-4 rounded-full bg-[#BCF96A] text-black flex items-center justify-center text-[10px] font-black shrink-0">
+                              ✓
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-
-                {/* Floating Metric Badge - Top Right */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-black text-white px-3.5 py-2 rounded-2xl shadow-xl border border-neutral-800 flex items-center gap-2 z-20"
-                >
-                  <div className="w-6 h-6 rounded-lg bg-[#BCF96A] text-black flex items-center justify-center font-bold text-xs">
-                    ⚡
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] text-neutral-400 font-semibold uppercase leading-none">Gross GMV</p>
-                    <p className="text-[13px] font-black text-white leading-tight">$8.45M</p>
-                  </div>
-                </motion.div>
-
-                {/* Floating Metric Badge - Bottom Left */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-white text-black px-3.5 py-2 rounded-2xl shadow-xl border border-gray-200/80 flex items-center gap-2 z-20"
-                >
-                  <div className="w-6 h-6 rounded-lg bg-[#0081FB]/10 text-[#0081FB] flex items-center justify-center font-bold text-xs">
-                    ✓
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] text-neutral-500 font-semibold uppercase leading-none">Status</p>
-                    <p className="text-[13px] font-black text-black leading-tight">100% Policy Clean</p>
-                  </div>
-                </motion.div>
               </motion.div>
+
+              {/* RIGHT COLUMN: Breaking Out of Container like ClickUp */}
+              <div className="relative flex items-center justify-start w-full my-auto lg:-mr-32 xl:-mr-48 2xl:-mr-72">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
+                  className="relative w-full lg:w-[135%] xl:w-[145%] 2xl:w-[155%] max-w-none"
+                >
+                  {/* Product Card Container with ClickUp-style Bottom Fade */}
+                  <div
+                    style={{
+                      maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                    }}
+                    className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] bg-white"
+                  >
+                    <Image
+                      src="/TikTok Shop Ads Services banner.jpg"
+                      alt="TikTok Shop Operations Dashboard"
+                      width={1300}
+                      height={850}
+                      className="w-full h-auto object-cover object-top"
+                      priority
+                    />
+
+                    {/* Gradient Overlay for bottom melt */}
+                    <div className="absolute inset-x-0 bottom-0 h-44 md:h-72 bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
