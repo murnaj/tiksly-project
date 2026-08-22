@@ -138,35 +138,80 @@ export default function ShopManagementPage() {
               </div>
             </motion.div>
 
-            {/* RIGHT COLUMN: Banner Image with Bottom & Right Fade + Premium Glow */}
+            {/* RIGHT COLUMN: Premium SaaS Window Mockup */}
             <div className="relative flex items-center justify-center w-full h-full my-auto">
-              {/* Subtle ambient gradient back-glow */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-[#BCF96A]/20 via-[#0081FB]/10 to-transparent rounded-[2.5rem] blur-2xl pointer-events-none -z-10" />
+              {/* Subtle ambient back-glow */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#BCF96A]/25 via-[#0081FB]/10 to-transparent rounded-[3rem] blur-2xl pointer-events-none -z-10" />
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-                style={{
-                  maskImage:
-                    "radial-gradient(135% 120% at 0% 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0) 100%)",
-                  WebkitMaskImage:
-                    "radial-gradient(135% 120% at 0% 0%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0) 100%)",
+                initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, -8, 0],
+                  scale: 1,
                 }}
-                className="relative aspect-4/3 rounded-[1.5rem] overflow-hidden shadow-2xl shadow-neutral-200/50 border border-gray-100/80 z-10 w-full"
+                transition={{
+                  opacity: { duration: 0.6, ease: EASE },
+                  scale: { duration: 0.6, ease: EASE },
+                  y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                }}
+                className="relative w-full bg-gradient-to-b from-white to-neutral-50/80 rounded-2xl md:rounded-[2rem] p-2.5 md:p-3.5 border border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] select-none"
               >
-                <Image
-                  src="/TikTok Shop Ads Services banner.jpg"
-                  alt="TikTok Shop Ads Services"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-                {/* Bottom Fade Gradient Overlay */}
-                <div className="absolute inset-x-0 bottom-0 h-32 md:h-44 bg-gradient-to-t from-white via-white/70 to-transparent pointer-events-none" />
-                {/* Right Fade Gradient Overlay */}
-                <div className="absolute inset-y-0 right-0 w-28 md:w-44 bg-gradient-to-l from-white via-white/70 to-transparent pointer-events-none" />
+                {/* Window Header Bar */}
+                <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 mb-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-0.5 bg-neutral-100 rounded-full text-[11px] text-neutral-500 font-medium tracking-tight">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#27C93F]" />
+                    seller-us.tiktok.com/analytics
+                  </div>
+                  <div className="w-10" />
+                </div>
+
+                {/* Main Dashboard Image */}
+                <div className="relative w-full aspect-4/3 rounded-xl md:rounded-2xl overflow-hidden bg-white border border-gray-100">
+                  <Image
+                    src="/TikTok Shop Ads Services banner.jpg"
+                    alt="TikTok Shop Ads Services"
+                    width={900}
+                    height={650}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
+                </div>
+
+                {/* Floating Metric Badge - Top Right */}
+                <motion.div
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-black text-white px-3.5 py-2 rounded-2xl shadow-xl border border-neutral-800 flex items-center gap-2 z-20"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-[#BCF96A] text-black flex items-center justify-center font-bold text-xs">
+                    ⚡
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] text-neutral-400 font-semibold uppercase leading-none">Gross GMV</p>
+                    <p className="text-[13px] font-black text-white leading-tight">$8.45M</p>
+                  </div>
+                </motion.div>
+
+                {/* Floating Metric Badge - Bottom Left */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-white text-black px-3.5 py-2 rounded-2xl shadow-xl border border-gray-200/80 flex items-center gap-2 z-20"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-[#0081FB]/10 text-[#0081FB] flex items-center justify-center font-bold text-xs">
+                    ✓
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] text-neutral-500 font-semibold uppercase leading-none">Status</p>
+                    <p className="text-[13px] font-black text-black leading-tight">100% Policy Clean</p>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
