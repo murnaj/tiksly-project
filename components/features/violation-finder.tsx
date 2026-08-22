@@ -145,7 +145,7 @@ export default function ViolationFinder() {
       <div className="container mx-auto px-4 lg:px-6 max-w-[1000px]">
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-4xl md:text-[45px] font-black tracking-tight text-black leading-[1.1] mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-[45px] font-black tracking-tight text-black leading-tight md:leading-[1.1] mb-5">
             Which violation did you get?
           </h2>
           <p className="text-[#6B7280] text-[15px] md:text-[16.5px] leading-relaxed max-w-2xl mx-auto font-medium">
