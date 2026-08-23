@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import NavBar from "@/components/features/common/nav-bar";
-import FooterSection from "@/components/features/common/footer-section";
 import OurAgency from "@/components/features/about-us/our-agency";
 import OurTeam from "@/components/features/about-us/our-team";
 import Overview from "@/components/features/about-us/overview";

@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import NavBar from "@/components/features/common/nav-bar";
-import FooterSection from "@/components/features/common/footer-section";
 import {
   ShieldCheck,
   FileText,

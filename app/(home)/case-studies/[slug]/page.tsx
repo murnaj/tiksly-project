@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import NavBar from "@/components/features/common/nav-bar";
-import FooterSection from "@/components/features/common/footer-section";
 import CaseStudyDetail from "@/components/features/case-studies/case-study-detail";
 import {
   caseStudies,
