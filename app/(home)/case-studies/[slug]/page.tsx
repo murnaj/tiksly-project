@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import NavBar from "@/components/features/nav-bar";
-import FooterSection from "@/components/features/footer-section";
+import NavBar from "@/components/features/common/nav-bar";
+import FooterSection from "@/components/features/common/footer-section";
 import CaseStudyDetail from "@/components/features/case-studies/case-study-detail";
 import {
   caseStudies,
@@ -43,12 +43,8 @@ export default async function CaseStudyPage({
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <main className="pt-24 md:pt-32">
-        <CaseStudyDetail study={study} />
-      </main>
-      <FooterSection />
-    </div>
+    <>
+      <CaseStudyDetail study={study} />
+    </>
   );
 }

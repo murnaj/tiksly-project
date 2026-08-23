@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, CreditCard } from "lucide-react";
 import { Mail } from "lucide-react";
@@ -256,14 +255,13 @@ export default function RequirementsSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#FAFAFA] border-y border-gray-100 select-none">
-      <div className="container mx-auto px-4 lg:px-6 max-w-[1200px]">
-        {/* Header */}
+    <section className="pb-14 md:pb-18">
+      <div className="container mx-auto max-w-[1200px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16 text-center max-w-3xl mx-auto"
+          className="mb-12 md:mb-16 text-center mx-auto"
         >
           <h2 className="text-3xl sm:text-4xl md:text-[45px] lg:text-[50px] font-black tracking-tight text-black leading-tight md:leading-[1.1] mb-5">
             What you need for approval
@@ -274,7 +272,6 @@ export default function RequirementsSection() {
           </p>
         </motion.div>
 
-        {/* Region Pills */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <span className="text-[14px] font-bold text-gray-500">
             I want to sell in:
@@ -296,7 +293,6 @@ export default function RequirementsSection() {
           </div>
         </div>
 
-        {/* Cards Grid */}
         <div className="relative min-h-[400px]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -351,59 +347,6 @@ export default function RequirementsSection() {
               ))}
             </motion.div>
           </AnimatePresence>
-        </div>
-
-        {/* Working Examples Carousel */}
-        <div className="mt-20 border-t border-gray-200/60 pt-16">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-black mb-3">
-              Working Examples
-            </h3>
-            <p className="text-gray-500 text-[15px] max-w-2xl mx-auto">
-              See some of the successful shop verifications and real documents we process daily.
-            </p>
-          </div>
-          
-          <div className="relative w-full overflow-hidden py-4">
-            {/* Fade overlays */}
-            <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
-            
-            <div className="flex flex-nowrap w-max">
-              {[0, 1].map((loopIdx) => (
-                <motion.div
-                  key={loopIdx}
-                  className="flex items-center gap-6 md:gap-8 flex-nowrap shrink-0 pr-6 md:pr-8"
-                  animate={{ x: [0, "-100%"] }}
-                  transition={{
-                    ease: "linear",
-                    duration: 25,
-                    repeat: Infinity,
-                  }}
-                >
-                  {[
-                    "/id-cards/left-side-1.png",
-                    "/id-cards/left-side-2.png",
-                    "/id-cards/right-side-1.png",
-                    "/id-cards/right-side-2.png",
-                  ].map((src, idx) => (
-                    <div 
-                      key={`${loopIdx}-${idx}`}
-                      className="relative w-[280px] h-[180px] md:w-[320px] md:h-[200px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm shrink-0 bg-white"
-                    >
-                      <Image
-                        src={src}
-                        alt="Working Example"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 280px, 320px"
-                      />
-                    </div>
-                  ))}
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

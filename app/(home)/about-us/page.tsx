@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import NavBar from "@/components/features/nav-bar";
-import FooterSection from "@/components/features/footer-section";
+import NavBar from "@/components/features/common/nav-bar";
+import FooterSection from "@/components/features/common/footer-section";
 import OurAgency from "@/components/features/about-us/our-agency";
 import OurTeam from "@/components/features/about-us/our-team";
 import Overview from "@/components/features/about-us/overview";
@@ -18,20 +18,16 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <main className="pt-24 md:pt-32 pb-20 select-none">
-        <AboutHeroSection />
-        <Overview />
-        <OurBeliefs />
-        <OurHistory />
-        <OurAgency />
-        <OurTeam />
-        <OurPartners />
-        <OurCharity />
-        <JoinCommunity />
-      </main>
-      <FooterSection />
-    </div>
+    <>
+      <AboutHeroSection />
+      <Overview />
+      <OurBeliefs />
+      <OurHistory />
+      <OurAgency />
+      <OurTeam />
+      <OurPartners />
+      <OurCharity />
+      <JoinCommunity />
+    </>
   );
 }

@@ -61,7 +61,10 @@ const plans = [
 
 const container = {
   hidden: { opacity: 1 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
 };
 
 const item = {
@@ -72,7 +75,7 @@ const item = {
 export default function ServicesPricing() {
   return (
     <section className="bg-white py-16 md:py-24 border-b border-gray-50">
-      <div className="container mx-auto px-3 lg:px-4">
+      <div className="container mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -85,7 +88,8 @@ export default function ServicesPricing() {
             Pricing
           </p>
           <p className="text-gray-500 text-[15px] mt-5 max-w-lg mx-auto leading-relaxed">
-            No hidden fees. No lock-in contracts. Pick the plan that fits your brand and scale when you&apos;re ready.
+            No hidden fees. No lock-in contracts. Pick the plan that fits your
+            brand and scale when you&apos;re ready.
           </p>
         </motion.div>
 
@@ -103,10 +107,11 @@ export default function ServicesPricing() {
               variants={item}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.25 }}
-              className={`relative flex flex-col rounded-[2rem] p-8 border transition-shadow duration-300 ${plan.highlight
+              className={`relative flex flex-col rounded-[2rem] p-8 border transition-shadow duration-300 ${
+                plan.highlight
                   ? "bg-black border-black text-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)]"
                   : "bg-[#F9F9F9] border-gray-100 text-black hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]"
-                }`}
+              }`}
             >
               {plan.highlight && (
                 <span className="absolute top-6 right-6 bg-[#BCF96A] text-black text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
@@ -123,24 +128,37 @@ export default function ServicesPricing() {
                     {plan.price}
                   </span>
                   {plan.period && (
-                    <span className="text-[14px] mb-1.5 text-gray-400">{plan.period}</span>
+                    <span className="text-[14px] mb-1.5 text-gray-400">
+                      {plan.period}
+                    </span>
                   )}
                 </div>
-                <p className={`text-[13px] leading-relaxed ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
+                <p
+                  className={`text-[13px] leading-relaxed ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}
+                >
                   {plan.desc}
                 </p>
               </div>
 
               {/* Divider */}
-              <div className={`w-full h-px mb-6 ${plan.highlight ? "bg-white/10" : "bg-gray-200"}`} />
+              <div
+                className={`w-full h-px mb-6 ${plan.highlight ? "bg-white/10" : "bg-gray-200"}`}
+              />
 
               <ul className="flex flex-col gap-3 mb-10 flex-1">
                 {plan.features.map((f, j) => (
                   <li key={j} className="flex items-start gap-3">
-                    <span className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${plan.highlight ? "bg-[#BCF96A]" : "bg-black"}`}>
-                      <Check className={`w-3 h-3 ${plan.highlight ? "text-black" : "text-white"}`} strokeWidth={2.5} />
+                    <span
+                      className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${plan.highlight ? "bg-[#BCF96A]" : "bg-black"}`}
+                    >
+                      <Check
+                        className={`w-3 h-3 ${plan.highlight ? "text-black" : "text-white"}`}
+                        strokeWidth={2.5}
+                      />
                     </span>
-                    <span className={`text-[13px] leading-relaxed ${plan.highlight ? "text-gray-300" : "text-gray-600"}`}>
+                    <span
+                      className={`text-[13px] leading-relaxed ${plan.highlight ? "text-gray-300" : "text-gray-600"}`}
+                    >
                       {f}
                     </span>
                   </li>
@@ -149,10 +167,11 @@ export default function ServicesPricing() {
 
               <Link
                 href="/get-demo"
-                className={`w-full py-3.5 rounded-full text-[14px] font-semibold text-center transition-all duration-200 hover:scale-[1.03] active:scale-95 ${plan.highlight
+                className={`w-full py-3.5 rounded-full text-[14px] font-semibold text-center transition-all duration-200 hover:scale-[1.03] active:scale-95 ${
+                  plan.highlight
                     ? "bg-[#BCF96A] text-black hover:bg-lime-300"
                     : "bg-black text-white hover:bg-gray-800"
-                  }`}
+                }`}
               >
                 {plan.cta}
               </Link>

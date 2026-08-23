@@ -35,8 +35,8 @@ const beliefs = [
 
 export default function OurBeliefs() {
   return (
-    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white py-20 md:py-28">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white pb-14 md:pb-18">
+      <div className="container mx-auto">
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center">
             Our Beliefs & Values
@@ -45,8 +45,8 @@ export default function OurBeliefs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {beliefs.map((belief, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="bg-zinc-950 border-zinc-800/80 hover:border-zinc-700 transition-colors duration-300 rounded-2xl"
             >
               <CardHeader className="pt-8 px-8 pb-4">

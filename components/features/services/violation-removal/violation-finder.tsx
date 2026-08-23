@@ -130,7 +130,9 @@ export default function ViolationFinder() {
   const [activeCategory, setActiveCategory] = useState(violationData[0].id);
   const [openAccordionId, setOpenAccordionId] = useState<string | null>(null);
 
-  const activeCategoryData = violationData.find((cat) => cat.id === activeCategory);
+  const activeCategoryData = violationData.find(
+    (cat) => cat.id === activeCategory,
+  );
 
   const toggleAccordion = (id: string) => {
     if (openAccordionId === id) {
@@ -141,8 +143,8 @@ export default function ViolationFinder() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#FAFAFA] border-y border-gray-100 select-none">
-      <div className="container mx-auto px-4 lg:px-6 max-w-[1000px]">
+    <section className="pb-14 md:pb-18">
+      <div className="container mx-auto max-w-[1000px]">
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-[45px] font-black tracking-tight text-black leading-tight md:leading-[1.1] mb-5">
@@ -208,19 +210,48 @@ export default function ViolationFinder() {
                       <div className="flex items-center gap-4">
                         {/* Pink Exclamation Badge */}
                         <div className="w-6 h-6 rounded-md bg-[#FFF0F0] flex items-center justify-center shrink-0">
-                          <span className="text-[#FF5252] text-[13px] font-black">!</span>
+                          <span className="text-[#FF5252] text-[13px] font-black">
+                            !
+                          </span>
                         </div>
                         <span className="text-[15px] md:text-[16px] font-bold text-gray-900 pr-4">
                           {item.title}
                         </span>
                       </div>
-                      
+
                       {/* Plus/Minus Icon */}
                       <div className="shrink-0 text-gray-400">
                         {isOpen ? (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M5 12h14"/></svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-5 h-5"
+                          >
+                            <path d="M5 12h14" />
+                          </svg>
                         ) : (
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-5 h-5"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
+                          </svg>
                         )}
                       </div>
                     </button>
@@ -250,7 +281,8 @@ export default function ViolationFinder() {
         {/* Footer Text */}
         <div className="text-center mt-12">
           <p className="text-gray-400 text-[14px] font-medium">
-            Don&apos;t see yours, or not sure which one it is? We handle 30+ violation types.
+            Don&apos;t see yours, or not sure which one it is? We handle 30+
+            violation types.
           </p>
         </div>
       </div>

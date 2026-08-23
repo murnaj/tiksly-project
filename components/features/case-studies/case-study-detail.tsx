@@ -46,7 +46,7 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
     <>
       {/* Hero banner */}
       <section className="relative overflow-hidden bg-[#0D0D0D]">
-        <div className="container mx-auto px-3 lg:px-4 py-16 md:py-20">
+        <div className="container mx-auto py-24 md:py-32">
           <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] items-center gap-10">
             <div>
               <span className="inline-block mb-4 px-3 py-1 rounded-full text-[12px] font-medium uppercase tracking-wide bg-white/10 text-[#BCF96A]">
@@ -60,7 +60,12 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
                   href={`/case-studies/client/${client.slug}`}
                   className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-700"
                 >
-                  <Image src={client.avatar} alt={client.name} fill className="object-cover" />
+                  <Image
+                    src={client.avatar}
+                    alt={client.name}
+                    fill
+                    className="object-cover"
+                  />
                 </Link>
                 <div className="text-[14px] leading-snug text-gray-300">
                   <p>
@@ -73,7 +78,9 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
                     </Link>
                     , {client.company}
                   </p>
-                  <p className="text-gray-400">Last updated on {study.updatedAt}</p>
+                  <p className="text-gray-400">
+                    Last updated on {study.updatedAt}
+                  </p>
                 </div>
               </div>
             </div>
@@ -93,8 +100,8 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
       </section>
 
       {/* Body */}
-      <section className="bg-white py-14 md:py-20">
-        <div className="container mx-auto px-3 lg:px-4">
+      <section className="bg-white pt-14 md:pt-18 pb-24 md:pb-32">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[64px_1fr_260px] gap-10 xl:gap-14">
             {/* Share sidebar */}
             <aside className="hidden lg:flex bg-[#F9F9F9] p-4 rounded-2xl flex-col items-center gap-4 sticky top-32 h-fit">
@@ -164,7 +171,11 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
               </div>
 
               {study.sections.map((section) => (
-                <div key={section.id} id={section.id} className="scroll-mt-32 mb-10">
+                <div
+                  key={section.id}
+                  id={section.id}
+                  className="scroll-mt-32 mb-10"
+                >
                   <h2 className="text-xl md:text-2xl font-bold text-black mb-4 tracking-tight">
                     {section.heading}
                   </h2>
@@ -185,7 +196,12 @@ export default function CaseStudyDetail({ study }: { study: CaseStudy }) {
                 className="mt-4 flex items-center gap-4 rounded-2xl border border-gray-100 bg-[#F9F9F9] p-5 hover:bg-[#F3F3F3] transition-colors"
               >
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-gray-200">
-                  <Image src={client.avatar} alt={client.name} fill className="object-cover" />
+                  <Image
+                    src={client.avatar}
+                    alt={client.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <p className="text-[13px] text-gray-400">Case study client</p>

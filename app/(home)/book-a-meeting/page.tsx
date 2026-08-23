@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import NavBar from "@/components/features/nav-bar";
-import FooterSection from "@/components/features/footer-section";
 import GetDemoFlow from "@/components/features/get-demo/get-demo-flow";
 
 export const metadata: Metadata = {
@@ -11,12 +9,8 @@ export const metadata: Metadata = {
 
 export default function BookAMeetingPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <main className="pt-32 md:pt-40">
-        <GetDemoFlow />
-      </main>
-      <FooterSection />
-    </div>
+    <>
+      <GetDemoFlow />
+    </>
   );
 }

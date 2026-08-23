@@ -52,8 +52,8 @@ export default function OurProcess() {
   const [activeTab, setActiveTab] = useState(processTabs[0].id);
 
   return (
-    <section className="w-full bg-white pt-14 md:pt-20 ">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="w-full bg-white pb-14 md:pb-18">
+      <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mx-auto mb-10 px-2">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-4">
@@ -86,7 +86,6 @@ export default function OurProcess() {
           {/* Tab Content Cards */}
           <div className="bg-[#f4f9e8] rounded-[2rem] p-6 md:p-12 lg:p-16 relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
-
               {/* Left Side: Content Column */}
               <div className="relative min-h-[300px] md:min-h-[260px] lg:min-h-[340px] flex items-center w-full">
                 <div className="w-full">
@@ -99,7 +98,10 @@ export default function OurProcess() {
                             initial={{ opacity: 0, x: -40 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -40 }}
-                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{
+                              duration: 0.35,
+                              ease: [0.22, 1, 0.36, 1],
+                            }}
                             className="flex flex-col items-center lg:items-start text-center lg:text-left"
                           >
                             {/* Step Badge */}
@@ -118,10 +120,12 @@ export default function OurProcess() {
                               className="px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-bold hover:bg-neutral-800 transition-all hover:scale-[1.02] active:scale-95 inline-flex items-center gap-2 group w-fit"
                             >
                               <span>{tab.ctaText}</span>
-                              <span className="transition-transform group-hover:translate-x-1 duration-200">→</span>
+                              <span className="transition-transform group-hover:translate-x-1 duration-200">
+                                →
+                              </span>
                             </a>
                           </motion.div>
-                        )
+                        ),
                     )}
                   </AnimatePresence>
                 </div>
@@ -139,7 +143,10 @@ export default function OurProcess() {
                             initial={{ opacity: 0, x: 40 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 40 }}
-                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{
+                              duration: 0.35,
+                              ease: [0.22, 1, 0.36, 1],
+                            }}
                             className="w-full flex justify-center items-center"
                           >
                             <div className="w-full max-w-[480px] lg:max-w-full xl:max-w-[540px] bg-white rounded-[2rem] p-3 shadow-xl shadow-black/5 border border-black/5 overflow-hidden transition-all duration-300 hover:scale-[1.01]">
@@ -155,12 +162,11 @@ export default function OurProcess() {
                               </div>
                             </div>
                           </motion.div>
-                        )
+                        ),
                     )}
                   </AnimatePresence>
                 </div>
               </div>
-
             </div>
           </div>
         </Tabs>

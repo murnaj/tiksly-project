@@ -13,7 +13,10 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const container: Variants = {
   hidden: { opacity: 1 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+  },
 };
 const item: Variants = {
   hidden: { opacity: 1, y: 0 },
@@ -45,14 +48,17 @@ function Squiggle() {
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
-const categories = ["All", ...Array.from(new Set(caseStudies.map((s) => s.tag)))];
+const categories = [
+  "All",
+  ...Array.from(new Set(caseStudies.map((s) => s.tag))),
+];
 
 /* ── Section 1: Hero ──────────────────────────────────────────────────── */
 
 function CaseStudiesHero() {
   return (
     <section className="bg-linear-to-b from-white via-white to-[#F3F5F9]">
-      <div className="container mx-auto px-3 lg:px-4 py-16 md:py-20 text-center">
+      <div className="container mx-auto py-24 md:py-32 text-center">
         <motion.div
           variants={container}
           initial="hidden"
@@ -98,8 +104,8 @@ function CaseStudiesListing() {
   }, [activeCategory, query]);
 
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="bg-white pt-14 md:pt-18 pb-24 md:pb-32">
+      <div className="container mx-auto">
         {/* Category filters */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
           {categories.map((cat) => (
@@ -139,8 +145,7 @@ function CaseStudiesListing() {
               Featured Case Studies
             </h2>
             <p className="text-gray-500 text-[15px]">
-              See how leading brands and fast-growing startups grow with
-              tiksly.
+              See how leading brands and fast-growing startups grow with tiksly.
             </p>
           </div>
           <Link

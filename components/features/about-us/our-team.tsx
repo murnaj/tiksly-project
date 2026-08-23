@@ -69,8 +69,8 @@ const teamMembers = [
 
 export default function OurTeam() {
   return (
-    <section className="bg-white pb-20 md:pb-32">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="bg-white pb-14 md:pb-18">
+      <div className="container mx-auto">
         <div className="text-center mb-20 md:mb-28">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950">
             Meet Our Experts
@@ -79,8 +79,8 @@ export default function OurTeam() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-6 md:gap-x-8">
           {teamMembers.map((member, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative bg-[#F4F8FA] rounded-2xl px-6 pb-8 pt-20 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               {/* Floating Profile Picture */}
@@ -105,16 +105,28 @@ export default function OurTeam() {
 
               {/* Social Icons */}
               <div className="flex items-center gap-4 mt-auto">
-                <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-black transition-colors shadow-xs">
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-black transition-colors shadow-xs"
+                >
                   <FacebookIcon />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:bg-[#F3763D] hover:text-white transition-colors shadow-xs">
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:bg-[#F3763D] hover:text-white transition-colors shadow-xs"
+                >
                   <XIcon />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-[#0077b5] transition-colors shadow-xs">
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-[#0077b5] transition-colors shadow-xs"
+                >
                   <LinkedInIcon />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-[#E1306C] transition-colors shadow-xs">
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-zinc-600 hover:text-[#E1306C] transition-colors shadow-xs"
+                >
                   <InstagramIcon />
                 </a>
               </div>

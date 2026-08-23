@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
+import NavBar from "@/components/features/common/nav-bar";
+import FooterSection from "@/components/features/common/footer-section";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): React.ReactElement {
   return (
     <html
       lang="en"
@@ -36,20 +38,23 @@ export default function RootLayout({
     >
       <head>
         <noscript>
-          <style>{`
-    [style] {
-      opacity: 1 !important;
-       transform: none !important;
-      animation: none !important;
-    }
-  `}</style>
+          <style>{`[style] {opacity: 1 !important;transform: none !important;animation: none !important;}`}</style>
         </noscript>
 
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.remove('no-js')" }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.remove('no-js')",
+          }}
+        />
       </head>
+
       <body className="overflow-x-hidden">
         <NextTopLoader color="#8BFF8B" showSpinner={false} />
-        {children}
+        <main className="min-h-screen select-none overflow-x-hidden">
+          <NavBar />
+          {children}
+          <FooterSection />
+        </main>
       </body>
     </html>
   );

@@ -25,8 +25,7 @@ const item: Variants = {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center">
-      {/* Left side decoration & ID cards */}
+    <section className="bg-gradient-to-b from-white via-white to-[#F6FED9] relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center pt-10 pb-10 lg:pb-0">
       <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-90 2xl:w-115 pointer-events-none select-none hidden xl:block z-0">
         {/* Left Side Animated Flowing Vector */}
         <svg
@@ -160,7 +159,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Right side decoration & ID cards */}
       <div className="absolute right-0 top-0 bottom-0 w-80 xl:w-[360px] 2xl:w-[460px] pointer-events-none select-none hidden xl:block z-0">
         {/* Right Side Animated Flowing Vector */}
         <svg
@@ -294,8 +292,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Center content */}
-      <div className="relative z-10 w-full pt-24 pb-10 lg:pt-20 lg:pb-0">
+      <div className="relative z-10 w-full">
         <motion.div
           variants={container}
           initial="hidden"
@@ -444,6 +441,8 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </section>
   );
 }

@@ -24,20 +24,21 @@ const communityPlatforms = [
 
 export default function JoinCommunity() {
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="bg-white pb-24 md:pb-32">
+      <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 mb-6">
             Join the Tiksly Community
           </h2>
           <p className="text-zinc-600 max-w-3xl mx-auto text-base md:text-lg">
-            Want to stay ahead of TikTok Shop trends? Our YouTube Channel and Facebook Group are where the magic happens.
+            Want to stay ahead of TikTok Shop trends? Our YouTube Channel and
+            Facebook Group are where the magic happens.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {communityPlatforms.map((platform, index) => (
-            <div 
+            <div
               key={index}
               className="bg-[#F4F8FA] rounded-[2rem] p-6 flex flex-col h-full border border-slate-100"
             >
@@ -54,11 +55,16 @@ export default function JoinCommunity() {
 
               {/* Button */}
               <div className="mt-auto flex justify-center pb-2">
-                <Button 
+                <Button
                   asChild
                   className="bg-[#BCF96A] text-black  font-semibold tracking-wide rounded-full px-10 py-6 text-sm  w-fit"
                 >
-                  <a className="hover:bg-[#BCF96A]/80! hover:text-black!" href={platform.link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="hover:bg-[#BCF96A]/80! hover:text-black!"
+                    href={platform.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {platform.buttonText}
                   </a>
                 </Button>

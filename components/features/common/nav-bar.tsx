@@ -145,23 +145,19 @@ const NavBar = () => {
     <>
       <header
         className={cn(
-          " container mx-auto px-3 lg:px-4  fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          " container mx-auto  fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolling ? "py-2" : " py-3",
         )}
       >
         <nav
           className={cn(
             "px-3 lg:px-4 rounded-[2rem]  py-2 transition-all duration-300",
-            scrolling
-              ? "bg-[#F7F7F7]/80 backdrop-blur-sm "
-              : "bg-[#F9F9F9]/90",
+            scrolling ? "bg-[#F7F7F7]/80 backdrop-blur-sm " : "bg-[#F9F9F9]/90",
           )}
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link
-              href="/"
-            >
+            <Link href="/">
               <Image
                 src="/branding/logo-green.svg"
                 alt="Logo"
@@ -184,7 +180,10 @@ const NavBar = () => {
                     isActive("/services") && "bg-[#ECECEC]",
                   )}
                 >
-                  Services <ChevronDown className={`w-4 h-4 text-gray-500 ${isDropdownOpen ? "rotate-180 transition-all duration-300" : " transition-all duration-300"}`} />
+                  Services{" "}
+                  <ChevronDown
+                    className={`w-4 h-4 text-gray-500 ${isDropdownOpen ? "rotate-180 transition-all duration-300" : " transition-all duration-300"}`}
+                  />
                 </button>
 
                 {/* Mega Menu Dropdown */}
@@ -335,7 +334,10 @@ const NavBar = () => {
 
             {/* Right side buttons */}
             <div className="hidden lg:flex">
-              <Link href={"/contact"} className="px-6 py-3 bg-black cursor-pointer text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
+              <Link
+                href={"/contact"}
+                className="px-6 py-3 bg-black cursor-pointer text-white rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"
+              >
                 Contact
               </Link>
             </div>
@@ -346,7 +348,11 @@ const NavBar = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle Menu"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </nav>
@@ -393,7 +399,10 @@ const NavBar = () => {
                     {[servicesCol1, servicesCol2, servicesCol3].map((col) => {
                       const ColIcon = col.icon;
                       return (
-                        <div key={col.category} className="flex flex-col gap-2.5">
+                        <div
+                          key={col.category}
+                          className="flex flex-col gap-2.5"
+                        >
                           <div className="flex items-center gap-2 pb-1.5 border-b border-gray-200/60">
                             <ColIcon className="w-4 h-4 text-black" />
                             <span className="text-[11px] font-bold tracking-wider uppercase text-black">

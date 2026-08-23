@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import NavBar from "@/components/features/nav-bar";
-import FooterSection from "@/components/features/footer-section";
 import BlogPostDetail from "@/components/features/blogs/blog-post-detail";
 import {
   getAuthorForPost,
@@ -46,12 +44,8 @@ export default async function BlogPostPage({
   const author = getAuthorForPost(post);
 
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <main className="pt-24 md:pt-32">
-        <BlogPostDetail post={post} author={author} />
-      </main>
-      <FooterSection />
-    </div>
+    <>
+      <BlogPostDetail post={post} author={author} />
+    </>
   );
 }

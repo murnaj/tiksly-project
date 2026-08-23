@@ -17,7 +17,13 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 // Decorative wave lines mapping the visual design
 function LeftWavyLine() {
   return (
-    <svg width="120" height="45" viewBox="0 0 120 45" fill="none" className="text-gray-300 hidden md:block shrink-0">
+    <svg
+      width="120"
+      height="45"
+      viewBox="0 0 120 45"
+      fill="none"
+      className="text-gray-300 hidden md:block shrink-0"
+    >
       <path
         d="M5,35 C30,5 50,45 80,15 C95,5 105,25 115,20"
         stroke="currentColor"
@@ -31,7 +37,13 @@ function LeftWavyLine() {
 
 function RightWavyLine() {
   return (
-    <svg width="120" height="45" viewBox="0 0 120 45" fill="none" className="text-gray-300 hidden md:block shrink-0">
+    <svg
+      width="120"
+      height="45"
+      viewBox="0 0 120 45"
+      fill="none"
+      className="text-gray-300 hidden md:block shrink-0"
+    >
       <path
         d="M5,20 C15,25 25,5 40,15 C70,45 90,5 115,35"
         stroke="currentColor"
@@ -71,7 +83,13 @@ function GoogleReviewsLogo() {
       className="flex items-center gap-2 select-none hover:opacity-85 transition-opacity"
     >
       <div className="w-6 h-6 shrink-0 overflow-hidden rounded-xs">
-        <Image src="/gmb-icon.webp" alt="Google My Business" width={24} height={24} className="w-full h-full object-contain" />
+        <Image
+          src="/gmb-icon.webp"
+          alt="Google My Business"
+          width={24}
+          height={24}
+          className="w-full h-full object-contain"
+        />
       </div>
     </a>
   );
@@ -119,7 +137,6 @@ const TESTIMONIALS_DATA = [
 export default function Testimonials() {
   const [api, setApi] = useState<CarouselApi>();
 
-  // Autoplay config: scroll every 10 seconds (10000ms) with drag/swipe interaction safety listeners
   useEffect(() => {
     if (!api) return;
 
@@ -147,7 +164,6 @@ export default function Testimonials() {
     };
   }, [api]);
 
-  // Entrance Animations
   const containerVariants = {
     hidden: { opacity: 1, y: 0 },
     show: {
@@ -171,8 +187,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="w-full  pt-16 md:pt-24 overflow-hidden">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="w-full pb-14 md:pb-18 overflow-hidden">
+      <div className="container mx-auto">
         {/* Title Block */}
         <motion.div
           variants={containerVariants}
@@ -191,7 +207,8 @@ export default function Testimonials() {
             variants={itemVariants}
             className="text-gray-500 text-[14px] md:text-[16px] leading-relaxed max-w-sm md:max-w-xl mx-auto"
           >
-           We&apos;re rated 4.8 by the brands and sellers we&apos;ve grown. Every review is real and public. Read the good and the honest.
+            We&apos;re rated 4.8 by the brands and sellers we&apos;ve grown.
+            Every review is real and public. Read the good and the honest.
           </motion.p>
         </motion.div>
 
@@ -204,17 +221,24 @@ export default function Testimonials() {
           className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-2 lg:gap-8 items-center justify-center mb-16 max-w-5xl mx-auto"
         >
           {/* Left Metric: 95% Rating */}
-          <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start text-center md:text-left px-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center md:items-start text-center md:text-left px-2"
+          >
             <span className="text-[50px] md:text-[56px] lg:text-[64px] font-semibold text-black leading-none tracking-tighter">
               95%
             </span>
             <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-61.25 font-medium">
-              of customers that buy from this merchant give them a 4 or 5-star rating
+              of customers that buy from this merchant give them a 4 or 5-star
+              rating
             </p>
           </motion.div>
 
           {/* Middle Metric: Overall Rating with Wavy lines */}
-          <motion.div variants={itemVariants} className="flex items-center justify-center gap-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center justify-center gap-2"
+          >
             <LeftWavyLine />
             <div className="flex flex-col items-center">
               <span className="text-[12px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
@@ -230,7 +254,10 @@ export default function Testimonials() {
           </motion.div>
 
           {/* Right Metric: 4.8/5 breakdown progress bars */}
-          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-6 justify-center md:justify-start px-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col md:flex-row items-center gap-6 justify-center md:justify-start px-2"
+          >
             <span className="text-[45px] md:text-[50px] lg:text-[58px] font-semibold text-black leading-none tracking-tighter">
               4.8/5
             </span>
@@ -242,10 +269,18 @@ export default function Testimonials() {
                 { stars: "2 Stars", pct: 0.5 },
                 { stars: "1 Stars", pct: 0.5 },
               ].map((row) => (
-                <div key={row.stars} className="flex items-center text-[10px] font-bold text-gray-500 gap-2.5">
-                  <span className="w-9 text-right shrink-0 whitespace-nowrap">{row.stars}</span>
+                <div
+                  key={row.stars}
+                  className="flex items-center text-[10px] font-bold text-gray-500 gap-2.5"
+                >
+                  <span className="w-9 text-right shrink-0 whitespace-nowrap">
+                    {row.stars}
+                  </span>
                   <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                    <div className="bg-black h-full rounded-full" style={{ width: `${row.pct}%` }} />
+                    <div
+                      className="bg-black h-full rounded-full"
+                      style={{ width: `${row.pct}%` }}
+                    />
                   </div>
                 </div>
               ))}
@@ -258,10 +293,15 @@ export default function Testimonials() {
           {/* Static Card */}
           <div className="flex">
             <Card className="border border-gray-100 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center  w-full min-h-55 select-none">
-              <span className="text-[20px] font-bold text-[#0D0D0D] mb-1.5">Excellent</span>
+              <span className="text-[20px] font-bold text-[#0D0D0D] mb-1.5">
+                Excellent
+              </span>
               <div className="flex gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className="w-5 h-5 bg-[#00B67A] flex items-center justify-center rounded-xs">
+                  <div
+                    key={i}
+                    className="w-5 h-5 bg-[#00B67A] flex items-center justify-center rounded-xs"
+                  >
                     <Star className="w-3.5 h-3.5 fill-white stroke-none" />
                   </div>
                 ))}
@@ -298,7 +338,10 @@ export default function Testimonials() {
                         <div className="flex justify-between items-center mb-4">
                           <div className="flex gap-0.5 text-[#FFA500]">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                              <Star
+                                key={i}
+                                className="w-3.5 h-3.5 fill-current"
+                              />
                             ))}
                           </div>
                           <span className="text-[11px] text-gray-400 font-semibold">

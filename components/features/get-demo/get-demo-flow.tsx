@@ -22,7 +22,8 @@ export default function GetDemoFlow() {
   );
   const [details, setDetails] = useState<DemoDetails | null>(null);
 
-  const canGoBack = step === "details" || (step === "schedule" && !!selectedDate);
+  const canGoBack =
+    step === "details" || (step === "schedule" && !!selectedDate);
 
   const handleBack = () => {
     if (step === "details") {
@@ -39,8 +40,8 @@ export default function GetDemoFlow() {
   };
 
   return (
-    <section className="overflow-hidden bg-white pb-14 md:pb-20">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="overflow-hidden bg-white py-24 md:py-32">
+      <div className="container mx-auto">
         <Card
           className={cn(
             "mx-auto overflow-hidden bg-[#FAFAFA] rounded-[2rem] border-gray-300 p-0 transition-[max-width] duration-500 ease-out md:rounded-2xl",
@@ -105,7 +106,7 @@ export default function GetDemoFlow() {
             </div>
           </div>
         </Card>
-      </div>  
+      </div>
     </section>
   );
 }

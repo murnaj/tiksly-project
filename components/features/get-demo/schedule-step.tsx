@@ -20,7 +20,8 @@ function getTimeSlotsForDate(date: Date): string[] {
   if (isToday(date) && isBefore(start, now)) {
     const minutesSinceMidnight = now.getHours() * 60 + now.getMinutes();
     const roundedMinutes =
-      Math.ceil(minutesSinceMidnight / SLOT_INTERVAL_MINUTES) * SLOT_INTERVAL_MINUTES;
+      Math.ceil(minutesSinceMidnight / SLOT_INTERVAL_MINUTES) *
+      SLOT_INTERVAL_MINUTES;
     start = addMinutes(day, roundedMinutes);
   }
 
@@ -53,7 +54,8 @@ export function ScheduleStep({
       <div
         className={cn(
           "grid gap-6",
-          selectedDate && "md:grid-cols-[minmax(0,1fr)_140px] xl:grid-cols-[minmax(0,1fr)_220px]",
+          selectedDate &&
+            "md:grid-cols-[minmax(0,1fr)_140px] xl:grid-cols-[minmax(0,1fr)_220px]",
         )}
       >
         <div className="min-w-0">
@@ -73,13 +75,23 @@ export function ScheduleStep({
             classNames={{
               root: "w-full",
               month: "w-full",
-              month_caption: "flex h-9 w-full items-center pr-1 text-[15px] font-semibold text-black",
+              month_caption:
+                "flex h-9 w-full items-center pr-1 text-[15px] font-semibold text-black",
               nav: "absolute right-0 top-0 flex items-center gap-1",
-              button_previous: "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
-              button_next: "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
-              weekdays: cn("flex w-full", selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7"),
-              weekday: "flex-1 text-[14px] h-[32px] w-[32px] font-medium text-gray-400 select-none",
-              week: cn("mt-2 flex w-full", selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7"),
+              button_previous:
+                "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
+              button_next:
+                "size-7 rounded-full p-0 flex items-center justify-center text-black hover:bg-gray-100",
+              weekdays: cn(
+                "flex w-full",
+                selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7",
+              ),
+              weekday:
+                "flex-1 text-[14px] h-[32px] w-[32px] font-medium text-gray-400 select-none",
+              week: cn(
+                "mt-2 flex w-full",
+                selectedDate ? "lg:gap-4 md:gap-0.5" : "gap-7",
+              ),
               day: "flex-1",
             }}
           />
@@ -105,7 +117,10 @@ export function ScheduleStep({
 
                 <div className="flex flex-col gap-2">
                   {slots.map((slot) => (
-                    <div key={slot} className="grid grid-cols-1 gap-2">
+                    <div
+                      key={slot}
+                      className={cn("grid gap-2", selectedTime === slot ? "grid-cols-2" : "grid-cols-1")}
+                    >
                       <Button
                         type="button"
                         onClick={() => onSelectTime(slot)}
@@ -118,7 +133,7 @@ export function ScheduleStep({
                       >
                         {slot}
                       </Button>
-                      {selectedTime === slot && (
+                      {selectedTime === slot && ( 
                         <Button
                           type="button"
                           onClick={onConfirm}

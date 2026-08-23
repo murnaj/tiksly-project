@@ -1,34 +1,27 @@
-import NavBar from "@/components/features/nav-bar";
-import HeroSection from "@/components/features/hero-section";
-import BrandLogos from "@/components/features/brand-logos";
-import CreatorRegions from "@/components/features/creator-regions";
-import PlatformFeatures from "@/components/features/platform-features";
-import OurProcess from "@/components/features/our-process";
-import FooterSection from "@/components/features/footer-section";
-import Reviews from "@/components/features/reviews";
-import BookCall from "@/components/features/book-call";
-import CaseStudies from "@/components/features/case-studies";
-import FaqCarousel from "@/components/features/faq-carousel";
-import Testimonials from "@/components/features/testimonials";
+import HeroSection from "@/components/features/home/hero-section";
+import BrandLogos from "@/components/features/common/brand-logos";
+import CreatorRegions from "@/components/features/common/creator-regions";
+import PlatformFeatures from "@/components/features/home/platform-features";
+import OurProcess from "@/components/features/common/our-process";
+import Reviews from "@/components/features/common/reviews";
+import BookCall from "@/components/features/common/book-call";
+import CaseStudies from "@/components/features/common/case-studies";
+import FaqCarousel from "@/components/features/common/faq-carousel";
+import Testimonials from "@/components/features/common/testimonials";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      <NavBar />
-      <main className="pb-20 select-none">
-        <HeroSection />
-        <BrandLogos />
-        <CreatorRegions />
-        <Reviews />
-        <PlatformFeatures />
-        <OurProcess />
-        <CaseStudies />
-        <Testimonials />
-        <FaqCarousel />
-        <BookCall />
-      </main>
-      <FooterSection />
-    </div>
+    <>
+      <HeroSection />
+      <BrandLogos />
+      <CreatorRegions />
+      <Reviews />
+      <PlatformFeatures />
+      <OurProcess />
+      <CaseStudies />
+      <Testimonials />
+      <FaqCarousel />
+      <BookCall />
+    </>
   );
 }
-

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import NavBar from "@/components/features/nav-bar";
-import FooterSection from "@/components/features/footer-section";
+import NavBar from "@/components/features/common/nav-bar";
+import FooterSection from "@/components/features/common/footer-section";
 import {
   FileText,
   UserCheck,
@@ -25,11 +25,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-
-      <main className="pt-28 md:pt-36 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto py-24 md:py-32 max-w-4xl">
           {/* Page Header */}
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#BCF96A] text-black text-xs md:text-sm font-bold rounded-full mb-4 shadow-xs">
@@ -40,7 +36,8 @@ export default function TermsOfServicePage() {
               Terms & Conditions
             </h1>
             <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              Please read these Terms and Conditions carefully before using our website and services.
+              Please read these Terms and Conditions carefully before using our
+              website and services.
             </p>
           </div>
 
@@ -55,7 +52,10 @@ export default function TermsOfServicePage() {
                 Introduction
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                Welcome to Tiksly. These Terms and Conditions govern your use of our website and services. By accessing or using our platform, you agree to comply with these terms. If you do not agree, please refrain from using our services.
+                Welcome to Tiksly. These Terms and Conditions govern your use of
+                our website and services. By accessing or using our platform,
+                you agree to comply with these terms. If you do not agree,
+                please refrain from using our services.
               </p>
             </section>
 
@@ -69,21 +69,29 @@ export default function TermsOfServicePage() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                  <h3 className="font-semibold text-black text-sm mb-1">Company</h3>
+                  <h3 className="font-semibold text-black text-sm mb-1">
+                    Company
+                  </h3>
                   <p className="text-gray-500 text-xs leading-relaxed">
                     “Company,” “we,” “our,” or “us” refers to Tiksly.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                  <h3 className="font-semibold text-black text-sm mb-1">User</h3>
+                  <h3 className="font-semibold text-black text-sm mb-1">
+                    User
+                  </h3>
                   <p className="text-gray-500 text-xs leading-relaxed">
-                    “User,” “you,” or “your” refers to anyone accessing our services.
+                    “User,” “you,” or “your” refers to anyone accessing our
+                    services.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                  <h3 className="font-semibold text-black text-sm mb-1">Services</h3>
+                  <h3 className="font-semibold text-black text-sm mb-1">
+                    Services
+                  </h3>
                   <p className="text-gray-500 text-xs leading-relaxed">
-                    “Services” refers to any features, products, or solutions offered by Tiksly.
+                    “Services” refers to any features, products, or solutions
+                    offered by Tiksly.
                   </p>
                 </div>
               </div>
@@ -106,7 +114,10 @@ export default function TermsOfServicePage() {
                   "You agree not to misuse, alter, or disrupt our platform in any way.",
                   "Unauthorized access, reverse engineering, or distribution of our content is strictly prohibited.",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm md:text-base text-gray-600">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-sm md:text-base text-gray-600"
+                  >
                     <span className="w-2 h-2 rounded-full bg-[#BCF96A] mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -131,7 +142,10 @@ export default function TermsOfServicePage() {
                   "You are responsible for maintaining the confidentiality of your login credentials.",
                   "We reserve the right to suspend or terminate accounts that violate these terms.",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm md:text-base text-gray-600">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-sm md:text-base text-gray-600"
+                  >
                     <span className="w-2 h-2 rounded-full bg-[#BCF96A] mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -156,7 +170,10 @@ export default function TermsOfServicePage() {
                   "We use secure third-party payment processors, and we do not store payment details.",
                   "Tiksly reserves the right to update pricing at any time with prior notice.",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm md:text-base text-gray-600">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-sm md:text-base text-gray-600"
+                  >
                     <span className="w-2 h-2 rounded-full bg-[#BCF96A] mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -181,7 +198,10 @@ export default function TermsOfServicePage() {
                   "Subscription-based services can be canceled at any time, but fees already paid are non-refundable.",
                   "If a user violates our terms, we reserve the right to terminate access without a refund.",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm md:text-base text-gray-600">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-sm md:text-base text-gray-600"
+                  >
                     <span className="w-2 h-2 rounded-full bg-[#BCF96A] mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -198,10 +218,12 @@ export default function TermsOfServicePage() {
                 Intellectual Property
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-                All content on this website, including text, graphics, logos, and software, is the property of Tiksly.
+                All content on this website, including text, graphics, logos,
+                and software, is the property of Tiksly.
               </p>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                You may not copy, distribute, or modify our content without explicit permission.
+                You may not copy, distribute, or modify our content without
+                explicit permission.
               </p>
             </section>
 
@@ -217,10 +239,12 @@ export default function TermsOfServicePage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-                Our website may contain links to external websites. We do not endorse or control their content.
+                Our website may contain links to external websites. We do not
+                endorse or control their content.
               </p>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                Users are advised to review third-party privacy policies and terms before engaging with external sites.
+                Users are advised to review third-party privacy policies and
+                terms before engaging with external sites.
               </p>
             </section>
 
@@ -236,10 +260,12 @@ export default function TermsOfServicePage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-                We do not guarantee that our services will be uninterrupted or error-free.
+                We do not guarantee that our services will be uninterrupted or
+                error-free.
               </p>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                Tiksly is not liable for any direct, indirect, or incidental damages resulting from your use of our services.
+                Tiksly is not liable for any direct, indirect, or incidental
+                damages resulting from your use of our services.
               </p>
             </section>
 
@@ -252,7 +278,8 @@ export default function TermsOfServicePage() {
                 Indemnification
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                You agree to indemnify and hold Tiksly harmless from any claims, losses, or damages arising from your violation of these terms.
+                You agree to indemnify and hold Tiksly harmless from any claims,
+                losses, or damages arising from your violation of these terms.
               </p>
             </section>
 
@@ -268,7 +295,8 @@ export default function TermsOfServicePage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                These terms are governed by the laws of Pakistan and the United States, depending on the applicable jurisdiction.
+                These terms are governed by the laws of Pakistan and the United
+                States, depending on the applicable jurisdiction.
               </p>
             </section>
 
@@ -284,10 +312,12 @@ export default function TermsOfServicePage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-                We reserve the right to update these Terms and Conditions at any time.
+                We reserve the right to update these Terms and Conditions at any
+                time.
               </p>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                Continued use of our services after changes signifies acceptance of the updated terms.
+                Continued use of our services after changes signifies acceptance
+                of the updated terms.
               </p>
             </section>
 
@@ -310,7 +340,10 @@ export default function TermsOfServicePage() {
                     <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
                       <Phone className="w-4 h-4 text-[#BCF96A]" />
                     </div>
-                    <a href="tel:+447412066394" className="hover:underline font-medium text-white">
+                    <a
+                      href="tel:+447412066394"
+                      className="hover:underline font-medium text-white"
+                    >
                       +44 7412 066394
                     </a>
                   </div>
@@ -318,7 +351,10 @@ export default function TermsOfServicePage() {
                     <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
                       <Mail className="w-4 h-4 text-[#BCF96A]" />
                     </div>
-                    <a href="mailto:sales@tiksly.com" className="hover:underline font-medium text-white">
+                    <a
+                      href="mailto:sales@tiksly.com"
+                      className="hover:underline font-medium text-white"
+                    >
                       sales@tiksly.com
                     </a>
                   </div>
@@ -331,8 +367,12 @@ export default function TermsOfServicePage() {
                       <MapPin className="w-4 h-4 text-[#BCF96A]" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-semibold text-white">Pakistan Address</span>
-                      <span className="text-gray-400">Sarwar Colony, Tandlianwala, Punjab, Pakistan</span>
+                      <span className="font-semibold text-white">
+                        Pakistan Address
+                      </span>
+                      <span className="text-gray-400">
+                        Sarwar Colony, Tandlianwala, Punjab, Pakistan
+                      </span>
                     </div>
                   </div>
 
@@ -341,8 +381,12 @@ export default function TermsOfServicePage() {
                       <Building2 className="w-4 h-4 text-[#BCF96A]" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-semibold text-white">USA Address</span>
-                      <span className="text-gray-400">1001 S Main St, Suite 500, Kalispell, MT 59901, USA</span>
+                      <span className="font-semibold text-white">
+                        USA Address
+                      </span>
+                      <span className="text-gray-400">
+                        1001 S Main St, Suite 500, Kalispell, MT 59901, USA
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -350,9 +394,5 @@ export default function TermsOfServicePage() {
             </section>
           </div>
         </div>
-      </main>
-
-      <FooterSection />
-    </div>
   );
 }

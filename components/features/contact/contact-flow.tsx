@@ -25,10 +25,13 @@ import {
 
 type ViewType = "hub" | "brand" | "creator" | "agency";
 
-export default function ContactFlow({ initialView = "hub" }: { initialView?: ViewType }) {
+export default function ContactFlow({
+  initialView = "hub",
+}: {
+  initialView?: ViewType;
+}) {
   const [view, setView] = useState<ViewType>(initialView);
 
-  // Brand Form State
   const [brandStep, setBrandStep] = useState<number>(1);
   const [brandName, setBrandName] = useState("");
   const [brandEmail, setBrandEmail] = useState("");
@@ -37,12 +40,10 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
   const [brandMarket, setBrandMarket] = useState("United States");
   const [brandNeed, setBrandNeed] = useState("Full shop management");
   const [brandChallenge, setBrandChallenge] = useState("");
-  const [brandErrors, setBrandErrors] = useState<{ name?: boolean; email?: boolean }>({});
-
-  // Strategy Call Slot Selection
-  // const [_, setSelectedSlot] = useState<string | null>(null);
-
-  // Creator Form State
+  const [brandErrors, setBrandErrors] = useState<{
+    name?: boolean;
+    email?: boolean;
+  }>({});
   const [creatorSubmitted, setCreatorSubmitted] = useState(false);
   const [creatorName, setCreatorName] = useState("");
   const [creatorHandle, setCreatorHandle] = useState("");
@@ -50,8 +51,6 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
   const [creatorGmv, setCreatorGmv] = useState("");
   const [creatorNiche, setCreatorNiche] = useState("");
   const [creatorCountry, setCreatorCountry] = useState("");
-
-  // Agency Form State
   const [agencySubmitted, setAgencySubmitted] = useState(false);
   const [agencyName, setAgencyName] = useState("");
   const [agencyWebsite, setAgencyWebsite] = useState("");
@@ -59,17 +58,16 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
   const [agencyVolume, setAgencyVolume] = useState("");
   const [agencyMarkets, setAgencyMarkets] = useState("");
 
-  // Navigation Helper
   const navigateToView = (targetView: ViewType) => {
     setView(targetView);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Step 1 Validation
   const handleBrandStep1Next = () => {
     const errors: { name?: boolean; email?: boolean } = {};
     if (!brandName.trim()) errors.name = true;
-    if (!brandEmail.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(brandEmail)) errors.email = true;
+    if (!brandEmail.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(brandEmail))
+      errors.email = true;
 
     if (Object.keys(errors).length > 0) {
       setBrandErrors(errors);
@@ -84,9 +82,8 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
     setBrandStep(4);
   };
 
-
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 pb-8 md:pb-16">
+    <div className="w-full container mx-auto min-h-screen flex flex-col justify-center items-center relative w-full overflow-hidden relative py-24 md:py-32">
       <AnimatePresence mode="wait">
         {/* ==================== HUB VIEW ==================== */}
         {view === "hub" && (
@@ -98,13 +95,13 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
             transition={{ duration: 0.35 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter text-black leading-tight mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter text-black leading-tight mb-6">
               Let&apos;s talk{" "}
               <span className="inline-block bg-[#BCF96A] text-black px-3.5 py-0.5 rounded-2xl">
                 growth
               </span>
             </h1>
-            <p className="text-gray-500 text-base sm:text-lg mb-10 max-w-lg mx-auto">
+            <p className="text-gray-500 text-base sm:text-lg mb-12 max-w-lg mx-auto">
               Pick the option that fits you — it takes two minutes
             </p>
 
@@ -121,7 +118,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Store className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m a brand</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">
+                    I&apos;m a brand
+                  </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     I want to grow my revenue on TikTok Shop
                   </p>
@@ -141,7 +140,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Video className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m a creator</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">
+                    I&apos;m a creator
+                  </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     I&apos;m looking for brand partnerships and deals
                   </p>
@@ -161,7 +162,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-12 h-12 rounded-2xl bg-[#BCF96A] flex items-center justify-center text-black mb-5 group-hover:scale-105 transition-transform">
                     <Handshake className="w-6 h-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">I&apos;m an agency</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">
+                    I&apos;m an agency
+                  </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     I want to white-label Tiksly&apos;s TikTok Shop services
                   </p>
@@ -227,19 +230,19 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                     <div
                       className={cn(
                         "h-1.5 flex-1 rounded-full transition-all duration-300",
-                        brandStep >= 1 ? "bg-black" : "bg-gray-100"
+                        brandStep >= 1 ? "bg-black" : "bg-gray-100",
                       )}
                     />
                     <div
                       className={cn(
                         "h-1.5 flex-1 rounded-full transition-all duration-300",
-                        brandStep >= 2 ? "bg-black" : "bg-gray-100"
+                        brandStep >= 2 ? "bg-black" : "bg-gray-100",
                       )}
                     />
                     <div
                       className={cn(
                         "h-1.5 flex-1 rounded-full transition-all duration-300",
-                        brandStep >= 3 ? "bg-black" : "bg-gray-100"
+                        brandStep >= 3 ? "bg-black" : "bg-gray-100",
                       )}
                     />
                   </div>
@@ -260,11 +263,13 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                             "w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all",
                             brandErrors.name
                               ? "border-red-500 focus:border-red-600"
-                              : "border-gray-200 focus:border-black"
+                              : "border-gray-200 focus:border-black",
                           )}
                         />
                         {brandErrors.name && (
-                          <p className="text-xs text-red-500 mt-1">Please enter your name</p>
+                          <p className="text-xs text-red-500 mt-1">
+                            Please enter your name
+                          </p>
                         )}
                       </div>
 
@@ -281,7 +286,7 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                             "w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all",
                             brandErrors.email
                               ? "border-red-500 focus:border-red-600"
-                              : "border-gray-200 focus:border-black"
+                              : "border-gray-200 focus:border-black",
                           )}
                         />
                         {brandErrors.email && (
@@ -325,10 +330,18 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                             <SelectValue placeholder="Select monthly revenue" />
                           </SelectTrigger>
                           <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <SelectItem value="Just starting ($0)">Just starting ($0)</SelectItem>
-                            <SelectItem value="$1K – $10K">$1K – $10K</SelectItem>
-                            <SelectItem value="$10K – $50K">$10K – $50K</SelectItem>
-                            <SelectItem value="$50K – $250K">$50K – $250K</SelectItem>
+                            <SelectItem value="Just starting ($0)">
+                              Just starting ($0)
+                            </SelectItem>
+                            <SelectItem value="$1K – $10K">
+                              $1K – $10K
+                            </SelectItem>
+                            <SelectItem value="$10K – $50K">
+                              $10K – $50K
+                            </SelectItem>
+                            <SelectItem value="$50K – $250K">
+                              $50K – $250K
+                            </SelectItem>
                             <SelectItem value="$250K+">$250K+</SelectItem>
                           </SelectContent>
                         </Select>
@@ -338,15 +351,24 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                           Which market?
                         </label>
-                        <Select value={brandMarket} onValueChange={setBrandMarket}>
+                        <Select
+                          value={brandMarket}
+                          onValueChange={setBrandMarket}
+                        >
                           <SelectTrigger className="w-full h-12 px-4 rounded-xl border-gray-200 focus:border-black text-sm bg-white text-black font-medium">
                             <SelectValue placeholder="Select market" />
                           </SelectTrigger>
                           <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <SelectItem value="United States">United States</SelectItem>
-                            <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                            <SelectItem value="United States">
+                              United States
+                            </SelectItem>
+                            <SelectItem value="United Kingdom">
+                              United Kingdom
+                            </SelectItem>
                             <SelectItem value="Europe">Europe</SelectItem>
-                            <SelectItem value="Multiple markets">Multiple markets</SelectItem>
+                            <SelectItem value="Multiple markets">
+                              Multiple markets
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -360,12 +382,18 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                             <SelectValue placeholder="Select service needed" />
                           </SelectTrigger>
                           <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg">
-                            <SelectItem value="Full shop management">Full shop management</SelectItem>
+                            <SelectItem value="Full shop management">
+                              Full shop management
+                            </SelectItem>
                             <SelectItem value="Affiliate & creator management">
                               Affiliate & creator management
                             </SelectItem>
-                            <SelectItem value="TikTok Shop ads">TikTok Shop ads</SelectItem>
-                            <SelectItem value="UGC content">UGC content</SelectItem>
+                            <SelectItem value="TikTok Shop ads">
+                              TikTok Shop ads
+                            </SelectItem>
+                            <SelectItem value="UGC content">
+                              UGC content
+                            </SelectItem>
                             <SelectItem value="Not sure — advise me">
                               Not sure — advise me
                             </SelectItem>
@@ -433,7 +461,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                         You&apos;re in, {brandName.split(" ")[0] || "there"}!
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed max-w-md">
-                        We&apos;ve got your details! Our team will review your shop and email you within 24 hours with your custom growth strategy.
+                        We&apos;ve got your details! Our team will review your
+                        shop and email you within 24 hours with your custom
+                        growth strategy.
                       </p>
                       <button
                         onClick={() => navigateToView("hub")}
@@ -465,7 +495,9 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                           Message us on WhatsApp
                         </a>
                       </p>
-                      <span className="text-gray-400 text-xs">Average reply time: under 2 hours</span>
+                      <span className="text-gray-400 text-xs">
+                        Average reply time: under 2 hours
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -480,7 +512,8 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                       ))}
                     </div>
                     <p className="text-gray-700 text-xs sm:text-sm italic leading-relaxed mb-3">
-                      &ldquo;They took our shop from nearly closed to $8K in sales in the first month.&rdquo;
+                      &ldquo;They took our shop from nearly closed to $8K in
+                      sales in the first month.&rdquo;
                     </p>
                     <span className="text-xs font-semibold text-gray-500 block">
                       — Client name &middot; Brand &middot; United States
@@ -644,7 +677,8 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   </button>
 
                   <p className="text-xs text-gray-400 text-center mt-4">
-                    We review applications weekly and reach out when there&apos;s a brand fit.
+                    We review applications weekly and reach out when
+                    there&apos;s a brand fit.
                   </p>
                 </div>
               ) : (
@@ -652,10 +686,13 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-16 h-16 rounded-full bg-[#BCF96A] text-black flex items-center justify-center mx-auto mb-4">
                     <Video className="w-8 h-8 text-black" />
                   </div>
-                  <h2 className="text-2xl font-extrabold text-black">Application received!</h2>
+                  <h2 className="text-2xl font-extrabold text-black">
+                    Application received!
+                  </h2>
                   <p className="text-gray-600 text-sm max-w-md mx-auto leading-relaxed">
-                    We review every week. If your profile fits an active brand campaign, you&apos;ll
-                    hear from us by email — keep an eye on your inbox.
+                    We review every week. If your profile fits an active brand
+                    campaign, you&apos;ll hear from us by email — keep an eye on
+                    your inbox.
                   </p>
                   <button
                     onClick={() => navigateToView("hub")}
@@ -694,7 +731,8 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                     Partner with Tiksly
                   </h2>
                   <p className="text-gray-500 text-sm mb-4">
-                    White-label our TikTok Shop fulfillment under your agency&apos;s brand.
+                    White-label our TikTok Shop fulfillment under your
+                    agency&apos;s brand.
                   </p>
 
                   <div className="flex flex-wrap gap-2 pb-2">
@@ -783,7 +821,8 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   </button>
 
                   <p className="text-xs text-gray-400 text-center mt-4">
-                    Goes straight to partners@tiksly.com — personal reply within 24 hours.
+                    Goes straight to partners@tiksly.com — personal reply within
+                    24 hours.
                   </p>
                 </div>
               ) : (
@@ -791,10 +830,12 @@ export default function ContactFlow({ initialView = "hub" }: { initialView?: Vie
                   <div className="w-16 h-16 rounded-full bg-[#BCF96A] text-black flex items-center justify-center mx-auto mb-4">
                     <Handshake className="w-8 h-8 text-black" />
                   </div>
-                  <h2 className="text-2xl font-extrabold text-black">Request sent!</h2>
+                  <h2 className="text-2xl font-extrabold text-black">
+                    Request sent!
+                  </h2>
                   <p className="text-gray-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Our partnerships lead will reply personally within 24 hours with wholesale rates and
-                    our white-label deck.
+                    Our partnerships lead will reply personally within 24 hours
+                    with wholesale rates and our white-label deck.
                   </p>
                   <button
                     onClick={() => navigateToView("hub")}

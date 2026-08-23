@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, Clock, MessageSquare } from "lucide-react";
+import Image from "next/image";
 
 export function EventInfoPanel({
   showBack,
@@ -22,9 +23,12 @@ export function EventInfoPanel({
             <ArrowLeft className="size-4" />
           </button>
         )}
-        <span className="text-lg lg:text-2xl font-extrabold tracking-tighter text-black">
-          tiksly
-        </span>
+        <Image
+          src="/branding/logo-green.svg"
+          alt="Logo"
+          width={100}
+          height={100}
+        />
       </div>
 
       <div className="flex flex-col gap-4 border-t border-gray-300 pt-6">

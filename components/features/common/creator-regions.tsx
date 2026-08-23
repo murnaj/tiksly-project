@@ -2,44 +2,21 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import RegionsData from "@/data/regions";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const regions = [
-  { name: "United States", icon: "/flags/usa.jpg" },
-  { name: "United Kingdom", icon: "/flags/uk.jpg" },
-  // { name: "Belgium", icon: "/flags/belgium.jpg" },
-  // { name: "Brazil", icon: "/flags/brazil.jpg" },
-  { name: "Germany", icon: "/flags/germany.jpg" },
-  { name: "France", icon: "/flags/france.jpg" },
-  { name: "Spain", icon: "/flags/spain.jpg" },
-  { name: "Italy", icon: "/flags/italy.jpg" },
-  // { name: "Japan", icon: "/flags/japan.jpg" },
-  { name: "Ireland", icon: "/flags/ireland.jpg" },
-  { name: "Netherlands", icon: "/flags/netherland.jpg" },
-  { name: "Singapore", icon: "/flags/singapore.jpg" },
-  { name: "Malaysia", icon: "/flags/malaysia.jpg" },
-  { name: "Philippines", icon: "/flags/philippines.jpg" },
-  // { name: "Poland", icon: "/flags/poland.jpg" },
-  { name: "Thailand", icon: "/flags/thailand.jpg" },
-  { name: "Vietnam", icon: "/flags/vietnam.jpg" },
-  { name: "Indonesia", icon: "/flags/indonesia.jpg" },
-  { name: "Mexico", icon: "/flags/mexio.jpg" },
-];
-
-const marqueeItems = [...regions];
+const marqueeItems = [...RegionsData()];
 
 export default function CreatorRegions() {
   return (
-    <section className="bg-white py-10 w-full overflow-hidden border-b border-gray-50/50">
-      {/* Title */}
+    <section className="bg-white w-full overflow-hidden">
       <div className="container mx-auto mb-6 text-center">
         <span className="text-[#212120]/80 text-[15px] font-semibold tracking-tight">
           Making brands money across:
         </span>
       </div>
 
-      {/* Infinite Marquee Container */}
       <motion.div
         initial={{ opacity: 1 }}
         whileInView={{ opacity: 1 }}
@@ -47,10 +24,7 @@ export default function CreatorRegions() {
         transition={{ duration: 0.6, ease: EASE }}
         className="relative w-full overflow-hidden py-2"
       >
-
-        {/* Marquee Row */}
         <div className="flex flex-nowrap w-max">
-          {/* First loop of regions */}
           <motion.div
             className="flex items-center gap-3 md:gap-4 flex-nowrap shrink-0 pr-3 md:pr-4"
             animate={{ x: [0, "-100%"] }}
@@ -83,7 +57,6 @@ export default function CreatorRegions() {
             })}
           </motion.div>
 
-          {/* Second loop of regions (identical duplicate for seamless scrolling) */}
           <motion.div
             className="flex items-center gap-3 md:gap-4 flex-nowrap shrink-0 pr-3 md:pr-4"
             animate={{ x: [0, "-100%"] }}

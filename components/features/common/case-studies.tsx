@@ -53,7 +53,8 @@ const CASE_STUDIES_DATA = [
     image: "/case-study/2.webp",
     // tag: "Blogger Outreach",
     title: "Raelenesa handbag brand",
-    description: "$45.35K GMV in 90 days A fashion handbag brand went from nothing to 5,270 sales and a 4.6★ rating through category approval, creator seeding, and a live commerce strategy. And we were just warming up.",
+    description:
+      "$45.35K GMV in 90 days A fashion handbag brand went from nothing to 5,270 sales and a 4.6★ rating through category approval, creator seeding, and a live commerce strategy. And we were just warming up.",
     buttonText: "Read the full story",
   },
   {
@@ -62,7 +63,8 @@ const CASE_STUDIES_DATA = [
     image: "/case-study/1.webp",
     // tag: "Blogger Outreach and Niche Edits",
     title: "The 15 hour side hustle",
-    description: "$38,142 in a single December on 15 hours a week A full time office worker built a holiday shop that netted 34% margins and held a 4.68★ store health score, powered entirely by creators and automation. No expensive ads. No burnout.",
+    description:
+      "$38,142 in a single December on 15 hours a week A full time office worker built a holiday shop that netted 34% margins and held a 4.68★ store health score, powered entirely by creators and automation. No expensive ads. No burnout.",
     buttonText: "Read the full story",
   },
   {
@@ -71,7 +73,8 @@ const CASE_STUDIES_DATA = [
     image: "/case-study/4.webp",
     // tag: "Blogger Outreach",
     title: "Creator seeding launch",
-    description: "Zero to 1,000 orders in the first month A brand new shop with no reviews and no ranking hit its first 1,000 orders in 30 days through a micro creator seeding system publishing content at scale.",
+    description:
+      "Zero to 1,000 orders in the first month A brand new shop with no reviews and no ranking hit its first 1,000 orders in 30 days through a micro creator seeding system publishing content at scale.",
     buttonText: "Read the full story",
   },
   {
@@ -80,7 +83,8 @@ const CASE_STUDIES_DATA = [
     image: "/case-study/5.webp",
     // tag: "Blogger Outreach and Niche Edits",
     title: "Stay at home mom, affiliate",
-    description: "$800 startup to $5,000 a month Proof the model works at any size. Consistent content, smart product picks, and 5,000+ processed orders built a reliable home business in six months.",
+    description:
+      "$800 startup to $5,000 a month Proof the model works at any size. Consistent content, smart product picks, and 5,000+ processed orders built a reliable home business in six months.",
     buttonText: "Read the full story",
   },
   {
@@ -98,7 +102,6 @@ const CASE_STUDIES_DATA = [
 export default function CaseStudies() {
   const [api, setApi] = useState<CarouselApi>();
 
-  // Custom Autoplay configuration (interaction-aware)
   useEffect(() => {
     if (!api) return;
 
@@ -128,15 +131,14 @@ export default function CaseStudies() {
   }, [api]);
 
   return (
-    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white w-full pt-20 md:pt-28  lg:pt-20  overflow-hidden">
-      <div className="container mx-auto px-3 lg:px-4">
-        {/* Section Header */}
+    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white w-full pb-14 md:pb-18 overflow-hidden">
+      <div className="container mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mx-auto mb-16 px-2"
+          className="text-center mx-auto mb-16"
         >
           <motion.h2
             variants={itemVariants}
@@ -148,7 +150,9 @@ export default function CaseStudies() {
             variants={itemVariants}
             className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto"
           >
-            We don&apos;t do vanity metrics or screenshots you can&apos;t verify. Here&apos;s what actually happens when brands and sellers hand us the wheel.
+            We don&apos;t do vanity metrics or screenshots you can&apos;t
+            verify. Here&apos;s what actually happens when brands and sellers
+            hand us the wheel.
           </motion.p>
         </motion.div>
 
@@ -222,7 +226,9 @@ export default function CaseStudies() {
             className="px-7 py-3.5 bg-black text-white rounded-full text-[15px] font-bold hover:bg-neutral-800 transition-all hover:scale-[1.02] active:scale-95 inline-flex items-center gap-2 group cursor-pointer"
           >
             <span>See all case studies</span>
-            <span className="transition-transform group-hover:translate-x-1 duration-200">→</span>
+            <span className="transition-transform group-hover:translate-x-1 duration-200">
+              →
+            </span>
           </Link>
         </div>
       </div>

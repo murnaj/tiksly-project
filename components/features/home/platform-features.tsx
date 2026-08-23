@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Store, Users, Megaphone, GraduationCap, Radio, Video, Info } from "lucide-react";
+import {
+  Store,
+  Users,
+  Megaphone,
+  GraduationCap,
+  Radio,
+  Video,
+  Info,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -85,16 +93,19 @@ const cardData = [
 
 export default function PlatformFeatures() {
   return (
-    <section className="w-full bg-white pt-16 lg:pt-20  overflow-hidden">
-      <div className="container mx-auto px-3 lg:px-4">
+    <section className="w-full bg-white pb-14 md:pb-18 overflow-hidden">
+      <div className="container mx-auto">
         {/* Section Header */}
-        <div className="text-center mx-auto mb-16 px-2">
+        <div className="text-center mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6">
             One agency. Every piece of your TikTok Shop.
-
           </h2>
           <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
-           Right now you&apos;re probably stitching together a freelancer here, an influencer guy there, and a VA who ghosts you every other week. That&apos;s why it&apos;s not working. We do the whole thing under one roof, with one strategy and one team that actually picks up the phone.
+            Right now you&apos;re probably stitching together a freelancer here,
+            an influencer guy there, and a VA who ghosts you every other week.
+            That&apos;s why it&apos;s not working. We do the whole thing under
+            one roof, with one strategy and one team that actually picks up the
+            phone.
           </p>
         </div>
 
@@ -112,24 +123,30 @@ export default function PlatformFeatures() {
             const Icon = card.icon;
 
             return (
-              <motion.div key={card.id} variants={itemVariants} className="flex h-full">
+              <motion.div
+                key={card.id}
+                variants={itemVariants}
+                className="flex h-full"
+              >
                 <Card
-                  className={`relative flex flex-col justify-between w-full px-4 py-6 md:px-6 md:py-6 rounded-[2rem] border transition-all duration-300  ${isLime
-                    ? "bg-[#BCF96A] border-none text-black"
-                    : isDark
-                      ? "bg-[#0D0D0D] border-gray-800 text-white"
-                      : "bg-[#F9F9F9] border-gray-100 text-black"
-                    }`}
+                  className={`relative flex flex-col justify-between w-full px-4 py-6 md:px-6 md:py-6 rounded-[2rem] border transition-all duration-300  ${
+                    isLime
+                      ? "bg-[#BCF96A] border-none text-black"
+                      : isDark
+                        ? "bg-[#0D0D0D] border-gray-800 text-white"
+                        : "bg-[#F9F9F9] border-gray-100 text-black"
+                  }`}
                 >
                   <div>
                     {/* Icon Badge */}
                     <div
-                      className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-xs ${isLime
+                      className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-xs ${
+                        isLime
                           ? "bg-black text-white"
                           : isDark
                             ? "bg-[#BCF96A] text-black"
                             : "bg-[#BCF96A] text-black"
-                        }`}
+                      }`}
                     >
                       <Icon className="w-6 h-6" />
                     </div>
@@ -137,8 +154,9 @@ export default function PlatformFeatures() {
                     {/* Header */}
                     <div className="mb-6">
                       <h3
-                        className={`text-2xl md:text-3xl font-bold tracking-tight ${isDark ? "text-white" : "text-black"
-                          }`}
+                        className={`text-2xl md:text-3xl font-bold tracking-tight ${
+                          isDark ? "text-white" : "text-black"
+                        }`}
                       >
                         {card.title}
                       </h3>
@@ -146,8 +164,13 @@ export default function PlatformFeatures() {
 
                     {/* Description */}
                     <p
-                      className={`text-[14px] md:text-[15px] leading-relaxed mb-8 ${isLime ? "text-black/80" : isDark ? "text-gray-300" : "text-gray-600"
-                        }`}
+                      className={`text-[14px] md:text-[15px] leading-relaxed mb-8 ${
+                        isLime
+                          ? "text-black/80"
+                          : isDark
+                            ? "text-gray-300"
+                            : "text-gray-600"
+                      }`}
                     >
                       {card.description}
                     </p>
@@ -156,10 +179,11 @@ export default function PlatformFeatures() {
                     <div className="mb-10">
                       <Button
                         variant={isDark ? "outline" : "default"}
-                        className={`w-full rounded-full px-7 py-5 font-semibold text-[15px] cursor-pointer transition-all duration-200 hover:scale-[1.03] active:scale-95 border-none shadow-none whitespace-normal text-center ${isDark
-                          ? "bg-white text-black hover:bg-gray-150"
-                          : "bg-black text-white hover:bg-gray-800"
-                          }`}
+                        className={`w-full rounded-full px-7 py-5 font-semibold text-[15px] cursor-pointer transition-all duration-200 hover:scale-[1.03] active:scale-95 border-none shadow-none whitespace-normal text-center ${
+                          isDark
+                            ? "bg-white text-black hover:bg-gray-150"
+                            : "bg-black text-white hover:bg-gray-800"
+                        }`}
                       >
                         {card.buttonText}
                       </Button>
@@ -182,7 +206,9 @@ export default function PlatformFeatures() {
           <div className="flex items-start gap-3">
             <Info className="w-5 h-5 text-gray-700 shrink-0 mt-0.5" />
             <p className="text-[14px] md:text-[15px] font-medium text-gray-700 leading-relaxed">
-              If you need account setup, category approval, violation removal, automation, 3PL, or reimbursements? We do all of that too. Please check our services dropdown
+              If you need account setup, category approval, violation removal,
+              automation, 3PL, or reimbursements? We do all of that too. Please
+              check our services dropdown
             </p>
           </div>
         </motion.div>

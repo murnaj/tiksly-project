@@ -35,8 +35,8 @@ export default function ComparisonTable() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white border-y border-gray-100 select-none">
-      <div className="container mx-auto px-4 lg:px-6">
+    <section className="pb-14 md:pb-18 bg-white">
+      <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,8 @@ export default function ComparisonTable() {
               Why settle for less?
             </h2>
             <p className="text-gray-500 text-[15px] md:text-[17px] leading-relaxed font-medium">
-              See how our streamlined approach to TikTok Shop account creation compares against the slow, traditional agency model.
+              See how our streamlined approach to TikTok Shop account creation
+              compares against the slow, traditional agency model.
             </p>
           </motion.div>
         </div>
@@ -83,18 +84,24 @@ export default function ComparisonTable() {
             {/* Body */}
             <div className="divide-y divide-gray-100 bg-white">
               {comparisonData.map((row, idx) => (
-                <div key={idx} className="grid grid-cols-[1.2fr_1.1fr_1.1fr] md:grid-cols-3 hover:bg-gray-50/50 transition-colors">
+                <div
+                  key={idx}
+                  className="grid grid-cols-[1.2fr_1.1fr_1.1fr] md:grid-cols-3 hover:bg-gray-50/50 transition-colors"
+                >
                   <div className="p-3 md:p-6 flex items-center">
                     <span className="text-[12px] md:text-[16px] font-semibold text-gray-800">
                       {row.feature}
                     </span>
                   </div>
-                  
+
                   {/* Tiksly Column */}
                   <div className="p-3 md:p-6 border-l border-gray-200 bg-[#BCF96A]/5">
                     <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
                       <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#BCF96A] flex items-center justify-center shrink-0 shadow-sm">
-                        <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-black" strokeWidth={3} />
+                        <Check
+                          className="w-2.5 h-2.5 md:w-3 md:h-3 text-black"
+                          strokeWidth={3}
+                        />
                       </div>
                       <span className="text-[11px] md:text-[16px] font-bold text-black text-center">
                         {row.tiksly}

@@ -35,7 +35,7 @@ export default function AuthorProfile({
   return (
     <>
       <section className="bg-linear-to-b from-white via-white to-[#F3F5F9]">
-        <div className="container mx-auto px-3 lg:px-4 py-16 md:py-20">
+        <div className="container mx-auto py-24 md:py-32">
           <div className="mx-auto flex max-w-xl flex-col items-center gap-6 rounded-[2rem] border border-gray-100 bg-white p-8 md:p-10 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
             <p className="text-[13px] font-medium uppercase tracking-wide text-gray-400">
               This is an article written by:
@@ -94,14 +94,21 @@ export default function AuthorProfile({
       </section>
 
       {posts.length > 0 && (
-        <section id="all-articles" className="scroll-mt-24 bg-white py-16 md:py-20">
-          <div className="container mx-auto px-3 lg:px-4">
+        <section
+          id="all-articles"
+          className="scroll-mt-24 bg-white pt-14 md:pt-18 pb-24 md:pb-32"
+        >
+          <div className="container mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-black mb-8 md:mb-10 text-center">
               Articles by {author.name.split(" ")[0]}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {posts.map((post) => (
-                <PostCard key={post.slug} post={post} author={getAuthorForPost(post)} />
+                <PostCard
+                  key={post.slug}
+                  post={post}
+                  author={getAuthorForPost(post)}
+                />
               ))}
             </div>
           </div>

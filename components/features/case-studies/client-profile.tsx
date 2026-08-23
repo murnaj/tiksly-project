@@ -35,7 +35,7 @@ export default function ClientProfile({
   return (
     <>
       <section className="bg-linear-to-b from-white via-white to-[#F3F5F9]">
-        <div className="container mx-auto px-3 lg:px-4 py-10 md:py-14">
+        <div className="container mx-auto py-10 md:py-14">
           <div className="mx-auto flex max-w-xl flex-col items-center gap-6 rounded-[2rem] border border-gray-100 bg-white p-8 md:p-10 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
             <p className="text-[13px] font-medium uppercase tracking-wide text-gray-400">
               This is a case study client:
@@ -94,8 +94,11 @@ export default function ClientProfile({
       </section>
 
       {studies.length > 0 && (
-        <section id="all-case-studies" className="scroll-mt-24 bg-white py-10 md:py-16">
-          <div className="container mx-auto px-3 lg:px-4">
+        <section
+          id="all-case-studies"
+          className="scroll-mt-24 bg-white py-10 md:py-16"
+        >
+          <div className="container mx-auto">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-black mb-8 md:mb-10 text-center">
               Case Studies with {client.name.split(" ")[0]}
             </h2>

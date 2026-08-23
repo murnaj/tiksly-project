@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Video, Target, BarChart2, Users, DollarSign } from "lucide-react";
+import {
+  FileText,
+  Video,
+  Target,
+  BarChart2,
+  Users,
+  DollarSign,
+} from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -40,7 +47,10 @@ const needs = [
 
 const container = {
   hidden: { opacity: 1 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
 };
 
 const item = {
@@ -51,7 +61,7 @@ const item = {
 export default function WhatWeNeed() {
   return (
     <section className="bg-white py-16 md:py-24 border-b border-gray-50">
-      <div className="container mx-auto px-3 lg:px-4">
+      <div className="container mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -70,7 +80,8 @@ export default function WhatWeNeed() {
               <span className="text-gray-300"> From You</span>
             </h2>
             <p className="text-gray-500 text-[15px] leading-relaxed max-w-sm md:mb-1">
-              To get started, have these 6 things ready and we can launch your first campaign within days.
+              To get started, have these 6 things ready and we can launch your
+              first campaign within days.
             </p>
           </div>
         </motion.div>
