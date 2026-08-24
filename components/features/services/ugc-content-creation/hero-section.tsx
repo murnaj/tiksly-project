@@ -198,7 +198,7 @@ const HeroSection = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.7 }}
-                  className="absolute left-0 sm:left-4 md:left-0 top-4 sm:top-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
+                  className="absolute left-2 min-[400px]:left-4 sm:left-4 md:left-0 top-0 sm:top-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
                 >
                   <HlsVideo 
                     videoId="ce3082f8b2b1151137c5b9a82aa9b342" 
@@ -212,7 +212,7 @@ const HeroSection = () => {
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.7 }}
-                  className="absolute right-0 sm:right-4 md:right-0 bottom-4 sm:bottom-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
+                  className="absolute right-2 min-[400px]:right-4 sm:right-4 md:right-0 bottom-0 sm:bottom-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
                 >
                   <ChatAnimation />
                 </motion.div>
