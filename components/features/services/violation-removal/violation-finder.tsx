@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 type ViolationItem = {
   id: string;
@@ -284,6 +285,15 @@ export default function ViolationFinder() {
             Don&apos;t see yours, or not sure which one it is? We handle 30+
             violation types.
           </p>
+
+          <div className="flex justify-center">
+            <Link
+              href="/book-a-meeting"
+              className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
+            >
+              Send us your violation
+            </Link>
+          </div>
         </div>
       </div>
     </section>

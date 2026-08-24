@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, CreditCard } from "lucide-react";
 import { Mail } from "lucide-react";
+import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -347,6 +348,15 @@ export default function RequirementsSection() {
               ))}
             </motion.div>
           </AnimatePresence>
+        </div>
+
+        <div className="flex justify-center">
+          <Link
+            href="/book-a-meeting"
+            className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
+          >
+            Start my Setup
+          </Link>
         </div>
       </div>
     </section>

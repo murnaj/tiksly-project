@@ -35,8 +35,8 @@ const itemVariants = {
   },
 };
 
-// Case studies database matching images in public/case-study/
-const CASE_STUDIES_DATA = [
+// Working examples database matching images in public/case-study/
+const WORKING_EXAMPLES_DATA = [
   {
     id: "cs-1",
     image: "/case-study/3.webp",
@@ -130,17 +130,17 @@ const WorkingExamples = () => {
             className="w-full overflow-hidden"
           >
             <CarouselContent className="-ml-4 md:-ml-6">
-              {CASE_STUDIES_DATA.map((study) => (
+              {WORKING_EXAMPLES_DATA.map((example) => (
                 <CarouselItem
-                  key={study.id}
+                  key={example.id}
                   className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3 flex"
                 >
                   <Card className="bg-[#0D0D0D]  rounded-[2rem] overflow-hidden flex flex-col justify-between w-full h-full  transition-all duration-300 hover:scale-[1.01]">
                     {/* Visual Mockup Area */}
                     <div className="relative aspect-10/9 w-full overflow-hidden bg-[#0D0D0D] select-none rounded-t-[2rem]">
                       <Image
-                        src={study.image}
-                        alt={study.image}
+                        src={example.image}
+                        alt={example.image}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
