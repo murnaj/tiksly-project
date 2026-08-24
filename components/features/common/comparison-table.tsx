@@ -74,8 +74,8 @@ export default function ComparisonTable() {
                   Tiksly
                 </span>
               </div>
-              <div className="p-3 md:p-6 border-l border-gray-200">
-                <span className="text-[13px] md:text-[18px] font-bold text-gray-400">
+              <div className="p-3 md:p-6 border-l border-gray-200 bg-red-100">
+                <span className="text-[13px] md:text-[18px] font-bold text-red-500">
                   Other Agencies
                 </span>
               </div>
@@ -110,10 +110,10 @@ export default function ComparisonTable() {
                   </div>
 
                   {/* Others Column */}
-                  <div className="p-3 md:p-6 border-l border-gray-200 flex items-center justify-center text-center">
+                  <div className="p-3 md:p-6 bg-red-50 border-l border-gray-200 flex items-center justify-start text-center">
                     <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-                      <X className="w-3 h-3 md:w-4 md:h-4 text-gray-300 shrink-0" />
-                      <span className="text-[11px] md:text-[15px] font-medium text-gray-400">
+                      <X className="w-3 h-3 md:w-4 md:h-4 text-red-500 shrink-0" />
+                      <span className="text-[11px] md:text-[15px] font-bold text-red-500">
                         {row.others}
                       </span>
                     </div>

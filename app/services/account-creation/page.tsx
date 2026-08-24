@@ -7,6 +7,7 @@ import RequirementsSection from "@/components/features/services/account-creation
 import HeroSection from "@/components/features/services/account-creation/hero-section";
 import WorkingExamples from "@/components/features/common/working-examples";
 import PricingSection from "@/components/features/services/shop-management/pricing-section";
+import WhoWeServe from "@/components/features/common/who-we-serve";
 
 export default function AccountCreationPage() {
   return (
@@ -14,6 +15,7 @@ export default function AccountCreationPage() {
       <HeroSection />
       <BrandLogos />
       <ComparisonTable />
+      <WhoWeServe />
       <RequirementsSection />
       <WorkingExamples />
       <Testimonials />
