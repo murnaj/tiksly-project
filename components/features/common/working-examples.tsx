@@ -1,62 +1,160 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { Card } from "@/components/ui/card";
+
+// Design ease curve consistent with other project features
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 1, y: 0 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+};
+
+// Case studies database matching images in public/case-study/
+const CASE_STUDIES_DATA = [
+  {
+    id: "cs-1",
+    image: "/case-study/3.webp",
+  },
+  {
+    id: "cs-2",
+    image: "/case-study/2.webp",
+  },
+  {
+    id: "cs-3",
+    image: "/case-study/1.webp",
+  },
+  {
+    id: "cs-4",
+    image: "/case-study/4.webp",
+  },
+  {
+    id: "cs-5",
+    image: "/case-study/5.webp",
+  },
+  {
+    id: "cs-6",
+    image: "/case-study/6.webp",
+  },
+];
 
 const WorkingExamples = () => {
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+
+    let intervalId: NodeJS.Timeout;
+
+    const startAutoplay = () => {
+      intervalId = setInterval(() => {
+        api.scrollNext();
+      }, 4000);
+    };
+
+    const stopAutoplay = () => {
+      clearInterval(intervalId);
+    };
+
+    startAutoplay();
+
+    // Pause autoplay on mouse drag or swipe interaction, resume on release
+    api.on("pointerDown", stopAutoplay);
+    api.on("pointerUp", startAutoplay);
+
+    return () => {
+      stopAutoplay();
+      api.off("pointerDown", stopAutoplay);
+      api.off("pointerUp", startAutoplay);
+    };
+  }, [api]);
+
   return (
-    <div className="pb-14 md:pb-18 bg-gradient-to-b from-white via-[#F6FED9] to-white">
-      <div className="text-center mb-16">
-        <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-black mb-6">
-          Working Examples
-        </h3>
-        <p className="text-gray-500 text-[15px] max-w-2xl mx-auto">
-          See some of the successful shop verifications and real documents we
-          process daily.
-        </p>
-      </div>
+    <section className="bg-gradient-to-b from-white via-[#F6FED9] to-white w-full pb-14 md:pb-18 overflow-hidden">
+      <div className="container mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mx-auto mb-16"
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight leading-[1.1] text-black mb-6"
+          >
+            Working Examples
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto"
+          >
+            See some of the successful shop verifications and real documents we
+            process daily.
+          </motion.p>
+        </motion.div>
 
-      <div className="relative w-full overflow-hidden py-4">
-        {/* Fade overlays */}
-        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
-
-        <div className="flex flex-nowrap w-max">
-          {[0, 1].map((loopIdx) => (
-            <motion.div
-              key={loopIdx}
-              className="flex items-center gap-6 md:gap-8 flex-nowrap shrink-0 pr-6 md:pr-8"
-              animate={{ x: [0, "-100%"] }}
-              transition={{
-                ease: "linear",
-                duration: 25,
-                repeat: Infinity,
-              }}
-            >
-              {[
-                "/id-cards/left-side-1.png",
-                "/id-cards/left-side-2.png",
-                "/id-cards/right-side-1.png",
-                "/id-cards/right-side-2.png",
-              ].map((src, idx) => (
-                <div
-                  key={`${loopIdx}-${idx}`}
-                  className="relative w-[280px] h-[180px] md:w-[320px] md:h-[200px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm shrink-0 bg-white"
+        {/* Carousel Container */}
+        <div className="relative w-full select-none">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              loop: true,
+              align: "start",
+            }}
+            className="w-full overflow-hidden"
+          >
+            <CarouselContent className="-ml-4 md:-ml-6">
+              {CASE_STUDIES_DATA.map((study) => (
+                <CarouselItem
+                  key={study.id}
+                  className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3 flex"
                 >
-                  <Image
-                    src={src}
-                    alt="Working Example"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 280px, 320px"
-                  />
-                </div>
+                  <Card className="bg-[#0D0D0D]  rounded-[2rem] overflow-hidden flex flex-col justify-between w-full h-full  transition-all duration-300 hover:scale-[1.01]">
+                    {/* Visual Mockup Area */}
+                    <div className="relative aspect-10/9 w-full overflow-hidden bg-[#0D0D0D] select-none rounded-t-[2rem]">
+                      <Image
+                        src={study.image}
+                        alt={study.image}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority
+                      />
+                    </div>
+                  </Card>
+                </CarouselItem>
               ))}
-            </motion.div>
-          ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
