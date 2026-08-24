@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const MESSAGES = [
-  { id: 1, type: "received", text: "Hey! Love your recent UGC video! 🔥" },
-  { id: 2, type: "sent", text: "Thanks so much! Glad you liked it." },
-  { id: 3, type: "received", text: "Are you available for a new campaign next week?" },
-  { id: 4, type: "sent", text: "Yes, definitely! Let's discuss details." },
+  { id: 1, type: "received", text: "Hey! We loved your recent skincare UGC video! 🔥" },
+  { id: 2, type: "sent", text: "Thanks so much! I really enjoyed making it. 😊" },
+  { id: 3, type: "received", text: "We're launching a new serum next week. Up for a 2-video campaign?" },
+  { id: 4, type: "sent", text: "That sounds amazing! What's the timeline and budget?" },
+  { id: 5, type: "received", text: "We need the drafts by the 15th. We can offer $400 for the package." },
+  { id: 6, type: "sent", text: "Perfect, I can work with that. Send over the brief and I'll get started! 🚀" },
 ];
 
 export const ChatAnimation = () => {
@@ -104,19 +106,17 @@ export const ChatAnimation = () => {
               {msg.text}
             </motion.div>
           ))}
-          {isTyping && (
+          {isTyping === "received" && (
              <motion.div
                key="typing"
                initial={{ opacity: 0, y: 10, scale: 0.9 }}
                animate={{ opacity: 1, y: 0, scale: 1 }}
                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.1 } }}
-               className={`w-12 h-8 rounded-2xl flex items-center justify-center gap-1 shadow-sm border border-gray-200 shrink-0 ${
-                 isTyping === "sent" ? "bg-black text-white self-end rounded-br-sm border-black" : "bg-gray-100 text-gray-800 self-start rounded-bl-sm"
-               }`}
+               className="w-12 h-8 rounded-2xl flex items-center justify-center gap-1 shadow-sm border border-gray-200 shrink-0 bg-gray-100 text-gray-800 self-start rounded-bl-sm"
              >
-                <motion.div className={`w-1 h-1 rounded-full ${isTyping === "sent" ? "bg-white" : "bg-gray-500"}`} animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0 }} />
-                <motion.div className={`w-1 h-1 rounded-full ${isTyping === "sent" ? "bg-white" : "bg-gray-500"}`} animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.2 }} />
-                <motion.div className={`w-1 h-1 rounded-full ${isTyping === "sent" ? "bg-white" : "bg-gray-500"}`} animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.4 }} />
+                <motion.div className="w-1 h-1 rounded-full bg-gray-500" animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0 }} />
+                <motion.div className="w-1 h-1 rounded-full bg-gray-500" animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.2 }} />
+                <motion.div className="w-1 h-1 rounded-full bg-gray-500" animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.4 }} />
              </motion.div>
           )}
         </AnimatePresence>
