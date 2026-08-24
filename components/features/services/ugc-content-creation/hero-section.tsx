@@ -50,7 +50,12 @@ const HeroSection = () => {
                 </motion.div>
               </div>
 
-              <motion.div className="flex items-center justify-start gap-4 mb-2 flex-wrap">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05, ease: EASE }}
+                className="flex items-center justify-start gap-4 mb-2 flex-wrap"
+              >
                 <span className="text-gray-500 text-[13px] md:text-[14px] font-medium">
                   Official Partners:
                 </span>
@@ -113,7 +118,12 @@ const HeroSection = () => {
                 </Link>
               </div>
 
-              <motion.div className="flex items-center justify-start gap-3 flex-wrap">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
+                className="flex items-center justify-start gap-3 flex-wrap"
+              >
                 {/* UK TSP Badge */}
                 <div className="inline-flex items-center gap-2 text-[12px] font-medium text-black">
                   <svg
