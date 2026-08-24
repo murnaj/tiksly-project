@@ -83,7 +83,7 @@ export const ChatAnimation = () => {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 mt-12 flex flex-col justify-end gap-3 pb-2 relative z-0">
+      <div className="flex-1 min-h-0 mt-12 flex flex-col justify-end gap-3 pb-2 relative z-0">
         <AnimatePresence>
           {messages.map((msg) => (
             <motion.div
