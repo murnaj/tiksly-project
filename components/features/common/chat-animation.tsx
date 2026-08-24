@@ -19,17 +19,12 @@ export const ChatAnimation = () => {
   const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
-    let timeoutIds: NodeJS.Timeout[] = [];
-    
-    // reset state
-    setMessages([]);
-    setIsTyping(null);
-    setTypedText("");
+    const timeoutIds: NodeJS.Timeout[] = [];
 
     const startAnimation = () => {
       let currentDelay = 0;
       
-      MESSAGES.forEach((msg, index) => {
+      MESSAGES.forEach((msg) => {
         // Show typing indicator
         const typeId = setTimeout(() => {
           setIsTyping(msg.type as "received" | "sent");
