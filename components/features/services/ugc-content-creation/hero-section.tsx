@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { HlsVideo } from "@/components/features/common/hls-video";
 
 const HeroSection = () => {
   const EASE = [0.22, 1, 0.36, 1] as const;
@@ -198,13 +199,9 @@ const HeroSection = () => {
                   transition={{ delay: 0.4, duration: 0.7 }}
                   className="absolute left-0 sm:left-4 md:left-0 top-4 sm:top-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
                 >
-                  <video
-                    src="https://cdn.pixabay.com/video/2022/10/24/136270-763459952_tiny.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
+                  <HlsVideo 
+                    videoId="ce3082f8b2b1151137c5b9a82aa9b342" 
+                    active={true} 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </motion.div>
