@@ -190,15 +190,15 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-              className="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center mt-8 lg:mt-0"
+              className="relative w-full h-[400px] sm:h-[600px] lg:h-[700px] flex items-center justify-center mt-8 lg:mt-0"
             >
-              <div className="relative w-full max-w-[500px] h-full mx-auto">
+              <div className="relative w-full max-w-[280px] min-[400px]:max-w-[320px] sm:max-w-[500px] h-full mx-auto">
                 {/* Left/Top Video (Back) */}
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.7 }}
-                  className="absolute left-2 min-[400px]:left-4 sm:left-4 md:left-0 top-0 sm:top-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
+                  className="absolute left-0 top-0 sm:top-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
                 >
                   <HlsVideo 
                     videoId="ce3082f8b2b1151137c5b9a82aa9b342" 
@@ -212,7 +212,7 @@ const HeroSection = () => {
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.7 }}
-                  className="absolute right-2 min-[400px]:right-4 sm:right-4 md:right-0 bottom-0 sm:bottom-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
+                  className="absolute right-0 bottom-0 sm:bottom-10 w-[155px] min-[400px]:w-[175px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
                 >
                   <ChatAnimation />
                 </motion.div>
