@@ -201,7 +201,7 @@ export default function FooterSection() {
         {/* Moving Ambient Parallax Blobs */}
         <motion.div
           style={{ y: blobY1 }}
-          className="absolute -top-[5%] left-[5%] w-[450px] h-[450px] rounded-full bg-[#BCF96A] opacity-[0.16] blur-[110px]"
+          className="absolute top-[6%] left-[5%] w-[450px] h-[450px] rounded-full bg-[#BCF96A] opacity-[0.16] blur-[110px]"
         />
         <motion.div
           style={{ y: blobY2 }}
