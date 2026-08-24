@@ -137,39 +137,20 @@
   html {
     @apply font-sans;
   }
-
-
- 
-
 }
 
- @utility container {
+@utility container {
+  @apply w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12;
+}
 
-
-  @variant sm {
-    padding-inline: 1rem;
-  }
-
-  @variant md {
-    padding-inline: 1.5rem;
-    max-width: 750px;
-  }
-
-  @variant lg {
-    padding-inline: 1.5rem;
-    max-width: 950px;
-  }
-
-  @variant xl {
-    padding-inline: 1rem;
-    max-width: 1150px;
-  }
-
-  @variant 2xl {
-    padding-inline: 0.5rem;
-    max-width: 1400px;
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
+
 
 /* ========= no-js fallback ========= */
 .no-js [style] {

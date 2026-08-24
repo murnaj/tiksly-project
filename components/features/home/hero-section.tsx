@@ -25,7 +25,7 @@ const item: Variants = {
 
 export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-b from-white via-white to-[#F6FED9] relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center pt-10 pb-10 lg:pb-0">
+    <section className="bg-gradient-to-b from-white via-white to-[#F6FED9] relative overflow-hidden lg:h-screen lg:max-h-[960px] lg:min-h-[720px] flex items-center justify-center pt-24 2xl:pt-10 pb-10 lg:pb-0">
       <div className="absolute left-0 top-0 bottom-0 w-80 xl:w-90 2xl:w-115 pointer-events-none select-none hidden xl:block z-0">
         {/* Left Side Animated Flowing Vector */}
         <svg
@@ -357,7 +357,7 @@ export default function HeroSection() {
           <motion.div variants={item} className="mb-8">
             <Link
               href="/book-a-meeting"
-              className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
+              className="mb-4 inline-flex items-center justify-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
             >
               Get my free growth plan
             </Link>
