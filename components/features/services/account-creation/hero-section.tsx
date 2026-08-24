@@ -10,7 +10,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="min-h-screen flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] relative py-24 md:py-32">
+      <section className="flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32 2xl:pt-48 2xl:pb-36 min-h-[90vh] 2xl:min-h-[750px]">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] xl:grid-cols-[1fr_1.25fr] gap-12 lg:gap-8 items-center">
             <motion.div
