@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HlsVideo } from "@/components/features/common/hls-video";
+import { ChatAnimation } from "@/components/features/common/chat-animation";
 
 const HeroSection = () => {
   const EASE = [0.22, 1, 0.36, 1] as const;
@@ -213,15 +214,7 @@ const HeroSection = () => {
                   transition={{ delay: 0.6, duration: 0.7 }}
                   className="absolute right-0 sm:right-4 md:right-0 bottom-4 sm:bottom-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
                 >
-                  <video
-                    src="https://cdn.pixabay.com/video/2021/08/04/83944-585324508_tiny.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <ChatAnimation />
                 </motion.div>
               </div>
             </motion.div>
