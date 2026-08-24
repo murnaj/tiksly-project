@@ -71,7 +71,7 @@ const servicesCol2 = {
       name: "UGC Content Creation",
       desc: "High-converting short video ad creatives",
       icon: Video,
-      href: "#",
+      href: "/services/ugc-content-creation",
     },
     {
       name: "TikTok Shop Ads",
