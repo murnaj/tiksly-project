@@ -178,7 +178,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-              className="relative w-full h-[600px] lg:h-[700px] flex items-center justify-center mt-12 lg:mt-0"
+              className="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center mt-8 lg:mt-0"
             >
               <div className="relative w-full max-w-[500px] h-full mx-auto">
                 {/* Left/Top Video (Back) */}
@@ -186,7 +186,7 @@ const HeroSection = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.7 }}
-                  className="absolute left-0 top-10 w-[240px] sm:w-[260px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white/80 bg-black z-10"
+                  className="absolute left-0 sm:left-4 md:left-0 top-4 sm:top-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-10"
                 >
                   <video
                     src="https://cdn.pixabay.com/video/2022/10/24/136270-763459952_tiny.mp4"
@@ -204,7 +204,7 @@ const HeroSection = () => {
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.7 }}
-                  className="absolute right-0 bottom-10 w-[240px] sm:w-[260px] aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white/80 bg-black z-20"
+                  className="absolute right-0 sm:right-4 md:right-0 bottom-4 sm:bottom-10 w-[180px] sm:w-[220px] md:w-[260px] aspect-[9/16] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-[4px] sm:border-[6px] border-white/80 bg-black z-20"
                 >
                   <video
                     src="https://cdn.pixabay.com/video/2021/08/04/83944-585324508_tiny.mp4"
