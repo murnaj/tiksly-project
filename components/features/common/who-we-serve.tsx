@@ -9,7 +9,8 @@ const WhoWeServe = () => {
             Who we set shops up for
           </h2>
           <p className="text-[#6B7280] text-[15px] md:text-[16px] leading-relaxed max-w-3xl mx-auto">
-            If you want to sell on TikTok Shop but the setup is standing in your way, this is for you.
+            If you want to sell on TikTok Shop but the setup is standing in your
+            way, this is for you.
           </p>
         </div>
 
@@ -69,7 +70,14 @@ const WhoWeServe = () => {
 
         <div className="mt-16 text-center">
           <p className="text-gray-400 text-[15px]">
-            Not sure where to start? <a href="#contact" className="text-[#BCF96A] font-medium hover:underline cursor-pointer">Ask us on the call</a>, we&apos;ll tell you exactly what&apos;s needed.
+            Not sure where to start?{" "}
+            <a
+              href="#contact"
+              className="text-[#BCF96A] font-medium hover:underline cursor-pointer"
+            >
+              Ask us on the call
+            </a>
+            , we&apos;ll tell you exactly what&apos;s needed.
           </p>
         </div>
       </div>
