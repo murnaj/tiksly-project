@@ -41,7 +41,7 @@ export default function TargetMarketCreators() {
           </h2>
         </div>
 
-        <div className="relative w-full rounded-[32px] bg-gradient-to-b from-[#F2F5FF] to-[#EAEFFF] pt-12 md:pt-20 px-4 md:px-8 shadow-sm flex flex-col items-center">
+        <div className="relative w-full rounded-[32px] pt-12 md:pt-20 px-4 md:px-8 shadow-sm flex flex-col items-center" style={{ background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #F0F4FF 50%, #E0E7FF 100%)' }}>
           {/* Decorative Background (Dotted pattern) */}
           <div className="absolute inset-0 overflow-hidden rounded-[32px] opacity-20">
             <div
@@ -57,114 +57,94 @@ export default function TargetMarketCreators() {
           {/* Decorative Map Area with Floating Pins */}
           <div className="relative z-0 w-full max-w-4xl h-[280px] md:h-[400px] mb-8 md:mb-12 mx-auto">
             {/* Actual World Map SVG */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-[0.25]">
+            <div className="absolute inset-0 flex items-center justify-center">
                <div className="w-[120%] md:w-full h-full flex items-center justify-center">
                   <WorldMapSvg />
                </div>
             </div>
 
             {/* Map Pins */}
-            {[
-              {
-                name: "Canada",
-                icon: "/flags/canada.jpg",
-                top: "20%",
-                left: "20%",
-                delay: 0,
-              },
-              {
-                name: "USA",
-                icon: "/flags/usa.jpg",
-                top: "35%",
-                left: "22%",
-                delay: 0.2,
-              },
-              {
-                name: "UK",
-                icon: "/flags/uk.jpg",
-                top: "25%",
-                left: "48%",
-                delay: 0.4,
-              },
-              {
-                name: "France",
-                icon: "/flags/france.jpg",
-                top: "32%",
-                left: "49%",
-                delay: 0.5,
-              },
-              {
-                name: "Germany",
-                icon: "/flags/germany.jpg",
-                top: "28%",
-                left: "53%",
-                delay: 0.6,
-              },
-              {
-                name: "Spain",
-                icon: "/flags/spain.jpg",
-                top: "38%",
-                left: "48%",
-                delay: 0.7,
-              },
-              {
-                name: "Italy",
-                icon: "/flags/italy.jpg",
-                top: "35%",
-                left: "55%",
-                delay: 0.8,
-              },
-              {
-                name: "Australia",
-                icon: "/flags/australia.jpg",
-                top: "65%",
-                left: "80%",
-                delay: 0.9,
-              },
-            ].map((pin, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 15,
-                  delay: pin.delay,
-                }}
-                className="absolute flex flex-col items-center group cursor-pointer z-10"
-                style={{ top: pin.top, left: pin.left }}
-              >
-                <div className="relative w-8 h-10 md:w-10 md:h-12 drop-shadow-lg hover:scale-110 transition-transform origin-bottom">
-                  {/* Pin Shape */}
-                  <svg
-                    viewBox="0 0 40 50"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full text-white"
-                  >
-                    <path
-                      d="M20 0C8.954 0 0 8.954 0 20C0 35 20 50 20 50C20 50 40 35 40 20C40 8.954 31.046 0 20 0Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  {/* Flag inside Pin */}
-                  <div className="absolute top-[3px] left-[3px] md:top-[4px] md:left-[4px] w-[26px] h-[26px] md:w-[32px] md:h-[32px] rounded-full overflow-hidden">
-                    <Image
-                      src={pin.icon}
-                      alt={pin.name}
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        // Fallback if flag doesn't exist
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
+            {RegionsData().map((region, i) => {
+              // Map coordinates lookup - Spread out to prevent clustering/overlap
+              const coords: Record<string, { top: string; left: string }> = {
+                "United States": { top: "35%", left: "22%" },
+                "Canada": { top: "20%", left: "20%" },
+                "Mexico": { top: "45%", left: "18%" },
+                "Brazil": { top: "65%", left: "30%" },
+                
+                "United Kingdom": { top: "22%", left: "46%" },
+                "Ireland": { top: "18%", left: "42%" },
+                "France": { top: "32%", left: "44%" },
+                "Spain": { top: "42%", left: "41%" },
+                "Germany": { top: "25%", left: "51%" },
+                "Netherlands": { top: "18%", left: "54%" },
+                "Belgium": { top: "28%", left: "48%" },
+                "Italy": { top: "38%", left: "53%" },
+                "Poland": { top: "24%", left: "58%" },
+                
+                "Singapore": { top: "65%", left: "72%" },
+                "Malaysia": { top: "55%", left: "70%" },
+                "Thailand": { top: "48%", left: "73%" },
+                "Vietnam": { top: "52%", left: "78%" },
+                "Philippines": { top: "60%", left: "84%" },
+                "Indonesia": { top: "72%", left: "78%" },
+                "Japan": { top: "35%", left: "88%" },
+                "Australia": { top: "75%", left: "85%" },
+              };
+
+              // Fallback random coordinate if not in lookup (kept within map bounds)
+              const position = coords[region.name] || {
+                top: `${Math.floor(Math.random() * 40) + 20}%`,
+                left: `${Math.floor(Math.random() * 60) + 20}%`,
+              };
+
+              return (
+                <motion.div
+                  key={region.name}
+                  initial={{ opacity: 0, scale: 0, y: 20 }}
+                  animate={{ 
+                    opacity: [0, 1, 1, 0], 
+                    scale: [0, 1, 1, 0], 
+                    y: [20, 0, 0, 20] 
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    delay: i * 0.4, 
+                    ease: "easeInOut" 
+                  }}
+                  className="absolute flex flex-col items-center group z-10"
+                  style={{ top: position.top, left: position.left }}
+                >
+                  <div className="relative w-8 h-10 md:w-10 md:h-12 drop-shadow-lg">
+                    {/* Pin Shape */}
+                    <svg
+                      viewBox="0 0 40 50"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-full h-full text-white"
+                    >
+                      <path
+                        d="M20 0C8.954 0 0 8.954 0 20C0 35 20 50 20 50C20 50 40 35 40 20C40 8.954 31.046 0 20 0Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    {/* Flag inside Pin */}
+                    <div className="absolute top-[3px] left-[3px] md:top-[4px] md:left-[4px] w-[26px] h-[26px] md:w-[32px] md:h-[32px] rounded-full overflow-hidden bg-gray-100">
+                      <Image
+                        src={region.icon}
+                        alt={region.name}
+                        fill
+                        className="object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Locations Grid Container */}
