@@ -40,7 +40,7 @@ export default function CreatorRegions() {
                   key={`${region.name}-loop1-${idx}`}
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] cursor-pointer transition-all duration-300 select-none"
+                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 select-none"
                 >
                   <Image
                     src={region.icon}
@@ -72,7 +72,7 @@ export default function CreatorRegions() {
                   key={`${region.name}-loop2-${idx}`}
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] cursor-pointer transition-all duration-300 select-none"
+                  className="flex items-center gap-2.5 px-5 py-3 bg-[#F9F9F9]/80 hover:bg-white rounded-full border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.06)] transition-all duration-300 select-none"
                 >
                   <Image
                     src={region.icon}
