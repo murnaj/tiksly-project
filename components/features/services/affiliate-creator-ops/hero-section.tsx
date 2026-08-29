@@ -149,7 +149,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            className="relative flex gap-3 h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl ml-auto mask-image-linear"
+            className="relative flex gap-3 h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl ml-auto w-full max-w-full mask-image-linear"
             style={{
               WebkitMaskImage:
                 "linear-gradient(to right, black 80%, transparent 100%)",
@@ -177,10 +177,20 @@ const HeroSection = () => {
             {/* Column 3 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-16 shrink-0">
               <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={3} delay={4500} flipInterval={6500} />
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={3}
+                  delay={4500}
+                  flipInterval={6500}
+                />
               </div>
               <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={4} delay={500} flipInterval={5800} />
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={4}
+                  delay={500}
+                  flipInterval={5800}
+                />
               </div>
             </div>
 
@@ -197,16 +207,37 @@ const HeroSection = () => {
             {/* Column 5 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-8 shrink-0">
               <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={7} delay={1000} flipInterval={5000} />
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={7}
+                  delay={1000}
+                  flipInterval={5000}
+                />
               </div>
               <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={8} delay={3500} flipInterval={6800} />
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={8}
+                  delay={3500}
+                  flipInterval={6800}
+                />
               </div>
             </div>
           </motion.div>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+          className="absolute bottom-0 left-0 right-0 h-64"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, black 2.5px, transparent 0)`,
+            backgroundSize: "24px 24px",
+            WebkitMaskImage: "linear-gradient(to top, black, transparent)",
+            maskImage: "linear-gradient(to top, black, transparent)",
+          }}
+        />
+      </div>
     </section>
   );
 };
