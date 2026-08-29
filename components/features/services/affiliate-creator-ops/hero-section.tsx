@@ -229,7 +229,7 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div
-          className="absolute bottom-0 left-0 right-0 h-64"
+          className="absolute bottom-0 left-0 right-0 h-32"
           style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, black 2.5px, transparent 0)`,
             backgroundSize: "24px 24px",
