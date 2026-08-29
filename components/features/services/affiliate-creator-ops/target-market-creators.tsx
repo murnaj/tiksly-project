@@ -92,10 +92,15 @@ export default function TargetMarketCreators() {
                 "Australia": { top: "75%", left: "85%" },
               };
 
-              // Fallback random coordinate if not in lookup (kept within map bounds)
+              // Fallback deterministic coordinate based on name length/chars if not in lookup
+              let hash = 0;
+              for (let j = 0; j < region.name.length; j++) {
+                hash = region.name.charCodeAt(j) + ((hash << 5) - hash);
+              }
+              const absHash = Math.abs(hash);
               const position = coords[region.name] || {
-                top: `${Math.floor(Math.random() * 40) + 20}%`,
-                left: `${Math.floor(Math.random() * 60) + 20}%`,
+                top: `${(absHash % 40) + 20}%`,
+                left: `${((absHash >> 2) % 60) + 20}%`,
               };
 
               return (
