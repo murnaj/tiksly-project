@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import RegionsData from "@/data/regions";
+import { WorldMapSvg } from "@/components/features/common/world-map";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,19 +56,12 @@ export default function TargetMarketCreators() {
 
           {/* Decorative Map Area with Floating Pins */}
           <div className="relative z-0 w-full max-w-4xl h-[280px] md:h-[400px] mb-8 md:mb-12 mx-auto">
-            {/* Map background placeholder (using radial gradient for dots effect) */}
-            <div
-              className="absolute inset-0 opacity-[0.15]"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 3px 3px, #4F46E5 1.5px, transparent 0)",
-                backgroundSize: "16px 16px",
-                maskImage:
-                  "radial-gradient(ellipse at center, black 40%, transparent 70%)",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse at center, black 40%, transparent 70%)",
-              }}
-            ></div>
+            {/* Actual World Map SVG */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-[0.25]">
+               <div className="w-[120%] md:w-full h-full flex items-center justify-center">
+                  <WorldMapSvg />
+               </div>
+            </div>
 
             {/* Map Pins */}
             {[
