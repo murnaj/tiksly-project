@@ -5,7 +5,25 @@ import { HlsVideo } from "@/components/features/common/hls-video";
 
 const HeroSection = () => {
   const EASE = [0.22, 1, 0.36, 1] as const;
-  const videoId = "ce3082f8b2b1151137c5b9a82aa9b342";
+  const videoIds = [
+    "ce3082f8b2b1151137c5b9a82aa9b342",
+    "ab807060990361a8baeca01ee02fca85",
+    "ced34f0b20b4edf473a0055a73b9d71b",
+    "11d8f8e7bae109fa8d663716d9796058",
+    "472c8a404f7d396a08417a00d5507f1c",
+    "0aaea0305aa72881f52d75978391efb9",
+    "a4e66c51a879a405eba452d44017299b",
+    "8880a052180933af96cb96020e560c85",
+    "79e7cf49cdb4ab1729369b36e5afd8cc",
+    "77ee39539df24d8b2221621ad13893b2",
+    "9eeb72536d1b478e604752b4ef089d96",
+    "894c688f6c8c83c71eef8a2e6dc18278",
+    "9e7ad391188bbfeb730c75755e662845",
+    "b1c7031bfed77c225dd2a2e657d3f4f6",
+    "2384c4da51b3d5466e704f49b59f9137",
+    "1851b7f14202fa484c2b024aa54d9c38",
+    "2b7716ff7e2eb183741ff99fbf990be6",
+  ];
 
   return (
     <section className="flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32 2xl:pt-48 2xl:pb-36 min-h-[90vh] 2xl:min-h-[750px]">
@@ -141,47 +159,47 @@ const HeroSection = () => {
             {/* Column 1 (Large Video) */}
             <div className="flex flex-col gap-3 w-[150px] md:w-[180px] pt-12 shrink-0">
               <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[0]} active={true} />
               </div>
             </div>
 
             {/* Column 2 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-4 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[1]} active={true} />
               </div>
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[2]} active={true} />
               </div>
             </div>
 
             {/* Column 3 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-16 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[3]} active={true} />
               </div>
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[4]} active={true} />
               </div>
             </div>
 
             {/* Column 4 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[5]} active={true} />
               </div>
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[6]} active={true} />
               </div>
             </div>
 
             {/* Column 5 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-8 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[7]} active={true} />
               </div>
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoId} active={true} />
+                <HlsVideo videoId={videoIds[8]} active={true} />
               </div>
             </div>
           </motion.div>
