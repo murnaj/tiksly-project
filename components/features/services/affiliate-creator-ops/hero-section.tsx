@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FlippingVideoCard } from "./flipping-video-card";
+import { HlsVideo } from "@/components/features/common/hls-video";
 
 const HeroSection = () => {
   const EASE = [0.22, 1, 0.36, 1] as const;
@@ -158,18 +159,18 @@ const HeroSection = () => {
           >
             {/* Column 1 (Large Video) */}
             <div className="flex flex-col gap-3 w-[150px] md:w-[180px] pt-12 shrink-0">
-              <div className="relative w-full aspect-[9/16]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={0} delay={0} flipInterval={6000} />
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[0]} active={true} />
               </div>
             </div>
 
             {/* Column 2 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-4 shrink-0">
-              <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={1} delay={1500} flipInterval={5500} />
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[1]} active={true} />
               </div>
-              <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={2} delay={3000} flipInterval={7000} />
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[2]} active={true} />
               </div>
             </div>
 
@@ -185,11 +186,11 @@ const HeroSection = () => {
 
             {/* Column 4 */}
             <div className="flex flex-col gap-3 w-[130px] md:w-[150px] shrink-0">
-              <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={5} delay={2500} flipInterval={6200} />
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[5]} active={true} />
               </div>
-              <div className="relative w-full aspect-[9/14]">
-                <FlippingVideoCard videoIds={videoIds} initialIndex={6} delay={4000} flipInterval={7200} />
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[6]} active={true} />
               </div>
             </div>
 

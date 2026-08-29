@@ -56,7 +56,7 @@ export function FlippingVideoCard({
           className="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-sm bg-black flex flex-col items-center justify-center"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <Image src="/branding/logo-green.svg" alt="Logo" width={100} height={40} className="w-2/3 h-auto" />
+          <Image src="/branding/logo-white.svg" alt="Logo" width={100} height={40} className="w-2/3 h-auto" />
         </div>
       </motion.div>
     </div>
