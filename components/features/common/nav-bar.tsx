@@ -65,7 +65,7 @@ const servicesCol2 = {
       name: "Affiliate & Creator Ops",
       desc: "Scale with top-tier TikTok influencers",
       icon: Users,
-      href: "#",
+      href: "/services/affiliate-&-creator-ops",
     },
     {
       name: "UGC Content Creation",
