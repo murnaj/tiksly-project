@@ -287,7 +287,7 @@ export default function RequirementsSection() {
               <button
                 key={region.id}
                 onClick={() => setSelectedRegion(region.id)}
-                className={`px-5 py-2.5 rounded-full text-[13.5px] font-bold transition-all duration-200 border flex items-center gap-2.5 ${
+                className={`px-5 py-2.5 rounded-full cursor-pointer text-[13.5px] font-bold transition-all duration-200 border flex items-center gap-2.5 ${
                   selectedRegion === region.id
                     ? "bg-black text-white border-black shadow-md"
                     : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
