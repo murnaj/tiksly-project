@@ -77,7 +77,7 @@ const servicesCol2 = {
       name: "TikTok Shop Ads",
       desc: "Targeted ad campaigns & revenue scaling",
       icon: Megaphone,
-      href: "#",
+      href: "/services/tiktok-shop-ads",
     },
     {
       name: "Live Streaming",

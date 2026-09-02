@@ -234,6 +234,16 @@ const HeroSection = () => {
                 />
               </div>
             </div>
+
+            {/* Column 6 */}
+            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-20 shrink-0">
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[9]} active={true} />
+              </div>
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[10]} active={true} />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
