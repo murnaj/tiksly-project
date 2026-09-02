@@ -13,7 +13,7 @@ interface AdTypeData {
   stepNumber: string;
   title: string;
   description: string;
-  videoId: string;
+  videoId?: string;
   handle: string;
   caption: string;
   points: {
@@ -30,7 +30,7 @@ const AD_TYPES: AdTypeData[] = [
     id: "spark-ads",
     tabTitle: "Spark Ads",
     tabBadge: "Boost a post",
-    tabBadgeColor: "bg-[#DCFCE7] text-[#166534]",
+    tabBadgeColor: "bg-[#BCF96A] text-black font-extrabold",
     tabDescription: "Put budget behind a proven organic video",
     stepNumber: "1 — BOOST A PROVEN POST",
     title: "Spark Ads",
@@ -45,21 +45,21 @@ const AD_TYPES: AdTypeData[] = [
         title: "Runs from your real handle",
         description:
           "The ad posts as your brand (or a creator), not a faceless ad account.",
-        badgePosition: "-left-4 top-[25%]",
+        badgePosition: "-left-4 top-[28%]",
       },
       {
         id: 2,
         title: "Keeps its real engagement",
         description:
           "All the likes, comments, and shares carry over, so it looks organic and trusted.",
-        badgePosition: "-right-4 top-[55%]",
+        badgePosition: "-right-4 top-[68%]",
       },
       {
         id: 3,
         title: "Amplifies a winner",
         description:
           "You're scaling content that already converts, not gambling on cold creative.",
-        badgePosition: "-left-4 bottom-14",
+        badgePosition: "-left-4 bottom-10",
       },
     ],
     bestFor: "scaling creator or organic videos that are already getting sales.",
@@ -68,14 +68,14 @@ const AD_TYPES: AdTypeData[] = [
     id: "gmv-max",
     tabTitle: "GMV Max",
     tabBadge: "Let AI run it",
-    tabBadgeColor: "bg-[#FEF9C3] text-[#854D0E]",
+    tabBadgeColor: "bg-[#FEF08A] text-black font-extrabold",
     tabDescription: "TikTok automates the whole campaign",
     stepNumber: "2 — AI AUTOMATED CAMPAIGN",
     title: "GMV Max",
     description:
       "TikTok's AI automatically finds buyers, optimizes bids, and scales budget to maximize Gross Merchandise Value across your product catalog.",
     videoId: "ab807060990361a8baeca01ee02fca85",
-    handle: "@tiksly_shop",
+    handle: "@tiksly_official",
     caption: "Trending TikTok Shop find! Grab yours before sell out 🔥",
     points: [
       {
@@ -83,21 +83,21 @@ const AD_TYPES: AdTypeData[] = [
         title: "AI-driven targeting & bidding",
         description:
           "TikTok optimizes audience reach and bidding strategy automatically in real time.",
-        badgePosition: "-left-4 top-[25%]",
+        badgePosition: "-left-4 top-[28%]",
       },
       {
         id: 2,
         title: "Automated creative rotation",
         description:
           "Tests different creator videos to find the top performing combinations automatically.",
-        badgePosition: "-right-4 top-[55%]",
+        badgePosition: "-right-4 top-[68%]",
       },
       {
         id: 3,
         title: "Maximized ROI & GMV",
         description:
           "Designed specifically for e-commerce shops to drive direct sales at scale.",
-        badgePosition: "-left-4 bottom-14",
+        badgePosition: "-left-4 bottom-10",
       },
     ],
     bestFor:
@@ -107,7 +107,7 @@ const AD_TYPES: AdTypeData[] = [
     id: "partnership-ads",
     tabTitle: "Partnership Ads",
     tabBadge: "Post as a creator",
-    tabBadgeColor: "bg-[#FCE7F3] text-[#9D174D]",
+    tabBadgeColor: "bg-[#FBCFE8] text-black font-extrabold",
     tabDescription: "Run ads from a creator's handle",
     stepNumber: "3 — CREATOR HANDLE ADS",
     title: "Partnership Ads",
@@ -122,21 +122,21 @@ const AD_TYPES: AdTypeData[] = [
         title: "Creator handle authorization",
         description:
           "Ads display directly from the creator's username for authentic social proof.",
-        badgePosition: "-left-4 top-[25%]",
+        badgePosition: "-left-4 top-[28%]",
       },
       {
         id: 2,
         title: "Direct shop integration",
         description:
           "Viewers can click straight to your product page from the creator's ad.",
-        badgePosition: "-right-4 top-[55%]",
+        badgePosition: "-right-4 top-[68%]",
       },
       {
         id: 3,
         title: "Seamless collaboration",
         description:
           "Easily manage Spark Code permissions and creator partner access.",
-        badgePosition: "-left-4 bottom-14",
+        badgePosition: "-left-4 bottom-10",
       },
     ],
     bestFor:
@@ -152,15 +152,15 @@ export default function AdTypesSection() {
     AD_TYPES.find((type) => type.id === activeTab) || AD_TYPES[0];
 
   return (
-    <section className="w-full bg-white pb-14 md:pb-18 relative overflow-hidden">
-      <div className="container mx-auto">
+    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-[12px] md:text-[13px] font-bold tracking-widest uppercase mb-3 block"
+            className="text-gray-400 text-[11px] md:text-[13px] font-extrabold tracking-widest uppercase mb-3 block"
           >
             TikTok Shop Ads, Explained
           </motion.span>
@@ -179,38 +179,38 @@ export default function AdTypesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-            className="text-gray-500 text-[15px] md:text-[17px] max-w-2xl mx-auto leading-relaxed"
+            className="text-gray-500 text-[15px] md:text-[16px] max-w-2xl mx-auto leading-relaxed"
           >
             Three ways to run TikTok Shop ads, each with a different job. Here&apos;s
             exactly how each one works and when to use it.
           </motion.p>
         </div>
 
-        {/* 3 Top Cards / Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
+        {/* 3 Top Cards Container (Matching Screenshot Beige Box Container) */}
+        <div className="bg-[#F6F7F3] p-2.5 md:p-3.5 rounded-3xl grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-14 md:mb-20">
           {AD_TYPES.map((type) => {
             const isSelected = activeTab === type.id;
             return (
               <button
                 key={type.id}
                 onClick={() => setActiveTab(type.id)}
-                className={`text-left p-6 rounded-2xl md:rounded-3xl border transition-all duration-300 ${
+                className={`text-left p-5 md:p-6 rounded-2xl md:rounded-3xl transition-all duration-300 ${
                   isSelected
-                    ? "bg-[#F9FBEA] border-[#BCF96A] shadow-md scale-[1.02]"
-                    : "bg-[#F9FAFA] border-gray-100 hover:border-gray-200 hover:bg-white"
+                    ? "bg-white shadow-sm border border-gray-100"
+                    : "bg-transparent hover:bg-white/60"
                 }`}
               >
-                <div className="flex items-center gap-2.5 mb-4">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span
-                    className={`text-[11px] md:text-[12px] font-bold px-3 py-1 rounded-full ${type.tabBadgeColor}`}
+                    className={`text-[11px] md:text-[12px] px-3 py-1 rounded-full ${type.tabBadgeColor}`}
                   >
                     {type.tabBadge}
                   </span>
-                  <span className="text-black font-extrabold text-[16px] md:text-[18px]">
+                  <span className="text-black font-extrabold text-[16px] md:text-[17px]">
                     {type.tabTitle}
                   </span>
                 </div>
-                <p className="text-gray-500 text-[13px] md:text-[14px] leading-relaxed">
+                <p className="text-gray-400 text-[12px] md:text-[13px] leading-relaxed">
                   {type.tabDescription}
                 </p>
               </button>
@@ -218,7 +218,7 @@ export default function AdTypesSection() {
           })}
         </div>
 
-        {/* Selected Tab Detailed Content */}
+        {/* Selected Tab Content View */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeData.id}
@@ -226,37 +226,44 @@ export default function AdTypesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: EASE }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-4"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
           >
-            {/* Left: Mobile Phone Mockup with Moving Video */}
+            {/* Left: Mobile Phone Frame with Moving Video */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div className="relative w-[260px] sm:w-[280px] md:w-[300px] h-[520px] sm:h-[560px] md:h-[600px] shrink-0">
-                {/* Phone Outer Frame */}
-                <div className="relative w-full h-full bg-black rounded-[46px] p-3 border-[6px] border-[#1b1c1e] shadow-2xl overflow-hidden flex flex-col">
+                {/* Outer Phone Shell */}
+                <div className="relative w-full h-full bg-[#181C14] rounded-[46px] p-3 border-[6px] border-[#22271c] shadow-2xl overflow-hidden flex flex-col">
                   {/* Camera Notch */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-4 bg-black rounded-full z-30 flex items-center justify-center gap-1.5">
-                    <div className="w-2.5 h-2.5 bg-[#141414] rounded-full" />
-                    <div className="w-1.5 h-1.5 bg-[#0a0a0a] rounded-full" />
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-4 bg-[#181C14] rounded-full z-30 flex items-center justify-center gap-1.5">
+                    <div className="w-2.5 h-2.5 bg-[#0e100b] rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-[#050604] rounded-full" />
                   </div>
 
-                  {/* Screen Container */}
-                  <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-gray-900">
-                    {/* Top "For You" Bar */}
-                    <div className="absolute top-6 left-0 right-0 z-20 flex justify-center text-white text-[12px] font-bold tracking-wide pointer-events-none drop-shadow">
+                  {/* Screen Content Container */}
+                  <div className="relative w-full h-full rounded-[36px] overflow-hidden bg-[#242A1E] flex flex-col justify-between">
+                    {/* Top "For You" */}
+                    <div className="absolute top-5 left-0 right-0 z-20 flex justify-center text-white/90 text-[13px] font-bold tracking-wide pointer-events-none drop-shadow">
                       <span>For You</span>
                     </div>
 
-                    {/* Active HLS Video (Moving Video) */}
-                    <HlsVideo videoId={activeData.videoId} active={true} />
+                    {/* Active HLS Video (Live Moving Video) */}
+                    {activeData.videoId ? (
+                      <HlsVideo videoId={activeData.videoId} active={true} />
+                    ) : (
+                      /* Fallback Van Icon in center if no video */
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-5xl animate-bounce">🚐</span>
+                      </div>
+                    )}
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 pointer-events-none z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/75 pointer-events-none z-10" />
 
                     {/* TikTok Right Action Bar */}
                     <div className="absolute right-3 bottom-24 flex flex-col items-center gap-3.5 text-white z-20">
                       <div className="flex flex-col items-center">
                         <div className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center">
-                          <svg className="w-5 h-5 fill-red-500" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 fill-[#FF2C55]" viewBox="0 0 24 24">
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                           </svg>
                         </div>
@@ -297,9 +304,9 @@ export default function AdTypesSection() {
                       </p>
                     </div>
 
-                    {/* Shop Now Button */}
+                    {/* Shop Now Button (Lime Green Bottom Pill) */}
                     <div className="absolute bottom-4 left-3 right-3 z-20">
-                      <div className="bg-[#BCF96A] text-black text-[12px] font-extrabold py-2 rounded-xl flex items-center justify-center gap-1.5 shadow-md w-full">
+                      <div className="bg-[#BCF96A] text-black text-[12px] font-black py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md w-full">
                         <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24">
                           <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.89-2-2-2z" />
                         </svg>
@@ -309,7 +316,7 @@ export default function AdTypesSection() {
                   </div>
                 </div>
 
-                {/* Number Badges around mobile */}
+                {/* Numbered Badges around mobile */}
                 {activeData.points.map((pt) => (
                   <div
                     key={pt.id}
@@ -321,7 +328,7 @@ export default function AdTypesSection() {
               </div>
             </div>
 
-            {/* Right: Detailed Description & Points */}
+            {/* Right: Detailed Points & Best For Box */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <span className="text-gray-400 text-[11px] md:text-[12px] font-extrabold tracking-wider uppercase mb-2 block">
                 {activeData.stepNumber}
@@ -329,12 +336,12 @@ export default function AdTypesSection() {
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black mb-4">
                 {activeData.title}
               </h3>
-              <p className="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8">
+              <p className="text-gray-600 text-[14px] md:text-[15px] leading-relaxed mb-8">
                 {activeData.description}
               </p>
 
               {/* Numbered Points */}
-              <div className="flex flex-col gap-6 mb-8">
+              <div className="flex flex-col gap-5 mb-8">
                 {activeData.points.map((pt) => (
                   <div key={pt.id} className="flex items-start gap-4">
                     <div className="w-7 h-7 rounded-full bg-[#BCF96A] text-black font-extrabold flex items-center justify-center text-[13px] shrink-0 mt-0.5">
@@ -352,8 +359,8 @@ export default function AdTypesSection() {
                 ))}
               </div>
 
-              {/* Best For Footer Box */}
-              <div className="bg-[#F8FBEA] border border-[#E2F89E] p-4 md:p-5 rounded-2xl">
+              {/* Best For Footer Box (Matching Light Green Card in Screenshot) */}
+              <div className="bg-[#F5FBDF] border border-[#E1F79A] p-4 md:p-5 rounded-2xl">
                 <p className="text-black text-[13px] md:text-[14px]">
                   <span className="font-extrabold">Best for:</span>{" "}
                   <span className="text-gray-700">{activeData.bestFor}</span>
