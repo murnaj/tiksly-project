@@ -68,4 +68,6 @@ declare module "lucide-react" {
   export const Video: LucideIcon;
   export const X: LucideIcon;
   export const Zap: LucideIcon;
+  export const Briefcase: LucideIcon;
+  export const Rocket: LucideIcon;
 }
