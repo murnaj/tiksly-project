@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, CreditCard } from "lucide-react";
+import { FileText, CreditCard, Globe } from "lucide-react";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -105,11 +106,11 @@ const regionRequirements: Record<string, RequirementCard[]> = {
       iconType: "contact",
     },
   ],
-  Netherlands: [
+  "Other regions": [
     {
       id: 1,
-      title: "BV company or KVK",
-      desc: "A registered Dutch entity. We can advise on setup.",
+      title: "Local company entity",
+      desc: "A registered company entity. We can advise on setup.",
       badge: { text: "We can help", type: "help" },
       iconType: "document",
     },
@@ -136,9 +137,9 @@ const regionRequirements: Record<string, RequirementCard[]> = {
     },
     {
       id: 5,
-      title: "BTW (VAT) Number",
-      desc: "Tax ID required for NL verification",
-      badge: { text: "NL only", type: "specific" },
+      title: "Tax ID (VAT/GST)",
+      desc: "Tax ID required for verification",
+      badge: { text: "Required", type: "specific" },
       iconType: "tax",
     },
     {
@@ -151,7 +152,11 @@ const regionRequirements: Record<string, RequirementCard[]> = {
   ],
 };
 
-const regions = ["United States", "United Kingdom", "Netherlands"];
+const regionsData = [
+  { id: "United States", name: "United States", flag: "/flags/usa.jpg" },
+  { id: "United Kingdom", name: "United Kingdom", flag: "/flags/uk.jpg" },
+  { id: "Other regions", name: "Other regions", flag: null },
+];
 
 export default function RequirementsSection() {
   const [selectedRegion, setSelectedRegion] = useState<string>("United States");
@@ -278,17 +283,28 @@ export default function RequirementsSection() {
             I want to sell in:
           </span>
           <div className="flex flex-wrap justify-center gap-2">
-            {regions.map((region) => (
+            {regionsData.map((region) => (
               <button
-                key={region}
-                onClick={() => setSelectedRegion(region)}
-                className={`px-5 py-2.5 rounded-full text-[13.5px] font-bold transition-all duration-200 border ${
-                  selectedRegion === region
+                key={region.id}
+                onClick={() => setSelectedRegion(region.id)}
+                className={`px-5 py-2.5 rounded-full text-[13.5px] font-bold transition-all duration-200 border flex items-center gap-2.5 ${
+                  selectedRegion === region.id
                     ? "bg-black text-white border-black shadow-md"
                     : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                 }`}
               >
-                {region}
+                {region.flag ? (
+                  <Image
+                    src={region.flag}
+                    alt={`${region.name} flag`}
+                    width={20}
+                    height={14}
+                    className="rounded-[2px] object-cover h-[14px] w-[20px]"
+                  />
+                ) : (
+                  <Globe className="w-[16px] h-[16px] opacity-70" strokeWidth={2.5} />
+                )}
+                {region.name}
               </button>
             ))}
           </div>
