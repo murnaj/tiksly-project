@@ -58,7 +58,7 @@ export default function AnatomySection() {
               Shop ad
             </h2>
             <p className="text-gray-500 text-[15px] md:text-[17px] max-w-2xl mx-auto">
-              Great ads aren't luck. Every winner we run has these four things
+              Great ads aren&apos;t luck. Every winner we run has these four things
               dialed in.
             </p>
           </motion.div>
