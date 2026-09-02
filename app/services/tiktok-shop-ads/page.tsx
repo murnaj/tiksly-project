@@ -8,6 +8,7 @@ import Testimonials from "@/components/features/common/testimonials";
 import HeroSection from "@/components/features/services/tiktok-shop-ads/hero-section";
 import OperationsSection from "@/components/features/services/shop-management/operations-section";
 import PricingSection from "@/components/features/services/shop-management/pricing-section";
+import AnatomySection from "@/components/features/services/tiktok-shop-ads/anatomy-section";
 
 export default function TiktokShopAdsPage() {
   return (
@@ -15,7 +16,8 @@ export default function TiktokShopAdsPage() {
       <HeroSection />
       <BrandLogos />
       <CreatorRegions />
-      
+      <AnatomySection />
+
       <OurProcess />
       <OperationsSection />
       <CaseStudies />
