@@ -1,4 +1,4 @@
-import { Sparkles, RefreshCw, Building2, Clock } from "lucide-react";
+import { Store, ShieldAlert, Rocket, Briefcase } from "lucide-react";
 
 const WhoWeServe = () => {
   return (
@@ -18,7 +18,7 @@ const WhoWeServe = () => {
           {/* Feature 1 */}
           <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
             <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
-              <Sparkles className="w-8 h-8" strokeWidth={1.5} />
+              <Store className="w-8 h-8" strokeWidth={1.5} />
             </div>
             <h3 className="text-lg font-black uppercase tracking-tight text-black">
               Brand new sellers
@@ -31,7 +31,7 @@ const WhoWeServe = () => {
           {/* Feature 2 */}
           <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
             <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
-              <RefreshCw className="w-8 h-8" strokeWidth={1.5} />
+              <ShieldAlert className="w-8 h-8" strokeWidth={1.5} />
             </div>
             <h3 className="text-lg font-black uppercase tracking-tight text-black">
               Rejected applicants
@@ -44,7 +44,7 @@ const WhoWeServe = () => {
           {/* Feature 3 */}
           <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
             <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
-              <Building2 className="w-8 h-8" strokeWidth={1.5} />
+              <Rocket className="w-8 h-8" strokeWidth={1.5} />
             </div>
             <h3 className="text-lg font-black uppercase tracking-tight text-black">
               Brands entering TikTok
@@ -57,7 +57,7 @@ const WhoWeServe = () => {
           {/* Feature 4 */}
           <div className="bg-[#F9F9F9] border border-gray-100 p-8 rounded-3xl flex flex-col gap-4">
             <div className="w-12 h-12 bg-[#BCF96A]/80 rounded-2xl flex items-center justify-center">
-              <Clock className="w-8 h-8" strokeWidth={1.5} />
+              <Briefcase className="w-8 h-8" strokeWidth={1.5} />
             </div>
             <h3 className="text-lg font-black uppercase tracking-tight text-black">
               Busy owners
