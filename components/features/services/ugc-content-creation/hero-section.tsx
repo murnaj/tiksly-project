@@ -111,15 +111,6 @@ const HeroSection = () => {
                 trust, and scale your sales on TikTok, Meta, and more.
               </motion.p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <Link
-                  href="/book-a-meeting"
-                  className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center justify-center"
-                >
-                  Get my free growth plan
-                </Link>
-              </div>
-
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -183,6 +174,15 @@ const HeroSection = () => {
                   <span>USA TSP: 7494489601127056460</span>
                 </div>
               </motion.div>
+
+               <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                <Link
+                  href="/book-a-meeting"
+                  className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center justify-center"
+                >
+                  Get my free growth plan
+                </Link>
+              </div>
             </motion.div>
 
             {/* Right Column: S-Shape Videos Layout */}

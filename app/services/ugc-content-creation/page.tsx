@@ -15,9 +15,9 @@ export default function UGCContentCreationPage() {
       <HeroSection />
       <BrandLogos />
       <CreatorRegions />
-         <Reviews />
+      <Reviews />
       <OurProcess />
-      <CaseStudySections/>
+      <CaseStudySections />
       <Testimonials />
       <PricingSection />
       <FaqCarousel />

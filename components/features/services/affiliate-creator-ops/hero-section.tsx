@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FlippingVideoCard } from "./flipping-video-card";
 import { HlsVideo } from "@/components/features/common/hls-video";
+import Link from "next/link";
 
 const HeroSection = () => {
   const EASE = [0.22, 1, 0.36, 1] as const;
@@ -141,6 +142,16 @@ const HeroSection = () => {
                   USA TSP: 7494489601127056460
                 </p>
               </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/book-a-meeting"
+                className="mb-4 inline-flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full text-[14px] font-semibold hover:bg-black transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center justify-center"
+              >
+                Get my free growth plan
+              </Link>
             </div>
           </motion.div>
 
