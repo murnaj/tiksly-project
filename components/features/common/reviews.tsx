@@ -440,9 +440,7 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const flagIcon = getFlagIcon(review.reviewer.countryName);
 
-  const thumbUrl = review.videoId
-    ? `https://customer-wyu58i20r3viufsr.cloudflarestream.com/${review.videoId}/thumbnails/thumbnail.jpg?time=1s&height=480`
-    : "";
+  const thumbUrl = review.videoId ? `/creators/${review.videoId}.png` : "";
 
   return (
     <div
