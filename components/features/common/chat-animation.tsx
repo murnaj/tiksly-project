@@ -74,13 +74,12 @@ export const ChatAnimation = () => {
   return (
     <div className="w-full h-full bg-white flex flex-col pt-8 pb-4 px-4 overflow-hidden relative font-sans">
       {/* Header mock */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-white/90 backdrop-blur-md z-10 border-b border-gray-100 flex items-center px-4 gap-3 shadow-sm">
+      <div className="absolute top-0 left-0 right-0 h-16 bg-white/90 backdrop-blur-md z-10 border-b border-gray-100 flex items-center px-4 gap-1 shadow-sm">
         <div className="w-10 h-10 rounded-full bg-white border border-gray-100 overflow-hidden shrink-0 flex items-center justify-center text-lg p-0.5">
           <Image src="/branding/favicon.png" alt="Tiksly" width={40} height={40} className="w-full h-full object-contain" />
         </div>
         <div className="flex flex-col">
           <span className="text-[14px] font-bold text-gray-900 leading-tight">Tiksly</span>
-          <span className="text-[11px] text-green-500 font-medium">Online</span>
         </div>
       </div>
 
