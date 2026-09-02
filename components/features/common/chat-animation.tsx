@@ -3,13 +3,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import Image from "next/image";
+
 const MESSAGES = [
-  { id: 1, type: "received", text: "Hey! We loved your recent skincare UGC video! 🔥" },
-  { id: 2, type: "sent", text: "Thanks so much! I really enjoyed making it. 😊" },
-  { id: 3, type: "received", text: "We're launching a new serum next week. Up for a 2-video campaign?" },
-  { id: 4, type: "sent", text: "That sounds amazing! What's the timeline and budget?" },
-  { id: 5, type: "received", text: "We need the drafts by the 15th. We can offer $400 for the package." },
-  { id: 6, type: "sent", text: "Perfect, I can work with that. Send over the brief and I'll get started! 🚀" },
+  { id: 1, type: "sent", text: "Hi, I’m looking for UGC videos for my TikTok Shop to help increase sales." },
+  { id: 2, type: "received", text: "Sure, we can help with that. What product are you promoting?" },
+  { id: 3, type: "sent", text: "It’s a skincare product. I want natural-looking TikTok content." },
+  { id: 4, type: "received", text: "Perfect. We can match you with suitable creators and create content focused on both engagement and sales." },
+  { id: 5, type: "sent", text: "Sounds good. How do we get started?" },
+  { id: 6, type: "received", text: "Just send us your product details and TikTok Shop link, and we’ll take it from there." },
 ];
 
 export const ChatAnimation = () => {
@@ -73,11 +75,11 @@ export const ChatAnimation = () => {
     <div className="w-full h-full bg-white flex flex-col pt-8 pb-4 px-4 overflow-hidden relative font-sans">
       {/* Header mock */}
       <div className="absolute top-0 left-0 right-0 h-14 bg-white/90 backdrop-blur-md z-10 border-b border-gray-100 flex items-center px-4 gap-3 shadow-sm">
-        <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden shrink-0 flex items-center justify-center text-lg">
-          👤
+        <div className="w-8 h-8 rounded-full bg-white border border-gray-100 overflow-hidden shrink-0 flex items-center justify-center text-lg p-1">
+          <Image src="/branding/favicon.png" alt="Tiksly" width={24} height={24} className="w-full h-full object-contain" />
         </div>
         <div className="flex flex-col">
-          <span className="text-[12px] font-bold text-gray-900 leading-tight">Brand Manager</span>
+          <span className="text-[12px] font-bold text-gray-900 leading-tight">Tiksly</span>
           <span className="text-[10px] text-green-500 font-medium">Online</span>
         </div>
       </div>
