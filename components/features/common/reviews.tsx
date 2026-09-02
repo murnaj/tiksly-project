@@ -394,10 +394,6 @@ const getFlagIcon = (countryName: string) => {
   }
 };
 
-const getVideoType = (index: number) => {
-  const types = ["Testimonial", "Meta Ad", "B-roll", "Unboxing"];
-  return types[index % types.length];
-};
 
 const getLocInfo = (countryName: string, index: number) => {
   const cities: Record<string, string[]> = {
@@ -436,7 +432,6 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
     return () => obs.disconnect();
   }, []);
 
-  const videoType = getVideoType(idx);
   const locationCity = getLocInfo(review.reviewer.countryName, idx);
   const flagIcon = getFlagIcon(review.reviewer.countryName);
 
@@ -465,12 +460,6 @@ function ReviewTile({ review, idx }: { review: Review; idx: number }) {
         )}
 
         <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/55 to-transparent pointer-events-none z-20" />
-
-        <div className="absolute bottom-3 left-3 bg-white/95 px-2.5 py-1 rounded-md z-20">
-          <span className="text-[10px] font-extrabold text-black uppercase tracking-tight">
-            {videoType}
-          </span>
-        </div>
       </div>
 
       <div className="flex items-center gap-2 px-3 py-3 bg-white">
