@@ -29,13 +29,13 @@ const HeroSection = () => {
 
   return (
     <section className="flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32 2xl:pt-48 2xl:pb-36 min-h-[90vh] 2xl:min-h-[750px]">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-8 items-center">
+      <div className="w-full pl-4 sm:pl-6 lg:pl-10 xl:pl-12 2xl:pl-16 pr-4 sm:pr-6 lg:pr-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10 xl:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: EASE }}
-            className="flex flex-col gap-5 z-10"
+            className="flex flex-col gap-5 z-10 w-full lg:w-[460px] xl:w-[520px] shrink-0 py-4"
           >
             <div className="inline-flex items-center self-start mb-1">
               <motion.div
@@ -154,27 +154,29 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            className="relative flex gap-3 h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl ml-auto w-full max-w-full mask-image-linear"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, black 80%, transparent 100%)",
-              maskImage:
-                "linear-gradient(to right, black 80%, transparent 100%)",
-            }}
-          >
+          {/* Right Content - Videos Grid extending all the way to the right edge */}
+          <div className="relative w-full min-w-0 flex-1 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+              className="relative flex gap-3 h-[520px] sm:h-[600px] lg:h-[660px] overflow-x-auto overflow-y-hidden no-scrollbar w-full py-4"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to right, black calc(100% - 60px), transparent 100%)",
+                maskImage:
+                  "linear-gradient(to right, black calc(100% - 60px), transparent 100%)",
+              }}
+            >
             {/* Column 1 (Large Video) */}
-            <div className="flex flex-col gap-3 w-[150px] md:w-[180px] pt-12 shrink-0">
+            <div className="flex flex-col gap-3 w-[140px] sm:w-[160px] xl:w-[175px] pt-10 shrink-0">
               <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
                 <HlsVideo videoId={videoIds[0]} active={true} />
               </div>
             </div>
 
             {/* Column 2 */}
-            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-4 shrink-0">
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-4 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
                 <HlsVideo videoId={videoIds[1]} active={true} />
               </div>
@@ -184,7 +186,7 @@ const HeroSection = () => {
             </div>
 
             {/* Column 3 */}
-            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-16 shrink-0">
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-14 shrink-0">
               <div className="relative w-full aspect-[9/14]">
                 <FlippingVideoCard
                   videoIds={videoIds}
@@ -204,7 +206,7 @@ const HeroSection = () => {
             </div>
 
             {/* Column 4 */}
-            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] shrink-0">
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-3 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
                 <HlsVideo videoId={videoIds[5]} active={true} />
               </div>
@@ -214,7 +216,7 @@ const HeroSection = () => {
             </div>
 
             {/* Column 5 */}
-            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-8 shrink-0">
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-10 shrink-0">
               <div className="relative w-full aspect-[9/14]">
                 <FlippingVideoCard
                   videoIds={videoIds}
@@ -234,7 +236,7 @@ const HeroSection = () => {
             </div>
 
             {/* Column 6 */}
-            <div className="flex flex-col gap-3 w-[130px] md:w-[150px] pt-20 shrink-0">
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-16 shrink-0">
               <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
                 <HlsVideo videoId={videoIds[9]} active={true} />
               </div>
@@ -242,7 +244,58 @@ const HeroSection = () => {
                 <HlsVideo videoId={videoIds[10]} active={true} />
               </div>
             </div>
+
+            {/* Column 7 */}
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-4 shrink-0">
+              <div className="relative w-full aspect-[9/14]">
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={11}
+                  delay={2000}
+                  flipInterval={6000}
+                />
+              </div>
+              <div className="relative w-full aspect-[9/14]">
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={12}
+                  delay={4000}
+                  flipInterval={5500}
+                />
+              </div>
+            </div>
+
+            {/* Column 8 */}
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-12 shrink-0">
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[13]} active={true} />
+              </div>
+              <div className="relative w-full aspect-[9/14] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[14]} active={true} />
+              </div>
+            </div>
+
+            {/* Column 9 */}
+            <div className="flex flex-col gap-3 w-[125px] sm:w-[140px] xl:w-[150px] pt-6 shrink-0 pr-6">
+              <div className="relative w-full aspect-[9/14]">
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={15}
+                  delay={1500}
+                  flipInterval={6200}
+                />
+              </div>
+              <div className="relative w-full aspect-[9/14]">
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={16}
+                  delay={3000}
+                  flipInterval={5700}
+                />
+              </div>
+            </div>
           </motion.div>
+          </div>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
