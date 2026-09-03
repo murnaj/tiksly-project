@@ -30,7 +30,7 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32 2xl:pt-48 2xl:pb-36 min-h-screen">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -160,7 +160,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            className="relative flex gap-3 overflow-hidden rounded-2xl ml-auto w-full max-w-full mask-image-linear"
+            className="relative flex gap-3 mask-image-linear"
             style={{
               WebkitMaskImage:
                 "linear-gradient(to right, black 80%, transparent 100%)",
