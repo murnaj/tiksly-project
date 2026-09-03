@@ -5,9 +5,9 @@ import BookCall from "@/components/features/common/book-call";
 import PricingSection from "@/components/features/services/shop-management/pricing-section";
 import CreatorRegions from "@/components/features/common/creator-regions";
 import OurProcess from "@/components/features/common/our-process";
-import CaseStudySections from "@/components/features/case-studies/case-study-sections";
 import HeroSection from "@/components/features/services/ugc-content-creation/hero-section";
 import Reviews from "@/components/features/common/reviews";
+import CaseStudies from "@/components/features/common/case-studies";
 
 export default function UGCContentCreationPage() {
   return (
@@ -17,7 +17,7 @@ export default function UGCContentCreationPage() {
       <CreatorRegions />
       <Reviews />
       <OurProcess />
-      <CaseStudySections />
+      <CaseStudies />
       <Testimonials />
       <PricingSection />
       <FaqCarousel />
