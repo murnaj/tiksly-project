@@ -37,9 +37,10 @@ export default function UkUsaCreators() {
 
     if (isDeleting) {
       if (typedText === "") {
-        setIsDeleting(false);
-        setPromptIndex((prev) => (prev + 1) % prompts.length);
-        timeout = setTimeout(() => {}, 500);
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setPromptIndex((prev) => (prev + 1) % prompts.length);
+        }, 500);
       } else {
         timeout = setTimeout(() => {
           setTypedText(typedText.slice(0, -1));
@@ -166,7 +167,7 @@ export default function UkUsaCreators() {
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="relative w-full h-full flex flex-col items-center justify-center"
               >
-                <div className="w-[49%] md:w-[45%] h-[8%] md:h-[6.5%] z-10 flex items-center bg-white/60 backdrop-blur-sm rounded-full md:rounded-[20px] shadow-[0_4px_20px_rgb(0,0,0,0.08)] border border-[#BCF96A]/40 p-3 mb-4">
+                <div className="w-full md:w-[45%] h-[8%] md:h-[6.5%] z-10 flex items-center bg-white/60 backdrop-blur-sm rounded-full md:rounded-[20px] shadow-[0_4px_20px_rgb(0,0,0,0.08)] border border-[#BCF96A]/40 p-3 mb-4">
                   <div className="w-full flex items-center gap-2 md:gap-3 h-full">
                     <span className="text-[#84CC16] hidden sm:flex shrink-0">
                       <svg
