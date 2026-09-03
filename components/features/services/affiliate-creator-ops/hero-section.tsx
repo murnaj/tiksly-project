@@ -168,10 +168,15 @@ const HeroSection = () => {
                 "linear-gradient(to right, black 80%, transparent 100%)",
             }}
           >
-            {/* Column 1 (Large Video) */}
+            {/* Column 1 (Large Video - Flipping) */}
             <div className="flex flex-col justify-center gap-3 w-[150px] md:w-[180px] shrink-0">
-              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
-                <HlsVideo videoId={videoIds[0]} active={true} />
+              <div className="relative w-full aspect-[9/16]">
+                <FlippingVideoCard
+                  videoIds={videoIds}
+                  initialIndex={0}
+                  delay={4000}
+                  flipInterval={8000}
+                />
               </div>
             </div>
 
@@ -187,21 +192,11 @@ const HeroSection = () => {
 
             {/* Column 3 */}
             <div className="flex flex-col justify-center gap-3 w-[130px] md:w-[150px] shrink-0">
-              <div className="relative w-full aspect-[9/16]">
-                <FlippingVideoCard
-                  videoIds={videoIds}
-                  initialIndex={3}
-                  delay={4500}
-                  flipInterval={6500}
-                />
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[3]} active={true} />
               </div>
-              <div className="relative w-full aspect-[9/16]">
-                <FlippingVideoCard
-                  videoIds={videoIds}
-                  initialIndex={4}
-                  delay={500}
-                  flipInterval={5800}
-                />
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[4]} active={true} />
               </div>
             </div>
 
@@ -217,21 +212,11 @@ const HeroSection = () => {
 
             {/* Column 5 */}
             <div className="flex flex-col justify-center gap-3 w-[130px] md:w-[150px] shrink-0">
-              <div className="relative w-full aspect-[9/16]">
-                <FlippingVideoCard
-                  videoIds={videoIds}
-                  initialIndex={7}
-                  delay={1000}
-                  flipInterval={5000}
-                />
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[7]} active={true} />
               </div>
-              <div className="relative w-full aspect-[9/16]">
-                <FlippingVideoCard
-                  videoIds={videoIds}
-                  initialIndex={8}
-                  delay={3500}
-                  flipInterval={6800}
-                />
+              <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-sm bg-gray-100">
+                <HlsVideo videoId={videoIds[8]} active={true} />
               </div>
             </div>
 
