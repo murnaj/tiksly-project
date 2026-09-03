@@ -210,6 +210,7 @@ export default function UkUsaCreators() {
                     src={images[activeTab]}
                     alt={`${activeTab} dashboard`}
                     fill
+                    sizes="(max-width: 900px) 100vw, 900px"
                     className="object-contain drop-shadow-xl"
                     priority
                   />
