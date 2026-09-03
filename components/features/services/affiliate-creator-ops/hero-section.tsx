@@ -29,7 +29,14 @@ const HeroSection = () => {
 
   return (
     <section className="flex flex-col justify-center items-center relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#F6FED9] pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32 2xl:pt-48 2xl:pb-36 min-h-screen">
-      <div className="container mx-auto">
+      <div
+        className="w-full"
+        style={{
+          paddingLeft:
+            "max(var(--container-padding), calc((100vw - var(--max-width-container)) / 2 + var(--container-padding)))",
+          paddingRight: "var(--container-padding)",
+        }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Content */}
           <motion.div

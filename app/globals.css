@@ -143,6 +143,46 @@
   @apply w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12;
 }
 
+:root {
+  --max-width-container: 100%;
+  --container-padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --max-width-container: 40rem;
+    --container-padding: 1.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --max-width-container: 48rem;
+    --container-padding: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --max-width-container: 64rem;
+    --container-padding: 2.5rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --max-width-container: 80rem;
+    --container-padding: 3rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  :root {
+    --max-width-container: 96rem;
+    --container-padding: 3rem;
+  }
+}
+
 @utility no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
